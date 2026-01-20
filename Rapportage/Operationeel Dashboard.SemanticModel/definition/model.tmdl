@@ -1,0 +1,85 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: nl-NL
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup Feit
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup Dim
+
+	annotation PBI_QueryGroupOrder = 1
+
+annotation PBI_QueryOrder = ["DimDatum","DimOmzetCategorie","FeitFactuurregels","FeitBudgetten","FeitFormatieBezetting","FeitGeplandeUren","FeitGeschrevenUren","FeitInUitStroom","DimKlanten","DimMedewerkers","FeitMedewerkerSkills","Meetwaarden","DimPractice","DimProjecten","FeitRoosterUren","DimSkills","DimTaakregels","DimTeam","FeitVerlofAanvragen","FeitVerlofSaldo","DimVerloftype","FeitFacturen","DimDatumFilter","FixedFee","FeitTevredenheid"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["CalcGroup","DevMode","TMDL-Extension"]
+
+annotation __TEdtr = 1
+
+ref table DimDatum
+ref table DateTableTemplate_d71e4c09-6bdb-4901-aa67-4d03ba25a4b7
+ref table FeitFactuurregels
+ref table FeitBudgetten
+ref table FeitFormatieBezetting
+ref table LocalDateTable_547b1bd8-7c3f-45a0-9184-0751886cf833
+ref table LocalDateTable_77a4d8a0-2b4f-45f6-bea0-88876968b503
+ref table FeitGeplandeUren
+ref table FeitGeschrevenUren
+ref table FeitInUitStroom
+ref table DimKlanten
+ref table DimMedewerkers
+ref table FeitMedewerkerSkills
+ref table LocalDateTable_de6d3b3f-068f-4551-89e6-39d004dd627d
+ref table Meetwaarden
+ref table DimProjecten
+ref table LocalDateTable_e0e09a36-b2e1-4471-81d9-5eaa40825dcd
+ref table FeitRoosterUren
+ref table DimSkills
+ref table DimTaakregels
+ref table LocalDateTable_40e283a3-b7e7-4ae0-83da-debead9d2cda
+ref table FeitVerlofAanvragen
+ref table FeitVerlofSaldo
+ref table DimVerloftype
+ref table '1. Meetwaarden'
+ref table TimeIntelligence
+ref table LocalDateTable_a388890b-482a-4ded-90f2-025c285b4c3f
+ref table LocalDateTable_661afc1d-841b-416f-84e2-51e9260928cb
+ref table LocalDateTable_b14e0cfd-af4a-4f40-94df-38a4c847c223
+ref table FeitFacturen
+ref table DimDatumFilter
+ref table LocalDateTable_6d21a8b2-6e8b-44c1-8d2f-b6518f04ce3b
+ref table LocalDateTable_60d6fb42-1f7e-4662-8a89-70c59316395d
+ref table LocalDateTable_cf552356-c189-4a30-a828-d2490c0e7e9f
+ref table LocalDateTable_de03135d-ae83-4041-a6ca-f0cf32d4de1b
+ref table LocalDateTable_55a6b066-74e9-4dab-a067-817464db536e
+ref table LocalDateTable_5303f3fb-7243-4f8e-99d5-b01605390bf2
+ref table LocalDateTable_f0ea1a06-384e-4dd7-93c0-b524ab23a440
+ref table LocalDateTable_c1cbbd6e-ba17-4f7d-b2c7-77bf38e9fea1
+ref table LocalDateTable_e5239a2f-38a6-4fad-a308-5117db50906c
+ref table DimPractice
+ref table LocalDateTable_fc6be733-5f8a-4744-bc81-9ea03923fb1b
+ref table LocalDateTable_80cf3741-ce9d-4832-813f-70d853a282dc
+ref table DimTeam
+ref table FacturatieKeuze
+ref table OmzetOpties
+ref table FixedFee
+ref table LocalDateTable_25e9eaee-8af4-4555-9c11-530ec4749c0e
+ref table LocalDateTable_3a9007f5-c9a6-4b35-b19d-aad113ba62f8
+ref table LocalDateTable_59d1edaa-1861-40a9-93e5-e732a885b60f
+ref table LocalDateTable_dfc4bde4-cc08-4b0a-91a5-ee0fb6ecca93
+ref table LocalDateTable_ded98fa2-72ac-42a3-8af6-8ffd30e2fcf6
+ref table LocalDateTable_41b969a6-3aab-46aa-92f2-7f1ce6dee62e
+ref table DimOmzetCategorie
+ref table FeitTevredenheid
+ref table LocalDateTable_b05e3e02-9e96-4b6c-9ca7-7169e982b7c7
+ref table LocalDateTable_bf9f4a78-f982-4b32-a7a4-1876441a4e11
+
+ref cultureInfo en-US
+
