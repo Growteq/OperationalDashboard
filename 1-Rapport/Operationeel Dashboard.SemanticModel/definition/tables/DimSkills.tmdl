@@ -1,0 +1,50 @@
+table DimSkills
+	lineageTag: 8c726966-076f-4455-952e-0bc01a0fce23
+
+	column SkillKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 087de218-72b9-4958-8189-7affec3f3787
+		summarizeBy: none
+		sourceColumn: SkillKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SkillId
+		dataType: string
+		lineageTag: 903339e5-2cf7-459a-8af0-cdbeaa143d19
+		summarizeBy: none
+		sourceColumn: SkillId
+
+		annotation SummarizationSetBy = Automatic
+
+	column SkillType
+		dataType: string
+		lineageTag: 10b4a350-1414-4763-b171-effbf4a2682f
+		summarizeBy: none
+		sourceColumn: SkillType
+
+		annotation SummarizationSetBy = Automatic
+
+	column SkillNaam
+		dataType: string
+		lineageTag: 9aa09af5-7779-4a67-bbc2-1af1e6672ae2
+		summarizeBy: none
+		sourceColumn: SkillNaam
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimSkills = m
+		mode: import
+		queryGroup: Dim
+		source =
+				let
+				    Source = Sql.Database("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com", "Operationeel Dashboard"),
+				    s3_ods_Skills = Source{[Schema="s3_ods",Item="DimSkills"]}[Data]
+				in
+				    s3_ods_Skills
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

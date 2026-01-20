@@ -1,0 +1,118 @@
+table FeitBudgetten
+	lineageTag: 8afabb27-07c7-4ccf-b9c6-d691eacf3795
+
+	column BudgettenKey
+		dataType: int64
+		formatString: 0
+		lineageTag: ad9c9501-a8f2-445f-a2b0-de590ceee254
+		summarizeBy: count
+		sourceColumn: BudgettenKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TeamKey
+		dataType: int64
+		formatString: 0
+		lineageTag: f27b5e7f-13fa-4a38-8e5c-0fc236f4125e
+		summarizeBy: none
+		sourceColumn: TeamKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Team
+		dataType: string
+		lineageTag: 250f2845-fb60-42d4-8e54-998f30b37bbb
+		summarizeBy: none
+		sourceColumn: Team
+
+		annotation SummarizationSetBy = Automatic
+
+	column PracticeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 75b7f4e7-881e-4e4d-81a9-ddf7c14a8608
+		summarizeBy: none
+		sourceColumn: PracticeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e1fcf17-7c8f-47d1-b0e1-1560b6bf122a
+		summarizeBy: sum
+		sourceColumn: MonthNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column FTE
+		dataType: double
+		lineageTag: 66e9312a-5069-413a-9851-4a58475a54a8
+		summarizeBy: sum
+		sourceColumn: FTE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MonthGoal
+		dataType: double
+		lineageTag: a135e39c-6844-4100-a4c5-18559d22c035
+		summarizeBy: sum
+		sourceColumn: MonthGoal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FTE_x_MonthGoal
+		dataType: double
+		lineageTag: f0a010cc-50d4-4a66-a8fb-7e9d95c1b783
+		summarizeBy: sum
+		sourceColumn: FTE_x_MonthGoal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MonthDateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b6a8eec-fec5-4436-8409-18df24f5a076
+		summarizeBy: none
+		sourceColumn: MonthDateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthStartDate
+		dataType: int64
+		formatString: 0
+		lineageTag: c396d729-259e-4673-a2a8-6c718ff426ad
+		summarizeBy: sum
+		sourceColumn: MonthStartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Jaar
+		dataType: int64
+		formatString: 0
+		lineageTag: ab6e5e1b-39bf-4df0-baf4-cd6f603e5441
+		summarizeBy: sum
+		sourceColumn: Jaar
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FeitBudgetten = m
+		mode: import
+		queryGroup: Feit
+		source =
+				let
+				    Source = Sql.Database("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com", "Operationeel Dashboard"),
+				    s3_ods_FeitBudgetten = Source{[Schema="s3_ods",Item="FeitBudgetten"]}[Data]
+				in
+				    s3_ods_FeitBudgetten
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
