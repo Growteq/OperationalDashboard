@@ -801,6 +801,48 @@
         },
         "type": "Advanced",
         "howCreated": "User"
+      },
+      {
+        "name": "92963c707e16e0b53383",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDatum"
+              }
+            },
+            "Property": "JaarWeek"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "bc1a2f56c0ae7bae1ab2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimMedewerkers"
+              }
+            },
+            "Property": "Medewerker"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "be66707a8e30c43bdeb0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "1. Meetwaarden"
+              }
+            },
+            "Property": "Productiviteitspercentage"
+          }
+        },
+        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

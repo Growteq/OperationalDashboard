@@ -175,7 +175,7 @@ table '1. Meetwaarden'
 		lineageTag: 1a413d78-2f0e-496d-aeab-cfa957d4e7ea
 
 	measure Brutomarge = [Factuuromzet] - [Factuurkosten]
-		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		displayFolder: Commercieel
 		lineageTag: 21584dc8-cb76-46fc-b838-48c8e476a1f1
 
@@ -608,11 +608,9 @@ table '1. Meetwaarden'
 			
 			CALCULATE(
 			    [Geschreven uren (gecompenseerd)],
-			    FILTER(
-			        DimProjecten,
 			        DimProjecten[IsFacturabel] = TRUE()
 			    )
-			)
+			
 			
 			```
 		formatString: #,0
@@ -1003,7 +1001,7 @@ table '1. Meetwaarden'
 			    FILTER(
 			        FeitGeschrevenUren,
 			        NOT ISBLANK(FeitGeschrevenUren[TaakregelKey]) &&
-			        NOT RELATED(DimTaakregels[TaakNaam]) IN {"Ziekte / Kort Verzuim", "Verlof", "Studie", "Parttime", "Feestdag", "Verlof (regulier)"}
+			        NOT RELATED(DimTaakregels[TaakNaam]) IN {"Ziekte / Kort Verzuim", "Verlof", "Studie", "Parttime", "Feestdag", "Verlof (regulier)", "Ziekteverzuim", "Niet gewerkt (Parttime)", "Feestdagen"}
 			
 			    )
 			)
@@ -1303,7 +1301,9 @@ table '1. Meetwaarden'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure OmzetPotentie = SUM(FeitGeschrevenUren[OmzetPotentie])
+	measure OmzetPotentie =
+			CALCULATE(SUM(FeitGeschrevenUren[OmzetPotentie]),
+			DimProjecten[IsFacturabel])
 		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
 		lineageTag: de6554f6-f734-49f3-9fce-f47c21016a2a
 
@@ -1507,6 +1507,36 @@ table '1. Meetwaarden'
 		lineageTag: 1dbdccf6-2bc6-4771-a0cc-a4c045da264a
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Brutomarge Vorig Jaar' = ```
+			
+						CALCULATE(
+						    [Brutomarge %],
+						    SAMEPERIODLASTYEAR(DimDatum[Datum])
+						)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Commercieel
+		lineageTag: 618c0ec6-72c6-4454-a42b-ce4570cbba6d
+
+	measure 'Brutomarge % Vorige Maand' = ```
+			
+						VAR CurrentDate = MAX(DimDatum[Datum])
+						VAR FirstDayPreviousMonth = EOMONTH(CurrentDate, -2) + 1
+						VAR LastDayPreviousMonth = EOMONTH(FirstDayPreviousMonth, 0)
+						RETURN
+						CALCULATE(
+						    [Brutomarge %],
+						    FILTER(
+						        ALL(DimDatum),
+						        DimDatum[Datum] >= FirstDayPreviousMonth &&
+						        DimDatum[Datum] <= LastDayPreviousMonth
+						    )
+						)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Commercieel
+		lineageTag: 5b1d1de7-8dcb-45ff-848d-ecab112ae0f9
 
 	column Column
 		formatString: 0

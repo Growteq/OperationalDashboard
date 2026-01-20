@@ -19,7 +19,7 @@ annotation PBI_QueryOrder = ["DimDatum","DimOmzetCategorie","FeitFactuurregels",
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_ProTooling = ["CalcGroup","DevMode"]
+annotation PBI_ProTooling = ["CalcGroup","DevMode","TMDL-Extension"]
 
 annotation __TEdtr = 1
 

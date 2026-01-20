@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "f117fa26d0740a47a683",
   "position": {
-    "x": 441.25,
-    "y": 162.5,
+    "x": 439.87616099071204,
+    "y": 175.68627450980392,
     "z": 15000,
-    "height": 77.5,
-    "width": 397.5,
+    "height": 77.9360165118679,
+    "width": 397.60577915376672,
     "tabOrder": 13000
   },
   "visual": {
@@ -199,5 +199,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "878448f761baa1bb5eaa",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "1. Meetwaarden"
+              }
+            },
+            "Property": "Realisatiegraad"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }
