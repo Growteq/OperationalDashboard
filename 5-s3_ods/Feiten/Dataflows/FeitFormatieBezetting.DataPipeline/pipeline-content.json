@@ -1,0 +1,245 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy data FeitFormatieBezetting",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DataWarehouseSource",
+            "sqlReaderQuery": "WITH PracticeData AS (\n    SELECT\n        ROW_NUMBER() OVER (ORDER BY p.[Id]) AS PracticeKey, -- Unieke primary key\n        p.[Id] AS PracticeID,\n        p.[Name] AS PracticeNaam\n    FROM \n        [s2_stg_salesforce].[Practice] p\n),\nBaseData AS (\n    SELECT \n        r.Medewerker,\n        r.Naam,\n        CAST(r.Begindatum_rooster AS DATETIME2) AS Begindatum_rooster,\n        CAST(r.Einddatum_rooster AS DATETIME2) AS Einddatum_rooster,\n        CAST(r.Aantal_uren_per_week AS DECIMAL(5, 2)) AS Aantal_uren_per_week, -- Aantal uren als DECIMAL\n        CAST(r.Aantal_uren_per_week / 40.0 AS DECIMAL(4, 2)) AS FTE, -- Berekening van FTE\n        CAST(m.Datum_in_dienst AS DATETIME2) AS Datum_in_dienst,\n        CAST(m.Datum_uit_dienst AS DATETIME2) AS Datum_uit_dienst,\n        o.MedewerkerKey,\n        o.TeamKey,\n        t.PracticeKey,\n        CAST(GETDATE() AS DATETIME2) AS Uitvoerdatum -- Huidige datum als DATETIME2\n    FROM \n        [s2_stg_afas].[Rooster] r\n    LEFT JOIN \n        [s2_stg_afas].[Medewerkergegevens] m\n    ON \n        r.Medewerker = m.Medewerker\n    LEFT JOIN \n        [s3_ods].[DimMedewerkers] o\n    ON \n        m.Medewerker = o.MedewerkerId -- Join op MedewerkerID\n    LEFT JOIN \n        [s3_ods].[DimTeam] t\n    ON \n        o.TeamKey = t.TeamKey -- Match op TeamKey\n    WHERE \n        m.Datum_uit_dienst IS NULL\n        AND r.Begindatum_rooster = (\n            SELECT \n                MAX(Begindatum_rooster)\n            FROM \n                [s2_stg_afas].[Rooster] r2\n            WHERE \n                r2.Medewerker = r.Medewerker\n        )\n)\nSELECT \n    ROW_NUMBER() OVER (ORDER BY Medewerker ASC) AS FormatieBezettingsKey, -- Unieke key die pas hier wordt gegenereerd\n    bd.Medewerker,\n    bd.Naam,\n    bd.Begindatum_rooster,\n    bd.Einddatum_rooster,\n    bd.Aantal_uren_per_week,\n    bd.FTE,\n    bd.Datum_in_dienst,\n    bd.Datum_uit_dienst,\n    bd.MedewerkerKey,\n    bd.TeamKey,\n    bd.PracticeKey,\n    dd.DatumKey\nFROM \n    BaseData bd\nLEFT JOIN \n    [s3_ods].[DimDatum] dd\nON \n    bd.Uitvoerdatum = dd.Datum; -- Koppeling op de datum\n",
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "connectionSettings": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  },
+                  "externalReferences": {
+                    "connection": "91f2d362-0f5b-4b3f-aaac-2f31b217f3cb"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {}
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "s3_ods",
+                "table": "FeitFormatieBezetting"
+              }
+            }
+          },
+          "enableStaging": true,
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "FormatieBezettingsKey",
+                  "type": "Int64",
+                  "physicalType": "bigint"
+                },
+                "sink": {
+                  "name": "FormatieBezettingsKey",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "Medewerker",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "Medewerker",
+                  "physicalType": "varchar",
+                  "length": "50"
+                }
+              },
+              {
+                "source": {
+                  "name": "Naam",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "Naam",
+                  "physicalType": "varchar",
+                  "length": "100"
+                }
+              },
+              {
+                "source": {
+                  "name": "Begindatum_rooster",
+                  "type": "DateTime",
+                  "physicalType": "datetime2",
+                  "precision": 7
+                },
+                "sink": {
+                  "name": "Begindatum_rooster",
+                  "physicalType": "date"
+                }
+              },
+              {
+                "source": {
+                  "name": "Einddatum_rooster",
+                  "type": "DateTime",
+                  "physicalType": "datetime2",
+                  "precision": 7
+                },
+                "sink": {
+                  "name": "Einddatum_rooster",
+                  "physicalType": "date"
+                }
+              },
+              {
+                "source": {
+                  "name": "Aantal_uren_per_week",
+                  "type": "Decimal",
+                  "physicalType": "decimal",
+                  "scale": 2,
+                  "precision": 5
+                },
+                "sink": {
+                  "name": "Aantal_uren_per_week",
+                  "physicalType": "decimal",
+                  "scale": 2,
+                  "precision": 5
+                }
+              },
+              {
+                "source": {
+                  "name": "FTE",
+                  "type": "Decimal",
+                  "physicalType": "decimal",
+                  "scale": 2,
+                  "precision": 4
+                },
+                "sink": {
+                  "name": "FTE",
+                  "physicalType": "decimal",
+                  "scale": 2,
+                  "precision": 4
+                }
+              },
+              {
+                "source": {
+                  "name": "Datum_in_dienst",
+                  "type": "DateTime",
+                  "physicalType": "datetime2",
+                  "precision": 7
+                },
+                "sink": {
+                  "name": "Datum_in_dienst",
+                  "physicalType": "varchar",
+                  "length": "10"
+                }
+              },
+              {
+                "source": {
+                  "name": "Datum_uit_dienst",
+                  "type": "DateTime",
+                  "physicalType": "datetime2",
+                  "precision": 7
+                },
+                "sink": {
+                  "name": "Datum_uit_dienst",
+                  "physicalType": "varchar",
+                  "length": "10"
+                }
+              },
+              {
+                "source": {
+                  "name": "MedewerkerKey",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "MedewerkerKey",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "TeamKey",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "TeamKey",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "PracticeKey",
+                  "type": "Int64",
+                  "physicalType": "bigint"
+                },
+                "sink": {
+                  "name": "PracticeKey",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "DatumKey",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "DatumKey",
+                  "physicalType": "int"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,66 @@
+table Medewerkers
+	lineageTag: 7fd0f8e3-6b6e-43e1-9e42-5b3a8c60ab15
+
+	column Id
+		dataType: string
+		lineageTag: 395fdbb5-f2ac-484f-926d-a040aaf6799d
+		summarizeBy: none
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Name
+		dataType: string
+		lineageTag: bdcc5b73-baa1-418d-a45a-f54eab92df58
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Active__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 91cc4ba2-a846-47aa-9f42-d8a474b7b937
+		summarizeBy: none
+		sourceColumn: Krow__Active__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Boolean" />
+
+	column Krow__Bill_Rate__c
+		dataType: double
+		lineageTag: fed583a4-16e7-4817-9aaf-3a24bda524ad
+		summarizeBy: sum
+		sourceColumn: Krow__Bill_Rate__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Team__c
+		dataType: string
+		lineageTag: 25c633c6-8be6-4ac6-9782-a9726ce548d5
+		summarizeBy: none
+		sourceColumn: Krow__Team__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	partition Medewerkers-a471c2ee-9515-4f61-b724-851c01abc9ba = m
+		mode: import
+		source =
+				let
+				    Bron = Salesforce.Data("https://growteq.my.salesforce.com", [ApiVersion=48]),
+				    AcceptedEventRelation = Bron{[Name="Krow__Project_Resources__c"]}[Data],
+				    #"Andere kolommen verwijderd" = Table.SelectColumns(AcceptedEventRelation,{"Id", "Name", "Krow__Active__c", "Krow__Bill_Rate__c", "Krow__Team__c"})
+				in
+				    #"Andere kolommen verwijderd"
+
+	annotation PBI_ResultType = Table
+

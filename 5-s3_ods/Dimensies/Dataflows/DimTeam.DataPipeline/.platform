@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "DimTeam"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6e4abf23-91d0-bd3c-4ab9-31f7cfe7e481"
+  }
+}

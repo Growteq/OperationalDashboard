@@ -1,0 +1,120 @@
+table niet_factureerbare_uren
+	lineageTag: b6069f2e-2ced-4429-9614-494013a8437a
+
+	measure 'Marge % Uren Incl NietFact' = ```
+			
+			VAR Opbrengst = SUM('s4_inf billable_uren'[Opbrengsten])
+			VAR KostenFactureerbaar = SUM('s4_inf billable_uren'[Kosten])
+			VAR KostenNietFactureerbaar = SUM(niet_factureerbare_uren[Sum of Cost Amount])
+			VAR TotaleKosten = KostenFactureerbaar + KostenNietFactureerbaar
+			RETURN
+			IF(
+			    Opbrengst <> 0,
+			    DIVIDE(Opbrengst - TotaleKosten, Opbrengst) * 100,
+			    BLANK()
+			)
+			
+			```
+		lineageTag: ce6e6958-240e-4f46-a7fe-c6f66015b165
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Krow__Date__c
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b06f8d6f-ae46-4ac7-a10d-a908e651e522
+		summarizeBy: none
+		sourceColumn: Krow__Date__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account Name'
+		dataType: string
+		lineageTag: 023a42cb-a26a-4c56-a7d6-482eb26dca55
+		summarizeBy: none
+		sourceColumn: Account Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Debiteurnummer
+		dataType: string
+		lineageTag: d6f321dd-e1d9-4110-b90c-f46308d7e521
+		summarizeBy: none
+		sourceColumn: Debiteurnummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sum of Billable Bill Amount'
+		dataType: double
+		lineageTag: 46cfe008-8eb0-4a02-b2a8-be39e191b7ae
+		summarizeBy: none
+		sourceColumn: Sum of Billable Bill Amount
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Sum of Cost Amount'
+		dataType: double
+		formatString: 0.00
+		lineageTag: 541adf7f-bf76-4677-82be-d0e960b95391
+		summarizeBy: none
+		sourceColumn: Sum of Cost Amount
+
+		annotation SummarizationSetBy = User
+
+	column 'Sum of Billable Hours'
+		dataType: double
+		lineageTag: 836f2fdc-1e84-4dc6-8589-eedd6bcdd98f
+		summarizeBy: none
+		sourceColumn: Sum of Billable Hours
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Sum of Non Billable Hours'
+		dataType: double
+		lineageTag: 30ed2532-112d-450a-82f8-959b8ee5c005
+		summarizeBy: none
+		sourceColumn: Sum of Non Billable Hours
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Total Hours'
+		dataType: double
+		lineageTag: fdee3c55-e30a-451c-8754-e5fe8b2e0b88
+		summarizeBy: none
+		sourceColumn: Total Hours
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Krow Maand' = ```
+			DATE(YEAR('niet_factureerbare_uren'[Krow__Date__c]), MONTH('niet_factureerbare_uren'[Krow__Date__c]), 1)
+			
+			```
+		formatString: General Date
+		lineageTag: 33d05a65-d892-46ab-a49e-c813de915932
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: 7d97d151-9fef-4bc3-a7c0-c19dff1e6270
+			defaultHierarchy: LocalDateTable_bc580136-0472-4f0f-96ec-e18f54e30a83.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition niet_factureerbare_uren = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com"),
+				    #"Operationeel Dashboard" = Source{[Name="Operationeel Dashboard"]}[Data],
+				    s4_inf_niet_factureerbare_uren = #"Operationeel Dashboard"{[Schema="s4_inf",Item="niet_factureerbare_uren"]}[Data]
+				in
+				    s4_inf_niet_factureerbare_uren
+

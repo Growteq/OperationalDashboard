@@ -1,0 +1,151 @@
+table 'Invoice Line Item'
+	lineageTag: fa15338e-2b18-4c37-be8c-9c9a2c97aa9c
+
+	column Id
+		dataType: string
+		lineageTag: 7e1d043d-04a5-4c72-b64b-f8502f11bb3c
+		summarizeBy: none
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column IsDeleted
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 64829c3e-4484-4bd6-9cf3-79761087bcc0
+		summarizeBy: none
+		sourceColumn: IsDeleted
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Boolean" />
+
+	column Name
+		dataType: string
+		lineageTag: 5c11aced-9475-4cb3-943e-efbe583f8b00
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Invoice__c
+		dataType: string
+		lineageTag: 7ee2ec8e-8f73-4bdc-a91a-ba7bd8e454fc
+		summarizeBy: none
+		sourceColumn: Krow__Invoice__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column 'Factuurbedrag (regel)'
+		dataType: double
+		lineageTag: d229c604-c024-4bf4-947a-89d66539b76f
+		summarizeBy: sum
+		sourceColumn: Factuurbedrag (regel)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Bill_Rate__c
+		dataType: double
+		lineageTag: 07fb19bc-34cd-4186-ae2b-41278acd1882
+		summarizeBy: sum
+		sourceColumn: Krow__Bill_Rate__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Date__c
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: c468cb86-1c06-42a7-8920-e5dd553eb8e1
+		summarizeBy: none
+		sourceColumn: Krow__Date__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation Format = <Format Format="DateTimeGeneralPattern"><DateTimes><DateTime LCID="1043" Group="ShortDate" FormatString="d" /></DateTimes></Format>
+
+	column Krow__Hours__c
+		dataType: double
+		lineageTag: 77716411-1a56-4bf0-9ac0-66413be94de7
+		summarizeBy: sum
+		sourceColumn: Krow__Hours__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Include__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 94211351-c91b-4360-b950-4def802fe912
+		summarizeBy: none
+		sourceColumn: Krow__Include__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Boolean" />
+
+	column Krow__Project_Resource__c
+		dataType: string
+		lineageTag: 2d2a939d-d4ff-46c0-899d-7b84a8880ae5
+		summarizeBy: none
+		sourceColumn: Krow__Project_Resource__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Resource__c
+		dataType: string
+		lineageTag: 44c40898-364c-4312-bf8d-5c595e8876d8
+		summarizeBy: none
+		sourceColumn: Krow__Resource__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Task__c
+		dataType: string
+		lineageTag: dfdd1950-cbee-4d79-8806-ad02c56cdd17
+		summarizeBy: none
+		sourceColumn: Krow__Task__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Timesheet_Notes__c
+		dataType: string
+		lineageTag: 38ad8658-90fb-4891-b202-82f0ce05923b
+		summarizeBy: none
+		sourceColumn: Krow__Timesheet_Notes__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	partition 'Invoice Line Item-99c39e67-e74d-4a7f-9c3a-dff7e601b525' = m
+		mode: import
+		source =
+				let
+				    Bron = Salesforce.Data("https://growteq.my.salesforce.com", [ApiVersion=48]),
+				    Krow__Invoice_Line_Item__c = Bron{[Name="Krow__Invoice_Line_Item__c"]}[Data],
+				    #"Andere kolommen verwijderd" = Table.SelectColumns(Krow__Invoice_Line_Item__c,{"Id", "IsDeleted", "Name", "Krow__Invoice__c", "Krow__Amount_Total__c", "Krow__Bill_Rate__c", "Krow__Date__c", "Krow__Hours__c", "Krow__Include__c", "Krow__Project_Resource__c", "Krow__Resource__c", "Krow__Task__c", "Krow__Timesheet_Notes__c"}),
+				    #"Namen van kolommen gewijzigd" = Table.RenameColumns(#"Andere kolommen verwijderd",{{"Krow__Amount_Total__c", "Factuurbedrag (regel)"}})
+				in
+				    #"Namen van kolommen gewijzigd"
+
+	annotation PBI_ResultType = Table
+

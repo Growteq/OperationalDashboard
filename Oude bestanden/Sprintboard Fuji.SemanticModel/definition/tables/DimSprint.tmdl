@@ -1,0 +1,212 @@
+table DimSprint
+	lineageTag: 025a00da-2a24-49ed-99f5-1e9687456f40
+
+	column maxResults
+		dataType: string
+		lineageTag: 46e96aad-734c-4015-9a94-c2e3d53a0fdb
+		summarizeBy: none
+		sourceColumn: maxResults
+
+		annotation SummarizationSetBy = Automatic
+
+	column startAt
+		dataType: string
+		lineageTag: af6efc2b-b80b-41ff-915d-1fb1c6ca45d5
+		summarizeBy: none
+		sourceColumn: startAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column total
+		dataType: string
+		lineageTag: 7c8ac881-17eb-462c-9ef2-4328cc716de1
+		summarizeBy: none
+		sourceColumn: total
+
+		annotation SummarizationSetBy = Automatic
+
+	column isLast
+		dataType: string
+		lineageTag: 27f1da3e-5072-41cd-a290-c55f55f3179c
+		summarizeBy: none
+		sourceColumn: isLast
+
+		annotation SummarizationSetBy = Automatic
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: d2ef43b7-c0b1-4be1-be46-c28a1d47fc69
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column self
+		dataType: string
+		lineageTag: 80ef5538-5ef4-4d58-b6f7-56537411b93a
+		summarizeBy: none
+		sourceColumn: self
+
+		annotation SummarizationSetBy = Automatic
+
+	column SprintStatus
+		dataType: string
+		lineageTag: 8bb03672-6ff2-4820-9f7b-e1f1a856803f
+		summarizeBy: none
+		sourceColumn: SprintStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column SprintName
+		dataType: string
+		lineageTag: 689fbecc-a5d7-4b1e-a4bc-c4a96307b10c
+		summarizeBy: none
+		sourceColumn: SprintName
+
+		annotation SummarizationSetBy = Automatic
+
+	column startDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 80d0720d-2f91-417c-80f6-f215023868b1
+		summarizeBy: none
+		sourceColumn: startDate
+
+		variation Variation
+			isDefault
+			relationship: 215e94d6-4b89-46df-82b8-95306baefccc
+			defaultHierarchy: LocalDateTable_0f7d0647-a60a-44c8-bbfa-30fb836350ae.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column endDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: faeeb126-0fc7-4fc5-8c3e-187f9beed04b
+		summarizeBy: none
+		sourceColumn: endDate
+
+		variation Variation
+			isDefault
+			relationship: 98fa5a10-2588-4273-8584-c05a935e8291
+			defaultHierarchy: LocalDateTable_fdda9b3d-51c4-4949-85bc-212f873e012f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column createdDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fc2bea9d-a0ef-4cc0-8dd6-213e784c8289
+		summarizeBy: none
+		sourceColumn: createdDate
+
+		variation Variation
+			isDefault
+			relationship: 2e337993-cb91-415d-a8d9-fb2e8cc1cb55
+			defaultHierarchy: LocalDateTable_42f30739-705c-4654-8417-d7c07812174f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column originBoardId
+		dataType: int64
+		formatString: 0
+		lineageTag: 703b1984-9de7-4727-b8d5-f2860253651f
+		summarizeBy: count
+		sourceColumn: originBoardId
+
+		annotation SummarizationSetBy = Automatic
+
+	column goal
+		dataType: string
+		lineageTag: 99e295f1-5e51-4952-8e1f-7095d9b1fbb4
+		summarizeBy: none
+		sourceColumn: goal
+
+		annotation SummarizationSetBy = Automatic
+
+	column BoardId
+		dataType: int64
+		formatString: 0
+		lineageTag: 345ae500-3e42-4470-9dad-af18f74037c9
+		summarizeBy: count
+		sourceColumn: BoardId
+
+		annotation SummarizationSetBy = Automatic
+
+	column NaamZonderSprint
+		dataType: string
+		lineageTag: 305b8738-3054-439a-a9e4-6a71cae4a22f
+		summarizeBy: none
+		sourceColumn: NaamZonderSprint
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimSprint = m
+		mode: import
+		source =
+				let
+				    // Stap 1: Ophalen van actieve + toekomstige sprints van board 455
+				    Bron455 = Json.Document(
+				        Web.Contents(
+				            "https://growteq.atlassian.net",
+				            [
+				                RelativePath = "rest/agile/1.0/board/455/sprint",
+				                Query = [state = "active,future"]
+				            ]
+				        )
+				    ),
+				    Tabel455 = Table.FromRecords({Bron455}),
+				    Tabel455Expanded = Table.ExpandListColumn(Tabel455, "values"),
+				    Tabel455Expanded1 = Table.ExpandRecordColumn(
+				        Tabel455Expanded,
+				        "values",
+				        {"id", "self", "state", "name", "startDate", "endDate", "createdDate", "originBoardId", "goal"},
+				        {"id", "self", "state", "name", "startDate", "endDate", "createdDate", "originBoardId", "goal"}
+				    ),
+				    Tabel455MetBron = Table.AddColumn(Tabel455Expanded1, "BoardId", each 455, Int64.Type),
+				
+				    // Stap 2: Uitsluiten van sprints die eigenlijk uit board 1920 komen
+				    Tabel455Filtered = Table.SelectRows(Tabel455MetBron, each [originBoardId] <> 1920),
+				
+				    // Stap 3: Datatypes instellen
+				    #"Changed Type" = Table.TransformColumnTypes(Tabel455Filtered, {
+				        {"id", Int64.Type},
+				        {"self", type text},
+				        {"state", type text},
+				        {"name", type text},
+				        {"startDate", type datetime},
+				        {"endDate", type datetime},
+				        {"createdDate", type datetime},
+				        {"originBoardId", Int64.Type},
+				        {"goal", type text},
+				        {"BoardId", Int64.Type}
+				    }),
+				
+				    // Stap 4: Kolommen hernoemen
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type", {
+				        {"state", "SprintStatus"},
+				        {"name", "SprintName"}
+				    }),
+				
+				    // Stap 5: Lege namen eruit filteren
+				    #"Filtered Rows" = Table.SelectRows(#"Renamed Columns", each ([SprintName] <> null)),
+				
+				    // Stap 6: Nieuwe kolom zonder het woord "Sprint" en dubbele spaties
+				    #"Zonder Sprint in naam" = Table.AddColumn(#"Filtered Rows", "NaamZonderSprint", each
+				        Text.Combine(
+				            List.Select(
+				                Text.Split(Text.Replace([SprintName], "Sprint", ""), " "),
+				                each _ <> ""
+				            ),
+				            " "
+				        ),
+				        type text
+				    )
+				in
+				    #"Zonder Sprint in naam"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

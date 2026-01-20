@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "FeitRoosterUren"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "02081242-3969-b099-4e99-4c6b6a76986c"
+  }
+}

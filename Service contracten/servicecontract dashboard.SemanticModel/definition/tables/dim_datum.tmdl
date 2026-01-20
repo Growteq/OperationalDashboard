@@ -1,0 +1,438 @@
+table dim_datum
+	lineageTag: af2f29be-5c5e-484a-a02d-8d630dd43caa
+
+	column DatumKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a0ab815e-30e7-4a39-9cfb-2e4b01999844
+		summarizeBy: count
+		sourceColumn: DatumKey
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Datum
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 529b624b-dcbb-497c-916e-4c4dffa29a46
+		summarizeBy: none
+		sourceColumn: Datum
+
+		variation Variation
+			isDefault
+			relationship: e406024d-764e-49f3-8d45-9d4f8359bc3a
+			defaultHierarchy: LocalDateTable_45e2859d-7ff7-4bea-a845-bc68641bf5ed.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Dag
+		dataType: int64
+		formatString: 0
+		lineageTag: 674f69ed-3e98-4b36-8fc5-4903ca396f8f
+		summarizeBy: sum
+		sourceColumn: Dag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weekdag
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ccc4622-ab76-40fc-9342-baf2a2f808f8
+		summarizeBy: sum
+		sourceColumn: Weekdag
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekDagNaam
+		dataType: string
+		lineageTag: b6f3835c-2204-4eaa-b1a8-e2af4ea10291
+		summarizeBy: none
+		sourceColumn: WeekDagNaam
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekDagNaamKort
+		dataType: string
+		lineageTag: 51abb75c-0b8c-4d43-a691-a00df5fd8f74
+		summarizeBy: none
+		sourceColumn: WeekDagNaamKort
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsWeekend
+		dataType: int64
+		formatString: 0
+		lineageTag: 3dce3d87-7cdb-4123-a536-40e7a0b7f0cf
+		summarizeBy: sum
+		sourceColumn: IsWeekend
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekNummer
+		dataType: int64
+		formatString: 0
+		lineageTag: cc4d436b-d412-4a3c-bcb1-fec1ad3d3590
+		summarizeBy: sum
+		sourceColumn: WeekNummer
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ISOWeekNummer
+		dataType: int64
+		formatString: 0
+		lineageTag: f431c470-4572-41e8-bcfe-e4a41dbe41eb
+		summarizeBy: sum
+		sourceColumn: ISOWeekNummer
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaandNummer
+		dataType: int64
+		formatString: 0
+		lineageTag: be60c53b-5742-432c-95ad-3aa18ac41736
+		summarizeBy: sum
+		sourceColumn: MaandNummer
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaandNaam
+		dataType: string
+		lineageTag: ca65685b-1d8d-406d-bac9-9f5daabcab8c
+		summarizeBy: none
+		sourceColumn: MaandNaam
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaandNaamKort
+		dataType: string
+		lineageTag: dc3b1154-c616-4840-9d72-2ded327cd778
+		summarizeBy: none
+		sourceColumn: MaandNaamKort
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column KwartaalNummer
+		dataType: int64
+		formatString: 0
+		lineageTag: d77e6cfc-0f6e-4e33-9dad-c2dec1bf4169
+		summarizeBy: sum
+		sourceColumn: KwartaalNummer
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column KwartaalNaam
+		dataType: string
+		lineageTag: f3279d56-c08e-4b25-92c8-80ae4ba6beae
+		summarizeBy: none
+		sourceColumn: KwartaalNaam
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Jaar
+		dataType: int64
+		formatString: 0
+		lineageTag: 7164bf17-9bcd-42a7-ab1e-6fe37e0b5c51
+		summarizeBy: none
+		sourceColumn: Jaar
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	column MMYYYY
+		dataType: string
+		lineageTag: b91fe48d-e442-4587-9c9f-a09c5742f259
+		summarizeBy: none
+		sourceColumn: MMYYYY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column JaarMaand
+		dataType: int64
+		formatString: 0
+		lineageTag: 5bbd5571-d400-4522-93b8-4ce2f9831c20
+		summarizeBy: sum
+		sourceColumn: JaarMaand
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column JaarWeek
+		dataType: int64
+		formatString: 0
+		lineageTag: 82cfd61a-a271-4ade-b7fc-a83c4cabb1ae
+		summarizeBy: sum
+		sourceColumn: JaarWeek
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaandJaar
+		dataType: string
+		lineageTag: 93b3eb3a-c8ad-488a-9a33-11747968b0fa
+		summarizeBy: none
+		sourceColumn: MaandJaar
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column EersteDagVanMaand
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 65d244e9-b847-4a02-b2b9-cdf14515bcfb
+		summarizeBy: none
+		sourceColumn: EersteDagVanMaand
+
+		variation Variation
+			isDefault
+			relationship: bff172a3-1be7-404d-a2b0-f332e137c304
+			defaultHierarchy: LocalDateTable_2861b595-6ce7-488f-8385-edafa70c2eca.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column LaatsteDagVanMaand
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 648ff037-2a78-4c52-bb89-00ba4bbdfb32
+		summarizeBy: none
+		sourceColumn: LaatsteDagVanMaand
+
+		variation Variation
+			isDefault
+			relationship: caa0aefc-3769-4bec-899e-79543ddbbc0d
+			defaultHierarchy: LocalDateTable_a5c620c0-bf60-44ff-b386-0880b50c6c4c.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column EersteDagVanKwartaal
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e4ab1ae6-2f05-45c0-b9e6-907aff7285d3
+		summarizeBy: none
+		sourceColumn: EersteDagVanKwartaal
+
+		variation Variation
+			isDefault
+			relationship: 45bdd5a8-e168-4b2e-9c71-52c00d3d1c78
+			defaultHierarchy: LocalDateTable_cdaabbfb-1b7b-4ba3-8ddf-def6a86b1acc.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column LaatsteDagVanKwartaal
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 191e38f8-f1d8-4e20-97c5-8b2670242ce4
+		summarizeBy: none
+		sourceColumn: LaatsteDagVanKwartaal
+
+		variation Variation
+			isDefault
+			relationship: 73dcddd2-6ca4-4994-bb4f-6efee13bc52d
+			defaultHierarchy: LocalDateTable_5f03afaf-c3b8-412f-b7c8-45eec424c0d0.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column EersteDagVanJaar
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 58a08f52-fda4-4aa5-97f9-44ee8d057221
+		summarizeBy: none
+		sourceColumn: EersteDagVanJaar
+
+		variation Variation
+			isDefault
+			relationship: 56a5fc0a-8c6c-41d3-be0c-501eb147fced
+			defaultHierarchy: LocalDateTable_488c616b-bef2-4197-8cff-5bd8c53e7189.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column LaatsteDagVanJaar
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 51094a21-fd20-45e3-bedd-2f9ec4664359
+		summarizeBy: none
+		sourceColumn: LaatsteDagVanJaar
+
+		variation Variation
+			isDefault
+			relationship: ae55c746-8182-44bc-a01d-f3c7b80bcfe0
+			defaultHierarchy: LocalDateTable_791bf807-12be-4c5f-afca-cdea0e2c306a.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column EersteDagVanVolgendeMaand
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7210f327-1af8-46ce-9e48-cf77eeea9f43
+		summarizeBy: none
+		sourceColumn: EersteDagVanVolgendeMaand
+
+		variation Variation
+			isDefault
+			relationship: 3c75414c-0323-48a3-b500-59c37091c57b
+			defaultHierarchy: LocalDateTable_dac68946-c1cf-4e9b-8e34-a784d13acdf5.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column EersteDagVanVolgendJaar
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 642ec9ac-03b9-46f5-92bf-19a8cb7e62ec
+		summarizeBy: none
+		sourceColumn: EersteDagVanVolgendJaar
+
+		variation Variation
+			isDefault
+			relationship: ded74764-4829-40f3-8db0-b4f6b6900361
+			defaultHierarchy: LocalDateTable_e0381878-d5ed-44a0-bd32-82584127cdcc.'Date Hierarchy'
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Afgelopen7Jaar
+		dataType: int64
+		formatString: 0
+		lineageTag: eb16c3fe-90bb-4011-b134-3aef805c1657
+		summarizeBy: sum
+		sourceColumn: Afgelopen7Jaar
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearToDate
+		dataType: int64
+		formatString: 0
+		lineageTag: 159afd70-27a0-4e7b-ad15-efb31c5128f7
+		summarizeBy: sum
+		sourceColumn: YearToDate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsVerleden
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c52af60-383c-414d-b333-3d61646a7a54
+		summarizeBy: sum
+		sourceColumn: IsVerleden
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Teller
+		dataType: int64
+		formatString: 0
+		lineageTag: a8336160-72d0-4cbf-88da-2908d4bbdd6b
+		summarizeBy: sum
+		sourceColumn: Teller
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaandNrRelatief
+		dataType: int64
+		formatString: 0
+		lineageTag: 67040428-7365-4c3f-abc5-8d3c2e53acac
+		summarizeBy: sum
+		sourceColumn: MaandNrRelatief
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Termijn Maand Formatted' = ```
+			FORMAT('dim_datum'[Datum], "MMM YY")
+			
+			```
+		lineageTag: 9b69cc8a-e2df-4c40-a182-2ac05c01d515
+		summarizeBy: none
+		sortByColumn: JaarMaand
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_datum = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com", "Operationeel Dashboard"),
+				    s4_inf_DimDatum = Source{[Schema="s4_inf",Item="DimDatum"]}[Data]
+				in
+				    s4_inf_DimDatum
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

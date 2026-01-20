@@ -1,0 +1,228 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy data FeitInUitStroom",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DataWarehouseSource",
+            "sqlReaderQuery": "WITH DeduplicatedRooster AS (\r\n    SELECT \r\n        m.Medewerker,\r\n        MAX(Aantal_uren_per_week) AS Aantal_uren_per_week -- Kies de hoogste waarde als er meerdere zijn\r\n    FROM \r\n        [s2_stg_afas].[Rooster] m\r\n    GROUP BY \r\n        m.Medewerker\r\n)\r\nSELECT \r\n    ROW_NUMBER() OVER (ORDER BY CAST(mw.Datum_in_dienst AS DATE), CAST(mw.Datum_uit_dienst AS DATE)) AS InUitStroomKey, -- Genereer unieke sleutel\r\n    mw.Medewerker AS UniekeMedewerker,\r\n    mw.Naam AS MedewerkerNaam,\r\n    CAST(mw.Datum_in_dienst AS DATE) AS DatumInstroom, -- Instroomdatum als DATE\r\n    CAST(mw.Datum_uit_dienst AS DATE) AS DatumUitstroom, -- Uitstroomdatum als DATE\r\n    CASE \r\n        WHEN mw.Datum_in_dienst IS NOT NULL THEN 1 \r\n        ELSE 0 \r\n    END AS InstroomAantal,\r\n    CASE \r\n        WHEN mw.Datum_in_dienst IS NOT NULL THEN CAST(dr.Aantal_uren_per_week / 40.0 AS DECIMAL(6, 2))\r\n        ELSE 0\r\n    END AS InstroomFTE,\r\n    CASE \r\n        WHEN mw.Datum_uit_dienst IS NOT NULL THEN 1\r\n        ELSE 0\r\n    END AS UitstroomAantal,\r\n    CASE \r\n        WHEN mw.Datum_uit_dienst IS NOT NULL THEN CAST(dr.Aantal_uren_per_week / 40.0 AS DECIMAL(6, 2))\r\n        ELSE 0\r\n    END AS UitstroomFTE,\r\n    m3.MedewerkerKey,\r\n    m3.TeamKey,\r\n    t3.PracticeKey\r\nFROM \r\n    [s2_stg_afas].[Medewerkergegevens] mw\r\nLEFT JOIN \r\n    DeduplicatedRooster dr\r\nON \r\n    mw.Medewerker = dr.Medewerker\r\nLEFT JOIN \r\n    s3_ods.DimMedewerkers m3\r\nON \r\n    mw.Medewerker = m3.MedewerkerId\r\nLEFT JOIN \r\n    s3_ods.DimTeam t3\r\nON\r\n    m3.TeamKey = t3.TeamKey\r\nORDER BY \r\n    DatumInstroom, DatumUitstroom",
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "connectionSettings": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  },
+                  "externalReferences": {
+                    "connection": "91f2d362-0f5b-4b3f-aaac-2f31b217f3cb"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {}
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "s3_ods",
+                "table": "FeitInUitStroom"
+              }
+            }
+          },
+          "enableStaging": true,
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "InUitStroomKey",
+                  "type": "Int64",
+                  "physicalType": "bigint"
+                },
+                "sink": {
+                  "name": "InUitStroomKey",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "UniekeMedewerker",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "UniekeMedewerker",
+                  "physicalType": "varchar",
+                  "length": "50"
+                }
+              },
+              {
+                "source": {
+                  "name": "MedewerkerNaam",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "MedewerkerNaam",
+                  "physicalType": "varchar",
+                  "length": "255"
+                }
+              },
+              {
+                "source": {
+                  "name": "DatumInstroom",
+                  "type": "DateTime",
+                  "physicalType": "date"
+                },
+                "sink": {
+                  "name": "DatumInstroom",
+                  "physicalType": "date"
+                }
+              },
+              {
+                "source": {
+                  "name": "DatumUitstroom",
+                  "type": "DateTime",
+                  "physicalType": "date"
+                },
+                "sink": {
+                  "name": "DatumUitstroom",
+                  "physicalType": "date"
+                }
+              },
+              {
+                "source": {
+                  "name": "InstroomAantal",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "InstroomAantal",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "InstroomFTE",
+                  "type": "Decimal",
+                  "physicalType": "decimal",
+                  "scale": 2,
+                  "precision": 6
+                },
+                "sink": {
+                  "name": "InstroomFTE",
+                  "physicalType": "decimal",
+                  "scale": 2,
+                  "precision": 6
+                }
+              },
+              {
+                "source": {
+                  "name": "UitstroomAantal",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "UitstroomAantal",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "UitstroomFTE",
+                  "type": "Decimal",
+                  "physicalType": "decimal",
+                  "scale": 2,
+                  "precision": 6
+                },
+                "sink": {
+                  "name": "UitstroomFTE",
+                  "physicalType": "decimal",
+                  "scale": 2,
+                  "precision": 6
+                }
+              },
+              {
+                "source": {
+                  "name": "MedewerkerKey",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "MedewerkerKey",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "TeamKey",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "TeamKey",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "PracticeKey",
+                  "type": "Int64",
+                  "physicalType": "bigint"
+                },
+                "sink": {
+                  "name": "PracticeKey",
+                  "physicalType": "int"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      }
+    ]
+  }
+}

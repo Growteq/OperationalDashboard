@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "FeitBudgetten"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "55b5e8d7-0abb-ad62-4883-5a5d7b4540f1"
+  }
+}

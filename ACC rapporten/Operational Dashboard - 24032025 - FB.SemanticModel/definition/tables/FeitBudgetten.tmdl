@@ -1,0 +1,76 @@
+table FeitBudgetten
+	lineageTag: 8afabb27-07c7-4ccf-b9c6-d691eacf3795
+
+	column BudgettenKey
+		dataType: int64
+		formatString: 0
+		lineageTag: ad9c9501-a8f2-445f-a2b0-de590ceee254
+		summarizeBy: count
+		sourceColumn: BudgettenKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Practice
+		dataType: string
+		lineageTag: 390b1f01-4923-435d-aa4c-65b8386924a1
+		summarizeBy: none
+		sourceColumn: Practice
+
+		annotation SummarizationSetBy = Automatic
+
+	column Jaar
+		dataType: dateTime
+		formatString: yyyy
+		lineageTag: d5d54dc3-1859-4123-ba21-2b5009b52781
+		summarizeBy: none
+		sourceColumn: Jaar
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Intern
+		dataType: int64
+		formatString: 0
+		lineageTag: 11cac323-ffb4-41e1-b1b9-9f368eeede9e
+		summarizeBy: sum
+		sourceColumn: Intern
+
+		annotation SummarizationSetBy = Automatic
+
+	column Jaardoel/FTE
+		dataType: int64
+		formatString: 0
+		lineageTag: 233b82d2-f068-4ace-ada2-4418aafef554
+		summarizeBy: sum
+		sourceColumn: Jaardoel/FTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PracticeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a5b8b1f7-58c5-4738-bcf8-2842f21b10ef
+		summarizeBy: none
+		sourceColumn: PracticeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FeitBudgetten = m
+		mode: import
+		queryGroup: Feit
+		source =
+				let
+				    Source = Sql.Database("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com", "Operationeel Dashboard"),
+				    s3_ods_FeitBudgetten = Source{[Schema="s3_ods",Item="FeitBudgetten"]}[Data]
+				in
+				    s3_ods_FeitBudgetten
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

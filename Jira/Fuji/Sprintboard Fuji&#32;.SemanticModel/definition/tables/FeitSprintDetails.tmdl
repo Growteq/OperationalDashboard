@@ -1,0 +1,653 @@
+table FeitSprintDetails
+	lineageTag: 6c198874-bdaf-4838-ad0d-8f73b82b4d39
+
+	column maxResults
+		dataType: string
+		lineageTag: d06df233-1398-4735-88a2-4116c665f193
+		summarizeBy: none
+		sourceColumn: maxResults
+
+		annotation SummarizationSetBy = Automatic
+
+	column startAt
+		dataType: string
+		lineageTag: 8657aa25-ecc8-456a-898d-33792895e62e
+		summarizeBy: none
+		sourceColumn: startAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column total
+		dataType: string
+		lineageTag: f76cc0f9-d311-4b63-b62d-b9576fb24e7c
+		summarizeBy: none
+		sourceColumn: total
+
+		annotation SummarizationSetBy = Automatic
+
+	column isLast
+		dataType: string
+		lineageTag: 089923e9-44f3-4f9d-893c-fdaf2c49ed63
+		summarizeBy: none
+		sourceColumn: isLast
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'sprint.id'
+		dataType: string
+		lineageTag: 4de535b5-262e-4ee1-927b-15bfeeb9c9aa
+		summarizeBy: none
+		sourceColumn: sprint.id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'sprint.self'
+		dataType: string
+		lineageTag: 7e2abbcc-4b00-4933-a830-b6d00a1cd3d0
+		summarizeBy: none
+		sourceColumn: sprint.self
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'sprint.name'
+		dataType: string
+		lineageTag: 9286c1bc-0a22-4e02-86ca-f3f89f68dfcc
+		summarizeBy: none
+		sourceColumn: sprint.name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'issue.id'
+		dataType: string
+		lineageTag: 526f97ce-d6aa-4758-9cca-7aba9114b2c3
+		summarizeBy: none
+		sourceColumn: issue.id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'issue.key'
+		dataType: string
+		lineageTag: d77d9e08-e1e6-42ff-b49a-d3df1eee6d77
+		summarizeBy: none
+		sourceColumn: issue.key
+
+		annotation SummarizationSetBy = Automatic
+
+	column summary
+		dataType: string
+		lineageTag: e839bfb4-b3fc-416c-a441-b5938be49cef
+		summarizeBy: none
+		sourceColumn: summary
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 3a0c3b84-f1de-4a29-a244-bde9ad833dbe
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column customfield_10069
+		dataType: string
+		lineageTag: 09a3f02d-4605-41d4-9f36-18692702af65
+		summarizeBy: none
+		sourceColumn: customfield_10069
+
+		annotation SummarizationSetBy = Automatic
+
+	column statuscategorychangedate
+		dataType: string
+		lineageTag: 92ad4833-e27a-4b26-95e0-f0ee79654d52
+		summarizeBy: none
+		sourceColumn: statuscategorychangedate
+
+		annotation SummarizationSetBy = Automatic
+
+	column customfield_10072
+		dataType: string
+		lineageTag: 584700f2-6388-49df-85ff-6465c6a0f906
+		summarizeBy: none
+		sourceColumn: customfield_10072
+
+		annotation SummarizationSetBy = Automatic
+
+	column fixVersions
+		dataType: string
+		lineageTag: bb6c2b71-37c9-4b5a-8655-d647480f2fde
+		summarizeBy: none
+		sourceColumn: fixVersions
+
+		annotation SummarizationSetBy = Automatic
+
+	column statusCategory
+		dataType: string
+		lineageTag: b8c0335a-b3de-4d90-ba83-13a2caa4b62e
+		summarizeBy: none
+		sourceColumn: statusCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column resolution
+		dataType: string
+		lineageTag: 3b796d44-89df-4394-8615-a2ee271baa7f
+		summarizeBy: none
+		sourceColumn: resolution
+
+		annotation SummarizationSetBy = Automatic
+
+	column lastViewed
+		dataType: string
+		lineageTag: cce20fda-367f-41e0-8a9b-86110797a1cb
+		summarizeBy: none
+		sourceColumn: lastViewed
+
+		annotation SummarizationSetBy = Automatic
+
+	column epic
+		dataType: string
+		lineageTag: 411f4bcb-2091-4a60-868b-44cb4d52dcb1
+		summarizeBy: none
+		sourceColumn: epic
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'priority.name'
+		dataType: string
+		lineageTag: 2c037dc1-c045-4c73-8518-ecaa1ac06005
+		summarizeBy: none
+		sourceColumn: priority.name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'priority.id'
+		dataType: string
+		lineageTag: 21b43216-4176-4ee3-b209-adf20c9b44ae
+		summarizeBy: none
+		sourceColumn: priority.id
+
+		annotation SummarizationSetBy = Automatic
+
+	column labels
+		dataType: string
+		lineageTag: b5ff0d05-1537-4f7b-a863-d7ba3db756c1
+		summarizeBy: none
+		sourceColumn: labels
+
+		annotation SummarizationSetBy = Automatic
+
+	column aggregatetimeoriginalestimate
+		dataType: string
+		lineageTag: d53f9d73-b4dc-4efe-bbb5-2ebd2811ac8c
+		summarizeBy: none
+		sourceColumn: aggregatetimeoriginalestimate
+
+		annotation SummarizationSetBy = Automatic
+
+	column timeestimate
+		dataType: string
+		lineageTag: 8a2ef4f2-8cc0-46b9-bb63-a582e71079fc
+		summarizeBy: none
+		sourceColumn: timeestimate
+
+		annotation SummarizationSetBy = Automatic
+
+	column versions
+		dataType: string
+		lineageTag: bfb202ed-7573-4256-b05f-b246d647a628
+		summarizeBy: none
+		sourceColumn: versions
+
+		annotation SummarizationSetBy = Automatic
+
+	column issuelinks
+		dataType: string
+		lineageTag: 93c30cb8-d6d8-42fa-a459-45c83bbfb3f8
+		summarizeBy: none
+		sourceColumn: issuelinks
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'assignee.displayName'
+		dataType: string
+		lineageTag: 88d45e8a-1fa1-43a5-bede-eb714ec80a26
+		summarizeBy: none
+		sourceColumn: assignee.displayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'status.name'
+		dataType: string
+		lineageTag: 3783d663-1586-4523-93a6-e3247e6a8360
+		summarizeBy: none
+		sourceColumn: status.name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'status.id'
+		dataType: string
+		lineageTag: 0364499f-f082-4e08-9ec2-7880375f7c61
+		summarizeBy: none
+		sourceColumn: status.id
+
+		annotation SummarizationSetBy = Automatic
+
+	column components
+		dataType: string
+		lineageTag: 552128da-36d9-4c42-ba8f-ee6ef627ad78
+		summarizeBy: none
+		sourceColumn: components
+
+		annotation SummarizationSetBy = Automatic
+
+	column aggregatetimeestimate
+		dataType: string
+		lineageTag: 08bec98a-3f8b-4943-8a2d-1611067647e7
+		summarizeBy: none
+		sourceColumn: aggregatetimeestimate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'creator.displayName'
+		dataType: string
+		lineageTag: 4bfdfe91-dd39-40c1-8205-4ceb4896fc45
+		summarizeBy: none
+		sourceColumn: creator.displayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column subtasks
+		dataType: string
+		lineageTag: 34a4d95b-6289-4ca6-b114-fa812968a90e
+		summarizeBy: none
+		sourceColumn: subtasks
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'reporter.displayName'
+		dataType: string
+		lineageTag: dac39c1a-3be1-4058-a5c2-a8065a42bc05
+		summarizeBy: none
+		sourceColumn: reporter.displayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column aggregateprogress
+		dataType: string
+		lineageTag: e4fb8fce-fe31-417d-9f38-1734643d9f35
+		summarizeBy: none
+		sourceColumn: aggregateprogress
+
+		annotation SummarizationSetBy = Automatic
+
+	column progress
+		dataType: string
+		lineageTag: 8f646f2b-c3f8-4f04-94db-798cd4042be2
+		summarizeBy: none
+		sourceColumn: progress
+
+		annotation SummarizationSetBy = Automatic
+
+	column votes
+		dataType: string
+		lineageTag: f70c3754-2b31-4d81-9430-16762b2258b6
+		summarizeBy: none
+		sourceColumn: votes
+
+		annotation SummarizationSetBy = Automatic
+
+	column worklog
+		dataType: string
+		lineageTag: f45ae6d9-fe90-4542-940c-5dfba3cbb5df
+		summarizeBy: none
+		sourceColumn: worklog
+
+		annotation SummarizationSetBy = Automatic
+
+	column issuetype
+		dataType: string
+		lineageTag: a7178b00-720d-4c40-b9e5-2942feca07b0
+		summarizeBy: none
+		sourceColumn: issuetype
+
+		annotation SummarizationSetBy = Automatic
+
+	column timespent
+		dataType: string
+		lineageTag: c5d40ce0-1553-4681-b7ce-0eaefa6d0044
+		summarizeBy: none
+		sourceColumn: timespent
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'sprint.originBoardId'
+		dataType: string
+		lineageTag: 2220cd52-cd95-4e4b-832e-de6d75824a77
+		summarizeBy: none
+		sourceColumn: sprint.originBoardId
+
+		annotation SummarizationSetBy = Automatic
+
+	column customfield_10030
+		dataType: string
+		lineageTag: d3c0a074-0b3a-4c82-9e2a-a699b6d05708
+		summarizeBy: none
+		sourceColumn: customfield_10030
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'project.id'
+		dataType: string
+		lineageTag: e817513d-735d-4952-bfb4-c2a16e431dee
+		summarizeBy: none
+		sourceColumn: project.id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'project.key'
+		dataType: string
+		lineageTag: 8f334e96-12c0-4a86-a143-d7b4a30da825
+		summarizeBy: none
+		sourceColumn: project.key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'project.name'
+		dataType: string
+		lineageTag: 6de1b7ce-1649-415d-9306-37e1bc40be34
+		summarizeBy: none
+		sourceColumn: project.name
+
+		annotation SummarizationSetBy = Automatic
+
+	column aggregatetimespent
+		dataType: string
+		lineageTag: 6abc55bd-0584-4462-8320-e3ef4b8cd984
+		summarizeBy: none
+		sourceColumn: aggregatetimespent
+
+		annotation SummarizationSetBy = Automatic
+
+	column resolutiondate
+		dataType: string
+		lineageTag: 28276e1f-d624-458c-b9ef-7e6db8e0e6ce
+		summarizeBy: none
+		sourceColumn: resolutiondate
+
+		annotation SummarizationSetBy = Automatic
+
+	column workratio
+		dataType: string
+		lineageTag: 49443875-d152-4b79-ae37-cce24e95e204
+		summarizeBy: none
+		sourceColumn: workratio
+
+		annotation SummarizationSetBy = Automatic
+
+	column watches
+		dataType: string
+		lineageTag: 1525837a-1c1e-454d-a980-7304fb31bbf9
+		summarizeBy: none
+		sourceColumn: watches
+
+		annotation SummarizationSetBy = Automatic
+
+	column created
+		dataType: string
+		lineageTag: eb6dd610-70c6-4de3-a678-371fc22f9a7e
+		summarizeBy: none
+		sourceColumn: created
+
+		annotation SummarizationSetBy = Automatic
+
+	column customfield_10020
+		dataType: string
+		lineageTag: bf753508-a2d0-44f3-b89d-1227481a4c72
+		summarizeBy: none
+		sourceColumn: customfield_10020
+
+		annotation SummarizationSetBy = Automatic
+
+	column customfield_10024
+		dataType: string
+		lineageTag: 70d3339e-ccaf-4253-bb98-41252ebd7f74
+		summarizeBy: none
+		sourceColumn: customfield_10024
+
+		annotation SummarizationSetBy = Automatic
+
+	column customfield_10016
+		dataType: string
+		lineageTag: b8399060-88d9-4bee-b876-8c38898d4ba1
+		summarizeBy: none
+		sourceColumn: customfield_10016
+
+		annotation SummarizationSetBy = Automatic
+
+	column customfield_10018
+		dataType: string
+		lineageTag: 03a7761b-a219-41b7-9751-00f1fac29134
+		summarizeBy: none
+		sourceColumn: customfield_10018
+
+		annotation SummarizationSetBy = Automatic
+
+	column customfield_10019
+		dataType: string
+		lineageTag: af570d8b-6bff-4d4f-961b-b284becd49a0
+		summarizeBy: none
+		sourceColumn: customfield_10019
+
+		annotation SummarizationSetBy = Automatic
+
+	column updated
+		dataType: string
+		lineageTag: 434e36dd-3a01-4abe-9416-a4531dd98c86
+		summarizeBy: none
+		sourceColumn: updated
+
+		annotation SummarizationSetBy = Automatic
+
+	column timeoriginalestimate
+		dataType: string
+		lineageTag: a6a11dab-4863-46fe-ab9e-4a50c879c1f8
+		summarizeBy: none
+		sourceColumn: timeoriginalestimate
+
+		annotation SummarizationSetBy = Automatic
+
+	column timetracking
+		dataType: string
+		lineageTag: 8f6ae10d-136f-468d-8083-e89431736a38
+		summarizeBy: none
+		sourceColumn: timetracking
+
+		annotation SummarizationSetBy = Automatic
+
+	column security
+		dataType: string
+		lineageTag: 12583d72-823a-4b68-9abe-83f32787a8de
+		summarizeBy: none
+		sourceColumn: security
+
+		annotation SummarizationSetBy = Automatic
+
+	column attachment
+		dataType: string
+		lineageTag: 16b4978f-320e-42cc-a510-c3cff1aec7ec
+		summarizeBy: none
+		sourceColumn: attachment
+
+		annotation SummarizationSetBy = Automatic
+
+	column flagged
+		dataType: string
+		lineageTag: 58f5b103-e630-4a37-86d9-1ff293b6e749
+		summarizeBy: none
+		sourceColumn: flagged
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoryPoints
+		dataType: double
+		lineageTag: 367cfdee-eaba-4cbb-aade-dae73b6d5d6f
+		summarizeBy: sum
+		sourceColumn: StoryPoints
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column comment
+		dataType: string
+		lineageTag: 3f141cbb-ff39-4578-b29b-29b7b81ce510
+		summarizeBy: none
+		sourceColumn: comment
+
+		annotation SummarizationSetBy = Automatic
+
+	column TeamName
+		dataType: string
+		lineageTag: 322e5945-133e-418b-b329-fced5c7e643a
+		summarizeBy: none
+		sourceColumn: TeamName
+
+		annotation SummarizationSetBy = Automatic
+
+	column BoardId
+		dataType: int64
+		formatString: 0
+		lineageTag: 37fcb6e6-b7c1-42bd-b795-aca0d627cf53
+		summarizeBy: count
+		sourceColumn: BoardId
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'sprint.fullname'
+		dataType: string
+		lineageTag: 5e437059-5122-47ec-a362-35e6f8d7d32e
+		summarizeBy: none
+		sourceColumn: sprint.fullname
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FeitSprintDetails = m
+		mode: import
+		source =
+				let
+				    // Stap 1A: Haal actieve sprints op van board 455
+				    Bron455 = Json.Document(
+				        Web.Contents(
+				            "https://growteq.atlassian.net",
+				            [
+				                RelativePath = "rest/agile/1.0/board/455/sprint",
+				                Query = [state = "active"]
+				            ]
+				        )
+				    ),
+				    Tabel455 = Table.FromRecords({Bron455}),
+				    Expanded455 = Table.ExpandListColumn(Tabel455, "values"),
+				    Expanded455Cols = Table.ExpandRecordColumn(Expanded455, "values", {"id", "self", "name"}, {"sprint.id", "sprint.self", "sprint.name"}),
+				    Labeled455 = Table.AddColumn(Expanded455Cols, "BoardId", each 455, Int64.Type),
+				
+				    // Stap 1B: Haal toekomstige sprints op van board 1920
+				    Bron1920 = Json.Document(
+				        Web.Contents(
+				            "https://growteq.atlassian.net",
+				            [
+				                RelativePath = "rest/agile/1.0/board/1920/sprint",
+				                Query = [state = "future"]
+				            ]
+				        )
+				    ),
+				    Tabel1920 = Table.FromRecords({Bron1920}),
+				    Expanded1920 = Table.ExpandListColumn(Tabel1920, "values"),
+				    Expanded1920Cols = Table.ExpandRecordColumn(Expanded1920, "values", {"id", "self", "name"}, {"sprint.id", "sprint.self", "sprint.name"}),
+				    Labeled1920 = Table.AddColumn(Expanded1920Cols, "BoardId", each 1920, Int64.Type),
+				
+				    // Stap 1C: Combineer sprintgegevens
+				    Sprints = Table.Combine({Labeled455, Labeled1920}),
+				
+				    // Stap 2: Issues ophalen per sprint (met paginatie)
+				    #"Met issues" = Table.AddColumn(Sprints, "Issues", each
+				        let
+				            sprintId = [sprint.id],
+				            MaxPerPage = 50,
+				            GetPage = (StartAt as number) =>
+				                let
+				                    RelativePath = "rest/agile/1.0/sprint/" & Text.From(sprintId) & "/issue",
+				                    QueryOptions = [
+				                        startAt = Text.From(StartAt),
+				                        maxResults = Text.From(MaxPerPage)
+				                    ],
+				                    bron = Json.Document(
+				                        Web.Contents(
+				                            "https://growteq.atlassian.net",
+				                            [
+				                                RelativePath = RelativePath,
+				                                Query = QueryOptions
+				                            ]
+				                        )
+				                    ),
+				                    issues = try bron[issues] otherwise {},
+				                    total = try bron[total] otherwise 0
+				                in
+				                    [Issues = issues, Total = total],
+				
+				            FirstPage = GetPage(0),
+				            TotalItems = FirstPage[Total],
+				            PageCount = Number.RoundUp(TotalItems / MaxPerPage),
+				            PageStarts = List.Transform({0..PageCount - 1}, each _ * MaxPerPage),
+				            AllPages = List.Transform(PageStarts, each GetPage(_)[Issues]),
+				            AllIssues = List.Combine(AllPages)
+				        in
+				            AllIssues
+				    ),
+				
+				    // Stap 3: Zet issues in rijen
+				    #"Issues als rijen" = Table.ExpandListColumn(#"Met issues", "Issues"),
+				    #"Issue data uitgebreid" = Table.ExpandRecordColumn(#"Issues als rijen", "Issues", {"id", "key", "fields"}, {"issue.id", "issue.key", "fields"}),
+				
+				    // Stap 4: Velden uit "fields" uitbreiden
+				    #"Expanded fields" = Table.ExpandRecordColumn(#"Issue data uitgebreid", "fields", {
+				        "summary", "description", "customfield_10069", "statuscategorychangedate", "customfield_10072", "fixVersions", "statusCategory",
+				        "resolution", "lastViewed", "epic", "priority", "labels", "aggregatetimeoriginalestimate", "timeestimate", "versions",
+				        "issuelinks", "assignee", "status", "components", "aggregatetimeestimate", "creator", "subtasks", "reporter",
+				        "aggregateprogress", "progress", "votes", "worklog", "issuetype", "timespent", "sprint", "customfield_10030", "project",
+				        "aggregatetimespent", "resolutiondate", "workratio", "watches", "created", "customfield_10020", "customfield_10024",
+				        "customfield_10016", "customfield_10018", "customfield_10019", "updated", "timeoriginalestimate", "timetracking", "security",
+				        "attachment", "flagged", "customfield_10028", "comment", "customfield_10067"
+				    }, {
+				        "summary", "description", "customfield_10069", "statuscategorychangedate", "customfield_10072", "fixVersions", "statusCategory",
+				        "resolution", "lastViewed", "epic", "priority", "labels", "aggregatetimeoriginalestimate", "timeestimate", "versions",
+				        "issuelinks", "assignee", "status", "components", "aggregatetimeestimate", "creator", "subtasks", "reporter",
+				        "aggregateprogress", "progress", "votes", "worklog", "issuetype", "timespent", "sprint", "customfield_10030", "project",
+				        "aggregatetimespent", "resolutiondate", "workratio", "watches", "created", "customfield_10020", "customfield_10024",
+				        "customfield_10016", "customfield_10018", "customfield_10019", "updated", "timeoriginalestimate", "timetracking", "security",
+				        "attachment", "flagged", "StoryPoints", "comment", "customfield_10067"
+				    }),
+				
+				    // Stap 5: Verdere expand-operaties
+				    #"Expanded status" = Table.ExpandRecordColumn(#"Expanded fields", "status", {"name", "id"}, {"status.name", "status.id"}),
+				    #"Expanded priority" = Table.ExpandRecordColumn(#"Expanded status", "priority", {"name", "id"}, {"priority.name", "priority.id"}),
+				    #"Expanded project" = Table.ExpandRecordColumn(#"Expanded priority", "project", {"id", "key", "name"}, {"project.id", "project.key", "project.name"}),
+				    #"Expanded creator" = Table.ExpandRecordColumn(#"Expanded project", "creator", {"displayName"}, {"creator.displayName"}),
+				    #"Expanded reporter" = Table.ExpandRecordColumn(#"Expanded creator", "reporter", {"displayName"}, {"reporter.displayName"}),
+				    #"Expanded assignee" = Table.ExpandRecordColumn(#"Expanded reporter", "assignee", {"displayName"}, {"assignee.displayName"}),
+				
+				    // 🛠️ Fix: sprint.name al aanwezig -> hernoem naar sprint.fullname
+				    #"Expanded sprint" = Table.ExpandRecordColumn(#"Expanded assignee", "sprint", {"originBoardId", "name"}, {"sprint.originBoardId", "sprint.fullname"}),
+				
+				    #"Expanded customfield_10067" = Table.ExpandListColumn(#"Expanded sprint", "customfield_10067"),
+				    #"Expanded customfield_1" = Table.ExpandRecordColumn(#"Expanded customfield_10067", "customfield_10067", {"name"}, {"customfield_10067.name"}),
+				
+				    #"Renamed Columns1" = Table.RenameColumns(#"Expanded customfield_1",{{"customfield_10067.name", "TeamName"}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns1",{{"StoryPoints", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

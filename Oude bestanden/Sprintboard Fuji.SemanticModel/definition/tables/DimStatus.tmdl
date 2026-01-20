@@ -1,0 +1,66 @@
+table DimStatus
+	lineageTag: 535b946f-05df-430d-9674-5c5d8fa2fac2
+
+	column Status
+		dataType: string
+		lineageTag: 6d1a414c-e449-4a77-960a-cff7148683f6
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimStatus = m
+		mode: import
+		source =
+				let
+				    // Stap 1: Actieve sprints ophalen (correct met RelativePath en Query)
+				    Source = Json.Document(
+				        Web.Contents(
+				            "https://growteq.atlassian.net",
+				            [
+				                RelativePath = "rest/agile/1.0/board/455/sprint",
+				                Query = [state = "active"]
+				            ]
+				        )
+				    ),
+				    TableFromRecord = Table.FromRecords({Source}),
+				    Expanded = Table.ExpandListColumn(TableFromRecord, "values"),
+				    ExpandedColumns = Table.ExpandRecordColumn(Expanded, "values", {"id"}, {"sprint.id"}),
+				
+				    // Stap 2: Per sprint issues ophalen met veilige Web.Contents
+				    IssuesPerSprint = Table.AddColumn(ExpandedColumns, "StatusInfo", each
+				        let
+				            sprintId = [sprint.id],
+				            RelativePath = "rest/agile/1.0/sprint/" & Text.From(sprintId) & "/issue",
+				            response = Json.Document(
+				                Web.Contents(
+				                    "https://growteq.atlassian.net",
+				                    [
+				                        RelativePath = RelativePath
+				                    ]
+				                )
+				            ),
+				            issues = try response[issues] otherwise {},
+				            statuses = List.Transform(issues, each try _[fields][status][name] otherwise null)
+				        in
+				            statuses
+				    ),
+				
+				    // Stap 3: Zet alle statusnamen in losse rijen
+				    StatusLijst = Table.ExpandListColumn(IssuesPerSprint, "StatusInfo"),
+				
+				    // Stap 4: Verwijder lege of foutieve waardes
+				    GeldigeStatussen = Table.SelectRows(StatusLijst, each [StatusInfo] <> null),
+				
+				    // Stap 5: Unieke statusnamen
+				    UniekeStatussen = Table.Distinct(Table.SelectColumns(GeldigeStatussen, {"StatusInfo"})),
+				
+				    // Stap 6: Kolom hernoemen
+				    Hernoemd = Table.RenameColumns(UniekeStatussen, {{"StatusInfo", "Status"}})
+				in
+				    Hernoemd
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

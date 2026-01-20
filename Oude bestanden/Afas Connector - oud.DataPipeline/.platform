@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Afas Connector - oud"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f9cc5369-24d5-b89c-4483-38a204f61207"
+  }
+}

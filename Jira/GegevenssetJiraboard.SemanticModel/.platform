@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "GegevenssetJiraboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "8d6b5770-7e41-b836-45c1-a3f2d7f712e4"
+  }
+}

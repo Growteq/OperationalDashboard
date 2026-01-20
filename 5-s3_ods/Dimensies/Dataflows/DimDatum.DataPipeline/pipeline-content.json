@@ -1,0 +1,42 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "ScriptDatumTabel",
+        "type": "Script",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "linkedService": {
+          "name": "Operationeel Dashboard",
+          "properties": {
+            "annotations": [],
+            "type": "DataWarehouse",
+            "typeProperties": {
+              "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+              "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+              "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+            }
+          }
+        },
+        "typeProperties": {
+          "scripts": [
+            {
+              "type": "Query",
+              "text": {
+                "value": "-- Variabelen voor start- en einddatum\r\nDECLARE @StartDate DATE = '2010-01-01';\r\nDECLARE @NumberOfYears INT = 30;\r\nDECLARE @CutoffDate DATE = DATEADD(YEAR, @NumberOfYears, @StartDate);\r\n\r\n-- Maak de tabellen leeg voordat we ze opnieuw vullen\r\nTRUNCATE TABLE s3_ods.DimDatumFilter;\r\nTRUNCATE TABLE s3_ods.DimDatum;\r\n\r\n-- Maak een 'numbers set' zonder sys.all_objects:\r\n-- We maken door CROSS JOIN van 10-waardensets voldoende rijen.\r\n-- 30 jaar ~ 30*365 ≈ 10950 dagen, dus 5x CROSS JOIN van Tens = 10^5 = 100.000 rijen, ruim voldoende.\r\n\r\nWITH Tens AS (\r\n    SELECT 0 AS n FROM (VALUES(0),(0),(0),(0),(0),(0),(0),(0),(0),(0)) AS v(n)\r\n),\r\nNums AS (\r\n    SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) as rn\r\n    FROM Tens t1\r\n    CROSS JOIN Tens t2\r\n    CROSS JOIN Tens t3\r\n    CROSS JOIN Tens t4\r\n    CROSS JOIN Tens t5\r\n),\r\nDates AS (\r\n    SELECT DATEADD(DAY, rn-1, @StartDate) AS d\r\n    FROM Nums\r\n    WHERE rn <= DATEDIFF(DAY, @StartDate, @CutoffDate)\r\n)\r\n-- Insert voor DimDatumFilter\r\nINSERT INTO s3_ods.DimDatumFilter (\r\n     DatumKey, Datum, Dag, Weekdag, WeekDagNaam, WeekDagNaamKort, IsWeekend, \r\n     WeekNummer, ISOWeekNummer, MaandNummer, MaandNaam, MaandNaamKort, \r\n     KwartaalNummer, KwartaalNaam, Jaar, MMYYYY, JaarMaand, JaarWeek, \r\n     MaandJaar, EersteDagVanMaand, LaatsteDagVanMaand, EersteDagVanKwartaal, \r\n     LaatsteDagVanKwartaal, EersteDagVanJaar, LaatsteDagVanJaar, \r\n     EersteDagVanVolgendeMaand, EersteDagVanVolgendJaar, Afgelopen7Jaar, \r\n     YearToDate, IsVerleden, Teller, MaandNrRelatief\r\n)\r\nSELECT\r\n     YEAR(d)*10000+MONTH(d)*100+DAY(d)                          AS DatumKey\r\n    ,d                                                          AS Datum\r\n    ,DAY(d)                                                     AS Dag\r\n    ,DATEPART(WEEKDAY,d)                                        AS Weekdag\r\n    ,CAST(DATENAME(WEEKDAY,d) AS varchar(50))                   AS WeekDagNaam\r\n    ,LEFT(CAST(DATENAME(WEEKDAY,d) AS varchar(50)),2)           AS WeekDagNaamKort\r\n    ,CASE WHEN DATEPART(WEEKDAY,d) IN (1,7) THEN 1 ELSE 0 END   AS IsWeekend\r\n    ,DATEPART(WEEK,d)                                           AS WeekNummer\r\n    ,DATEPART(ISO_WEEK,d)                                       AS ISOWeekNummer\r\n    ,MONTH(d)                                                   AS MaandNummer\r\n    ,CAST(DATENAME(MONTH,d) AS varchar(50))                     AS MaandNaam\r\n    ,CAST(FORMAT(d,'MMM') AS varchar(10))                       AS MaandNaamKort\r\n    ,DATEPART(QUARTER,d)                                        AS KwartaalNummer\r\n    ,CAST(CONCAT('Q',DATEPART(QUARTER,d)) AS varchar(10))       AS KwartaalNaam\r\n    ,YEAR(d)                                                    AS Jaar\r\n    ,CAST(FORMAT(d,'MMyyyy') AS varchar(10))                    AS MMYYYY\r\n    ,YEAR(d)*100+MONTH(d)                                       AS JaarMaand\r\n    ,YEAR(d)*100+DATEPART(WEEK,d)                               AS JaarWeek\r\n    ,CAST(FORMAT(d,'MMMyyyy') AS varchar(10))                   AS MaandJaar\r\n    ,CONVERT(DATE,DATEADD(MONTH,DATEDIFF(MONTH,0,d),0))         AS EersteDagVanMaand\r\n    ,EOMONTH(d)                                                 AS LaatsteDagVanMaand\r\n    ,CONVERT(DATE,DATEADD(qq,DATEDIFF(qq,0,d),0))               AS EersteDagVanKwartaal\r\n    ,CONVERT(DATE,DATEADD(dd,-1,DATEADD(qq,DATEDIFF(qq,0,d)+1,0))) AS LaatsteDagVanKwartaal\r\n    ,CONVERT(DATE,DATEADD(yy,DATEDIFF(yy,0,d),0))               AS EersteDagVanJaar\r\n    ,CONVERT(DATE,DATEADD(dd,-1,DATEADD(yy,DATEDIFF(yy,0,d)+1,0))) AS LaatsteDagVanJaar\r\n    ,CONVERT(DATE,DATEADD(mm,DATEDIFF(mm,0,d)+1,0))             AS EersteDagVanVolgendeMaand\r\n    ,CONVERT(DATE,DATEADD(yy,DATEDIFF(yy,0,d)+1,0))             AS EersteDagVanVolgendJaar\r\n    ,CASE WHEN d >= DATEADD(YEAR,-7,GETDATE()) AND d <= GETDATE() THEN 1 ELSE 0 END AS Afgelopen7Jaar\r\n    ,CASE WHEN d >= CONVERT(DATE,CAST(DATEPART(YEAR,GETDATE()) AS varchar(4))+'-01-01') \r\n           AND d <= DATEADD(DAY,-1,GETDATE()) THEN 1 ELSE 0 END  AS YearToDate\r\n    ,CASE WHEN d <= GETDATE() THEN 1 ELSE 0 END                  AS IsVerleden\r\n    ,1                                                          AS Teller\r\n    ,(YEAR(d)*12+MONTH(d)) - (YEAR(GETDATE())*12+MONTH(GETDATE())) AS MaandNrRelatief\r\nFROM Dates;\r\n\r\n-- Insert voor DimDatum (dezelfde structuur)\r\nINSERT INTO s3_ods.DimDatum\r\nSELECT * FROM s3_ods.DimDatumFilter;\r\n",
+                "type": "Expression"
+              }
+            }
+          ],
+          "scriptBlockExecutionTimeout": "02:00:00"
+        }
+      }
+    ]
+  }
+}

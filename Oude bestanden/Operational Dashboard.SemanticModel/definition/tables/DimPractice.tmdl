@@ -1,0 +1,42 @@
+table DimPractice
+	lineageTag: cede399c-20fd-439b-ac96-b120bcb7e31d
+
+	column PracticeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d56170a-4171-49dd-9db0-dd63d5638b3e
+		summarizeBy: none
+		sourceColumn: PracticeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PracticeID
+		dataType: string
+		lineageTag: a3b6743d-94fe-40bf-9412-151a1a4d5c24
+		summarizeBy: none
+		sourceColumn: PracticeID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PracticeNaam
+		dataType: string
+		lineageTag: 51965397-754f-43ef-bbc5-1a638a656641
+		summarizeBy: none
+		sourceColumn: PracticeNaam
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimPractice = m
+		mode: import
+		queryGroup: Dim
+		source =
+				let
+				    Source = Sql.Database("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com", "Operationeel Dashboard"),
+				    s3_ods_Practice = Source{[Schema="s3_ods",Item="DimPractice"]}[Data]
+				in
+				    s3_ods_Practice
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,72 @@
+table 's4_inf billable_uren'
+	lineageTag: cd6b194f-a5e2-405e-bec1-36fa411a86e3
+
+	column Datum
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 95eb8345-f7cf-4097-be5c-ee29541b8e27
+		summarizeBy: none
+		sourceColumn: Datum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account Name'
+		dataType: string
+		lineageTag: 73392652-8620-45de-ba52-71d4e1dd9008
+		summarizeBy: none
+		sourceColumn: Account Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Debiteurnummer
+		dataType: string
+		lineageTag: 3f435e12-7ebf-45c9-b1dc-0da6dd0b7333
+		summarizeBy: none
+		sourceColumn: Debiteurnummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Billable Hours'
+		dataType: double
+		lineageTag: e82cd058-434a-40c0-95d4-eb6a1b7eb456
+		summarizeBy: none
+		sourceColumn: Billable Hours
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Kosten
+		dataType: double
+		lineageTag: 20fba3d2-0507-45b5-8327-7a3d5a4f3088
+		summarizeBy: none
+		sourceColumn: Kosten
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Opbrengsten
+		dataType: double
+		lineageTag: 8deaf463-11cd-4523-94e2-e7bb85ae76fc
+		summarizeBy: none
+		sourceColumn: Opbrengsten
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 's4_inf billable_uren' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com"),
+				    #"Operationeel Dashboard" = Source{[Name="Operationeel Dashboard"]}[Data],
+				    s4_inf_billable_uren = #"Operationeel Dashboard"{[Schema="s4_inf",Item="billable_uren"]}[Data]
+				in
+				    s4_inf_billable_uren
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

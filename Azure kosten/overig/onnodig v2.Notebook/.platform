@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "onnodig v2",
+    "description": "New notebook haalt elke dag de nieuwe bestanden op en voegt deze toe aan de huidige data."
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "849d4db2-0a6b-a904-4f69-d2ed6dfc232d"
+  }
+}

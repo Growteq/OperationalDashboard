@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "DimDatum"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "2f3593b3-c1bc-93d5-443c-3b69b26aa863"
+  }
+}

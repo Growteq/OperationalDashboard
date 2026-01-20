@@ -1,0 +1,95 @@
+relationship 3b657d49-38f2-4d16-99a4-829a6f461462
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimMedewerkers.DatumInDienst
+	toColumn: LocalDateTable_2ab9a47c-f4e2-4d26-b9f6-b286f96715c2.Date
+
+relationship 86ba205c-fb17-4546-834c-7cea4cdbf3ab
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimMedewerkers.DatumUitDienst
+	toColumn: LocalDateTable_c6536288-781a-4fe6-9419-e73e0addad0c.Date
+
+relationship 4b62559a-b987-4922-bd8d-668ba93b4a9d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimDatum.Datum
+	toColumn: LocalDateTable_46a287d1-9cd1-4894-a1ec-b4b078b317f3.Date
+
+relationship 626acec2-898b-4c04-ae7c-1bd51532415d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimDatum.EersteDagVanMaand
+	toColumn: LocalDateTable_4faf7823-ec7b-4bf9-a19a-53401e74c6ca.Date
+
+relationship 5b6a21c9-7ef4-4af0-923c-4408d68a5a1a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimDatum.LaatsteDagVanMaand
+	toColumn: LocalDateTable_6251e597-9e51-4210-a468-df32b91eba90.Date
+
+relationship 92393455-f3cb-4270-b9f9-1da9a22e322e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimDatum.EersteDagVanKwartaal
+	toColumn: LocalDateTable_a11def73-505b-4fbb-97da-90a5a7417637.Date
+
+relationship 305b8400-b8eb-4148-b690-953e2a4a007c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimDatum.LaatsteDagVanKwartaal
+	toColumn: LocalDateTable_721c164b-0d17-4c3c-8a10-7feb2260f111.Date
+
+relationship 7b9aa15e-c7d9-4d72-861d-f27ff5ce68f1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimDatum.EersteDagVanJaar
+	toColumn: LocalDateTable_48189914-e804-4da6-b13f-187a24a1ad41.Date
+
+relationship f10c0eee-6bdd-40c3-a99d-de75756df682
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimDatum.LaatsteDagVanJaar
+	toColumn: LocalDateTable_2995e91b-6407-47ab-857f-fbd108f44bfb.Date
+
+relationship 1c0d3228-e6ed-40ce-bfd5-d353fb392621
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimDatum.EersteDagVanVolgendeMaand
+	toColumn: LocalDateTable_d97256e4-3f26-4231-b371-fe1265532eb7.Date
+
+relationship cc1a6961-3931-40fd-add8-3ea8b6e730ae
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimDatum.EersteDagVanVolgendJaar
+	toColumn: LocalDateTable_e6f9ae47-2afd-47ea-a328-7ca6686bd4d6.Date
+
+relationship AutoDetected_884acf7d-3d93-4c5f-a90a-30933eaecd4c
+	fromColumn: FeitSprintCapaciteit.MedewerkerKey
+	toColumn: DimMedewerkers.MedewerkerKey
+
+relationship 5588f129-5a48-cdb9-c3b2-869af3065a09
+	fromColumn: FeitSprintDetails.'assignee.displayName'
+	toColumn: DimMedewerkers.Medewerker
+
+relationship AutoDetected_33ee87d9-4c8a-46ff-b611-a111df72e1ae
+	fromColumn: FeitSprintDetails.'status.name'
+	toColumn: DimStatus.Status
+
+relationship 98fa5a10-2588-4273-8584-c05a935e8291
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimSprint.endDate
+	toColumn: LocalDateTable_fdda9b3d-51c4-4949-85bc-212f873e012f.Date
+
+relationship 2e337993-cb91-415d-a8d9-fb2e8cc1cb55
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimSprint.createdDate
+	toColumn: LocalDateTable_42f30739-705c-4654-8417-d7c07812174f.Date
+
+relationship 2ad29d59-40aa-32f1-8e9a-6afab6cf1254
+	fromColumn: FeitSprintDetails.'project.key'
+	toColumn: DimProjecten.'Column1.key'
+
+relationship 215e94d6-4b89-46df-82b8-95306baefccc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimSprint.startDate
+	toColumn: LocalDateTable_0f7d0647-a60a-44c8-bbfa-30fb836350ae.Date
+
+relationship 80b1880e-e4a1-5d88-7a0c-0fb95e1d4711
+	fromColumn: FeitSprintCapaciteit.SprintNaam
+	toColumn: DimSprint.NaamZonderSprint
+
+relationship 476b7836-aa0d-4825-831d-67cc2266df31
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FeitSprintCapaciteit.Datum
+	toColumn: LocalDateTable_5928f65d-9ca1-4ac2-9165-72b19979420a.Date
+

@@ -1,0 +1,82 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy data FeitVerlofSaldo",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DataWarehouseSource",
+            "sqlReaderQuery": "WITH VerlofSaldoCTE AS (\n    SELECT \n        CAST(ROW_NUMBER() OVER (ORDER BY vs.Boekjaar, vs.Medewerker, vs.Type_verlof) AS BIGINT) AS VerlofSaldoKey,\n        CAST(MAX(M.MedewerkerKey) AS BIGINT) AS MedewerkerKey,\n        T.TeamKey,\n        P.PracticeKey,\n        CAST(MAX(vt.VerloftypeKey) AS BIGINT) AS VerlofTypeKey, \n        CAST(DATEFROMPARTS(vs.Boekjaar, 1, 1) AS DATETIME2(6)) AS Boekjaar,  \n        CAST(vs.Medewerker AS VARCHAR(255)) AS Medewerker, \n        CAST(vs.Type_verlof AS VARCHAR(255)) AS Verlofsoort,\n        CAST(SUM(TRY_CAST(vs.Beginsaldo AS DECIMAL(18,2))) AS DECIMAL(18,2)) AS TotaalBeginSaldo, \n        CAST(SUM(TRY_CAST(vs.Saldo AS DECIMAL(18,2))) AS DECIMAL(18,2)) AS TotaalEindSaldo,\n        CAST(\n            SUM(TRY_CAST(vs.Beginsaldo AS DECIMAL(18,2))) - \n            SUM(TRY_CAST(vs.Saldo AS DECIMAL(18,2))) \n            AS BIGINT\n        ) AS OpgenomenUren\n    FROM [s2_stg_afas].[VerlofSaldo] vs\n    LEFT JOIN s3_ods.DimMedewerkers M ON M.MedewerkerId = vs.Medewerker\n    LEFT JOIN s3_ods.DimVerloftype vt ON vt.VerlofType = vs.Type_verlof\n    --lookup op DimTeam\n    LEFT JOIN s3_ods.DimTeam T\n        ON T.TeamKey = M.TeamKey\n    --lookup op DimPractice\n    LEFT JOIN s3_ods.DimPractice P\n        ON P.PracticeKey = T.PracticeKey\n\n    GROUP BY vs.Medewerker, vs.Boekjaar, vs.Type_verlof, T.TeamKey, P.PracticeKey\n)\nSELECT \n    VerlofSaldoKey,  \n    MedewerkerKey,\n    TeamKey,\n    PracticeKey,\n    VerlofTypeKey,\n    Boekjaar,  \n    Medewerker, \n    Verlofsoort,\n    TotaalBeginSaldo, \n    TotaalEindSaldo,\n    OpgenomenUren  \nFROM VerlofSaldoCTE\n",
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "connectionSettings": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  },
+                  "externalReferences": {
+                    "connection": "91f2d362-0f5b-4b3f-aaac-2f31b217f3cb"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {}
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "s3_ods",
+                "table": "FeitVerlofSaldo"
+              }
+            }
+          },
+          "enableStaging": true,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      }
+    ]
+  }
+}

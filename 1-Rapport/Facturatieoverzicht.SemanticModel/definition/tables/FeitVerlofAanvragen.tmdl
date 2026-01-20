@@ -1,0 +1,149 @@
+table FeitVerlofAanvragen
+	lineageTag: 44d4f5b0-d684-43ac-82bb-06708ee665d3
+
+	column Medewerker
+		dataType: string
+		lineageTag: 421a67e5-af42-41db-9997-2478e45bf1fe
+		summarizeBy: none
+		sourceColumn: Medewerker
+
+		annotation SummarizationSetBy = Automatic
+
+	column MedewerkerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 81f2e82d-f2dd-44fd-9226-6c2aa17c24c1
+		summarizeBy: none
+		sourceColumn: MedewerkerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column FeitVerlofAanvraagKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 2acc8f2c-bf0f-4462-a3b5-7ae471f473fb
+		summarizeBy: count
+		sourceColumn: FeitVerlofAanvraagKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Datum
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7ac31ec5-bac8-45b1-b494-5f9a54cf1b8c
+		summarizeBy: none
+		sourceColumn: Datum
+
+		variation Variation
+			isDefault
+			relationship: b125750b-7d3a-41bd-bb90-973c1181a849
+			defaultHierarchy: LocalDateTable_cab07e91-eb6c-47cb-9945-abd8552b8620.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column WeekDagNaam
+		dataType: string
+		lineageTag: 77ac4c81-7f3e-4121-9b06-5e83d254615d
+		summarizeBy: none
+		sourceColumn: WeekDagNaam
+
+		annotation SummarizationSetBy = Automatic
+
+	column Naam
+		dataType: string
+		lineageTag: 3de2cb89-4f41-4203-a412-ee0e04d779be
+		summarizeBy: none
+		sourceColumn: Naam
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type_verlof
+		dataType: string
+		lineageTag: 9404c362-c7f8-44c2-8dab-7f0a017fa2ef
+		summarizeBy: none
+		sourceColumn: Type_verlof
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type_verlof_code
+		dataType: string
+		lineageTag: 58afd0fc-3253-4e24-97ac-262eedf6dad7
+		summarizeBy: none
+		sourceColumn: Type_verlof_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Omschrijving
+		dataType: string
+		lineageTag: 295479bf-ab7e-4a47-861a-8d45a67409a8
+		summarizeBy: none
+		sourceColumn: Omschrijving
+
+		annotation SummarizationSetBy = Automatic
+
+	column Begindatum
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e63ff6af-7a05-4330-8c65-39a06410616a
+		summarizeBy: none
+		sourceColumn: Begindatum
+
+		variation Variation
+			isDefault
+			relationship: 5e80bb42-c298-4a96-9726-604ad55e9323
+			defaultHierarchy: LocalDateTable_103f94ed-3182-4f64-8619-1d52337bebe1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Einddatum
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5452ed24-991a-4d8a-b438-daefa2cc9c75
+		summarizeBy: none
+		sourceColumn: Einddatum
+
+		variation Variation
+			isDefault
+			relationship: e8e4d9ca-be65-4f01-a9c3-5db5306117cd
+			defaultHierarchy: LocalDateTable_549c4409-26aa-4fd3-9a4c-6dbe90016006.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Datum_aangevraagd
+		dataType: string
+		lineageTag: edd2b9dd-77da-480c-bed7-d608b45e86ca
+		summarizeBy: none
+		sourceColumn: Datum_aangevraagd
+
+		annotation SummarizationSetBy = Automatic
+
+	column Aantal_uren
+		dataType: double
+		lineageTag: 942c8590-8b8b-4865-834d-e39ba00be77f
+		summarizeBy: sum
+		sourceColumn: Aantal_uren
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FeitVerlofAanvragen = m
+		mode: import
+		queryGroup: Feit
+		source =
+				let
+				    Source = Sql.Database("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com", "Operationeel Dashboard"),
+				    s3_ods_VerlofAanvragen = Source{[Schema="s3_ods",Item="FeitVerlofAanvragen"]}[Data]
+				in
+				    s3_ods_VerlofAanvragen
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

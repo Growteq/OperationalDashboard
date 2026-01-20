@@ -1,0 +1,181 @@
+table 'Timesheet Split'
+	lineageTag: 64705642-5d50-4e29-98b2-74382d4ff7b2
+
+	column Id
+		dataType: string
+		lineageTag: 39fc2789-c39a-4744-bd35-804c87f182a0
+		summarizeBy: none
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Name
+		dataType: string
+		lineageTag: cfffb520-9baf-482e-907b-658c61ca7b36
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Timesheet__c
+		dataType: string
+		lineageTag: d6a0022a-8e4e-4c3d-8d4d-e06140f07f63
+		summarizeBy: none
+		sourceColumn: Krow__Timesheet__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Account__c
+		dataType: string
+		lineageTag: e96f569e-66e9-4396-8875-e070515e7487
+		summarizeBy: none
+		sourceColumn: Krow__Account__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Approval_Status__c
+		dataType: string
+		lineageTag: e7909e93-44d8-400a-9a2f-a2c49bf7b9df
+		summarizeBy: none
+		sourceColumn: Krow__Approval_Status__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Bill_Amount__c
+		dataType: double
+		lineageTag: 43881410-ee73-47ce-885e-81b461a58c32
+		summarizeBy: sum
+		sourceColumn: Krow__Bill_Amount__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Bill_Rate_New__c
+		dataType: double
+		lineageTag: 2acbbe26-44a7-4ef0-b52e-4b4b1cc46e2c
+		summarizeBy: sum
+		sourceColumn: Krow__Bill_Rate_New__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Billable__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: aceb7159-1d7a-4327-846e-d0064734f616
+		summarizeBy: none
+		sourceColumn: Krow__Billable__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Boolean" />
+
+	column Krow__Date__c
+		dataType: dateTime
+		formatString: d-m-yyyy
+		lineageTag: 6945e0f4-165b-4975-b194-d16b7de1d5fe
+		summarizeBy: none
+		sourceColumn: Krow__Date__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation Format = <Format Format="DateTimeCustom"><DateTimes><DateTime LCID="1043" Group="ShortDate" FormatString="d-M-yyyy" /></DateTimes></Format>
+
+	column Krow__Hours__c
+		dataType: double
+		lineageTag: 4159f829-7608-41b5-bec7-d670c625cb10
+		summarizeBy: sum
+		sourceColumn: Krow__Hours__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Invoiced__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4c62d4c6-e362-4b35-ac88-fc8f391af48b
+		summarizeBy: none
+		sourceColumn: Krow__Invoiced__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Boolean" />
+
+	column Krow__Krow_Project__c
+		dataType: string
+		lineageTag: 52c7cbfd-663c-4080-bf7a-dc93a0978ab4
+		summarizeBy: none
+		sourceColumn: Krow__Krow_Project__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Krow_Task__c
+		dataType: string
+		lineageTag: b074e7a0-fb76-4ad3-9065-c0f73a897e55
+		summarizeBy: none
+		sourceColumn: Krow__Krow_Task__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Project_Assignment__c
+		dataType: string
+		lineageTag: 2a48e94f-23ce-4b08-aaea-4d8fcdddf148
+		summarizeBy: none
+		sourceColumn: Krow__Project_Assignment__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Project_Resource__c
+		dataType: string
+		lineageTag: 35b3be3a-2faf-4a72-86de-1f13deecabc9
+		summarizeBy: none
+		sourceColumn: Krow__Project_Resource__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column 'Timesheet - notitie'
+		dataType: string
+		lineageTag: 08afa60e-5b47-4f87-abc0-6869dc43d7a4
+		summarizeBy: none
+		sourceColumn: Timesheet - notitie
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	partition 'Timesheet Split-9d50f51d-12eb-4b1a-977a-c59c140f5def' = m
+		mode: import
+		source =
+				let
+				    Bron = Salesforce.Data("https://growteq.my.salesforce.com", [ApiVersion=48]),
+				    Krow__Timesheet_Split__c = Bron{[Name="Krow__Timesheet_Split__c"]}[Data],
+				    #"Andere kolommen verwijderd" = Table.SelectColumns(Krow__Timesheet_Split__c,{"Id", "Name", "Krow__Timesheet__c", "Krow__Account__c", "Krow__Approval_Status__c", "Krow__Bill_Amount__c", "Krow__Bill_Rate_New__c", "Krow__Billable__c", "Krow__Date__c", "Krow__Hours__c", "Krow__Invoiced__c", "Krow__Krow_Project__c", "Krow__Krow_Task__c", "Krow__Project_Assignment__c", "Krow__Project_Resource__c", "Krow__Time_Comments__c"}),
+				    #"Namen van kolommen gewijzigd" = Table.RenameColumns(#"Andere kolommen verwijderd",{{"Krow__Time_Comments__c", "Timesheet - notitie"}})
+				in
+				    #"Namen van kolommen gewijzigd"
+
+	annotation PBI_ResultType = Table
+

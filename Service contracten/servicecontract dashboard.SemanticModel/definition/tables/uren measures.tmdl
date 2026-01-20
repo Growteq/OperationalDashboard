@@ -1,0 +1,55 @@
+table 'uren measures'
+	lineageTag: 130a8b2e-0760-454c-86e8-361f71e03096
+
+	measure 'aantal factureerbare uren' = SUM('s4_inf billable_uren'[Billable Hours])
+		lineageTag: f5dcc3a6-19a1-4489-8e0f-e323d2969c0f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'kosten factureerbare uren' = SUM('s4_inf billable_uren'[Kosten])
+		lineageTag: 68463a9b-3d0f-4f1c-9eb4-15213dd9e21b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'opbrengsten factureerbare uren' = SUM('s4_inf billable_uren'[Opbrengsten])
+		lineageTag: 17422d25-c184-4ec1-bb27-97a8ffa0a1b2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Marge Factureerbare Uren %' = ```
+			
+			VAR TotaleOpbrengst = SUM('s4_inf billable_uren'[Opbrengsten])
+			VAR TotaleKosten = SUM('s4_inf billable_uren'[Kosten])
+			RETURN
+			DIVIDE(TotaleOpbrengst - TotaleKosten, TotaleOpbrengst, 0) * 100
+			
+			```
+		lineageTag: 881fd309-1f4e-4549-931b-481327c409fb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'kosten niet factureerbaar' = SUM(niet_factureerbare_uren[Sum of Cost Amount])
+		lineageTag: 5ea7a287-3df0-472d-a3c8-6f3089bb3521
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'totale kosten uren' = [kosten factureerbare uren]+[kosten niet factureerbaar]
+		lineageTag: c4b717b7-17e6-4ac8-bb0a-070654b28896
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column naam
+		formatString: 0
+		lineageTag: 58f1d544-fd84-49ac-9748-2b873b632ba2
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [naam]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'uren measures' = calculated
+		mode: import
+		source = Row("naam", BLANK())
+
+	annotation PBI_Id = 6755b1c0ecff4597b792ba5593ae4aec
+

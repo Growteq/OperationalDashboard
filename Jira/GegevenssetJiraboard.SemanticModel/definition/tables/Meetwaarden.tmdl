@@ -1,0 +1,88 @@
+table Meetwaarden
+	lineageTag: 7faa2ad0-d2bf-41c4-ab1a-52981a0f45a4
+
+	measure 'Totaal Aantal storypoints' = ```
+			SUM('FeitSprintDetails'[StoryPoints])
+			
+			```
+		formatString: 0
+		lineageTag: bddd4386-83bd-4ecc-a233-e0a3cf872fa6
+
+	measure 'Aantal Projecten' = DISTINCTCOUNT('DimProjecten'[Project])
+		formatString: 0
+		lineageTag: 039db639-f627-4bd0-9d47-1cfd6642020c
+
+	measure 'Procent Afgerond' = ```
+			
+			VAR TotalStoryPoints =
+			    CALCULATE(SUM('FeitSprintDetails'[StoryPoints]))
+			
+			VAR DoneStoryPoints =
+			    CALCULATE(
+			        SUM('FeitSprintDetails'[StoryPoints]),
+			        'DimStatus'[Status] IN { "gereed" }
+			    )
+			
+			RETURN DIVIDE(DoneStoryPoints, TotalStoryPoints, 0)
+			
+			```
+		formatString: 0%;-0%;0%
+		lineageTag: be4420e5-73bd-4ec0-8c6e-d74d0bf87bb9
+
+	measure 'Huidige Sprint' = MAX('DimSprint'[SprintName])
+		lineageTag: bef81804-c3e4-40d8-9b1a-2b3042c57fec
+
+	measure 'Procent On Hold' = ```
+			
+			VAR TotalStoryPoints =
+			    CALCULATE(SUM('FeitSprintDetails'[StoryPoints]))
+			
+			VAR DoneStoryPoints =
+			    CALCULATE(
+			        SUM('FeitSprintDetails'[StoryPoints]),
+			        'DimStatus'[Status] IN { "Waiting", "In Test", "Review Passed", "Wordt beoordeeld", "Test Passed" }
+			    )
+			
+			RETURN DIVIDE(DoneStoryPoints, TotalStoryPoints, 0)
+			
+			```
+		formatString: 0%;-0%;0%
+		lineageTag: 0c177519-53a3-497a-b20c-3bb9edf32af6
+
+	measure Capaciteit = SUM(FeitSprintCapaciteit[TotaalUren])
+		formatString: 0
+		lineageTag: e85b7c94-cd7f-4a5e-973a-1f372a4dba2e
+
+	measure 'StoryPoints To Do' =
+			
+			CALCULATE(
+			    SUM('FeitSprintDetails'[StoryPoints]),
+			    'DimStatus'[Status]= "Nog Doen"
+			)
+		formatString: 0
+		lineageTag: e4893bf1-6a62-41e7-95db-6d2836cb5889
+
+	measure 'To do / capaciteit' =
+			
+			DIVIDE(
+			    [Totaal Aantal storypoints],
+			    [Capaciteit],
+			    0
+			)
+		formatString: 0%;-0%;0%
+		lineageTag: 18d37de0-092d-454a-8971-9121af46052a
+
+	partition Meetwaarden = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

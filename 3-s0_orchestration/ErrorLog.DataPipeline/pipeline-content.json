@@ -1,0 +1,93 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Lookup1",
+        "type": "Lookup",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DataWarehouseSource",
+            "sqlReaderQuery": "  select * from [s5_mtd].[TableControl]\nwhere [Status] = 'Failed'",
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None"
+          },
+          "firstRowOnly": false,
+          "datasetSettings": {
+            "annotations": [],
+            "linkedService": {
+              "name": "Operationeel Dashboard",
+              "properties": {
+                "annotations": [],
+                "type": "DataWarehouse",
+                "typeProperties": {
+                  "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                  "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                  "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                }
+              }
+            },
+            "type": "DataWarehouseTable",
+            "schema": [],
+            "typeProperties": {}
+          }
+        }
+      },
+      {
+        "name": "If Condition1",
+        "type": "IfCondition",
+        "dependsOn": [
+          {
+            "activity": "Lookup1",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "typeProperties": {
+          "expression": {
+            "value": "@greater(length(activity('Lookup1').output.value), 0)",
+            "type": "Expression"
+          },
+          "ifFalseActivities": [],
+          "ifTrueActivities": [
+            {
+              "name": "Office 365 Outlook1",
+              "type": "Office365Outlook",
+              "dependsOn": [],
+              "typeProperties": {
+                "inputs": {
+                  "method": "post",
+                  "path": "/v2/Mail",
+                  "body": {
+                    "To": "eprosman@growteq.nl",
+                    "Subject": "Error in DWH verlading",
+                    "Body": "Er zijn gefaalde loads gevonden in TableLoadControl:\n@{string(activity('Lookup1').output.value)}",
+                    "Sensitivity": "",
+                    "Importance": "Normal"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "logicAppsConnectionPayload": {
+      "id": "/subscriptions/2453c675-67c5-4898-811a-ebe027e7c413/resourceGroups/connections-d183c24c-5af7-4637-acfd-a273cbc9ba49/providers/Microsoft.Web/connections/1_2150f939-8815-4c67-ac94-87218fc6a668_b9af3e18-4e7a-4b9a-8ea9-e49a00ccc523",
+      "properties": {
+        "api": {
+          "name": "office365",
+          "id": "/subscriptions/2453c675-67c5-4898-811a-ebe027e7c413/providers/Microsoft.Web/locations/westeurope/managedApis/office365"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy data DimProjecten",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DataWarehouseSource",
+            "sqlReaderQuery": "--Projecten\r\nWITH ProjectData AS (\r\n    SELECT\r\n        ROW_NUMBER() OVER (\r\n            PARTITION BY p.[Id] \r\n            ORDER BY p.[Id]\r\n        ) AS RowNum,\r\n        p.[Id] AS ProjectId,\r\n        p.[Name] AS ProjectNaam,\r\n        p.[Team__c] AS TeamIdSalesforce,\r\n        p.[Krow__Estimated_Hours__c] AS GeschatteUren,\r\n        p.[Krow__Hours_Remaining_Logged__c] AS GeschatteUrenOverlogd,\r\n        p.[Krow__Estimated_Project_Hours__c] AS GeschatteProjectUren,\r\n        p.Krow__Total_Hours_Logged__c AS AantalUren,\r\n        p.[Krow__Expected_Revenue__c] AS VerwachteOmzet,\r\n        p.[Krow__Total_Billable_Amount__c] AS FacturabeleOmzet,\r\n        p.[Krow__Expense_Cost__c] AS Kosten,\r\n        p.[Krow__Project_Status__c] AS ProjectStatus,\r\n        PA.[Krow__Status__c] AS ProjectAssignmentStatus,\r\n        p.[Business_Type__c] AS BusinessType,\r\n        p.[Krow__Project_Start_Date__c] AS Startdatum,\r\n        p.[Krow__Project_End_Date__c] AS Einddatum,\r\n        p.[Krow__Completion_Date__c] AS DatumAfgerond,\r\n        DATEDIFF(DAY, p.[Krow__Project_Start_Date__c], p.[Krow__Project_End_Date__c]) AS Looptijd,\r\n        DATEDIFF(DAY, p.[Krow__Project_End_Date__c], p.[Krow__Completion_Date__c]) AS VerschilOplevering,\r\n        CASE\r\n            WHEN p.[Krow__Project_End_Date__c] < GETDATE() \r\n                 AND p.[Krow__Completion_Date__c] IS NULL THEN 1\r\n            ELSE 0\r\n        END AS OpTijdAfgerond,\r\n        p.[Krow__Invoiced__c] AS IsGefactureerd,\r\n        p.[Krow__Global_Project__c] AS IsGlobalProject,\r\n        p.[Krow__Billable__c] AS IsFacturabel,\r\n        CASE\r\n            WHEN p.[Krow__Account__c] IN ('0010X00004ujOv1QAE', '001b0000004MEgIAAW') THEN 'Intern'\r\n            ELSE 'Extern'\r\n        END AS InternExtern,\r\n        p.[Krow__Billing_Type__c] AS BillingTypeId,\r\n        bt.[Name] AS FacturatieType,\r\n        bt.[Krow__Billing_Method__c] AS Facturatiewijze,\r\n        p.[CSAT_Score__c] AS Tevredenheidsscore,\r\n        k.KlantKey,\r\n        pr.PracticeKey,\r\n        -- FIX: niet op PracticeKey (bigint) vergelijken met 'Salesforce' (varchar),\r\n        -- maar op het Salesforce Practice Id in het project\r\n        CASE\r\n    WHEN p.[Krow__Practice__c] = 'a1g0X0000063N42QAE' THEN '3'\r\n    ELSE t.TeamKey\r\nEND AS TeamKey,\r\n        p.Krow__Practice__c as practicewaarde,\r\n        'https://growteq.lightning.force.com/lightning/r/Krow__Project__c/' + p.[Id] + '/view' AS ProjectURL\r\n    FROM [s2_stg_salesforce].[Project] p\r\n    LEFT JOIN [s2_stg_salesforce].[BillingType] bt \r\n        ON p.[Krow__Billing_Type__c] = CONVERT(VARCHAR(50), bt.[Id])\r\n    LEFT JOIN s3_ods.DimKlanten k \r\n        ON p.[Krow__Account__c] = CONVERT(VARCHAR(50), k.[KlantID])\r\n    LEFT JOIN s3_ods.DimPractice pr \r\n        ON p.[Krow__Practice__c] = CONVERT(VARCHAR(50), pr.[PracticeID])\r\n    LEFT JOIN s2_stg_salesforce.[ProjectAssignment] PA \r\n        ON p.[Id] = PA.[Krow__Krow_Project__c]\r\n    LEFT JOIN s3_ods.DimTeam t \r\n        ON p.[Team__c] = CONVERT(VARCHAR(50), t.[Id])\r\n)\r\nSELECT \r\n    ROW_NUMBER() OVER (ORDER BY ProjectId) AS ProjectKey, \r\n    ProjectId,\r\n    ProjectNaam,\r\n    GeschatteUren,\r\n    GeschatteUrenOverlogd,\r\n    AantalUren,\r\n    GeschatteProjectUren,\r\n    VerwachteOmzet,\r\n    FacturabeleOmzet,\r\n    Kosten,\r\n    ProjectStatus,\r\n    ProjectAssignmentStatus,\r\n    BusinessType,\r\n    Startdatum,\r\n    Einddatum,\r\n    DatumAfgerond,\r\n    Looptijd,\r\n    VerschilOplevering,\r\n    OpTijdAfgerond,\r\n    IsGefactureerd,\r\n    IsGlobalProject,\r\n    IsFacturabel,\r\n    InternExtern,\r\n    BillingTypeId,\r\n    FacturatieType,\r\n    Facturatiewijze,\r\n    Tevredenheidsscore,\r\n    KlantKey,\r\n    PracticeKey,\r\n    ProjectURL,\r\n    TeamKey\r\nFROM ProjectData\r\nWHERE RowNum = 1\r\n",
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {}
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "s3_ods",
+                "table": "DimProjecten"
+              }
+            }
+          },
+          "enableStaging": true,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      }
+    ]
+  }
+}

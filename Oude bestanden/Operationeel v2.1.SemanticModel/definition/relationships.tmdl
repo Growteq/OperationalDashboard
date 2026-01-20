@@ -1,0 +1,60 @@
+relationship 8cde3f98-c658-4a5d-a20e-22cb741a188b
+	fromColumn: 'Klient Task'.Krow__Project__c
+	toColumn: 'Klient Project'.Id
+
+relationship 39502473-5c77-4bc2-bb09-93ffb124c6f7
+	fromColumn: 'Timesheet Split'.Krow__Krow_Task__c
+	toColumn: 'Klient Task'.Id
+
+relationship aa542e7c-09c8-41a8-8d7d-45478b498345
+	fromColumn: 'Timesheet Split'.Krow__Project_Resource__c
+	toColumn: Medewerkers.Id
+
+relationship cb9d03e8-f9d2-46a9-a12f-f6f32326abf9
+	fromColumn: Invoice.Krow__Project__c
+	toColumn: 'Klient Project'.Id
+
+relationship 5dcead1e-5964-4b52-b476-31a63ca2293c
+	fromColumn: Medewerkers.Krow__Team__c
+	toColumn: Team.Id
+
+relationship 381c52d5-0005-4d61-806d-b837567f62ef
+	fromColumn: 'Project Assignment'.Krow__Krow_Project__c
+	toColumn: 'Klient Project'.Id
+
+relationship 3712fe90-6155-4a5d-bfa1-00ac31281630
+	fromColumn: 'Project Assignment'.Krow__Project_Resource__c
+	toColumn: Medewerkers.Id
+
+relationship ad6484cf-5d10-4507-84c5-cfb8839c70bd
+	fromColumn: 'Project Assignment Schedule'.Krow__Project_Assignment__c
+	toColumn: 'Project Assignment'.Id
+
+relationship c4de5b66-b38d-424a-9486-ee597f70f673
+	fromColumn: 'Timesheet Split'.Krow__Date__c
+	toColumn: DimDatum.Datum
+
+relationship 775a46bf-0c42-4e7d-9c90-5da6725f7383
+	fromColumn: Invoice.Krow__Invoice_Date__c
+	toColumn: DimDatum.Datum
+
+relationship 7c4c5dd2-b27c-419c-bc06-f902819eb42d
+	fromColumn: 'Project Assignment Schedule'.Krow__Start_Date__c
+	toColumn: DimDatum.Datum
+
+relationship aef88dc7-0fd2-4e90-9bcc-2cb61aa1fadf
+	fromColumn: DoelstellingMedewerker.medewerker
+	toColumn: Medewerkers.Name
+
+relationship bc679ba5-968c-4b22-9240-566267b583d8
+	fromColumn: DoelstellingMedewerker.datumweek
+	toColumn: DimDatum.Datum
+
+relationship 0c4c170b-c501-4ff8-9e83-3d4d9b069389
+	fromColumn: 'Invoice Line Item'.Krow__Invoice__c
+	toColumn: Invoice.Id
+
+relationship 7e335e60-88f9-4fcd-8de7-8d64255043dc
+	fromColumn: 'Invoice Line Item'.Krow__Project_Resource__c
+	toColumn: Medewerkers.Id
+

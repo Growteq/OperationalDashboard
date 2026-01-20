@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Salesforce Connector -oud2"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a2f53529-d204-b848-4969-195555cebc10"
+  }
+}

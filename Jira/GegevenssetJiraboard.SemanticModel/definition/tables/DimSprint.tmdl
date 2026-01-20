@@ -1,0 +1,177 @@
+table DimSprint
+	lineageTag: 025a00da-2a24-49ed-99f5-1e9687456f40
+
+	column maxResults
+		dataType: string
+		lineageTag: 46e96aad-734c-4015-9a94-c2e3d53a0fdb
+		summarizeBy: none
+		sourceColumn: maxResults
+
+		annotation SummarizationSetBy = Automatic
+
+	column startAt
+		dataType: string
+		lineageTag: af6efc2b-b80b-41ff-915d-1fb1c6ca45d5
+		summarizeBy: none
+		sourceColumn: startAt
+
+		annotation SummarizationSetBy = Automatic
+
+	column total
+		dataType: string
+		lineageTag: 7c8ac881-17eb-462c-9ef2-4328cc716de1
+		summarizeBy: none
+		sourceColumn: total
+
+		annotation SummarizationSetBy = Automatic
+
+	column isLast
+		dataType: string
+		lineageTag: 27f1da3e-5072-41cd-a290-c55f55f3179c
+		summarizeBy: none
+		sourceColumn: isLast
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'values.id'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6c3dfa94-d8db-4732-b2ef-20ddace21d65
+		summarizeBy: sum
+		sourceColumn: values.id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'values.self'
+		dataType: string
+		lineageTag: 93d460cf-4fb1-4e01-8105-dca2ea1753da
+		summarizeBy: none
+		sourceColumn: values.self
+
+		annotation SummarizationSetBy = Automatic
+
+	column SprintStatus
+		dataType: string
+		lineageTag: 2271818f-2158-4772-b120-5b3e97d0862c
+		summarizeBy: none
+		sourceColumn: SprintStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column SprintName
+		dataType: string
+		lineageTag: 66c4d1a7-fa73-4e00-83d9-75174a177ac5
+		summarizeBy: none
+		sourceColumn: SprintName
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'values.startDate'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 115fd122-4fbb-4f21-8417-2f7dedcb2587
+		summarizeBy: none
+		sourceColumn: values.startDate
+
+		variation Variation
+			isDefault
+			relationship: 1490c27d-df9a-4db7-9b78-a7b9bf761968
+			defaultHierarchy: LocalDateTable_7ee8cde3-d318-4535-8166-babe19b98199.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'values.endDate'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0f29be22-b080-4458-9c1b-4abf328ba073
+		summarizeBy: none
+		sourceColumn: values.endDate
+
+		variation Variation
+			isDefault
+			relationship: 7228596a-a374-4002-984a-a9ad5ed5bec0
+			defaultHierarchy: LocalDateTable_f4e8cac1-2f09-4018-891f-d26a9495da80.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'values.createdDate'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8bbf6e63-d1f1-412f-9e40-b2bdcafee6db
+		summarizeBy: none
+		sourceColumn: values.createdDate
+
+		variation Variation
+			isDefault
+			relationship: d3eff795-12c3-416b-a2dc-9e8efad17b68
+			defaultHierarchy: LocalDateTable_402fc4c1-3ad1-4e94-aaca-a3150accb369.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'values.originBoardId'
+		dataType: int64
+		formatString: 0
+		lineageTag: b1239b64-5573-4c75-8ad5-c00e9319e35d
+		summarizeBy: count
+		sourceColumn: values.originBoardId
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'values.goal'
+		dataType: string
+		lineageTag: 50be39c9-3b94-4262-83c9-fb493f7033d2
+		summarizeBy: none
+		sourceColumn: values.goal
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimSprint = m
+		mode: import
+		source =
+				let
+				    // Stap 1: Ophalen van actieve sprints via veilige Web.Contents-opbouw
+				    Source = Json.Document(
+				        Web.Contents(
+				            "https://growteq.atlassian.net",
+				            [
+				                RelativePath = "rest/agile/1.0/board/455/sprint",
+				                Query = [state = "active"]
+				            ]
+				        )
+				    ),
+				
+				    // Stap 2: Omzetten naar tabelstructuur
+				    #"Converted to Table" = Table.FromRecords({Source}),
+				    #"Expanded values" = Table.ExpandListColumn(#"Converted to Table", "values"),
+				    #"Expanded values1" = Table.ExpandRecordColumn(
+				        #"Expanded values",
+				        "values",
+				        {"id", "self", "state", "name", "startDate", "endDate", "createdDate", "originBoardId", "goal"},
+				        {"values.id", "values.self", "values.state", "values.name", "values.startDate", "values.endDate", "values.createdDate", "values.originBoardId", "values.goal"}
+				    ),
+				
+				    // Stap 3: Datatypes instellen
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded values1", {
+				        {"values.id", Int64.Type},
+				        {"values.self", type text},
+				        {"values.state", type text},
+				        {"values.name", type text},
+				        {"values.startDate", type datetime},
+				        {"values.endDate", type datetime},
+				        {"values.createdDate", type datetime},
+				        {"values.originBoardId", Int64.Type},
+				        {"values.goal", type text}
+				    }),
+				
+				    // Stap 4: Kolommen hernoemen
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type", {
+				        {"values.state", "SprintStatus"},
+				        {"values.name", "SprintName"}
+				    })
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

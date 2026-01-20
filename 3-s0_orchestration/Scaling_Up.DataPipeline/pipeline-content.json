@@ -1,0 +1,35 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Web1",
+        "type": "WebActivity",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "method": "POST",
+          "headers": {},
+          "body": {
+            "value": "@concat('{ \"ServerType\": \"', pipeline().parameters.pSKU, '\" }')",
+            "type": "Expression"
+          }
+        },
+        "externalReferences": {
+          "connection": "87c1798e-926d-4c6f-a445-01304c26d329"
+        }
+      }
+    ],
+    "parameters": {
+      "pSKU": {
+        "type": "string",
+        "defaultValue": "F8"
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+table 'Meetwaarden Timesheets'
+	lineageTag: 54b2ca38-3f17-40cc-8e4b-cc5a8f1d72f9
+
+	measure 'Geboekte uren' = sum('Timesheet Split'[Krow__Hours__c])
+		lineageTag: d890901e-3d5c-49e5-94af-b2409a050413
+
+		annotation Format = <Format Format="General" />
+
+	measure 'Geboekte uren (facturabel)' =
+			CALCULATE(
+			                                [Geboekte uren]
+			                                , 'Timesheet Split'[Krow__Billable__c] = TRUE())
+		lineageTag: 4da068cd-fec3-450d-ba6b-d3f5a3d994d7
+
+		annotation Format = <Format Format="General" />
+
+	measure 'Aantal dagen' = [Geboekte uren] /8
+		lineageTag: ce740290-de98-442b-af3d-ae4acd1bfd31
+
+		annotation Format = <Format Format="General" />
+
+	measure 'Aantal dagen declarabel' = [Geboekte uren (facturabel)] /8
+		lineageTag: f938421b-9b9f-4d40-8d03-ee43e651286a
+
+		annotation Format = <Format Format="General" />
+
+	measure Indirect = ```
+			[Geboekte uren] -[Geboekte uren (facturabel)] 
+			```
+		lineageTag: 2f968817-73bc-46d3-977e-acf53173615b
+
+		annotation Format = <Format Format="General" />
+
+	measure 'Waarde geboekte uren' = sum('Timesheet Split'[Krow__Bill_Amount__c])
+		lineageTag: bb4b315f-2ccf-4344-a05b-89fa1ff517d8
+
+		annotation Format = <Format Format="General" />
+
+	column 'Kolom 1'
+		dataType: string
+		isHidden
+		lineageTag: ee3077f9-ea76-40b6-8303-827250d100de
+		summarizeBy: none
+		sourceColumn: Kolom 1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	partition 'Meetwaarden Timesheets-d094daa4-e1bb-49fb-b285-aaaded5ebb61' = m
+		mode: import
+		source =
+				let
+				    Bron = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Kolom 1" = _t]),
+				    #"Type gewijzigd" = Table.TransformColumnTypes(Bron,{{"Kolom 1", type text}})
+				in
+				    #"Type gewijzigd"
+
+	annotation PBI_ResultType = Table
+

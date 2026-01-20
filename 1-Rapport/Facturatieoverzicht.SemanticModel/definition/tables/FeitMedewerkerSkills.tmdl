@@ -1,0 +1,101 @@
+table FeitMedewerkerSkills
+	lineageTag: 1756e492-5448-4bf5-80d8-eec2aaa49970
+
+	column MedewerkerSkillKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 165a0460-7544-42f0-9923-01431ee9f934
+		summarizeBy: count
+		sourceColumn: MedewerkerSkillKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SkillID
+		dataType: string
+		lineageTag: 629ff903-b089-468e-ad96-c31708a1815f
+		summarizeBy: none
+		sourceColumn: SkillID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectResourceSkillName
+		dataType: string
+		lineageTag: a0920944-46cc-4ffb-8152-f14df046cf74
+		summarizeBy: none
+		sourceColumn: ProjectResourceSkillName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 072dda37-4ce1-48b7-be73-edcdb707ba15
+		summarizeBy: none
+		sourceColumn: CreatedDate
+
+		variation Variation
+			isDefault
+			relationship: 31c00652-e4df-4687-aec3-30577cb822ca
+			defaultHierarchy: LocalDateTable_de6d3b3f-068f-4551-89e6-39d004dd627d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column CertificationDate
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 12664e4d-f84f-4914-bc83-cad4ec8d29cd
+		summarizeBy: none
+		sourceColumn: CertificationDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column ProficiencyRatingName
+		dataType: string
+		lineageTag: e126a187-0951-4321-b05c-aec42562d468
+		summarizeBy: none
+		sourceColumn: ProficiencyRatingName
+
+		annotation SummarizationSetBy = Automatic
+
+	column ResourceSkillName
+		dataType: string
+		lineageTag: 4ae667e7-0459-4baf-abb5-be9b8c6fe8f7
+		summarizeBy: none
+		sourceColumn: ResourceSkillName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MedewerkerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: b7477c04-6d0c-48b3-9cea-5c1480558bec
+		summarizeBy: none
+		sourceColumn: MedewerkerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SkillKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 2cf8d88f-2cba-422a-99f5-c93566c9d935
+		summarizeBy: none
+		sourceColumn: SkillKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FeitMedewerkerSkills = m
+		mode: import
+		queryGroup: Feit
+		source =
+				let
+				    Source = Sql.Database("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com", "Operationeel Dashboard"),
+				    s3_ods_MedewerkerSkills = Source{[Schema="s3_ods",Item="FeitMedewerkerSkills"]}[Data]
+				in
+				    s3_ods_MedewerkerSkills
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

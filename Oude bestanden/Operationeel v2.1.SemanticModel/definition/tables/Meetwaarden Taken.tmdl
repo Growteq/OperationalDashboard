@@ -1,0 +1,47 @@
+table 'Meetwaarden Taken'
+	lineageTag: b4a762a1-e391-4be4-b8af-076a5281f83c
+
+	measure 'Geschatte uren' = sum('Klient Task'[Krow__Estimated_Hours__c])
+		lineageTag: 1a72da79-ccbd-4c61-840e-5968ac968166
+
+		annotation Format = <Format Format="General" />
+
+	measure 'Geboekte uren declarabel' = sum('Klient Task'[Krow__Billable_Hours__c])
+		lineageTag: 7e8f7b41-a689-40fe-99e7-480395a640cf
+
+		annotation Format = <Format Format="General" />
+
+	measure 'Urenschatting vs realisatie' = [Geschatte uren] - [Geboekte uren declarabel]
+		lineageTag: 681c5653-19c5-4967-8c45-e44a54a8b6df
+
+		annotation Format = <Format Format="General" />
+
+	measure 'Geboekte uren per taak' = sum('Klient Task'[Krow__Total_Hours_Logged__c])
+		lineageTag: bcbf57a6-972d-43af-aef0-781e82bb45ac
+
+		annotation Format = <Format Format="General" />
+
+	column 'Kolom 1'
+		dataType: string
+		isHidden
+		lineageTag: 6fbd8fa3-135f-41bf-8189-1c580085e86c
+		summarizeBy: none
+		sourceColumn: Kolom 1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	partition 'Meetwaarden Taken-d3cb2da1-69a0-4060-b8bb-391c67b5bf3e' = m
+		mode: import
+		source =
+				let
+				    Bron = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Kolom 1" = _t]),
+				    #"Type gewijzigd" = Table.TransformColumnTypes(Bron,{{"Kolom 1", type text}})
+				in
+				    #"Type gewijzigd"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,103 @@
+table measure
+	lineageTag: 6d761502-c6a2-413d-bd0c-b12f36761567
+
+	measure AzureKostenGisteren = ```
+			
+			CALCULATE(
+			    [AzureKosten],
+			    FILTER(
+			        ALL(bram_view_exported),
+			        bram_view_exported[date] = TODAY() - 1
+			    )
+			)
+			
+			```
+		lineageTag: 5eb308c5-2118-479d-8132-226173b72649
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure AzureKostenEergisteren = ```
+			
+			CALCULATE(
+			    [AzureKosten],
+			    FILTER(
+			        ALL(bram_view_exported),
+			        bram_view_exported[date] = TODAY() - 2
+			    )
+			)
+			
+			```
+		lineageTag: 3fd61c60-7a30-4719-9338-768983d7964c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure AzureKostenVerschil = ```
+			
+			[AzureKostenGisteren] - [AzureKostenEergisteren]
+			
+			```
+		lineageTag: 4ea0c533-13e7-4a9d-8748-24b47660d222
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure AzureKostenPijl = ```
+			
+			VAR Verschil = [AzureKostenVerschil]
+			RETURN 
+			IF(
+			    ISBLANK(Verschil),
+			    BLANK(),
+			    IF(
+			        Verschil > 0, "⬆️", 
+			        IF(Verschil < 0, "⬇️", "➖")
+			    )
+			)
+			
+			```
+		lineageTag: 8cf29ac5-5bd7-45ce-b178-bbe06a5fec46
+
+	measure AzureKostenVerschilMetPijl = ```
+			
+			VAR Pijl = [AzureKostenPijl]
+			VAR Bedrag = FORMAT([AzureKostenVerschil], "€#,0.00")
+			RETURN
+			Pijl & " " & Bedrag
+			
+			```
+		lineageTag: 01fab000-6a99-48f0-986a-72d2eac68e51
+
+	measure AzureKostenKleur = ```
+			
+			VAR Verschil = [AzureKostenVerschil]
+			RETURN 
+			IF(Verschil < 0, "#00B050",  // Groen bij minder kosten
+			   IF(Verschil > 0, "#C00000",  // Rood bij meer kosten
+			      "#808080" // Grijs bij gelijk
+			   )
+			)
+			
+			```
+		lineageTag: a5cd5a1d-19a2-4342-8124-5de8e7f59acb
+
+	measure AzureKosten = SUM(bram_view_exported[costInBillingCurrency])
+		lineageTag: 1c18c222-0259-44a0-aad8-8e22f627b5a8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'som factureerbare uren' = SUM('s4_inf billable_uren'[Billable Hours])
+		lineageTag: d2212583-2c9d-4747-931d-c7f1c12e5623
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition measure = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+

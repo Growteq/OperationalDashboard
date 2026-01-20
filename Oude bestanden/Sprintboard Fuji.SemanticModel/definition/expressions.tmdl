@@ -1,0 +1,69 @@
+expression 'Errors in FeitSprintCapaciteit' =
+		let
+		Source = FeitSprintCapaciteit,
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Datum", "MedewerkerKey", "WeekNummer", "Team", "TeamNaam", "SprintNummer", "SprintNaam", "TotaalUren", "JaarWeek"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Datum", "MedewerkerKey", "WeekNummer", "Team", "TeamNaam", "SprintNummer", "SprintNaam", "TotaalUren", "JaarWeek"})
+		in
+		  #"Reordered Columns"
+	lineageTag: 4d33ebba-ef89-4da6-a88e-d177a6e5a4c4
+	queryGroup: 'Query Errors - 14/07/2025 08:08:19'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Errors in FeitSprintCapaciteit (2)' =
+		let
+		Source = FeitSprintCapaciteit,
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Datum", "MedewerkerKey", "WeekNummer", "Team", "TeamNaam", "SprintNummer", "SprintNaam", "TotaalUren", "JaarWeek"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Datum", "MedewerkerKey", "WeekNummer", "Team", "TeamNaam", "SprintNummer", "SprintNaam", "TotaalUren", "JaarWeek"})
+		in
+		  #"Reordered Columns"
+	lineageTag: defa62ec-50b8-449a-9d97-4109cac66c12
+	queryGroup: 'Query Errors - 14/07/2025 08:16:52'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Errors in FeitSprintCapaciteit (3)' =
+		let
+		Source = FeitSprintCapaciteit,
+		  #"Detected Type Mismatches" = let
+		    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),
+		    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),
+		    fieldNames = Record.FieldNames(recordTypeFields),
+		    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),
+		    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = "The type of the value does not match the type of the column.", Detail = v], fieldTypes{i}})
+		in
+		    Table.TransformColumns(Source, pairs),
+		  #"Added Index" = Table.AddIndexColumn(#"Detected Type Mismatches", "Row Number" ,1),
+		  #"Kept Errors" = Table.SelectRowsWithErrors(#"Added Index", {"Datum", "MedewerkerKey", "WeekNummer", "Team", "TeamNaam", "SprintNummer", "SprintNaam", "TotaalUren", "JaarWeek"}),
+		  #"Reordered Columns" = Table.ReorderColumns(#"Kept Errors", {"Row Number", "Datum", "MedewerkerKey", "WeekNummer", "Team", "TeamNaam", "SprintNummer", "SprintNaam", "TotaalUren", "JaarWeek"})
+		in
+		  #"Reordered Columns"
+	lineageTag: 96d0c130-d494-4398-8e59-220eead568f0
+	queryGroup: 'Query Errors - 14/07/2025 08:18:58'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

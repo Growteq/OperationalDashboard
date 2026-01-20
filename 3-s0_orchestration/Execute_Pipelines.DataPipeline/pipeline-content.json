@@ -1,0 +1,244 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "InvokePipeline",
+        "typeProperties": {
+          "parameters": {},
+          "waitOnCompletion": true,
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "pipelineId": "3a62f74d-29a4-b272-40c6-32dca130bcad",
+          "operationType": "InvokeFabricPipeline"
+        },
+        "externalReferences": {
+          "connection": "1b40ffdd-961c-4a96-ad58-a548db4f693a"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "s2_stg",
+        "dependsOn": [
+          {
+            "activity": "Scaling_up",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "InvokePipeline",
+        "typeProperties": {
+          "parameters": {},
+          "waitOnCompletion": true,
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "pipelineId": "2a7e0dd9-6fd5-91a5-4e22-7eda4e8a4a64",
+          "operationType": "InvokeFabricPipeline"
+        },
+        "externalReferences": {
+          "connection": "1b40ffdd-961c-4a96-ad58-a548db4f693a"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "s3_ods",
+        "dependsOn": [
+          {
+            "activity": "s2_stg",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Office365Outlook",
+        "typeProperties": {
+          "inputs": {
+            "body": {
+              "To": "eprosman@growteq.nl",
+              "Subject": "@pipeline().PipelineName",
+              "Body": "<p>&nbsp;&nbsp;&nbsp;&nbsp;Pipeline: @{pipeline().Pipeline} <br>\n &nbsp;&nbsp;&nbsp;RunId: @{pipeline().RunId} <br>\n &nbsp;&nbsp;&nbsp;Activity: @{activity('s2_stg').activityName} <br>\n &nbsp;&nbsp;&nbsp;ErrorType: @{activity('s2_stg').Error.Type} <br>\n &nbsp;&nbsp;&nbsp;ErrorCode: @{activity('s2_stg').Error.Code} <br>\n &nbsp;&nbsp;&nbsp;Foutmelding: @{activity('s2_stg').Error.Message}</p>",
+              "Sensitivity": "",
+              "Importance": "Normal"
+            },
+            "method": "post",
+            "path": "/v2/Mail"
+          }
+        },
+        "name": "Office 365 Outlook1",
+        "dependsOn": [
+          {
+            "activity": "s2_stg",
+            "dependencyConditions": [
+              "Failed"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Office365Outlook",
+        "typeProperties": {
+          "inputs": {
+            "body": {
+              "To": "eprosman@growteq.nl",
+              "Subject": "@pipeline().PipelineName",
+              "Body": "<p>&nbsp;&nbsp;&nbsp;&nbsp;Pipeline: @{pipeline().Pipeline} <br>\n &nbsp;&nbsp;&nbsp;RunId: @{pipeline().RunId} <br>\n &nbsp;&nbsp;&nbsp;Activity: @{activity('s3_ods').activityName} <br>\n &nbsp;&nbsp;&nbsp;ErrorType: @{activity('s3_ods').Error.Type} <br>\n &nbsp;&nbsp;&nbsp;ErrorCode: @{activity('s3_ods').Error.Code} <br>\n &nbsp;&nbsp;&nbsp;Foutmelding: @{activity('s3_ods').Error.Message}</p>",
+              "Sensitivity": "",
+              "Importance": "Normal"
+            },
+            "method": "post",
+            "path": "/v2/Mail"
+          }
+        },
+        "name": "Office 365 Outlook1_copy1",
+        "dependsOn": [
+          {
+            "activity": "s3_ods",
+            "dependencyConditions": [
+              "Failed"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "InvokePipeline",
+        "typeProperties": {
+          "parameters": {},
+          "waitOnCompletion": true,
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "pipelineId": "8fc6a668-8721-ac94-4c67-88152150f939",
+          "operationType": "InvokeFabricPipeline"
+        },
+        "externalReferences": {
+          "connection": "1b40ffdd-961c-4a96-ad58-a548db4f693a"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "ErrorLog",
+        "dependsOn": [
+          {
+            "activity": "Scaling_down",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "InvokePipeline",
+        "typeProperties": {
+          "parameters": {
+            "pSKU": "F16"
+          },
+          "waitOnCompletion": true,
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "pipelineId": "5227017c-0173-9d4c-4e45-60c127b743f2",
+          "operationType": "InvokeFabricPipeline"
+        },
+        "externalReferences": {
+          "connection": "1b40ffdd-961c-4a96-ad58-a548db4f693a"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Scaling_up",
+        "dependsOn": []
+      },
+      {
+        "type": "InvokePipeline",
+        "typeProperties": {
+          "parameters": {
+            "pSKU": "F2"
+          },
+          "waitOnCompletion": true,
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "pipelineId": "36cc3880-b36f-885f-4694-39fa423b58e2",
+          "operationType": "InvokeFabricPipeline"
+        },
+        "externalReferences": {
+          "connection": "1b40ffdd-961c-4a96-ad58-a548db4f693a"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Scaling_down",
+        "dependsOn": [
+          {
+            "activity": "s3_ods",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Wait",
+        "typeProperties": {
+          "waitTimeInSeconds": 900
+        },
+        "name": "WaitforScalingDown",
+        "dependsOn": [
+          {
+            "activity": "ErrorLog",
+            "dependencyConditions": [
+              "Completed"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "InvokePipeline",
+        "typeProperties": {
+          "parameters": {
+            "pSKU": "F2"
+          },
+          "waitOnCompletion": true,
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "pipelineId": "5227017c-0173-9d4c-4e45-60c127b743f2",
+          "operationType": "InvokeFabricPipeline"
+        },
+        "externalReferences": {
+          "connection": "1b40ffdd-961c-4a96-ad58-a548db4f693a"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Scaling_down_def",
+        "dependsOn": [
+          {
+            "activity": "WaitforScalingDown",
+            "dependencyConditions": [
+              "Completed"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

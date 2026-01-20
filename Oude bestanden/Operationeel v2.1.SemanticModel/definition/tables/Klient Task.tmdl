@@ -1,0 +1,117 @@
+table 'Klient Task'
+	lineageTag: b2719aa4-fe79-4e88-bf11-4e51ff789d04
+
+	column Id
+		dataType: string
+		lineageTag: a615f249-8b57-455a-a4b2-71163b13d5dd
+		summarizeBy: none
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Taaknaam
+		dataType: string
+		lineageTag: ca0df6ec-8253-42f6-9127-7ce15ccd0f4d
+		summarizeBy: none
+		sourceColumn: Taaknaam
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Billable_Hours__c
+		dataType: double
+		lineageTag: 00a235cc-f739-48e3-aa8e-35f3b4018273
+		summarizeBy: sum
+		sourceColumn: Krow__Billable_Hours__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Billable__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 6a2a7116-4bf6-4299-ba5b-fd0df118650a
+		summarizeBy: none
+		sourceColumn: Krow__Billable__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Boolean" />
+
+	column Krow__Status__c
+		dataType: string
+		lineageTag: 40f4d5f2-0263-44bb-9e3c-9f527acd9024
+		summarizeBy: none
+		sourceColumn: Krow__Status__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Total_Billable_Amount__c
+		dataType: double
+		lineageTag: e44a3f98-eed9-4330-9234-03b620819e42
+		summarizeBy: sum
+		sourceColumn: Krow__Total_Billable_Amount__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Project__c
+		dataType: string
+		lineageTag: e72ba58c-02b9-4786-8313-8b5cd70482d0
+		summarizeBy: none
+		sourceColumn: Krow__Project__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Scheduled_Hours__c
+		dataType: double
+		lineageTag: 7d5769b2-ed42-4c88-93bc-a371795b4540
+		summarizeBy: sum
+		sourceColumn: Krow__Scheduled_Hours__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Estimated_Hours__c
+		dataType: double
+		lineageTag: 7b62bee1-ba43-435a-9d28-538b9f327e1b
+		summarizeBy: sum
+		sourceColumn: Krow__Estimated_Hours__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Total_Hours_Logged__c
+		dataType: double
+		lineageTag: acb6b05e-8df6-49e9-88d8-3a22c6af413b
+		summarizeBy: sum
+		sourceColumn: Krow__Total_Hours_Logged__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	partition 'Klient Task-359f0466-1898-4627-b7e7-b67e084221b6' = m
+		mode: import
+		source =
+				let
+				    Bron = Salesforce.Data("https://growteq.my.salesforce.com", [ApiVersion=48]),
+				    Krow__Task__c = Bron{[Name="Krow__Task__c"]}[Data],
+				    #"Andere kolommen verwijderd" = Table.SelectColumns(Krow__Task__c,{"Id", "Name", "Krow__Billable_Hours__c", "Krow__Billable__c", "Krow__Estimated_Hours__c", "Krow__Project__c", "Krow__Status__c", "Krow__Total_Billable_Amount__c", "Krow__Total_Hours_Logged__c", "Krow__Scheduled_Hours__c"}),
+				    #"Namen van kolommen gewijzigd" = Table.RenameColumns(#"Andere kolommen verwijderd",{{"Name", "Taaknaam"}})
+				in
+				    #"Namen van kolommen gewijzigd"
+
+	annotation PBI_ResultType = Table
+

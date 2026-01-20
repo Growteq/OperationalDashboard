@@ -1,0 +1,82 @@
+table 's4_inf gefactureerde_uren'
+	lineageTag: 36115306-01d6-4110-8723-bf93652c3e9c
+
+	measure 'kosten gefactureerd' = SUM('s4_inf gefactureerde_uren'[Kosten])
+		lineageTag: 18de9860-efb2-4539-9d2e-500574c23545
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'tot nu toe gefactureerd' = SUM('s4_inf gefactureerde_uren'[Opbrengsten])
+		lineageTag: 1302af93-7aba-4219-bf0a-bec621e32bf3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Datum
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d93bbfc2-d4b2-4921-9a72-a8139f6371d1
+		summarizeBy: none
+		sourceColumn: Datum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account Name'
+		dataType: string
+		lineageTag: 5fc78e8e-be56-4b8f-ac31-3346f97c3da1
+		summarizeBy: none
+		sourceColumn: Account Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Debiteurnummer
+		dataType: string
+		lineageTag: 125b3718-56f7-4fd2-965c-efb886d548d1
+		summarizeBy: none
+		sourceColumn: Debiteurnummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Billable Hours'
+		dataType: double
+		lineageTag: a1d366db-95e0-43ed-9a4b-9862810ba093
+		summarizeBy: sum
+		sourceColumn: Billable Hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Kosten
+		dataType: double
+		lineageTag: e5f148bd-4056-420b-b92d-a49e70494d7c
+		summarizeBy: none
+		sourceColumn: Kosten
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Opbrengsten
+		dataType: double
+		lineageTag: ffb1c10b-537c-4a03-968a-18c633af3ce6
+		summarizeBy: sum
+		sourceColumn: Opbrengsten
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 's4_inf gefactureerde_uren' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com"),
+				    #"Operationeel Dashboard" = Source{[Name="Operationeel Dashboard"]}[Data],
+				    s4_inf_gefactureerde_uren = #"Operationeel Dashboard"{[Schema="s4_inf",Item="gefactureerde_uren"]}[Data]
+				in
+				    s4_inf_gefactureerde_uren
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

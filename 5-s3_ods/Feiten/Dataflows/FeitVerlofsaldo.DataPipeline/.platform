@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "FeitVerlofsaldo"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "191a3fa0-0356-aa2f-402d-9479ea9ac157"
+  }
+}

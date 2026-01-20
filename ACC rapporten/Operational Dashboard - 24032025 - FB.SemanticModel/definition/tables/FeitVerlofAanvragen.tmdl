@@ -1,0 +1,87 @@
+table FeitVerlofAanvragen
+	lineageTag: 44d4f5b0-d684-43ac-82bb-06708ee665d3
+
+	column FeitVerlofaanvraagKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 073fa3c6-bdcb-4179-b5f3-965ae7db5a34
+		summarizeBy: count
+		sourceColumn: FeitVerlofaanvraagKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DatumAangevraagd
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e2f68946-7f2a-43e8-81ad-1d6e73d8434f
+		summarizeBy: none
+		sourceColumn: DatumAangevraagd
+
+		annotation SummarizationSetBy = Automatic
+
+	column VerlofType
+		dataType: string
+		lineageTag: 39c90480-8210-4d1b-9a4b-ffa75a390cfc
+		summarizeBy: none
+		sourceColumn: VerlofType
+
+		annotation SummarizationSetBy = Automatic
+
+	column GoedkeuringsStatus
+		dataType: string
+		lineageTag: 95458a37-41d6-4317-9695-c744f9bdd0da
+		summarizeBy: none
+		sourceColumn: GoedkeuringsStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column Verlofuren
+		dataType: double
+		lineageTag: b35a6e40-cada-4fa3-abbf-89ef4f1d26bc
+		summarizeBy: sum
+		sourceColumn: Verlofuren
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Medewerker
+		dataType: string
+		lineageTag: 421a67e5-af42-41db-9997-2478e45bf1fe
+		summarizeBy: none
+		sourceColumn: Medewerker
+
+		annotation SummarizationSetBy = Automatic
+
+	column DatumVerlof
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 17e129b5-163b-49d1-8540-eb159e6ccd02
+		summarizeBy: none
+		sourceColumn: DatumVerlof
+
+		annotation SummarizationSetBy = Automatic
+
+	column MedewerkerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 81f2e82d-f2dd-44fd-9226-6c2aa17c24c1
+		summarizeBy: none
+		sourceColumn: MedewerkerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FeitVerlofAanvragen = m
+		mode: import
+		queryGroup: Feit
+		source =
+				let
+				    Source = Sql.Database("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com", "Operationeel Dashboard"),
+				    s3_ods_VerlofAanvragen = Source{[Schema="s3_ods",Item="FeitVerlofAanvragen"]}[Data]
+				in
+				    s3_ods_VerlofAanvragen
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

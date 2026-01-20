@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Facturen"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "3915c30e-ab50-b98d-4c2b-45055a53c1a3"
+  }
+}

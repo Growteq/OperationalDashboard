@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "s2_stg_afas",
+    "description": ""
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "91cef88b-f827-9ea8-4dc5-ede11342709f"
+  }
+}

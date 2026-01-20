@@ -1,0 +1,82 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy data FeitMedewerkerSkills",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DataWarehouseSource",
+            "sqlReaderQuery": "WITH x AS (\n    SELECT \n        ROW_NUMBER() OVER (\n            PARTITION BY prs.[Krow__Project_Skill__c], \n                         prs.[Name], \n                         m.[MedewerkerKey], \n                         pr.[Name], \n                         rs.[Name], \n                         s.[SkillKey] \n            ORDER BY prs.CreatedDate DESC) AS RowNum,\n        prs.[Krow__Project_Skill__c] AS SkillID,\n        prs.[Name] AS ProjectResourceSkillName,\n        prs.CreatedDate,\n        prs.[Certification_Date__c] AS CertificationDate,\n        pr.[Name] AS ProficiencyRatingName,\n        rs.[Name] AS ResourceSkillName,\n        m.[MedewerkerKey],\n        s.[SkillKey]\n    FROM \n        [s2_stg_salesforce].[ProjectResourceSkill] prs\n    LEFT JOIN \n        [s2_stg_salesforce].[ProficiencyRating] pr\n    ON \n        prs.[Krow__Proficiency_Rating__c] = pr.[Id] \n    LEFT JOIN \n        [s2_stg_salesforce].[ResourceSkills] rs\n    ON \n        prs.[Krow__Project_Skill__c] = rs.[Id] \n    LEFT JOIN \n        s3_ods.DimMedewerkers m\n    ON \n        prs.[Krow__Project_Resource__c] = m.[MedewerkerIdSF]\n    LEFT JOIN \n        s3_ods.DimSkills s\n    ON  \n        prs.[Krow__Project_Skill__c] = s.[SkillId]\n)\nSELECT \n    ROW_NUMBER() OVER (ORDER BY SkillID, ProjectResourceSkillName) AS MedewerkerSkillKey, \n    SkillID,\n    ProjectResourceSkillName,\n    CreatedDate,\n    CertificationDate,\n    ProficiencyRatingName,\n    ResourceSkillName,\n    MedewerkerKey,\n    SkillKey\nFROM \n    x\nWHERE \n    RowNum = 1 \nORDER BY \n    SkillID, ProjectResourceSkillName;\n",
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "connectionSettings": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  },
+                  "externalReferences": {
+                    "connection": "91f2d362-0f5b-4b3f-aaac-2f31b217f3cb"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {}
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "s3_ods",
+                "table": "FeitMedewerkerSkills"
+              }
+            }
+          },
+          "enableStaging": true,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      }
+    ]
+  }
+}

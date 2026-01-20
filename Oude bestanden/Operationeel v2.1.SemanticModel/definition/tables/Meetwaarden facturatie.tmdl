@@ -1,0 +1,86 @@
+table 'Meetwaarden facturatie'
+	lineageTag: 4de43e67-44a7-482d-a1c4-4ec44e9bc743
+
+	measure 'Factuurwaarde uren' = sum('Timesheet Split'[Krow__Bill_Amount__c])
+		lineageTag: 504a7a45-8114-4f3f-b5f0-c46dc31586fc
+
+		annotation Format = <Format Format="General" />
+
+	measure '% Uren niet gefactureerd' = ```
+			(CALCULATE( 
+			            sum('Timesheet Split'[Krow__Hours__c])
+			            , 'Timesheet Split'[Krow__Invoiced__c] = FALSE())
+			            /
+			            CALCULATE(sum('Timesheet Split'[Krow__Hours__c])
+			
+			
+			))
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b85b7d25-0995-46d9-a77b-853816b247ff
+
+		annotation Format = <Format Format="Percentage" Accuracy="2" />
+
+	measure '% uren gefactureerd' = ```
+			(CALCULATE( 
+			            sum('Timesheet Split'[Krow__Hours__c])
+			            , 'Timesheet Split'[Krow__Invoiced__c] = TRUE())
+			            /
+			            CALCULATE(sum('Timesheet Split'[Krow__Hours__c])
+			
+			
+			))
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: abf94abb-48ba-4cf6-922e-a9be1a69a229
+
+		annotation Format = <Format Format="Percentage" Accuracy="2" />
+
+	measure 'Uren gefactureerd' = ```
+			(CALCULATE( 
+			            sum('Timesheet Split'[Krow__Hours__c])
+			            , 'Timesheet Split'[Krow__Invoiced__c] = TRUE())
+			           
+			
+			)
+			```
+		lineageTag: 648b0dee-2b74-4b53-b83a-d1f9062156a6
+
+		annotation Format = <Format Format="General" />
+
+	measure 'Uren niet gefactureerd' = ```
+			(CALCULATE( 
+			            sum('Timesheet Split'[Krow__Hours__c])
+			            , 'Timesheet Split'[Krow__Invoiced__c] = FALSE())
+			           
+			
+			)
+			```
+		lineageTag: 3ec9a40d-bdf3-49e9-8306-718cc472d8f8
+
+		annotation Format = <Format Format="General" />
+
+	column 'Kolom 1'
+		dataType: string
+		isHidden
+		lineageTag: 3f677992-e9eb-480c-bdc6-20f5e1423955
+		summarizeBy: none
+		sourceColumn: Kolom 1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	partition 'Meetwaarden facturatie-e6a9d649-4fca-45fb-8393-7af21ac2aa59' = m
+		mode: import
+		source =
+				let
+				    Bron = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Kolom 1" = _t]),
+				    #"Type gewijzigd" = Table.TransformColumnTypes(Bron,{{"Kolom 1", type text}})
+				in
+				    #"Type gewijzigd"
+
+	annotation PBI_ResultType = Table
+
