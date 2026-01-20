@@ -184,6 +184,41 @@ table '1. Meetwaarden'
 		displayFolder: Commercieel
 		lineageTag: c18ff68d-542b-478c-bbed-eda1260cfd46
 
+	measure 'Brutomarge Vorig Jaar' = ```
+			CALCULATE([Brutomarge], SAMEPERIODLASTYEAR(DimDatum[Datum]))
+			```
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		displayFolder: Commercieel
+		lineageTag: 7c0d5f8e-6a4d-4f9a-0h3g-0e9f8g7h6c4d
+
+	measure 'Brutomarge % Vorig Jaar' = ```
+			CALCULATE(
+			    [Brutomarge %],
+			    SAMEPERIODLASTYEAR(DimDatum[Datum])
+			)
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Commercieel
+		lineageTag: 8d1e6g9f-7b5e-5g0b-0i4h-1f0g9h8i7d5e
+
+	measure 'Brutomarge % Vorige Maand' = ```
+			VAR CurrentDate = MAX(DimDatum[Datum])
+			VAR FirstDayPreviousMonth = EOMONTH(CurrentDate, -1) + 1
+			VAR LastDayPreviousMonth = EOMONTH(FirstDayPreviousMonth, 0)
+			RETURN
+			CALCULATE(
+			    [Brutomarge %],
+			    FILTER(
+			        ALL(DimDatum),
+			        DimDatum[Datum] >= FirstDayPreviousMonth &&
+			        DimDatum[Datum] <= LastDayPreviousMonth
+			    )
+			)
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Commercieel
+		lineageTag: 9e2f7h0g-8c6f-6h1c-1j5i-2g1h0i9j8e6f
+
 	measure 'Commerciële waarden uren' = ```
 			
 			SUMX(
