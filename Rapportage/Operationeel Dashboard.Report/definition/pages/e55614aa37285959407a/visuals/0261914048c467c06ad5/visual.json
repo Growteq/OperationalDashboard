@@ -2,18 +2,18 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "0261914048c467c06ad5",
   "position": {
-    "x": 518.75,
-    "y": 307.5,
+    "x": 440,
+    "y": 270,
     "z": 19000,
-    "height": 77.5,
-    "width": 241.25,
+    "height": 90,
+    "width": 398.33333333333337,
     "tabOrder": 18000
   },
   "visual": {
-    "visualType": "card",
+    "visualType": "kpi",
     "query": {
       "queryState": {
-        "Values": {
+        "Goal": {
           "projections": [
             {
               "field": {
@@ -23,11 +23,47 @@
                       "Entity": "1. Meetwaarden"
                     }
                   },
-                  "Property": "Realisatiegraad"
+                  "Property": "Brutomarge % Vorige Maand"
                 }
               },
-              "queryRef": "1. Meetwaarden.Realisatiegraad",
-              "nativeQueryRef": "Realisatiegraad"
+              "queryRef": "1. Meetwaarden.Brutomarge % Vorige Maand'",
+              "nativeQueryRef": "Brutomarge % Vorige Maand"
+            }
+          ]
+        },
+        "Indicator": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "1. Meetwaarden"
+                    }
+                  },
+                  "Property": "Brutomarge %"
+                }
+              },
+              "queryRef": "1. Meetwaarden.Brutomarge %",
+              "nativeQueryRef": "Brutomarge %"
+            }
+          ]
+        },
+        "TrendLine": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimDatum"
+                    }
+                  },
+                  "Property": "Teller"
+                }
+              },
+              "queryRef": "DimDatum.Teller",
+              "nativeQueryRef": "Teller"
             }
           ]
         }
@@ -42,7 +78,7 @@
                     "Entity": "1. Meetwaarden"
                   }
                 },
-                "Property": "Realisatiegraad"
+                "Property": "Brutomarge"
               }
             },
             "direction": "Descending"
@@ -52,39 +88,34 @@
       }
     },
     "objects": {
-      "labels": [
+      "indicator": [
         {
           "properties": {
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "22D"
+                  "Value": "25D"
                 }
               }
             },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 3,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "labelDisplayUnits": {
+            "indicatorDisplayUnits": {
               "expr": {
                 "Literal": {
                   "Value": "1D"
+                }
+              }
+            },
+            "indicatorPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
                 }
               }
             }
           }
         }
       ],
-      "categoryLabels": [
+      "trendline": [
         {
           "properties": {
             "show": {
@@ -96,12 +127,32 @@
             }
           }
         }
+      ],
+      "goals": [
+        {
+          "properties": {
+            "goalText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Vorige maand'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
       "title": [
         {
           "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Projectmarge'"
+                }
+              }
+            },
             "show": {
               "expr": {
                 "Literal": {
@@ -120,13 +171,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'center'"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Projectmarge'"
                 }
               }
             }
@@ -193,11 +237,64 @@
                   "Value": "true"
                 }
               }
+            },
+            "section": {
+              "expr": {
+                "Literal": {
+                  "Value": "'89c238bba03116a15556'"
+                }
+              }
             }
           }
         }
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "f802234287b3c4ec137c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDatum"
+              }
+            },
+            "Property": "Teller"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fcc8507300db030a477e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "1. Meetwaarden"
+              }
+            },
+            "Property": "Brutomarge %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ca4bcb2c2a60b81028b6",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "1. Meetwaarden"
+              }
+            },
+            "Property": "Brutomarge % Vorige Maand"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

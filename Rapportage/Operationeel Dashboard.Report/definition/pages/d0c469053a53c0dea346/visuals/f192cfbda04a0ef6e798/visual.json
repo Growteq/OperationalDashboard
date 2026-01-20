@@ -278,6 +278,20 @@
         "howCreated": "User",
         "isHiddenInViewMode": true,
         "isLockedInViewMode": true
+      },
+      {
+        "name": "c4189b9b737eb0d09cbe",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "1. Meetwaarden"
+              }
+            },
+            "Property": "OmzetPotentie"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

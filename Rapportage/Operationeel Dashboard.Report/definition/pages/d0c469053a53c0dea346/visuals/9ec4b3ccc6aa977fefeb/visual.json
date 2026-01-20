@@ -269,6 +269,20 @@
         },
         "howCreated": "User",
         "isLockedInViewMode": true
+      },
+      {
+        "name": "0de2628bddc0a691649d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "1. Meetwaarden"
+              }
+            },
+            "Property": "Facturatie"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }
