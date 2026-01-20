@@ -1,0 +1,158 @@
+table FeitGeplandeUren
+	lineageTag: 9e98f4e5-e7e5-4c08-b2ec-eb7f9800b3d5
+
+	column GeplandeUrenKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 4dc95bc6-5e80-48b8-a08c-fadb31a827dd
+		summarizeBy: count
+		sourceColumn: GeplandeUrenKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: c10738ac-f539-45f1-ab26-d3201a66692d
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column UrenMaandag
+		dataType: double
+		lineageTag: a973a683-7960-492f-939f-aa5f62c16625
+		summarizeBy: sum
+		sourceColumn: UrenMaandag
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UrenDinsdag
+		dataType: double
+		lineageTag: b0d18a55-e881-4d37-a3e8-01c77bcfb6ae
+		summarizeBy: sum
+		sourceColumn: UrenDinsdag
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UrenWoensdag
+		dataType: double
+		lineageTag: e54fd125-1ca1-41e8-9d03-e5e6a24bf5b2
+		summarizeBy: sum
+		sourceColumn: UrenWoensdag
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UrenDonderdag
+		dataType: double
+		lineageTag: cf35a31a-acad-42d6-900a-ba4811ac4aa2
+		summarizeBy: sum
+		sourceColumn: UrenDonderdag
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UrenVrijdag
+		dataType: double
+		lineageTag: 774605fe-349d-414d-a9c7-1ad83b763789
+		summarizeBy: sum
+		sourceColumn: UrenVrijdag
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UrenZaterdag
+		dataType: double
+		lineageTag: 199db2ed-2c55-40cd-a097-03cd80941746
+		summarizeBy: sum
+		sourceColumn: UrenZaterdag
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UrenTotaal
+		dataType: double
+		lineageTag: d1548fa5-41ed-4bbc-9887-1f61ea62a308
+		summarizeBy: sum
+		sourceColumn: UrenTotaal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TypeBoeking
+		dataType: string
+		lineageTag: bd5f4666-2651-426a-847a-053a47252374
+		summarizeBy: none
+		sourceColumn: TypeBoeking
+
+		annotation SummarizationSetBy = Automatic
+
+	column MedewerkerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 59f59ecf-460f-4c7e-9827-739a2fd1dbc6
+		summarizeBy: none
+		sourceColumn: MedewerkerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectKey
+		dataType: int64
+		formatString: 0
+		lineageTag: fa36a7dc-2f82-415d-b823-c382aed2f931
+		summarizeBy: none
+		sourceColumn: ProjectKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Datum
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 852d9458-2bd5-403b-b21a-4ec528c292e4
+		summarizeBy: none
+		sourceColumn: Datum
+
+		annotation SummarizationSetBy = Automatic
+
+	column GeplandeUren
+		dataType: double
+		lineageTag: c605a856-292d-4c7c-a5b5-11ca694621b8
+		summarizeBy: sum
+		sourceColumn: GeplandeUren
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PracticeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f4515ce-c125-4f3b-b6d5-8d779f3f3128
+		summarizeBy: none
+		sourceColumn: PracticeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FeitGeplandeUren = m
+		mode: import
+		queryGroup: Feit
+		source =
+				let
+				    Source = Sql.Database("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com", "Operationeel Dashboard"),
+				    s3_ods_GeplandeUren = Source{[Schema="s3_ods",Item="FeitGeplandeUren"]}[Data]
+				in
+				    s3_ods_GeplandeUren
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

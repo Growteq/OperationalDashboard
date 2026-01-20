@@ -1,0 +1,129 @@
+table FeitInUitStroom
+	lineageTag: 1fc0f08f-b37c-452b-a16b-bfcaf53ad9ca
+
+	column InUitStroomKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 7ce7cc93-91ba-4996-8f81-ba3b243f4224
+		summarizeBy: count
+		sourceColumn: InUitStroomKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column UniekeMedewerker
+		dataType: string
+		lineageTag: 4f59f317-d720-41d2-b54a-72295b6eb60f
+		summarizeBy: none
+		sourceColumn: UniekeMedewerker
+
+		annotation SummarizationSetBy = Automatic
+
+	column MedewerkerNaam
+		dataType: string
+		lineageTag: 01aa2852-d401-4af5-9ebf-ed42d70e3db2
+		summarizeBy: none
+		sourceColumn: MedewerkerNaam
+
+		annotation SummarizationSetBy = Automatic
+
+	column DatumInstroom
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 98f75a14-3127-4eba-bfa3-a04febddeb6f
+		summarizeBy: none
+		sourceColumn: DatumInstroom
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DatumUitstroom
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b430090b-a948-43cb-b23b-f91ca270211f
+		summarizeBy: none
+		sourceColumn: DatumUitstroom
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column InstroomAantal
+		dataType: int64
+		formatString: 0
+		lineageTag: 9c88ea27-a455-4fa3-9fea-632705db2839
+		summarizeBy: sum
+		sourceColumn: InstroomAantal
+
+		annotation SummarizationSetBy = Automatic
+
+	column InstroomFTE
+		dataType: double
+		lineageTag: 15ca67cd-02cc-4978-a459-46f82d3256d2
+		summarizeBy: sum
+		sourceColumn: InstroomFTE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UitstroomAantal
+		dataType: int64
+		formatString: 0
+		lineageTag: bc01b24b-00d2-424b-987e-b4ba7183c0dd
+		summarizeBy: sum
+		sourceColumn: UitstroomAantal
+
+		annotation SummarizationSetBy = Automatic
+
+	column UitstroomFTE
+		dataType: double
+		lineageTag: 63973cb9-3428-49ec-bdf4-1dc854e13a24
+		summarizeBy: sum
+		sourceColumn: UitstroomFTE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MedewerkerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: bc20925f-5190-45ca-8c06-2bf9ca69d12d
+		summarizeBy: none
+		sourceColumn: MedewerkerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TeamKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a9410bd5-b854-4ba0-a6b4-1d6b2a2ac1b8
+		summarizeBy: count
+		sourceColumn: TeamKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PracticeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 42452a9d-dc4a-48bf-8219-263f4e557b6c
+		summarizeBy: count
+		sourceColumn: PracticeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FeitInUitStroom = m
+		mode: import
+		queryGroup: Feit
+		source =
+				let
+				    Source = Sql.Database("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com", "Operationeel Dashboard"),
+				    s3_ods_InUitStroom = Source{[Schema="s3_ods",Item="FeitInUitStroom"]}[Data]
+				in
+				    s3_ods_InUitStroom
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
