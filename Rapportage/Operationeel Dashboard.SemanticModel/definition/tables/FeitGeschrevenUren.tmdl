@@ -1,0 +1,223 @@
+table FeitGeschrevenUren
+	lineageTag: f0021c04-9f48-46e5-9bb9-c02827a7340a
+
+	column GeschrevenUrenKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 0d70b33d-a204-49db-b9cb-ce1590612f5a
+		summarizeBy: count
+		sourceColumn: GeschrevenUrenKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Datum
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 607106ec-e1a5-417d-b4ef-72bc42775cf4
+		summarizeBy: none
+		sourceColumn: Datum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Krow__Project_Resource__c
+		dataType: string
+		lineageTag: c4fdf215-6eb4-4c02-95dd-835e20144431
+		summarizeBy: none
+		sourceColumn: Krow__Project_Resource__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column Krow__Account__c
+		dataType: string
+		lineageTag: dda9138d-1606-47ce-ae55-5e3444cd8d8c
+		summarizeBy: none
+		sourceColumn: Krow__Account__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column Krow__Krow_Project__c
+		dataType: string
+		lineageTag: ff9b44cc-4b60-47e7-a52a-621dbae26318
+		summarizeBy: none
+		sourceColumn: Krow__Krow_Project__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column Krow__Krow_Task__c
+		dataType: string
+		lineageTag: eab91be5-9907-496e-be67-7900a1e8172a
+		summarizeBy: none
+		sourceColumn: Krow__Krow_Task__c
+
+		annotation SummarizationSetBy = Automatic
+
+	column GoedkeuringsStatus
+		dataType: string
+		lineageTag: eefab116-1cc9-4a45-babb-76f77c3fe1a0
+		summarizeBy: none
+		sourceColumn: GoedkeuringsStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsFacturabel
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 90bff9c4-8f91-4b82-886d-c42fb8fb7e80
+		summarizeBy: none
+		sourceColumn: IsFacturabel
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsGefactureerd
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 638d3979-8e5d-4780-a78d-e225d95ce103
+		summarizeBy: none
+		sourceColumn: IsGefactureerd
+
+		annotation SummarizationSetBy = Automatic
+
+	column AantalUren
+		dataType: double
+		lineageTag: 6beec596-4e96-4a54-87c9-297377b386fa
+		summarizeBy: sum
+		sourceColumn: AantalUren
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FacturabeleUren
+		dataType: double
+		lineageTag: fa79321f-2a64-47ab-a8ec-118af3f09004
+		summarizeBy: sum
+		sourceColumn: FacturabeleUren
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NietFacturabeleUren
+		dataType: double
+		lineageTag: 66398a13-98fb-48e0-b2b4-90f5404ba73d
+		summarizeBy: sum
+		sourceColumn: NietFacturabeleUren
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Opmerkingen
+		dataType: string
+		lineageTag: f9b50632-99ff-4376-8256-83bb80a34eaa
+		summarizeBy: none
+		sourceColumn: Opmerkingen
+
+		annotation SummarizationSetBy = Automatic
+
+	column Verloftype
+		dataType: string
+		lineageTag: c36bf906-9681-4c01-b917-cb44619bc96d
+		summarizeBy: none
+		sourceColumn: Verloftype
+
+		annotation SummarizationSetBy = Automatic
+
+	column CommercieelTarief
+		dataType: double
+		lineageTag: 96fd2298-eb88-4184-aed1-62ac2dcfba5a
+		summarizeBy: sum
+		sourceColumn: CommercieelTarief
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column KostprijsTarief
+		dataType: double
+		lineageTag: 515e8dc9-7b92-4c80-a046-3bb1fb4d0003
+		summarizeBy: sum
+		sourceColumn: KostprijsTarief
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ProjectKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 365afab7-25ff-4240-8449-8ed5b45c5162
+		summarizeBy: none
+		sourceColumn: ProjectKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column MedewerkerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ad561e2-40a2-4ed9-b2b5-779f1f7fb1c2
+		summarizeBy: none
+		sourceColumn: MedewerkerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column KlantKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 348e8bed-e790-45e9-aa2a-22645e74a403
+		summarizeBy: count
+		sourceColumn: KlantKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TaakregelKey
+		dataType: int64
+		formatString: 0
+		lineageTag: df496ba0-fa51-4076-8890-2f5ab32cfc0a
+		summarizeBy: none
+		sourceColumn: TaakregelKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column OmzetPotentie
+		dataType: double
+		lineageTag: a593d5cc-0512-4fe9-8923-619eb1f11663
+		summarizeBy: sum
+		sourceColumn: OmzetPotentie
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PracticeKey
+		dataType: string
+		lineageTag: 17917681-fc36-4573-b7a1-128c16167188
+		summarizeBy: none
+		sourceColumn: PracticeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column OmzetCategorie
+		dataType: string
+		lineageTag: 68a069fb-b59b-41f4-a668-a5d40fdc3228
+		summarizeBy: none
+		sourceColumn: OmzetCategorie
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FeitGeschrevenUren = m
+		mode: import
+		queryGroup: Feit
+		source =
+				let
+				    Source = Sql.Database("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com", "Operationeel Dashboard"),
+				    s3_ods_GeschrevenUren = Source{[Schema="s3_ods",Item="FeitGeschrevenUren"]}[Data]
+				in
+				    s3_ods_GeschrevenUren
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

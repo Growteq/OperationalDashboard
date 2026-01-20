@@ -1,0 +1,94 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "da6cb725d87d5456ada6",
+  "displayName": "Operationeel - Verlof",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c7255d531de758dc54cb",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimVerloftype"
+              }
+            },
+            "Property": "VerlofCode"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "371f6351990871947d85",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDatum"
+              }
+            },
+            "Property": "Datum"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "dfa5b3857e3b41bcc900",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimVerloftype"
+              }
+            },
+            "Property": "VerlofType"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      }
+    ]
+  },
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "width": {
+            "expr": {
+              "Literal": {
+                "Value": "304L"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "620c53303319c88d8736",
+      "target": "2910274bf107a71a242c",
+      "type": "NoFilter"
+    },
+    {
+      "source": "2910274bf107a71a242c",
+      "target": "620c53303319c88d8736",
+      "type": "DataFilter"
+    },
+    {
+      "source": "620c53303319c88d8736",
+      "target": "61316c3a5a2d9bd7aff4",
+      "type": "NoFilter"
+    },
+    {
+      "source": "61316c3a5a2d9bd7aff4",
+      "target": "2910274bf107a71a242c",
+      "type": "DataFilter"
+    }
+  ]
+}

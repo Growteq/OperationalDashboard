@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "2a59b0d74901d91de1cd",
+  "position": {
+    "x": 860,
+    "y": 95,
+    "z": 11000,
+    "height": 608.33333333333337,
+    "width": 398.33333333333337
+  },
+  "visualGroup": {
+    "displayName": "Productiviteit",
+    "groupMode": "ScaleMode"
+  }
+}

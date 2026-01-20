@@ -1,0 +1,50 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "4ee07fbc7425910a8661",
+  "displayName": "Medewerker",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2fa96151a9ccf4644f9e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimMedewerkers"
+              }
+            },
+            "Property": "Team"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      }
+    ]
+  },
+  "visibility": "HiddenInViewMode",
+  "visualInteractions": [
+    {
+      "source": "30d11a98d0c66e9d2e76",
+      "target": "6d58359e8bef5c236acc",
+      "type": "DataFilter"
+    },
+    {
+      "source": "6d58359e8bef5c236acc",
+      "target": "199c03cc764521033e53",
+      "type": "DataFilter"
+    },
+    {
+      "source": "6d58359e8bef5c236acc",
+      "target": "d78a04ab9ebdb8ef69ab",
+      "type": "DataFilter"
+    },
+    {
+      "source": "6d58359e8bef5c236acc",
+      "target": "30d11a98d0c66e9d2e76",
+      "type": "DataFilter"
+    }
+  ]
+}

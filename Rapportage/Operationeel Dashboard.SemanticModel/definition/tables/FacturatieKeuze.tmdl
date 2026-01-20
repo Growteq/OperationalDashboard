@@ -1,0 +1,49 @@
+table FacturatieKeuze
+	lineageTag: 39f22a0a-b65c-4153-95e0-da6790df728e
+
+	column FacturatieKeuze
+		lineageTag: ddc58330-93bc-4147-bb59-d5e42cb740ac
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'FacturatieKeuze orders'
+
+		relatedColumnDetails
+			groupByColumn: 'FacturatieKeuze velden'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FacturatieKeuze velden'
+		isHidden
+		lineageTag: 45034b5d-da7b-41ec-bcde-24debbf30726
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'FacturatieKeuze orders'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FacturatieKeuze orders'
+		isHidden
+		formatString: 0
+		lineageTag: e2bae228-2294-47d6-a7bd-8baa331c0920
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FacturatieKeuze = calculated
+		mode: import
+		source =
+				{
+				    ("Project", NAMEOF('DimProjecten'[ProjectNaam]), 0),
+				    ("Practice", NAMEOF('DimPractice'[PracticeNaam]), 1),
+				    ("Team", NAMEOF('DimTeam'[Team]), 2)
+				}
+
+	annotation PBI_Id = ccbf72eff95f4dbc8ebfce10855aa8bf
+

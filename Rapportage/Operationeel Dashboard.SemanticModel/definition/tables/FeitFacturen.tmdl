@@ -1,0 +1,200 @@
+table FeitFacturen
+	lineageTag: a6e1d7ba-e58b-4c95-bffc-624096e4ae18
+
+	column FactuurKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 613821ce-7831-4964-95fc-dc1298790baa
+		summarizeBy: count
+		sourceColumn: FactuurKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Datum
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a84c7a0c-6021-45a9-9b77-aea20bd68a23
+		summarizeBy: none
+		sourceColumn: Datum
+
+		variation Variatie
+			isDefault
+			relationship: a1cfbe74-1a23-45c6-9c11-4a97d7c4af68
+			defaultHierarchy: LocalDateTable_41b969a6-3aab-46aa-92f2-7f1ce6dee62e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Factuurdatum
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6d0d5c37-8c3d-4757-9cf2-59559017f80a
+		summarizeBy: none
+		sourceColumn: Factuurdatum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Factuur
+		dataType: string
+		lineageTag: 4e0b34ea-5037-4aa0-9908-9bbb563b4fb6
+		summarizeBy: none
+		sourceColumn: Factuur
+
+		annotation SummarizationSetBy = Automatic
+
+	column FactuurNaam
+		dataType: string
+		lineageTag: 7f718f37-c21a-4a22-97f0-99a7e204dee9
+		summarizeBy: none
+		sourceColumn: FactuurNaam
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subtotaal
+		dataType: double
+		lineageTag: 8c30932b-0569-4bec-968d-b3fbbc44eae9
+		summarizeBy: sum
+		sourceColumn: Subtotaal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Totaal
+		dataType: double
+		lineageTag: 324770bf-445f-49d7-8224-e2f52281672f
+		summarizeBy: sum
+		sourceColumn: Totaal
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AdditionalAmount
+		dataType: double
+		lineageTag: 411596ae-d867-4f94-a786-69620e03958c
+		summarizeBy: sum
+		sourceColumn: AdditionalAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TotalTaxAmount
+		dataType: double
+		lineageTag: af2bf38f-0369-4cc7-a50a-3542214baf74
+		summarizeBy: sum
+		sourceColumn: TotalTaxAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column InvoiceAmount
+		dataType: double
+		lineageTag: ddc1273d-b329-40b5-b634-c6ae8d522567
+		summarizeBy: sum
+		sourceColumn: InvoiceAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FixedFeeAmount
+		dataType: double
+		lineageTag: 0aca4bb8-ad2a-43a8-b465-dc6c28d2f274
+		summarizeBy: sum
+		sourceColumn: FixedFeeAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Status
+		dataType: string
+		lineageTag: 82f0bd7a-c9d7-47ce-a64c-6430baa3e094
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column WerkUren
+		dataType: double
+		lineageTag: 8ab935fe-a019-4bc3-92a4-f50d85d64fcf
+		summarizeBy: sum
+		sourceColumn: WerkUren
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OmzetCategorie
+		dataType: string
+		lineageTag: 2dd03a02-4167-4430-9f42-1145335f853c
+		summarizeBy: none
+		sourceColumn: OmzetCategorie
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectKey
+		dataType: int64
+		formatString: 0
+		lineageTag: b3a6c2a1-562a-4b14-b8e7-2a1833f18501
+		summarizeBy: none
+		sourceColumn: ProjectKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column KlantKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a88a1393-5412-448f-a4ae-ba07fec20bfb
+		summarizeBy: count
+		sourceColumn: KlantKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TeamKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 42ae990a-4611-4bc1-9548-38c84b034fb8
+		summarizeBy: count
+		sourceColumn: TeamKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PracticeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: f503473b-9a27-4c20-bcd6-3d0e247fc514
+		summarizeBy: none
+		sourceColumn: PracticeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectTeamKey
+		dataType: int64
+		formatString: 0
+		lineageTag: ec8807ae-a7b3-4427-b225-67c613e4c67e
+		summarizeBy: none
+		sourceColumn: ProjectTeamKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FeitFacturen = m
+		mode: import
+		queryGroup: Dim
+		source =
+				let
+				    Source = Sql.Database("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com", "Operationeel Dashboard"),
+				    s3_ods_FeitFacturen = Source{[Schema="s3_ods",Item="FeitFacturen"]}[Data]
+				in
+				    s3_ods_FeitFacturen
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

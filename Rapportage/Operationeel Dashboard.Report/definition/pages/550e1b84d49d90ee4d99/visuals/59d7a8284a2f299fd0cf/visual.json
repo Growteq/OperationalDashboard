@@ -1,0 +1,35 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "59d7a8284a2f299fd0cf",
+  "position": {
+    "x": 35.714285714285715,
+    "y": 654.28571428571433,
+    "z": 1500,
+    "height": 50,
+    "width": 167.14285714285717,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "image",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "imageUrl": {
+              "expr": {
+                "ResourcePackageItem": {
+                  "PackageName": "RegisteredResources",
+                  "PackageType": 1,
+                  "ItemName": "Growteq_logo11316842525358117.png"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "901a09917b0af523f03b",
+  "howCreated": "InsertVisualButton"
+}
