@@ -1,0 +1,82 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy data Factuurregels",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DataWarehouseSource",
+            "sqlReaderQuery": "WITH FactuurData AS (\n    SELECT \n        ROW_NUMBER() OVER (\n            PARTITION BY f.[Id]\n            ORDER BY f.[Krow__Invoice_Date__c], fr.[Id]\n        ) AS RowNum,\n        f.[Krow__Invoice_Date__c] AS Datum,\n        f.[Recognition_Date__c] AS FactuurDatum,\n        fr.[Krow__Task__c] AS Taak,\n        fr.[Krow__Project_Resource__c] AS ProjectResource,\n        fr.[Krow__Invoice__c] AS FactuurId,\n        fr.[Id] AS FactuurRegelId,\n        f.[Krow__Invoice_Serial_Number__c] AS FactuurNummer,\n        f.[Name] AS Factuur,\n        fr.[Name] AS FactuurRegel,\n        f.[Krow__Status__c] AS Status,\n        fr.[Krow__Amount_Total__c] AS BedragExclBTW,\n        fr.[Krow__Bill_Rate__c] AS UurTarief,\n        fr.[Krow__Cost_Amount__c] AS KostenBedrag,\n        fr.[Krow__Hours__c] AS UrenGefactureerd,\n        ts.[Krow__Hours__c] AS UrenTimeSheet,\n        f.[Revenue_Category__c] AS OmzetCategorie,\n        fr.[Krow__Include__c] AS Include,\n        fr.[Krow__Tax_Amount__c] AS BedragBTW,\n        fr.[Krow__Timesheet_Notes__c] AS Opmerkingen,\n        fr.[Krow__Total_Amount__c] AS BedragInclBTW,\n        P.ProjectKey AS ProjectKey,\n        tr.TaakregelKey,\n        m.MedewerkerKey,\n        P.PracticeKey,\n        k.KlantKey\n    FROM [s2_stg_salesforce].[Invoice] f\n    LEFT JOIN [s2_stg_salesforce].[InvoiceLineItem] fr \n        ON fr.[Krow__Invoice__c] = f.[Id]\n    LEFT JOIN [s2_stg_salesforce].[TimesheetSplit] ts \n        ON fr.[Krow__Timesheet_Split__c] = ts.[Id]\n    LEFT JOIN s3_ods.DimProjecten P\n        ON f.Krow__Project__c = P.ProjectId\n    LEFT JOIN s3_ods.DimTaakregels tr\n        ON fr.Krow__Task__c = tr.TaakregelId\n    LEFT JOIN s3_ods.DimMedewerkers m\n        ON fr.Krow__Project_Resource__c = m.MedewerkerIdSF\n    LEFT JOIN s3_ods.DimKlanten k\n        ON f.Krow__Account__c = k.KlantNaam\n)\nSELECT \n    ROW_NUMBER() OVER (ORDER BY FactuurId, FactuurRegelId) AS FactuurRegelKey,\n    Datum,\n    FactuurDatum,\n    Taak,\n    ProjectResource,\n    FactuurId,\n    FactuurRegelId,\n    Factuur,\n    FactuurNummer,\n    FactuurRegel,\n    Status,\n    BedragExclBTW,\n    UurTarief,\n    KostenBedrag,\n    UrenGefactureerd,\n    UrenTimeSheet,\n    OmzetCategorie,\n    Include,\n    BedragBTW,\n    Opmerkingen,\n    BedragInclBTW,\n    ProjectKey,\n    TaakregelKey,\n    MedewerkerKey,\n    PracticeKey,\n    KlantKey\nFROM FactuurData\n--WHERE RowNum = 1\n",
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "connectionSettings": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  },
+                  "externalReferences": {
+                    "connection": "91f2d362-0f5b-4b3f-aaac-2f31b217f3cb"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {}
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "s3_ods",
+                "table": "FeitFactuurregels"
+              }
+            }
+          },
+          "enableStaging": true,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      }
+    ]
+  }
+}

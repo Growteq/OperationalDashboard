@@ -1,0 +1,361 @@
+table DimDatum
+	lineageTag: ac65a7b7-09f8-430d-aa76-12fe4bc5fc23
+
+	column DatumKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 6978bc03-8209-41d1-9d2f-7d3763d9a8dc
+		summarizeBy: count
+		sourceColumn: DatumKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Datum
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d2e424d2-3d3d-447d-b312-5f1c8723b4bb
+		summarizeBy: none
+		sourceColumn: Datum
+
+		variation Variation
+			isDefault
+			relationship: 4b62559a-b987-4922-bd8d-668ba93b4a9d
+			defaultHierarchy: LocalDateTable_46a287d1-9cd1-4894-a1ec-b4b078b317f3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Dag
+		dataType: int64
+		formatString: 0
+		lineageTag: d5285b1c-977a-4eac-928e-8eee0dc85b80
+		summarizeBy: sum
+		sourceColumn: Dag
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weekdag
+		dataType: int64
+		formatString: 0
+		lineageTag: c25b0762-291a-4e4f-8c2d-443f9f1ed899
+		summarizeBy: sum
+		sourceColumn: Weekdag
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekDagNaam
+		dataType: string
+		lineageTag: 3929a014-3e9a-430b-82b6-24c342802503
+		summarizeBy: none
+		sourceColumn: WeekDagNaam
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekDagNaamKort
+		dataType: string
+		lineageTag: 7e92ddb1-1f12-40dc-a004-139f8b34b66c
+		summarizeBy: none
+		sourceColumn: WeekDagNaamKort
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsWeekend
+		dataType: int64
+		formatString: 0
+		lineageTag: 2a09df1b-3dab-46dd-a7e9-3b0d9b6b4458
+		summarizeBy: sum
+		sourceColumn: IsWeekend
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekNummer
+		dataType: int64
+		formatString: 0
+		lineageTag: d2afcf75-fb05-4679-b483-a68ebc911cef
+		summarizeBy: sum
+		sourceColumn: WeekNummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column ISOWeekNummer
+		dataType: int64
+		formatString: 0
+		lineageTag: e116688b-e63b-44b4-bc90-fe164f371e36
+		summarizeBy: sum
+		sourceColumn: ISOWeekNummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaandNummer
+		dataType: int64
+		formatString: 0
+		lineageTag: ffcf9d53-4cfc-4d4c-a519-d860590645b0
+		summarizeBy: sum
+		sourceColumn: MaandNummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaandNaam
+		dataType: string
+		lineageTag: 5e6d34de-9af3-4b44-9f3e-bd82ed14068d
+		summarizeBy: none
+		sourceColumn: MaandNaam
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaandNaamKort
+		dataType: string
+		lineageTag: 28a8835f-1f92-46a9-9716-770bfb07e5d1
+		summarizeBy: none
+		sourceColumn: MaandNaamKort
+
+		annotation SummarizationSetBy = Automatic
+
+	column KwartaalNummer
+		dataType: int64
+		formatString: 0
+		lineageTag: eaa066db-406b-440e-a1a5-10abef8721a3
+		summarizeBy: sum
+		sourceColumn: KwartaalNummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column KwartaalNaam
+		dataType: string
+		lineageTag: 907e8a1d-7f38-4d17-8016-5fff41f10251
+		summarizeBy: none
+		sourceColumn: KwartaalNaam
+
+		annotation SummarizationSetBy = Automatic
+
+	column Jaar
+		dataType: int64
+		formatString: 0
+		lineageTag: eef41402-60ab-4664-9b8a-c67fb2fe93d1
+		summarizeBy: sum
+		sourceColumn: Jaar
+
+		annotation SummarizationSetBy = Automatic
+
+	column MMYYYY
+		dataType: string
+		lineageTag: cf14608b-c8bc-43ef-89a5-052c2d1b0133
+		summarizeBy: none
+		sourceColumn: MMYYYY
+
+		annotation SummarizationSetBy = Automatic
+
+	column JaarMaand
+		dataType: int64
+		formatString: 0
+		lineageTag: 4c8c7af4-c4dd-4903-829b-edc44a4496b5
+		summarizeBy: sum
+		sourceColumn: JaarMaand
+
+		annotation SummarizationSetBy = Automatic
+
+	column JaarWeek
+		dataType: int64
+		formatString: 0
+		lineageTag: 41704f72-b46f-47ec-ba72-a00a137c31e8
+		summarizeBy: none
+		sourceColumn: JaarWeek
+
+		annotation SummarizationSetBy = User
+
+	column MaandJaar
+		dataType: string
+		lineageTag: b9a21217-f948-4b7a-a8e2-8e899b64dd97
+		summarizeBy: none
+		sourceColumn: MaandJaar
+
+		annotation SummarizationSetBy = Automatic
+
+	column EersteDagVanMaand
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2857f6e2-42d8-444e-9e83-0f2e9f7a4e43
+		summarizeBy: none
+		sourceColumn: EersteDagVanMaand
+
+		variation Variation
+			isDefault
+			relationship: 626acec2-898b-4c04-ae7c-1bd51532415d
+			defaultHierarchy: LocalDateTable_4faf7823-ec7b-4bf9-a19a-53401e74c6ca.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column LaatsteDagVanMaand
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1d2334e0-5812-4a93-a2a9-6b3aaf3025db
+		summarizeBy: none
+		sourceColumn: LaatsteDagVanMaand
+
+		variation Variation
+			isDefault
+			relationship: 5b6a21c9-7ef4-4af0-923c-4408d68a5a1a
+			defaultHierarchy: LocalDateTable_6251e597-9e51-4210-a468-df32b91eba90.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column EersteDagVanKwartaal
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 13926982-db7e-4431-8295-0878a8d4d19f
+		summarizeBy: none
+		sourceColumn: EersteDagVanKwartaal
+
+		variation Variation
+			isDefault
+			relationship: 92393455-f3cb-4270-b9f9-1da9a22e322e
+			defaultHierarchy: LocalDateTable_a11def73-505b-4fbb-97da-90a5a7417637.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column LaatsteDagVanKwartaal
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3ebfe502-eec4-4f97-83bd-73056c19d5ac
+		summarizeBy: none
+		sourceColumn: LaatsteDagVanKwartaal
+
+		variation Variation
+			isDefault
+			relationship: 305b8400-b8eb-4148-b690-953e2a4a007c
+			defaultHierarchy: LocalDateTable_721c164b-0d17-4c3c-8a10-7feb2260f111.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column EersteDagVanJaar
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0f3da64c-ecd6-45f9-9419-2aa6e2b0cd3c
+		summarizeBy: none
+		sourceColumn: EersteDagVanJaar
+
+		variation Variation
+			isDefault
+			relationship: 7b9aa15e-c7d9-4d72-861d-f27ff5ce68f1
+			defaultHierarchy: LocalDateTable_48189914-e804-4da6-b13f-187a24a1ad41.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column LaatsteDagVanJaar
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 815a7b26-1edb-4e57-be60-91615718af08
+		summarizeBy: none
+		sourceColumn: LaatsteDagVanJaar
+
+		variation Variation
+			isDefault
+			relationship: f10c0eee-6bdd-40c3-a99d-de75756df682
+			defaultHierarchy: LocalDateTable_2995e91b-6407-47ab-857f-fbd108f44bfb.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column EersteDagVanVolgendeMaand
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a3a91d3a-925b-4cbc-826f-6a82d0b19e32
+		summarizeBy: none
+		sourceColumn: EersteDagVanVolgendeMaand
+
+		variation Variation
+			isDefault
+			relationship: 1c0d3228-e6ed-40ce-bfd5-d353fb392621
+			defaultHierarchy: LocalDateTable_d97256e4-3f26-4231-b371-fe1265532eb7.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column EersteDagVanVolgendJaar
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1492b3ca-66b9-4bf1-bcb3-6b197e856358
+		summarizeBy: none
+		sourceColumn: EersteDagVanVolgendJaar
+
+		variation Variation
+			isDefault
+			relationship: cc1a6961-3931-40fd-add8-3ea8b6e730ae
+			defaultHierarchy: LocalDateTable_e6f9ae47-2afd-47ea-a328-7ca6686bd4d6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Afgelopen7Jaar
+		dataType: int64
+		formatString: 0
+		lineageTag: 4c99f530-52fa-4ca4-b1ee-72c276cf27a0
+		summarizeBy: sum
+		sourceColumn: Afgelopen7Jaar
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearToDate
+		dataType: int64
+		formatString: 0
+		lineageTag: b8468043-5ef4-4ba7-acd6-6178e5db1b4e
+		summarizeBy: sum
+		sourceColumn: YearToDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsVerleden
+		dataType: int64
+		formatString: 0
+		lineageTag: c33571ef-86a2-4e20-9cbb-d8310777defb
+		summarizeBy: sum
+		sourceColumn: IsVerleden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Teller
+		dataType: int64
+		formatString: 0
+		lineageTag: 25e4fc00-b6b3-4edb-a46f-7c9c523699fe
+		summarizeBy: sum
+		sourceColumn: Teller
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaandNrRelatief
+		dataType: int64
+		formatString: 0
+		lineageTag: d6f09dbe-03ed-4f5f-bd76-e7ccafd2c141
+		summarizeBy: sum
+		sourceColumn: MaandNrRelatief
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimDatum = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com"),
+				    #"Operationeel Dashboard" = Source{[Name="Operationeel Dashboard"]}[Data],
+				    dbo_DimDatum = #"Operationeel Dashboard"{[Schema="dbo",Item="DimDatum"]}[Data]
+				in
+				    dbo_DimDatum
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

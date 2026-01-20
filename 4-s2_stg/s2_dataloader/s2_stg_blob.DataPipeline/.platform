@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "s2_stg_blob"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "95a14455-f4c8-9c95-4968-4f24f5dce576"
+  }
+}

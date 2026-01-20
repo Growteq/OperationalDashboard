@@ -1,0 +1,31 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Web1",
+        "type": "WebActivity",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "method": "GET",
+          "headers": {}
+        },
+        "externalReferences": {
+          "connection": "7df5e40b-9a04-4e92-9209-b0e5ddacafeb"
+        }
+      }
+    ],
+    "parameters": {
+      "groupId": {
+        "type": "string",
+        "defaultValue": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+      }
+    }
+  }
+}

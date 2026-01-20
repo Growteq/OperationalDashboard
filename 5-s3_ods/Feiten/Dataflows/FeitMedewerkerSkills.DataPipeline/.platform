@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "FeitMedewerkerSkills"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "90788cf2-774b-8069-4fe6-5f9a3b57a1f6"
+  }
+}

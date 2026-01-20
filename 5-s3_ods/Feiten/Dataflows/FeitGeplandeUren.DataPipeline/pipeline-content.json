@@ -1,0 +1,168 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy data FeitGeplandeUren",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DataWarehouseSource",
+            "sqlReaderQuery": "--geplande uren (getransponeerd per datum)\r\nWITH GeplandeUrenData AS (\r\n    SELECT \r\n        ROW_NUMBER() OVER (\r\n            PARTITION BY pas.[Krow__Start_Date__c], \r\n                         pa.[Krow__Project_Resource__c], \r\n                         pa.[Krow__Krow_Project__c]\r\n            ORDER BY pas.[Krow__Start_Date__c]\r\n        ) AS RowNum, -- Unique key per partition\r\n        pas.[Krow__Start_Date__c] AS StartDatum,\r\n        pas.[Krow__Status__c] AS Status,\r\n        pas.[Krow__Mon__c] AS UrenMaandag,\r\n        pas.[Krow__Tue__c] AS UrenDinsdag,\r\n        pas.[Krow__Wed__c] AS UrenWoensdag,\r\n        pas.[Krow__Thu__c] AS UrenDonderdag,\r\n        pas.[Krow__Fri__c] AS UrenVrijdag,\r\n        pas.[Krow__Sat__c] AS UrenZaterdag,\r\n        m.MedewerkerKey,\r\n        p.ProjectKey,\r\n        pr.PracticeKey\r\n    FROM [s2_stg_salesforce].[ProjectAssignmentSchedule] pas\r\n    LEFT JOIN [s2_stg_salesforce].[ProjectAssignment] pa \r\n        ON pas.[Krow__Project_Assignment__c] = pa.[Id]\r\n    LEFT JOIN [s3_ods].[DimMedewerkers] m\r\n        ON pa.[Krow__Project_Resource__c] = m.[MedewerkerIdSF]\r\n    LEFT JOIN [s3_ods].[DimProjecten] p \r\n        ON pa.[Krow__Krow_Project__c] = p.[ProjectId]\r\n    LEFT JOIN [s3_ods].[DimPractice] pr\r\n        ON m.[Practice] = pr.[PracticeNaam]\r\n),\r\nUnpivotedData AS (\r\n    SELECT \r\n        StartDatum,\r\n        Status,\r\n        MedewerkerKey,\r\n        ProjectKey,\r\n        PracticeKey,\r\n        Weekdag,\r\n        GeplandeUren\r\n    FROM GeplandeUrenData\r\n    UNPIVOT (\r\n        GeplandeUren FOR Weekdag IN (\r\n            UrenMaandag,\r\n            UrenDinsdag,\r\n            UrenWoensdag,\r\n            UrenDonderdag,\r\n            UrenVrijdag,\r\n            UrenZaterdag\r\n        )\r\n    ) AS unpvt\r\n    WHERE RowNum = 1\r\n)\r\nSELECT \r\n    ROW_NUMBER() OVER (ORDER BY dd.Datum, ud.MedewerkerKey, ud.ProjectKey) AS GeplandeUrenKey,\r\n    dd.Datum,\r\n    dd.WeekDagNaam,\r\n    ud.Status,\r\n    ud.GeplandeUren,\r\n    ud.MedewerkerKey,\r\n    ud.ProjectKey,\r\n    ud.PracticeKey\r\nFROM UnpivotedData ud\r\nINNER JOIN [s3_ods].[DimDatum] dd ON \r\n    CASE \r\n        WHEN ud.Weekdag = 'UrenMaandag' THEN DATEADD(DAY, 0, CAST(ud.StartDatum AS DATE))\r\n        WHEN ud.Weekdag = 'UrenDinsdag' THEN DATEADD(DAY, 1, CAST(ud.StartDatum AS DATE))\r\n        WHEN ud.Weekdag = 'UrenWoensdag' THEN DATEADD(DAY, 2, CAST(ud.StartDatum AS DATE))\r\n        WHEN ud.Weekdag = 'UrenDonderdag' THEN DATEADD(DAY, 3, CAST(ud.StartDatum AS DATE))\r\n        WHEN ud.Weekdag = 'UrenVrijdag' THEN DATEADD(DAY, 4, CAST(ud.StartDatum AS DATE))\r\n        WHEN ud.Weekdag = 'UrenZaterdag' THEN DATEADD(DAY, 5, CAST(ud.StartDatum AS DATE))\r\n    END = dd.Datum\r\n  --AND ud.GeplandeUren > 0 -- Optioneel: filter alleen dagen met geplande uren\r\nORDER BY dd.Datum, ud.MedewerkerKey, ud.ProjectKey;\r\n",
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "connectionSettings": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  },
+                  "externalReferences": {
+                    "connection": "91f2d362-0f5b-4b3f-aaac-2f31b217f3cb"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {}
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "s3_ods",
+                "table": "FeitGeplandeUren"
+              }
+            }
+          },
+          "enableStaging": true,
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "GeplandeUrenKey",
+                  "type": "Int64",
+                  "physicalType": "bigint"
+                },
+                "sink": {
+                  "name": "GeplandeUrenKey",
+                  "physicalType": "bigint"
+                }
+              },
+              {
+                "source": {
+                  "name": "Datum",
+                  "type": "Date",
+                  "physicalType": "date"
+                },
+                "sink": {
+                  "name": "Datum",
+                  "physicalType": "datetime2",
+                  "precision": 0
+                }
+              },
+              {
+                "source": {
+                  "name": "Status",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "Status",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                }
+              },
+              {
+                "source": {
+                  "name": "GeplandeUren",
+                  "type": "Decimal",
+                  "physicalType": "decimal",
+                  "scale": 4,
+                  "precision": 18
+                },
+                "sink": {
+                  "name": "GeplandeUren",
+                  "physicalType": "decimal",
+                  "scale": 4,
+                  "precision": 10
+                }
+              },
+              {
+                "source": {
+                  "name": "MedewerkerKey",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "MedewerkerKey",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "ProjectKey",
+                  "type": "Int64",
+                  "physicalType": "bigint"
+                },
+                "sink": {
+                  "name": "ProjectKey",
+                  "physicalType": "bigint"
+                }
+              },
+              {
+                "source": {
+                  "name": "PracticeKey",
+                  "type": "Int64",
+                  "physicalType": "bigint"
+                },
+                "sink": {
+                  "name": "PracticeKey",
+                  "physicalType": "int"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      }
+    ]
+  }
+}

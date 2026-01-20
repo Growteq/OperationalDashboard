@@ -1,0 +1,82 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy data FeitGeschrevenUren",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DataWarehouseSource",
+            "sqlReaderQuery": "    WITH MeestRecenteFactuur AS (\r\n        -- Selecteer alleen de meest recente factuur per timesheet split\r\n        SELECT \r\n            ILI.[Krow__Timesheet_Split__c],\r\n            INV.[Revenue_Category__c],\r\n            ROW_NUMBER() OVER (PARTITION BY ILI.[Krow__Timesheet_Split__c] \r\n                               ORDER BY INV.[Krow__Invoice_Date__c] DESC, ILI.[CreatedDate] DESC) AS FactuurRank\r\n        FROM [s2_stg_salesforce].[InvoiceLineItem] ILI\r\n        INNER JOIN [s2_stg_salesforce].[Invoice] INV\r\n            ON ILI.[Krow__Invoice__c] = INV.[Id]\r\n        WHERE ILI.[Krow__Timesheet_Split__c] IS NOT NULL\r\n    ),\r\n    GeschrevenUrenData AS (\r\n        SELECT \r\n            ROW_NUMBER() OVER (PARTITION BY \r\n                T.[Krow__Date__c], \r\n                T.[Krow__Project_Resource__c], \r\n                T.[Krow__Krow_Project__c], \r\n                T.[Krow__Krow_Task__c], \r\n                T.[Krow__Account__c] \r\n                ORDER BY T.[Krow__Date__c]) AS RowNum, -- Unique key per partition\r\n            CAST(T.[Krow__Date__c] AS DATE) AS Datum,\r\n            T.[Krow__Project_Resource__c],\r\n            T.[Krow__Account__c],\r\n            T.[Krow__Krow_Project__c],\r\n            T.[Krow__Krow_Task__c],\r\n            T.[Krow__Approval_Status__c] AS GoedkeuringsStatus,\r\n            T.[Krow__Billable__c] AS IsFacturabel,\r\n            T.[Krow__Invoiced__c] AS IsGefactureerd,\r\n            T.[Krow__Hours__c] AS AantalUren,\r\n            T.[Krow__Billable_Hours__c] AS FacturabeleUren,\r\n            T.[Krow__Non_Billable_Hours__c] AS NietFacturabeleUren,\r\n            T.[Krow__Bill_Amount__c] AS OmzetPotentie,\r\n            T.[Krow__Time_Comments__c] AS Opmerkingen,\r\n            T.[Krow__Time_Off_Type__c] AS Verloftype,\r\n            T.[Krow__Bill_Rate__c] AS CommercieelTarief,\r\n            T.[Krow__Cost_Rate_New__c] * T.[Krow__Hours__c] AS KostprijsTarief,\r\n            T.[Id] AS TimesheetSplitId,\r\n            P.[ProjectKey],\r\n            M.[MedewerkerKey],\r\n            PR.[PracticeKey],\r\n            K.[KlantKey],\r\n            R.[TaakregelKey],\r\n            MRF.[Revenue_Category__c] AS OmzetCategorie\r\n        FROM [s2_stg_salesforce].[TimesheetSplit] T\r\n        LEFT JOIN [s3_ods].[DimProjecten] P\r\n            ON T.[Krow__Krow_Project__c] = P.[ProjectId]\r\n        LEFT JOIN [s3_ods].[DimMedewerkers] M\r\n            ON T.[Krow__Project_Resource__c] = M.[MedewerkerIdSF]\r\n        LEFT JOIN [s3_ods].[DimPractice] PR\r\n            ON M.[Practice] = PR.[PracticeNaam]\r\n        LEFT JOIN [s3_ods].[DimKlanten] K\r\n            ON T.[Krow__Account__c] = K.[KlantID]\r\n        LEFT JOIN [s3_ods].[DimTaakregels] R\r\n            ON T.[Krow__Krow_Task__c] = R.[TaakregelId]\r\n        LEFT JOIN MeestRecenteFactuur MRF\r\n            ON T.[Id] = MRF.[Krow__Timesheet_Split__c]\r\n            AND MRF.[FactuurRank] = 1\r\n    )\r\n    SELECT \r\n        ROW_NUMBER() OVER (ORDER BY Datum, MedewerkerKey, ProjectKey, TaakregelKey) AS GeschrevenUrenKey -- Global sequential unique key\r\n        ,[Datum]\r\n      ,[Krow__Project_Resource__c]\r\n      ,[Krow__Account__c]\r\n      ,[Krow__Krow_Project__c]\r\n      ,[Krow__Krow_Task__c]\r\n      ,[GoedkeuringsStatus]\r\n      ,[IsFacturabel]\r\n      ,[IsGefactureerd]\r\n      ,[AantalUren]\r\n      ,[FacturabeleUren]\r\n      ,[NietFacturabeleUren]\r\n      ,OmzetPotentie\r\n      ,[Opmerkingen]\r\n      ,[Verloftype]\r\n      ,[CommercieelTarief]\r\n      ,[KostprijsTarief]\r\n      ,[ProjectKey]\r\n      ,[MedewerkerKey]\r\n      ,[KlantKey]\r\n      ,[PracticeKey]\r\n      ,[TaakregelKey]\r\n      ,[OmzetCategorie]\r\n    FROM GeschrevenUrenData\r\n",
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "connectionSettings": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  },
+                  "externalReferences": {
+                    "connection": "91f2d362-0f5b-4b3f-aaac-2f31b217f3cb"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {}
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "s3_ods",
+                "table": "FeitGeschrevenUren"
+              }
+            }
+          },
+          "enableStaging": true,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      }
+    ]
+  }
+}

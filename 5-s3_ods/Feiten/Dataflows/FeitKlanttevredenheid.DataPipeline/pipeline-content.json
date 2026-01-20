@@ -1,0 +1,86 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy data1",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DataWarehouseSource",
+            "sqlReaderQuery": "-- SELECT query voor FactTevredenheid data\r\n-- Haalt CSAT scores met alle dimensie-links\r\n\r\nSELECT\r\n    ROW_NUMBER() OVER (\r\n        PARTITION BY p.[Id]\r\n        ORDER BY p.[LastModifiedDate], p.[Id]\r\n    ) AS RowNum,\r\n    p.[Id],\r\n    p.[Name] AS ProjectNaam,\r\n    p.[Krow__Project_Number__c] AS ProjectNummer,\r\n    p.[CSAT_Score__c] AS Score,\r\n    p.[LastModifiedDate] AS Scoredatum,\r\n    p.[Krow__Project_Status__c] AS ProjectStatus,\r\n    p.[Krow__Completion_Date__c] AS CompletionDate,\r\n    \r\n    -- Foreign Keys naar Dimensies\r\n    dp.ProjectKey,\r\n    dpr.PracticeKey,\r\n    dt.TeamKey,\r\n    dk.KlantKey,\r\n    dd.DatumKey\r\n    \r\nFROM [s2_stg_salesforce].[Project] p\r\nLEFT JOIN [s3_ods].[DimProjecten] dp \r\n    ON p.Id = dp.ProjectId\r\nLEFT JOIN [s3_ods].[DimPractice] dpr \r\n    ON p.Krow__Practice__c = dpr.PracticeID\r\nLEFT JOIN [s3_ods].[DimTeam] dt \r\n    ON p.Team__c = dt.Id\r\nLEFT JOIN [s3_ods].[DimKlanten] dk \r\n    ON p.Krow__Account__c = dk.KlantID\r\nLEFT JOIN [s3_ods].[DimDatum] dd \r\n    ON CAST(p.LastModifiedDate AS DATE) = dd.Datum\r\n    \r\nWHERE p.CSAT_Score__c IS NOT NULL\r\n  AND p.IsDeleted = 0\r\nORDER BY p.LastModifiedDate DESC;\r\n",
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "connectionSettings": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  },
+                  "externalReferences": {
+                    "connection": "91f2d362-0f5b-4b3f-aaac-2f31b217f3cb"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {}
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "tableOption": "autoCreate",
+            "datasetSettings": {
+              "annotations": [],
+              "connectionSettings": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  },
+                  "externalReferences": {
+                    "connection": "91f2d362-0f5b-4b3f-aaac-2f31b217f3cb"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "s3_ods",
+                "table": "FeitTevredenheid"
+              }
+            }
+          },
+          "enableStaging": true,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      }
+    ]
+  }
+}

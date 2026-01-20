@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "dagelijkse azure cost loader"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "411ecc44-c3e2-b454-41e3-82e3262cf14b"
+  }
+}

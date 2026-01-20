@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "azure kosten warehouse"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "40d74195-1554-8c44-4520-748af3250337"
+  }
+}

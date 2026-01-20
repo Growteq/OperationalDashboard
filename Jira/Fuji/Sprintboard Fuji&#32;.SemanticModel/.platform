@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Sprintboard Fuji "
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6c210c88-0a9c-b535-4a9a-43645a8acb5a"
+  }
+}

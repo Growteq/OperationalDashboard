@@ -1,0 +1,130 @@
+table bram_view_exported
+	lineageTag: d719a935-d0d1-4e44-aab8-fd319bf6eacb
+
+	measure 'azure kosten' = SUM(bram_view_exported[costInBillingCurrency])
+		formatString: 0
+		lineageTag: e785810e-9000-4812-9056-39315fe9a4cd
+
+	column servicePeriodStartDate
+		dataType: string
+		lineageTag: ebef8d39-45cd-4bd9-a249-c1408e60cef0
+		summarizeBy: none
+		sourceColumn: servicePeriodStartDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2ca327b6-2b87-42c3-834a-c7f1f3a7ecea
+		summarizeBy: none
+		sourceColumn: date
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column subscriptionName
+		dataType: string
+		lineageTag: 68112861-aee7-482a-97c9-2d87937ef8db
+		summarizeBy: none
+		sourceColumn: subscriptionName
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubscriptionId
+		dataType: string
+		lineageTag: e7b8cfd3-1bf4-455c-94ae-e8631059ec20
+		summarizeBy: none
+		sourceColumn: SubscriptionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column costInBillingCurrency
+		dataType: double
+		lineageTag: 54425a3d-bd87-4148-944d-dea0317166dd
+		summarizeBy: sum
+		sourceColumn: costInBillingCurrency
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Debiteurnummer
+		dataType: string
+		lineageTag: 17e34a89-bad3-4ae2-84a2-f73b68017338
+		summarizeBy: none
+		sourceColumn: Debiteurnummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column BusinessUnit
+		dataType: string
+		lineageTag: db39b113-65ef-4f99-8a8d-5f07387d0f0c
+		summarizeBy: none
+		sourceColumn: BusinessUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column resourceGroupName
+		dataType: string
+		lineageTag: 2fd67247-342f-424c-a483-3b4627acecca
+		summarizeBy: none
+		sourceColumn: resourceGroupName
+
+		annotation SummarizationSetBy = Automatic
+
+	column parsed_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7fda1c2e-5f99-4a8e-959d-150b0f86b992
+		summarizeBy: none
+		sourceColumn: parsed_date
+
+		variation Variation
+			isDefault
+			relationship: 1d6db048-bdbc-4972-aa67-ceb92580c71d
+			defaultHierarchy: LocalDateTable_da76d93a-c7d3-4626-99b8-09b2647a6752.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column BusinessUnitGestandaardiseerd = ```
+			
+			SWITCH(TRUE(),
+			    bram_view_exported[BusinessUnit] IN {"Applicatieontwikkeling", "Applicatie-ontwikkeling"}, "Applicatieontwikkeling",
+			    bram_view_exported[BusinessUnit] IN {"BI", "Business Intelligence", "Business Inteligence"}, "BI",
+			    bram_view_exported[BusinessUnit] IN {"Customer Services"}, "Customer Services",
+			    bram_view_exported[BusinessUnit] IN {"Data Science"}, "Data Science",
+			    bram_view_exported[BusinessUnit] IN {"DIU"}, "DIU",
+			    bram_view_exported[BusinessUnit] IN {"Growteq"}, "Growteq",
+			    bram_view_exported[BusinessUnit] IN {"IT"}, "IT",
+			    bram_view_exported[BusinessUnit] IN {"Salesforce"}, "Salesforce",
+			    BLANK()
+			)
+			
+			```
+		lineageTag: 426022a8-c709-49e8-b363-ea4c82f62250
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bram_view_exported = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com"),
+				    Azure_kosten_Lakehouse = Source{[Name="Azure_kosten_Lakehouse"]}[Data],
+				    dbo_bram_view_exported = Azure_kosten_Lakehouse{[Schema="dbo",Item="bram_view_exported"]}[Data]
+				in
+				    dbo_bram_view_exported
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

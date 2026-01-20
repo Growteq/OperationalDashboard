@@ -1,0 +1,181 @@
+table contract_opbrengsten
+	lineageTag: 41e9c175-3090-4721-9509-d3369dbe14aa
+
+	measure Contractwaarde = SUM('contract_opbrengsten'[Salesprice])
+		lineageTag: a6160475-1142-42cf-8e94-26af99b1a583
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure ContractTotNu = ```
+			
+			VAR HuidigeMaand = FORMAT(TODAY(), "MMM yy")
+			RETURN
+			CALCULATE(
+			    SUM('contract_opbrengsten'[Total Price]),
+			    FILTER(
+			        ALL('dim_datum'),
+			        'dim_datum'[Termijn Maand Formatted] <= HuidigeMaand
+			    )
+			)
+			
+			```
+		lineageTag: f62b8eed-4e20-489f-a96d-439b97bb6f1f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure percontractgefactureerd = ```
+			
+			
+			VAR ContractTotNu = 
+			    CALCULATE(
+			        SUM('contract_opbrengsten'[Total Price]),
+			        'contract_opbrengsten'[Termijn Maand Datum] <= TODAY()
+			    )
+			
+			RETURN
+			ContractTotNu
+			
+			```
+		lineageTag: 5badcc6c-232f-4c20-86f2-465a7cc573fa
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Contact Name'
+		dataType: string
+		lineageTag: 25fb7db7-b216-4994-89d0-440061884ef0
+		summarizeBy: none
+		sourceColumn: Contact Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 76380a60-bf84-44a3-9bba-47779efcb61c
+		summarizeBy: none
+		sourceColumn: Start Date
+
+		variation Variation
+			isDefault
+			relationship: 8e7e4f16-9dd6-4fa6-8170-4469a9994346
+			defaultHierarchy: LocalDateTable_cb4d5913-cf64-442a-aa8f-363d15d633c4.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'End Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d68e29cb-5163-47a3-82e8-5d2cbc354120
+		summarizeBy: none
+		sourceColumn: End Date
+
+		variation Variation
+			isDefault
+			relationship: aacb273f-bc63-434d-bb42-44a330668c57
+			defaultHierarchy: LocalDateTable_e089db14-49de-4711-9cf8-f05fdef72f39.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Salesprice
+		dataType: double
+		lineageTag: 7e99d6ad-b899-4d5f-9d32-69e298c40cc4
+		summarizeBy: sum
+		sourceColumn: Salesprice
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Net Sales Price'
+		dataType: double
+		lineageTag: d8865699-64ba-4cb9-823d-78fe494236f9
+		summarizeBy: none
+		sourceColumn: Net Sales Price
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Total Price'
+		dataType: double
+		lineageTag: ca23d159-ba1a-4171-8369-556fbd6158f9
+		summarizeBy: sum
+		sourceColumn: Total Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Termijn
+		dataType: int64
+		formatString: 0
+		lineageTag: 90eb5017-abf0-44af-b7f6-7613af22943f
+		summarizeBy: sum
+		sourceColumn: Termijn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Termijn Maand'
+		dataType: string
+		lineageTag: a69c0a39-d075-4aae-99fe-f35efabebd9c
+		summarizeBy: none
+		sourceColumn: Termijn Maand
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Termijn Maand Formatted' = ```
+			
+			VAR Dag = VALUE(LEFT([Termijn Maand], 2))
+			VAR Maand = VALUE(MID([Termijn Maand], 4, 2))
+			VAR Jaar = VALUE(RIGHT([Termijn Maand], 4))
+			VAR Datum = DATE(Jaar, Maand, 1)
+			RETURN FORMAT(Datum, "mmm yy")
+			
+			```
+		lineageTag: 26d4c2da-5bce-417a-af8b-25226527409f
+		summarizeBy: none
+		sortByColumn: 'Termijn Maand Datum'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Termijn Maand Datum' = ```
+			
+			VAR Dag = VALUE(LEFT([Termijn Maand], 2))
+			VAR Maand = VALUE(MID([Termijn Maand], 4, 2))
+			VAR Jaar = VALUE(RIGHT([Termijn Maand], 4))
+			RETURN DATE(Jaar, Maand, 1)
+			
+			```
+		formatString: General Date
+		lineageTag: 234bb111-f422-4bf8-a701-bbb1ccdfec32
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Debiteurnummer
+		dataType: string
+		lineageTag: 82352cec-1a34-422b-a9e5-818a740732c6
+		summarizeBy: none
+		sourceColumn: Debiteurnummer
+
+		annotation SummarizationSetBy = Automatic
+
+	partition contract_opbrengsten = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com", "Operationeel Dashboard"),
+				    #"s4_inf_Contract Line Items" = Source{[Schema="s4_inf",Item="Contract Line Items"]}[Data]
+				in
+				    #"s4_inf_Contract Line Items"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

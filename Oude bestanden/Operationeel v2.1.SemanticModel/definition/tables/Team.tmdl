@@ -1,0 +1,50 @@
+table Team
+	lineageTag: eccd2efb-eaba-47ad-a720-e751000676ac
+
+	column Id
+		dataType: string
+		lineageTag: d363a0b2-9e8c-46eb-b634-33a970c63a08
+		summarizeBy: none
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Teamnaam
+		dataType: string
+		lineageTag: aa146165-1d54-456d-8e44-2183ef9a9b27
+		summarizeBy: none
+		sourceColumn: Teamnaam
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Teamlead
+		dataType: string
+		lineageTag: dc9477ec-7fd7-4a1b-9c27-61780c97aa5d
+		summarizeBy: none
+		sourceColumn: Teamlead
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	partition Team-249549fc-cfee-498c-a083-fcfb6e2f4020 = m
+		mode: import
+		source =
+				let
+				    Bron = Salesforce.Data("https://growteq.my.salesforce.com", [ApiVersion=48]),
+				    Krow__Team__c = Bron{[Name="Krow__Team__c"]}[Data],
+				    #"Andere kolommen verwijderd" = Table.SelectColumns(Krow__Team__c,{"Id", "Name", "Krow__Team_Lead__c"}),
+				    #"Namen van kolommen gewijzigd" = Table.RenameColumns(#"Andere kolommen verwijderd",{{"Name", "Teamnaam"}}),
+				    #"Query's samengevoegd" = Table.NestedJoin(#"Namen van kolommen gewijzigd", {"Krow__Team_Lead__c"}, Medewerkers, {"Id"}, "Medewerkers", JoinKind.LeftOuter),
+				    #"Medewerkers uitgevouwen" = Table.ExpandTableColumn(#"Query's samengevoegd", "Medewerkers", {"Medewerkernaam"}, {"Medewerkers.Medewerkernaam"}),
+				    #"Namen van kolommen gewijzigd1" = Table.RenameColumns(#"Medewerkers uitgevouwen",{{"Medewerkers.Medewerkernaam", "Teamlead"}}),
+				    #"Andere kolommen verwijderd1" = Table.SelectColumns(#"Namen van kolommen gewijzigd1",{"Id", "Teamnaam", "Teamlead"})
+				in
+				    #"Andere kolommen verwijderd1"
+
+	annotation PBI_ResultType = Table
+

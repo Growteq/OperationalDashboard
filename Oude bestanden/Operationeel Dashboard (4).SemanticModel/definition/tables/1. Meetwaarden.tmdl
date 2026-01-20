@@ -1,0 +1,1423 @@
+table '1. Meetwaarden'
+	lineageTag: a6b5c615-6f4e-4472-aa84-1a87cc8d7337
+
+	measure 'Aantal Actieve Medewerkers' = ```
+			
+			CALCULATE(
+			    COUNT(DimMedewerkers[Medewerker]),
+			    NOT(ISBLANK(DimMedewerkers[DatumIndienst])),
+			    ISBLANK(DimMedewerkers[DatumUitdienst])
+			)
+			
+			```
+		displayFolder: Medewerkers
+		lineageTag: 51a977cd-58d4-4811-b482-10c673c3b9c9
+
+	measure 'Aantal FTE' = ```
+			
+			SUM(FeitFormatieBezetting[FTE])
+			
+			```
+		lineageTag: c7750c36-7f8a-4abb-bbea-6a0aaf919303
+
+	measure 'Aantal Medewerkers' = COUNT(DimMedewerkers[Medewerker])
+		displayFolder: Medewerkers
+		lineageTag: 63de61fb-3998-424d-af1d-160c250a40c4
+
+	measure 'Aantal medewerkers in dienst dit jaar' = ```
+			
+			 CALCULATE(
+			    COUNT(DimMedewerkers[MedewerkerCode]),
+			    FILTER(DimMedewerkers,ISBLANK(DimMedewerkers[DatumUitdienst])),
+			    USERELATIONSHIP(DimDatum[Datum], DimMedewerkers[DatumInDienst])
+			)
+			
+			```
+		formatString: 0
+		displayFolder: Medewerkers
+		lineageTag: a09e1671-7d8e-4e87-8af5-e931a298c77c
+
+	measure 'Aantal Medewerkers In dienst vorig jaar' = ```
+			
+			CALCULATE(
+			    [Aantal medewerkers in dienst dit jaar],
+			    YEAR(DimDatum[Datum]) = YEAR(TODAY()) - 1
+			)
+			
+			```
+		formatString: 0
+		displayFolder: Medewerkers
+		lineageTag: 82ad75bb-6f62-4023-b22c-0bb35ed7c967
+
+	measure 'Aantal medewerkers uit dienst dit jaar' = ```
+			
+			CALCULATE(
+			COUNT(DimMedewerkers[DatumUitdienst]),
+			USERELATIONSHIP(DimMedewerkers[DatumUitdienst], DimDatum[Datum]))
+			
+			```
+		formatString: 0
+		displayFolder: Medewerkers
+		lineageTag: c0310e19-fdb6-4736-be17-86c4609bcf65
+
+	measure 'Aantal Medewerkers Uit Dienst Vorig Jaar' = ```
+			
+			CALCULATE(
+			    [Aantal medewerkers uit dienst dit jaar],
+			    YEAR(DimDatum[Datum]) = YEAR(TODAY()) - 1
+			)
+			
+			```
+		formatString: 0
+		displayFolder: Medewerkers
+		lineageTag: 7d37a5c6-d070-4c47-9e11-558a48d7ca3a
+
+	measure 'Aantal Projecten met Taakregels' = ```
+			
+			CALCULATE(
+			    [Aantal Actieve Projecten], -- Gebruik de bestaande measure
+			    USERELATIONSHIP(DimTaakregels[ProjectKey], DimProjecten[ProjectKey]) -- Specificeer de alternatieve relatie
+			)
+			
+			```
+		lineageTag: da66381b-6cb1-4cd2-8201-9bf7d1fae538
+
+	measure 'Aantal skills' = COUNT(FeitMedewerkerSkills[MedewerkerSkillKey])
+		lineageTag: f1b1db5b-06d9-4154-9519-b701a9b4a092
+
+	measure 'Aantal Taakregels met Project' = ```
+			
+			CALCULATE(
+			    COUNTROWS(DimTaakregels), -- Telt het aantal taakregels
+			    USERELATIONSHIP(DimTaakregels[ProjectKey], DimProjecten[ProjectKey]) -- Specificeert de alternatieve relatie
+			)
+			
+			```
+		lineageTag: 17666a51-64e9-4463-a5e2-fa3df580423a
+
+	measure 'Aantal Verlof Dagen Komende 12 Maanden' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(FeitVerlofAanvragen[FeitVerlofaanvraagKey])
+			    )
+			
+			
+			```
+		lineageTag: 5851aa51-84cd-47bc-9fbd-6656a2471974
+
+	measure AantalBeschikbareUren =
+			
+			CALCULATE(
+			    SUM(FeitRoosterUren[UrenPerDag])
+			) - [Verlofuren]
+		formatString: 0
+		lineageTag: c571833c-2a1f-490b-b17f-ea8f94cf6024
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure AantalBeschikbareUrenGeselecteerdePeriode = ```
+			
+			VAR MinDatum = MIN(DimDatumFilter[Datum])  -- Begin van de geselecteerde periode
+			VAR MaxDatum = MAX(DimDatumFilter[Datum])  -- Einde van de geselecteerde periode
+			VAR AantalUniekeWeken = DISTINCTCOUNT(DimDatum[WeekNummer])  -- Aantal unieke geselecteerde weken
+			
+			RETURN 
+			SUM(FeitRoosterUren[Aantal_uren_per_week]) * AantalUniekeWeken
+			
+			```
+		lineageTag: e882428b-d5bb-472f-a33d-7e5a8c9c2ee6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Bezettingsgraad YTD' = ```
+			
+			DIVIDE(
+			    CALCULATE(
+			        [Geschreven ProjectUren Laatste 12 maanden], 
+			        FILTER(
+			            ALL(DimDatum), 
+			            DimDatum[Datum] >= DATE(YEAR(TODAY()), 1, 1) &&  -- Begin van huidig jaar
+			            DimDatum[Datum] <= TODAY()  -- Tot en met vandaag
+			        )
+			    ),
+			    CALCULATE(
+			        [Aantal Geschreven Uren], 
+			        FILTER(
+			            ALL(DimDatum), 
+			            DimDatum[Datum] >= DATE(YEAR(TODAY()), 1, 1) &&  -- Begin van huidig jaar
+			            DimDatum[Datum] <= TODAY()  -- Tot en met vandaag
+			        )
+			    ),
+			    BLANK()  -- Voorkomt deling door nul
+			)
+			
+			```
+		lineageTag: daeaef2c-c080-40d8-bdab-de176b661bf8
+
+	measure BezettingsgraadBeschikbareUren = ```
+			[AantalBeschikbareUrenGeselecteerdePeriode] - [Aantal Geplande Verlofuren] 
+			```
+		lineageTag: d035d5d6-5ad3-4e8d-bcd0-78cc4d38c0ff
+
+	measure vHJ = if(ISFILTERED(DimDatumFilter[Jaar]), max(DimDatumFilter[Jaar]), YEAR(TODAY()))
+		displayFolder: Calculatiegroepen
+		lineageTag: f150e38f-9c9a-42c4-a259-1ddcf2a85f19
+
+	measure vHM = if(ISFILTERED(DimDatumFilter[MaandNaam]), max(DimDatumFilter[MaandNummer]), MONTH(TODAY()))
+		displayFolder: Calculatiegroepen
+		lineageTag: 3c5b8f96-ee05-41d1-b8a2-50a56067e209
+
+	measure vHMnrRel =
+			
+			VAR Jr = [vHJ]
+			VAR Mnd = [vHM]
+			RETURN
+			CALCULATE(
+			    max(DimDatumFilter[MaandNrRelatief])
+			    , FILTER(ALL(DimDatumFilter), DimDatumFilter[Jaar] = Jr && DimDatumFilter[MaandNummer] = Mnd))
+		displayFolder: Calculatiegroepen
+		lineageTag: 1a413d78-2f0e-496d-aeab-cfa957d4e7ea
+
+	measure Brutomarge = [Omzet ex. BTW] - [Factuurkosten]
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		displayFolder: Commercieel
+		lineageTag: 21584dc8-cb76-46fc-b838-48c8e476a1f1
+
+	measure 'Brutomarge %' = [Brutomarge] / [Omzet ex. BTW]
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Commercieel
+		lineageTag: c18ff68d-542b-478c-bbed-eda1260cfd46
+
+	measure 'Commerciële waarden uren' = ```
+			
+			SUMX(
+			    FeitGeschrevenUren, 
+			    [Aantal geschreven Uren] * RELATED(DimMedewerkers[Uurtarief])
+			)
+			
+			```
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		displayFolder: Commercieel
+		lineageTag: 57f8766e-0956-4c6a-8b2f-2e36287b30af
+
+	measure 'Measure 2'
+		isHidden
+		displayFolder: Commercieel
+		lineageTag: 34609d2e-ba40-473b-bf0b-79670bf5395c
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure Declarabiliteit = [GefactureerdeUren] / [Aantal geschreven Uren]
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Financieel 2
+		lineageTag: f1b9fe61-2ccb-4395-8bf8-1f4c49fcb716
+
+	measure ExterneMedewerkerOmzet = ```
+			
+			CALCULATE(
+			    [Omzet ex. BTW], -- Som van de uren
+			    FILTER(
+			        DimMedewerkers, 
+			        DimMedewerkers[IsExterneMedewerker] = 1 -- Filter alleen externe medewerkers
+			    )
+			)
+			
+			```
+		displayFolder: Commercieel
+		lineageTag: c96c56b1-e87a-4bda-b77d-c54489796fe0
+
+	measure 'ExterneMedewerkerOmzet Vorig Jaar' = ```
+			
+			CALCULATE(
+			    [Omzet ex. BTW Vorig Jaar], -- Som van de uren
+			    FILTER(
+			        DimMedewerkers, 
+			        DimMedewerkers[IsExterneMedewerker] = 1 -- Filter alleen externe medewerkers
+			    )
+			)
+			
+			```
+		displayFolder: Commercieel
+		lineageTag: ec7b472e-38d8-4915-938d-5b70cc8a44c0
+
+	measure Factuurkosten = SUM(FeitFactuurregels[KostenBedrag])
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		displayFolder: Commercieel
+		lineageTag: 1a7c13d8-114a-4e80-8e8a-25f6b562f404
+
+	measure 'Gemiddeld Uurtarief' = ```
+			
+			AVERAGE(FeitFactuurregels[UurTarief])
+			
+			```
+		displayFolder: Commercieel
+		lineageTag: 409a93e0-1c3d-40d9-81cf-38b01a7de773
+
+	measure 'Gerealiseerde ProjectOmzet' = SUM(DimProjecten[FacturabeleOmzet])
+		formatString: #,0
+		displayFolder: Commercieel
+		lineageTag: d7565ff5-2c22-4898-9224-4bd59b2b3f16
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Kosten Vorig Jaar' = ```
+			
+			CALCULATE(
+			    SUM(FeitFactuurregels[KostenBedrag]),
+			    SAMEPERIODLASTYEAR(DimDatum[Datum])
+			)
+			
+			```
+		displayFolder: Commercieel
+		lineageTag: 5e435777-75b0-4673-857b-a760359da8df
+
+	measure KostenExtern = ```
+			
+			CALCULATE(
+			    [Factuurkosten], -- Som van de uren
+			    FILTER(
+			        DimMedewerkers, 
+			        DimMedewerkers[IsExterneMedewerker] = 1 -- Filter alleen externe medewerkers
+			    )
+			)
+			
+			```
+		displayFolder: Commercieel
+		lineageTag: fda04fb2-4baf-4bbc-a1c4-ed43b48f4881
+
+	measure KostenIntern = ```
+			
+			CALCULATE(
+			    [Factuurkosten], -- Som van de uren
+			    FILTER(
+			        DimMedewerkers, 
+			        DimMedewerkers[IsExterneMedewerker] = 0 -- Filter alleen externe medewerkers
+			    )
+			)
+			
+			```
+		displayFolder: Commercieel
+		lineageTag: 30cb1891-3030-4b72-9872-345889e7f111
+
+	measure MedewerkerOmzet = ```
+			
+			CALCULATE(
+			    [Omzet ex. BTW], -- Som van de uren
+			    FILTER(
+			        DimMedewerkers, 
+			        DimMedewerkers[IsExterneMedewerker] = 0 -- Filter alleen externe medewerkers
+			    )
+			)
+			
+			```
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		displayFolder: Commercieel
+		lineageTag: d430e69f-e661-44e1-9836-9d6767714694
+
+	measure 'Omzet ex. BTW' = SUM(FeitFactuurregels[BedragExclBTW])
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		displayFolder: Commercieel
+		lineageTag: 1df4c79b-8ed8-4378-a5c8-d4b8b42d7b50
+
+	measure 'Omzet ex. BTW Vorig Jaar' = ```
+			
+			CALCULATE(
+			    SUM(FeitFactuurregels[BedragExclBTW]),
+			    SAMEPERIODLASTYEAR(DimDatum[Datum])
+			)
+			
+			```
+		displayFolder: Commercieel
+		lineageTag: 5e940a6e-d963-47ab-b651-5d62fab7f1a5
+
+	measure 'Percentage interne/externe kosten' = [KostenExtern] / [Factuurkosten]
+		displayFolder: Commercieel
+		lineageTag: 1aea3cad-b6f5-41dd-933d-056dd7ba740d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Percentage interne/externe omzet' = [ExterneMedewerkerOmzet] / [Omzet ex. BTW]
+		displayFolder: Commercieel
+		lineageTag: 7eda2bfc-4e3b-4756-b761-45a169754832
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Omzet vs verwachte omzet' = [Verwachte Omzet] - [Gerealiseerde ProjectOmzet]
+		formatString: #,0
+		displayFolder: Commercieel
+		lineageTag: b4cb7885-1408-4f73-9e36-6c8ced9c7394
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Geschatte Uren Komende 12 maanden' = ```
+			
+			CALCULATE(
+			    [Geschatte Uren],
+			    FILTER(
+			        ALL(TimeIntelligence),
+			        TimeIntelligence[Calculatie] = "Komende 12 maanden"
+			    ),
+			    USERELATIONSHIP(DimProjecten[Startdatum], DimDatum[Datum]) -- Activeer de inactieve relatie
+			)
+			
+			```
+		lineageTag: d310de9a-9bac-4204-b92f-5d5211f72a1a
+
+	measure 'Nieuwe Medewerkers' =
+			CALCULATE(
+			    COUNT(DimMedewerkers[MedewerkerId]),
+			    FILTER(DimMedewerkers, ISBLANK(DimMedewerkers[DatumUitdienst])))
+		formatString: 0
+		lineageTag: f2ba8a72-4717-424b-b6c1-084e9fb75d2c
+
+	measure 'Aantal Actieve Projecten' = ```
+			
+			CALCULATE(
+			    [Aantal Projecten],
+			    DimProjecten[Projectstatus] = "In Progress",
+			    USERELATIONSHIP(DimProjecten[Startdatum], DimDatum[Datum]),
+			    USERELATIONSHIP(DimProjecten[PracticeKey], DimPractice[PracticeKey])
+			)
+			
+			```
+		displayFolder: Operationeel
+		lineageTag: 335176d4-7967-4bb7-961e-dcb0c0e3bf3c
+
+	measure 'Aantal Projecten' = COUNT(DimProjecten[ProjectId])
+		displayFolder: Operationeel
+		lineageTag: a1223002-0ae3-4647-a539-308dd29bec99
+
+	measure 'Aantal Projecten met uren' =
+			
+			DISTINCTCOUNT(FeitGeschrevenUren[ProjectKey])
+		displayFolder: Operationeel
+		lineageTag: cdd2794c-e457-462c-9e44-c8b3308e4550
+
+	measure 'Aantal toekomstige Projecten' = ```
+			
+			CALCULATE(
+			    [Aantal Projecten],
+			    DimProjecten[Projectstatus] = "Not Started",
+			    USERELATIONSHIP(DimProjecten[Startdatum], DimDatum[Datum]),
+			    USERELATIONSHIP(DimProjecten[PracticeKey], DimPractice[PracticeKey])
+			)
+			
+			```
+		displayFolder: Operationeel
+		lineageTag: e50a8d20-3b09-4ef7-ae1b-04471bdc43b3
+
+	measure 'Afgeronde Projecten' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(DimProjecten[ProjectId]),
+			    DimProjecten[Projectstatus] = "Complete",
+			    USERELATIONSHIP(DimProjecten[DatumAfgerond], DimDatum[Datum])
+			)
+			
+			```
+		displayFolder: Operationeel
+		lineageTag: e5fdc980-60a1-436c-907a-1d156e2f0e6e
+
+	measure Bezettingsgraad = [Geschreven ProjectUren Laatste 12 maanden] / [Aantal geschreven Uren]
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Operationeel
+		lineageTag: be7e396e-76f8-42dd-a39d-ce48a2356981
+
+	measure 'Bezettingsgraad Laatste 12 maanden' =
+			
+			CALCULATE([Bezettingsgraad],
+			FILTER(ALL(TimeIntelligence),
+			TimeIntelligence[Calculatie] = "Laatste 12 maanden"))
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Operationeel
+		lineageTag: 1153ca93-d343-46c7-b43d-8c0a9187cc37
+
+	measure Test_AantalRijen = ```
+			
+			COUNTROWS(
+			    FILTER(
+			        ALL(DimDatumFilter),
+			        DimDatumFilter[Jaar] = 2025 && DimDatumFilter[MaandNummer] = 2
+			    )
+			)
+			
+			```
+		lineageTag: 89c9e402-46ad-40cf-90ac-47cb80a6798e
+
+	measure Test_MaandNrRelatief = ```
+			
+			MAXX(
+			    FILTER(
+			        ALL(DimDatumFilter),
+			        DimDatumFilter[Jaar] = 2025 && DimDatumFilter[MaandNummer] = 2
+			    ),
+			    DimDatumFilter[MaandNrRelatief]
+			)
+			
+			```
+		formatString: 0
+		lineageTag: dc8db873-75ce-4c3c-9d85-c5f837ffdf9a
+
+	measure Test_Selected_Year = ```
+			SELECTEDVALUE(DimDatumFilter[Jaar])
+			
+			```
+		lineageTag: 098591ab-aca0-405a-8b00-4ca59357a3af
+
+	measure Test_UniekeMaandNrRelatief = ```
+			
+			CONCATENATEX(
+			    FILTER(
+			        ALL(DimDatumFilter),
+			        DimDatumFilter[Jaar] = SELECTEDVALUE(DimDatumFilter[Jaar]) -- Zorgt ervoor dat er maar één jaar wordt gebruikt
+			    ),
+			    DimDatumFilter[MaandNrRelatief],
+			    ", "
+			)
+			
+			```
+		lineageTag: 721769c1-ab00-4713-bcb3-10111c9c285d
+
+	measure Test_UniekeMaandNrRelatief2 = ```
+			
+			CONCATENATEX(
+			    FILTER(
+			        ALL(DimDatumFilter),
+			        DimDatumFilter[Jaar] = 2025 -- Forceert filter op 2025 om te testen
+			    ),
+			    DimDatumFilter[MaandNrRelatief],
+			    ", "
+			)
+			
+			```
+		lineageTag: a1326b48-b093-4a6d-98a5-8980ec043857
+
+	measure 'Totaalgeschreven Taakuren' =
+			CALCULATE(
+			    SUM(DimTaakregels[TotaalGeschrevenUren]), -- Som van TotaalGeschrevenUren
+			    USERELATIONSHIP(DimTaakregels[ProjectKey], DimProjecten[ProjectKey]) -- Gebruik de alternatieve relatie
+			)
+		lineageTag: 2d8996b9-5467-4779-9d33-e8f39ccdf73c
+
+	measure 'Aantal Geplande Verlofuren' =
+			
+			CALCULATE(
+			    SUM(FeitGeschrevenUren[AantalUren]),
+			    FeitGeschrevenUren[Verloftype] = "Regulier verlof",
+			    FeitGeschrevenUren[Datum] >= TODAY()
+			)
+		displayFolder: Uren
+		lineageTag: eda17764-a2f7-4dfc-9870-a42468e1f615
+
+	measure 'Aantal Geschreven Projecturen Laatste 12 Maanden' = ```
+			
+			VAR StartDatum = EOMONTH(TODAY(), -11) + 1  -- Eerste dag van de maand 12 maanden geleden
+			VAR EindDatum = TODAY()  -- Vandaag
+			VAR StartJaarMaand = YEAR(StartDatum) * 100 + MONTH(StartDatum)
+			VAR EindJaarMaand = YEAR(EindDatum) * 100 + MONTH(EindDatum)
+			
+			RETURN
+			CALCULATE(
+			    SUM(FeitGeschrevenUren[AantalUren]),
+			    FeitGeschrevenUren[Projectkey] <> BLANK(),  -- Alleen projecturen
+			    FeitGeschrevenUren[IsFacturabel] = TRUE(),  -- Alleen facturabele uren
+			    FILTER(
+			        ALL(DimDatum),
+			        DimDatum[JaarMaand] >= StartJaarMaand &&
+			        DimDatum[JaarMaand] <= EindJaarMaand
+			    )
+			)
+			
+			```
+		displayFolder: Uren
+		lineageTag: 4b94650c-ecdb-4028-9052-42c496a075aa
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Aantal Geschreven Projecturen Vorig Jaar' = ```
+			
+			CALCULATE(
+			    SUM(FeitGeschrevenUren[AantalUren]),
+			    NOT(ISBLANK(FeitGeschrevenUren[Projectkey])),
+			    FeitGeschrevenUren[IsFacturabel] = TRUE(),
+			    ISBLANK(FeitGeschrevenUren[Verloftype]),  
+			    SAMEPERIODLASTYEAR(DimDatum[Datum])
+			)
+			
+			```
+		displayFolder: Uren
+		lineageTag: 43dcd754-59c5-4e4f-b08f-f98a293de566
+
+	measure 'Aantal geschreven Uren' = ```
+			
+			CALCULATE(
+			    SUM(FeitGeschrevenUren[AantalUren])
+			)
+			
+			```
+		formatString: 0.00
+		displayFolder: Uren
+		lineageTag: 4c080422-2c22-47e1-a71c-74fa9cc72f12
+
+	measure 'Aantal Geschreven Ziekteuren' = ```
+			
+			CALCULATE(
+			    SUM(FeitGeschrevenUren[AantalUren]),
+			    NOT(ISBLANK(FeitGeschrevenUren[Projectkey])),
+			    DimTaakregels[TaakNaam] = "Ziekte / Kort Verzuim",
+			    FeitGeschrevenUren[GoedkeuringsStatus] = "Approved"
+			)
+			
+			```
+		displayFolder: Uren
+		lineageTag: 44ef108c-f481-49c1-be80-a1d324698667
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Aantal Opgenomen Verlofuren' = ```
+			
+			CALCULATE(
+			    SUM(FeitGeschrevenUren[AantalUren]),
+			    FeitGeschrevenUren[Verloftype] = "Regulier verlof",
+			    FeitGeschrevenUren[Datum] <= TODAY()
+			)
+			
+			```
+		displayFolder: Uren
+		lineageTag: 501b6359-146e-436b-9908-41696f273dd6
+
+	measure 'Aantal Verlofuren' = ```
+			SUM(FeitVerlofAanvragen[Verlofuren])
+			
+			```
+		displayFolder: Uren
+		lineageTag: 7d5c62a7-a384-4101-9e59-33ceac367171
+
+	measure 'Bezettingsgraad Norm' = 0.8
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Uren
+		lineageTag: 55870f98-2608-4f09-aec2-9fd79548bf09
+
+	measure 'Externe Uren' = ```
+			
+			CALCULATE(
+			    SUM(FeitGeschrevenUren[AantalUren]),
+			    DimProjecten[InternExtern] = "Extern"
+			)
+			
+			```
+		displayFolder: Uren
+		lineageTag: cb151f1b-6f62-4737-9e66-cb91301c994c
+
+	measure 'Facturabele Uren' = ```
+			
+			CALCULATE(
+			    [Geschreven uren (gecompenseerd)],
+			    FILTER(
+			        DimProjecten,
+			        DimProjecten[IsFacturabel] = TRUE()
+			    )
+			)
+			
+			```
+		formatString: #,0
+		displayFolder: Uren
+		lineageTag: 7ad15ec2-3907-4ecf-8c31-e17011c211e5
+
+	measure GeplandeProjectUren = ```
+			
+			CALCULATE(
+			    SUM(FeitGeplandeUren[UrenTotaal]),
+			    NOT(ISBLANK(FeitGeschrevenUren[Projectkey])),
+			    FeitGeschrevenUren[IsFacturabel] = TRUE()
+			)
+			
+			```
+		displayFolder: Uren
+		lineageTag: d5cb9532-a5d4-4dee-b3ad-7d29a0b65591
+
+	measure GeplandeUren = SUM(FeitGeplandeUren[GeplandeUren])
+		formatString: #,0
+		displayFolder: Uren
+		lineageTag: 14b48316-8f97-41fc-8dda-b1500332e1e3
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Geschatte Uren' = SUM(DimProjecten[GeschatteUren])
+		displayFolder: Uren
+		lineageTag: ade2c330-e9f5-4d19-829e-a674d5898e0e
+
+	measure 'Geschreven ProjectUren Laatste 12 maanden' =
+			
+			CALCULATE(
+			    SUM(FeitGeschrevenUren[AantalUren]),
+			    NOT(ISBLANK(FeitGeschrevenUren[Projectkey])),
+			    FeitGeschrevenUren[IsFacturabel] = TRUE(),
+			    FILTER(
+			        ALL(TimeIntelligence),
+			        TimeIntelligence[Calculatie] = "Laatste 12 maanden"
+			    )
+			)
+		displayFolder: Uren
+		lineageTag: 64df917f-0d98-401d-bf1c-2a6bba9356a5
+
+	measure 'Geschreven Uren Laatste 12 maanden' =
+			
+			CALCULATE([Aantal geschreven Uren],
+			FILTER(ALL(TimeIntelligence),
+			TimeIntelligence[Calculatie] = "Laatste 12 maanden"))
+		displayFolder: Uren
+		lineageTag: 19722cc0-08e0-4a07-8a52-1faa150947df
+
+	measure 'Geschreven Uren Voorgaande 12 maanden' =
+			
+			CALCULATE([Aantal geschreven Uren],
+			FILTER(ALL(TimeIntelligence),
+			TimeIntelligence[Calculatie] = "Voorgaande 12 maanden"))
+		displayFolder: Uren
+		lineageTag: 60a06417-a55c-4241-b9f7-30b89969995d
+
+	measure GeschrevenProjectUren = SUM(DimProjecten[AantalUren])
+		displayFolder: Uren
+		lineageTag: f213952e-0b92-47df-8241-a00999c483bb
+
+	measure 'Interne uren laatste 12 maanden' =
+			
+			CALCULATE([Geschreven Uren Laatste 12 Maanden],
+			DimProjecten[InternExtern] = "Intern"
+			)
+		displayFolder: Uren
+		lineageTag: f3869f1a-b42f-4be3-86ac-572b5bfaa907
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Niet Facturabele Uren' = SUM(FeitGeschrevenUren[NietFacturabeleUren])
+		displayFolder: Uren
+		lineageTag: cef03b73-b89d-4435-b47a-9d901fb307bf
+
+	measure Overschrijdingspercentage = ```
+			
+			DIVIDE(
+			    [Geschrevenprojecturen] - [Geschatte uren],
+			    [Geschatte uren],
+			    0
+			) 
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Uren
+		lineageTag: 73bc70e9-7c2c-4c6b-955b-0a1d185de1d2
+
+	measure 'Reguliere Verlofuren' =
+			CALCULATE(
+			    [Aantal Verlofuren],
+			    FeitVerlofAanvragen[VerlofType] = "Regulier Verlof"
+			)
+		displayFolder: Uren
+		lineageTag: 496be961-1ff3-4225-afc4-40260f1ac2d5
+
+	measure 'Toekomstige Verlofuren Komende 12 Maanden' = ```
+			
+			CALCULATE(
+			    SUMX(
+			        SUMMARIZE(
+			            FeitVerlofAanvragen,
+			            FeitVerlofAanvragen[DatumAangevraagd],  -- Maak een unieke lijst van aanvraagdatums
+			            "UniekeVerlofuren", MAX(FeitVerlofAanvragen[Verlofuren])  -- Pak per aanvraagdatum de max verlofuren
+			        ),
+			        [UniekeVerlofuren]  -- Sommeer de unieke verlofuren
+			    ),
+			    USERELATIONSHIP('DimDatum'[Datum], FeitVerlofAanvragen[DatumVerlof]),  -- Filter op DatumVerlof
+			    FILTER(
+			        ALL('DimDatum'[Datum]), 
+			        'DimDatum'[Datum] > TODAY() &&
+			        'DimDatum'[Datum] <= EOMONTH(TODAY(), 12)  -- Filter alleen de komende 12 maanden
+			    )
+			)
+			```
+		displayFolder: Uren
+		lineageTag: c41e0c72-2981-4273-a408-4423cebe1524
+
+	measure 'Toekomstige Verlofuren Komende 12 Maanden2' = ```
+			
+			CALCULATE(
+			    SUMX(
+			        SUMMARIZE(
+			            FeitVerlofAanvragen,
+			            FeitVerlofAanvragen[DatumAangevraagd],  -- Maak een unieke lijst van aanvraagdatums
+			            "UniekeVerlofuren", MAX(FeitVerlofAanvragen[Verlofuren])  -- Pak per aanvraagdatum de max verlofuren
+			        ),
+			        [UniekeVerlofuren]  -- Sommeer de unieke verlofuren
+			    ),
+			    USERELATIONSHIP('DimDatum'[Datum], FeitVerlofAanvragen[DatumVerlof]),  -- Filter op DatumVerlof
+			    FILTER(
+			        ALL('DimDatum'[Datum]), 
+			        'DimDatum'[Datum] > TODAY() &&
+			        'DimDatum'[Datum] <= EOMONTH(TODAY(), 12)  -- Filter alleen de komende 12 maanden
+			    )
+			)
+			
+			```
+		displayFolder: Uren
+		lineageTag: aa895a08-f41f-47cf-b449-d01c4780d6b2
+
+	measure Ziekteverzuim = [Aantal Geschreven Ziekteuren] / [Aantal geschreven Uren]
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Uren
+		lineageTag: d2d91183-217d-4935-a788-6415ea9bed6f
+
+	measure Measure
+		lineageTag: 1314b287-1f7e-4df8-94db-c822a3c55ac6
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure Verlofsaldo = SUM(FeitVerlofSaldo[TotaalEindSaldo])
+		lineageTag: b67579df-1177-46f6-aa5f-addc2509ff50
+
+	measure VerwachteBezettingsgraad = ```
+			
+			VAR HuidigeJaarweek = 
+			    CALCULATE(
+			        MAX(DimDatum[JaarWeek]),
+			        FILTER(DimDatum, DimDatum[Datum] = TODAY())
+			    )
+			
+			VAR GeselecteerdeJaarweek = SELECTEDVALUE(DimDatum[JaarWeek], HuidigeJaarweek)
+			
+			VAR GeplandeUrenActief = 
+			    CALCULATE([GeplandeUren], DimDatum[JaarWeek] = GeselecteerdeJaarweek)
+			
+			VAR AantalBeschikbareUrenActief = 
+			    CALCULATE([AantalBeschikbareUren], DimDatum[JaarWeek] = GeselecteerdeJaarweek)
+			
+			RETURN
+			DIVIDE(GeplandeUrenActief, AantalBeschikbareUrenActief, 0)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: e7decd33-b6fc-4606-8297-49357a48b34b
+
+	measure VerwachteBezettingsgraadKomende12Mnd = ```
+			
+			CALCULATE(
+			   [VerwachteBezettingsgraad],
+			    FILTER(
+			        ALL(TimeIntelligence),
+			        TimeIntelligence[Calculatie] = "Komende 12 maanden"
+			    )
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: c198f0f6-f4d9-4094-bbc9-d856dd3d22d7
+
+	measure VerwachteBezettingsgraadweek = ```
+			
+			DIVIDE([GeplandeUren], [AantalBeschikbareUrenGeselecteerdePeriode], 0)
+			
+			```
+		lineageTag: 7ca02c12-0e6f-4d0a-9bc5-6625ec0bc823
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average FTE' = ```
+			AVERAGE(FeitFormatieBezetting[FTE])
+			
+			```
+		lineageTag: aa90443f-d431-48a9-8e52-f8cc249b172d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Aantal Uren' = Sum(FeitRoosterUren[Aantal_uren_per_week])
+		lineageTag: 991b8672-a885-4fbd-b785-3c6378d5955a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure YTDDaysRatio =
+			VAR _SelectedYear = [vHJ]
+			VAR _TotalDays = CALCULATE(COUNTROWS('DimDatum'), FILTER(ALL('DimDatum') , DimDatum[Jaar] = _SelectedYear))
+			VAR MAXdate = [vMaxDate]
+			VAR _YTDdays = CALCULATE(COUNTROWS('DimDatum'), FILTER(ALL('DimDatum') , [Jaar] = _SelectedYear && DimDatum[Datum] <=MAXdate))
+			RETURN DIVIDE( _YTDdays, _TotalDays)
+		displayFolder: BudgetVsOmzet
+		lineageTag: 05578b48-4d8d-4466-800b-5144675579b4
+
+	measure vMaxDate = ```
+			IF(ISFILTERED(DimDatumFilter) 
+			, MIN( MAX(DimDatumFilter[Datum]) , TODAY()-1 )
+			, TODAY()-1
+			)
+			```
+		displayFolder: Variables
+		lineageTag: 515a67aa-cc9f-4068-bd53-d8b9293974b3
+
+	measure vVJ = ```
+			IF(ISFILTERED(DimDatumFilter[Jaar]) 
+			, MAX(DimDatumFilter[Jaar])
+			, YEAR(TODAY())
+			)
+			```
+		formatString: 0
+		displayFolder: Variables
+		lineageTag: 1b6cebdf-7558-4257-93d7-a5c5191343de
+
+	measure 'Totaal Budget (intern)' = SUM(FeitBudgetten[InternPerDag_FTE])
+		displayFolder: BudgetVsOmzet
+		lineageTag: 0810041a-1404-4ea1-9188-21bfeb22e5d4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure vTitelRatio =
+			VAR _SelectedYear = [vHJ]
+			VAR _TotalDays = CALCULATE(COUNTROWS('DimDatum'), FILTER(ALL('DimDatum') , DimDatum[Jaar] = _SelectedYear))
+			VAR MAXdate = [vMaxDate]
+			VAR _YTDdays = CALCULATE(COUNTROWS('DimDatum'), FILTER(ALL('DimDatum') , [Jaar] = _SelectedYear && DimDatum[Datum] <=MAXdate))
+			
+			RETURN "YTD Ratio" & " = " & _YTDdays & " dagen" & " / " & _TotalDays & " dagen"
+		displayFolder: BudgetVsOmzet
+		lineageTag: b5ef9f0d-ea94-4501-a227-ae33dff68a50
+
+	measure 'YTD Omzet ex. BTW' = ```
+			VAR YR = [vHJ]
+			VAR DT = [vMaxDate]
+			RETURN
+			CALCULATE( [Omzet ex. BTW] 
+			, FILTER( ALL(DimDatum) , DimDatum[Jaar] = YR && DimDatum[Datum] <= DT))
+			```
+		displayFolder: Commercieel
+		lineageTag: c0309100-4438-41aa-b922-6e94d0707d00
+
+	measure 'Percentage Jaarbudget' = ```
+			Divide([YTD Omzet ex. BTW], [Totaal Budget (intern)])
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: BudgetVsOmzet
+		lineageTag: 8d862d06-b1f1-4325-b9a6-e38867d499e0
+
+	measure 'OmzetVSBudget (intern)' = [Omzet ex. BTW]-[Totaal Budget (intern)]
+		displayFolder: BudgetVsOmzet
+		lineageTag: d671f3f1-c43a-4206-bad8-9e17e2a270f2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'AVG FTE' =
+			
+			VAR avg1 = AVERAGE(FeitRoosterUren[Aantal_uren_per_week])
+			
+			RETURN DIVIDE(avg1,40)
+		lineageTag: fe5c1127-b42e-4c7b-ba69-c124997d2c57
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Verhouding Omzet t.o.v. Commerciële uren' =
+			VAR uurtarief = SUM(DimMedewerkers[Uurtarief])
+			VAR AantalUren = SUM(FeitGeschrevenUren[AantalUren])
+			VAR tarief = uurtarief * AantalUren
+			
+			RETURN DIVIDE('1. Meetwaarden'[Omzet ex. BTW],tarief)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Commercieel
+		lineageTag: 5fd1e7ea-5287-4a29-9e82-27c76a27475c
+
+	measure Tarief =
+			VAR uurtarif = SUM(DimMedewerkers[Uurtarief])
+			VAR AantalUren = SUM(DimMedewerkers[AantalUren])
+			
+			Return uurtarif * AantalUren
+		lineageTag: 4de94643-87b3-4e32-a659-43407f83f48f
+
+	measure 'Omzet o.b.v DatumAfgerond' =
+			CALCULATE(
+			    [Omzet ex. BTW],
+			    USERELATIONSHIP(DimDatum[Datum], DimProjecten[DatumAfgerond])
+			    )
+		displayFolder: Commercieel
+		lineageTag: 5bb03c13-45c3-4cbb-ba90-cd0e8f395c16
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Geplande Uren komende 12 maanden' =
+			
+			CALCULATE([GeplandeUren],
+			FILTER(ALL(TimeIntelligence),
+			TimeIntelligence[Calculatie] = "Komende 12 maanden"))
+		displayFolder: Uren
+		lineageTag: 78305a5c-a826-469a-a30f-a8777e89b9b1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Brutomarge  Laatste 12 maanden' =
+			
+			CALCULATE([Brutomarge],
+			FILTER(ALL(TimeIntelligence),
+			TimeIntelligence[Calculatie] = "Laatste 12 maanden"))
+		displayFolder: Commercieel
+		lineageTag: eb5c268c-a0ac-4940-aba9-543598aa5619
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Brutomarge % Laatste 12 maanden' =
+			
+			CALCULATE([Brutomarge %],
+			FILTER(ALL(TimeIntelligence),
+			TimeIntelligence[Calculatie] = "Laatste 12 maanden"))
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Commercieel
+		lineageTag: 227ebeae-e9b6-4ad0-9ad6-1f2b422e8403
+
+	measure 'Projecten op tijd' = ```
+			
+			
+			CALCULATE(
+			COUNT(DimProjecten[ProjectId]),
+			DimProjecten[OpTijdAfgerond] = 1)
+			 
+			```
+		formatString: 0
+		lineageTag: e184db50-b95b-423e-9f89-b6025f66170f
+
+	measure 'Omzet  Laatste 12 maanden' =
+			
+			CALCULATE([Omzet ex. BTW],
+			FILTER(ALL(TimeIntelligence),
+			TimeIntelligence[Calculatie] = "Laatste 12 maanden"))
+		displayFolder: Commercieel
+		lineageTag: e0fa3e46-9872-450a-816c-ac6405283101
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Omzet Voorgaande 12 maanden' =
+			
+			CALCULATE([Omzet ex. BTW Vorig Jaar],
+			FILTER(ALL(TimeIntelligence),
+			TimeIntelligence[Calculatie] = "Voorgaande 12 maanden"))
+		displayFolder: Commercieel
+		lineageTag: 1067e724-a9f8-4143-89c5-935f7ef64ba9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Factuuromzet = SUM(FeitFacturen[Subtotaal])
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		lineageTag: c73fa334-c36c-4137-8417-fcc563b342b1
+
+	measure 'Geschreven uren (gecompenseerd)' = ```
+			
+			CALCULATE(
+			    [Aantal geschreven Uren],
+			    FILTER(
+			        FeitGeschrevenUren,
+			        NOT ISBLANK(FeitGeschrevenUren[TaakregelKey]) &&
+			        NOT RELATED(DimTaakregels[TaakNaam]) IN {"Ziekte / Kort Verzuim", "Verlof", "Studie", "Feestdag", "Verlof (regulier)"}
+			
+			    )
+			)
+			
+			```
+		formatString: #,0.0
+		lineageTag: 061b665c-5267-4b3f-95a0-4a171aa837b0
+
+	measure Productiviteitspercentage = [Facturabele Uren] / [Geschreven uren (gecompenseerd)]
+		formatString: 0%;-0%;0%
+		lineageTag: d298b723-348b-4331-b156-44427fedb9ea
+
+	measure 'Indirecte uren' = ```
+			
+			CALCULATE(
+			    [Aantal geschreven Uren],
+			    FILTER(
+			        DimTaakregels,
+			        DimTaakregels[TaakNaam] IN {
+			            "Interne Werkzaamheden",
+			            "Ziekte / Kort Verzuim",
+			            "Acquisitie/representatie",
+			            "Verlof",
+			            "Studie",
+			            "Feestdag",
+			            "Marketing/PR",
+			            "Productontwikkeling",
+			            "Studie/opleiding (Intern)"
+			        }
+			    )
+			)
+			
+			```
+		formatString: 0.00
+		lineageTag: 0f3cd782-3bb3-469f-804f-8664dd8744c3
+
+	measure 'UrenIndirect %' = DIVIDE([Indirecte uren], [Geschreven uren (gecompenseerd)])
+		formatString: 0%;-0%;0%
+		lineageTag: 12a5f3f1-a2b4-4d79-89d2-2bb7f7ae1f04
+
+	measure 'Geselecteerde Periode' = ```
+			
+			VAR MinDatum = MIN(DimDatum[Datum])
+			VAR MaxDatum = MAX(DimDatum[Datum])
+			RETURN
+			FORMAT(MinDatum, "dd-MM-yy") & " - " & FORMAT(MaxDatum, "dd-MM-yy")
+			
+			```
+		lineageTag: 889f1dcc-0d9a-4225-ab50-b7aab441e6d5
+
+	measure 'Interne uren' =
+			
+			CALCULATE([Geschreven uren (gecompenseerd)],
+			DimProjecten[InternExtern] = "Intern"
+			)
+		lineageTag: c40456d8-9d8d-410e-80cb-4837c04280e4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Geschreven uren (gecompenseerd) LY' = ```
+			
+			CALCULATE(
+			    [Geschreven uren (gecompenseerd)], 
+			    SAMEPERIODLASTYEAR(DimDatum[Datum])
+			)
+			
+			```
+		lineageTag: 733c9844-caf6-425f-82d3-411d3e126d1f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Verlofuren = SUM(FeitVerlofAanvragen[Aantal_uren])
+		lineageTag: 40fb9d04-4cfe-4d9b-83ed-c58e784c68f9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure DynamischeTitelGeschrevenUren = ```
+			
+			VAR GeselecteerdProject = SELECTEDVALUE(DimProjecten[Projectnaam])
+			VAR KlantViaRelatie =
+			    CALCULATE(
+			        SELECTEDVALUE(DimKlanten[KlantNaam]),
+			        TREATAS(VALUES(DimProjecten[KlantKey]), DimKlanten[KlantKey])
+			    )
+			VAR Klant = IF(NOT ISBLANK(KlantViaRelatie), KlantViaRelatie, "onbekende klant")
+			VAR AantalProjecten = COUNTROWS(VALUES(DimProjecten[Projectnaam]))
+			RETURN
+			"Geschreven uren voor " & Klant &
+			IF(AantalProjecten = 1, " en " & GeselecteerdProject, "")
+			
+			```
+		lineageTag: e93ba476-7333-4896-8ea2-8da6873e4f8e
+
+	measure 'Measure 3'
+		lineageTag: 13a25775-f5f7-4eba-8094-c5ea0b6c0d65
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'YTD Jaardoel per medewerker' = ```
+			
+			
+			CALCULATE( 
+			    SUM(FeitBudgetten[FTE_x_MonthGoal])
+			)
+			```
+		formatString: "€"\ #,0;-"€"\ #,0;"€"\ #,0
+		displayFolder: BudgetVsOmzet
+		lineageTag: 98fca880-14de-4252-a99b-ebae84d0120b
+
+	measure 'Studie uren laatste 12 maanden' = SUM()
+		displayFolder: Uren
+		lineageTag: acbb6e8b-be1c-4f13-a853-6eb05a5078d1
+
+	measure 'Aantal certificaten' = ```
+			
+			CALCULATE(
+			COUNT(FeitMedewerkerSkills[MedewerkerSkillKey]),
+			FILTER(FeitMedewerkerSkills, FeitMedewerkerSkills[SkillKey] <> 9))
+			
+			```
+		formatString: 0
+		lineageTag: 56ec3eeb-44a2-484f-91e8-3e54b375d1de
+
+	measure 'DatumInDienst/DatumUitDienst dit jaar' = ```
+			
+			VAR CurrentYear = YEAR(TODAY())
+			RETURN
+			CALCULATE(
+			    COUNTROWS(DimMedewerkers),
+			    FILTER(
+			        DimMedewerkers,
+			        YEAR(DimMedewerkers[DatumInDienst]) = CurrentYear
+			        || YEAR(DimMedewerkers[DatumUitDienst]) = CurrentYear
+			    )
+			)
+			
+			```
+		formatString: 0
+		displayFolder: Medewerkers
+		lineageTag: d83c99f0-de57-406f-854b-a58ad98e5e0d
+
+	measure 'Openstaande uren' = SUM(DimProjecten[GeschatteUrenOverlogd])
+		displayFolder: Uren
+		lineageTag: 98d8db5d-9049-421b-a622-960cca9a6b53
+
+	measure 'OmzetVSBudget (jaardoel)' = [Omzet ex. BTW]-[YTD Jaardoel per medewerker]
+		displayFolder: BudgetVsOmzet
+		lineageTag: 48bbebc9-5f28-48ce-8ca2-0b7a67f8e168
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Aantal uren (dec)' = ```
+			CALCULATE(
+			    SUM(FeitGeschrevenUren[AantalUren])
+			    )
+			    
+			```
+		displayFolder: Financieel 2
+		lineageTag: 3955d96a-b9aa-4c63-80bd-38d1018ba731
+
+	measure 'Factureerbare uren geschreven' = ```
+			
+			CALCULATE(
+			    [Aantal uren (dec)],
+			    FILTER(
+			        DimProjecten,
+			        DimProjecten[IsFacturabel] = TRUE()
+			    )
+			)
+			
+			```
+		displayFolder: Financieel 2
+		lineageTag: 23c0ebb4-4923-420e-89d5-89a2f2588ee4
+
+	measure VerwachteBezettingsgraadMaand = ```
+			
+			VAR HuidigeJaarweek = 
+			    CALCULATE(
+			        MAX(DimDatum[JaarMaand]),
+			        FILTER(DimDatum, DimDatum[Datum] = TODAY())
+			    )
+			
+			VAR GeselecteerdeJaarweek = SELECTEDVALUE(DimDatum[JaarMaand], HuidigeJaarweek)
+			
+			VAR GeplandeUrenActief = 
+			    CALCULATE([GeplandeUren], DimDatum[JaarMaand] = GeselecteerdeJaarweek)
+			
+			VAR AantalBeschikbareUrenActief = 
+			    CALCULATE([AantalBeschikbareUren], DimDatum[JaarMaand] = GeselecteerdeJaarweek)
+			
+			RETURN
+			DIVIDE(GeplandeUrenActief, AantalBeschikbareUrenActief, 0)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Commercieel
+		lineageTag: 96d4390a-2660-4585-afe4-1c3f47a9ac26
+
+	measure '%Verhouding uren' = [Omzet ex. BTW] / [Commerciële waarden uren]
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Commercieel
+		lineageTag: 1590b7af-0762-4f99-8165-b99d43457103
+
+	measure 'Voortgang doel' = [Omzet ex. BTW] / [YTD Jaardoel per medewerker]
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: BudgetVsOmzet
+		lineageTag: 1d8ce56a-d80a-407c-a8fd-7eccd4d61e69
+
+	measure GefactureerdeUren = SUM(FeitFactuurregels[UrenGefactureerd])
+		lineageTag: ed57738f-fee5-4e42-9316-7ad170089a1d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'aantal klanten per practice' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(DimProjecten[KlantKey]),
+			    USERELATIONSHIP(DimPractice[PracticeKey],DimProjecten[PracticeKey]))
+		formatString: 0
+		lineageTag: c3debce4-8183-42fb-969e-f219fcf336e4
+
+	measure 'Omzet ex. BTW (klant)' = SUM(FeitFactuurregels[BedragExclBTW])
+		lineageTag: ff94fe8c-be44-4287-9efc-400b8bf59a8d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Gemiddelde NPS-score' = AVERAGE(DimProjecten[Tevredenheidsscore])
+		lineageTag: 1420689d-f586-47db-8af5-e14d9aaa5b3b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Aantal klanten met facturatie' = ```
+			
+			CALCULATE(
+			    DISTINCTCOUNT(DimKlanten[KlantID]),
+			    FeitFacturen[InvoiceAmount] > 0,
+			    DimKlanten[KlantType] IN { "Customer", "Customer - Indirect" }
+			)
+			
+			
+			```
+		formatString: 0
+		lineageTag: d27ef256-424f-4084-b9e7-90882079f649
+
+	measure 'Spatie meetwaarde' = " "
+		lineageTag: 1595444d-c373-4d60-8b62-713f1c7d0604
+
+	measure 'Dynamische titel klantcockpit' = ```
+			
+			VAR GeselecteerdProject = SELECTEDVALUE(DimProjecten[Projectnaam])
+			VAR KlantViaRelatie =
+			    CALCULATE(
+			        SELECTEDVALUE(DimKlanten[KlantNaam]),
+			        TREATAS(VALUES(DimProjecten[KlantKey]), DimKlanten[KlantKey])
+			    )
+			VAR Klant = IF(NOT ISBLANK(KlantViaRelatie), KlantViaRelatie, "onbekende klant")
+			VAR AantalProjecten = COUNTROWS(VALUES(DimProjecten[Projectnaam]))
+			RETURN
+			"Klantgegevens van " & Klant &
+			IF(AantalProjecten = 1, " en " & GeselecteerdProject, "")
+			
+			```
+		lineageTag: eb400b94-bb5f-4aff-a16a-af87562d3417
+
+	measure 'Verwachte Omzet' = SUM(DimProjecten[VerwachteOmzet])
+		formatString: #,0
+		lineageTag: 6f9d8a9f-7e25-4e00-a15e-b0b0e4b95926
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure AantalBeschikbareUrenMaand =
+			
+			SUM(FeitRoosterUren[Aantal_uren_per_week])
+		lineageTag: c18aefe1-25c5-4bf6-be0a-6f6dd7be996d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Beschikbaarheid = [AantalBeschikbareUren]-[Verlofuren]
+		lineageTag: 36801e1c-4d86-4c96-93fd-d3fc8809201e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure VerwachteBezettingsgraadNieuw = ```
+			
+			DIVIDE([GeplandeUren], [AantalBeschikbareUren], 0)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Commercieel
+		lineageTag: f8199b98-4067-491f-84c8-7e6c52825c0b
+
+	measure 'Omzet incl BTW (klant)' = SUM(FeitFactuurregels[BedragInclBTW])
+		lineageTag: 94512083-0c48-47a0-a7e4-8218270ea76b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure OmzetPotentie = SUM(FeitGeschrevenUren[OmzetPotentie])
+		formatString: #,0
+		lineageTag: de6554f6-f734-49f3-9fce-f47c21016a2a
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure Facturatie = ```
+			
+			CALCULATE(
+			    [Factuuromzet],
+			    USERELATIONSHIP(
+			        DimProjecten[PracticeKey],
+			        DimPractice[PracticeKey]
+			    )
+			)
+			
+			```
+		formatString: #,0
+		lineageTag: 925945c6-b3bc-46ed-94ac-04f1eff353a0
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Verschil facturatie en uren' =
+			
+			[Facturatie] - [OmzetPotentie]
+		lineageTag: 934fb346-9e84-4bfc-91b7-ce374779c847
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure |
+		lineageTag: fc39acf1-ccda-4cd8-bf6e-d1349ac9a6fb
+
+	measure OmzetPotentiePerPractice = ```
+			
+			CALCULATE(
+			  [OmzetPotentie],
+			  TREATAS(
+			    VALUES(DimPractice[PracticeKey]),
+			    DimProjecten[PracticeKey]
+			  )
+			)
+			
+			```
+		lineageTag: b2e0baa8-496a-4bdd-8344-17dece8a4371
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure TotaalPerPractice = ```
+			
+			CALCULATE(
+			  SUM(FeitGeschrevenUren[OmzetPotentie]),
+			  // activeer het inactieve Practice→Project-pad
+			  USERELATIONSHIP(
+			    DimProjecten[PracticeKey],
+			    DimPractice[PracticeKey]
+			  ),
+			  // sluit tegelijk de medewerker-filter even uit
+			  CROSSFILTER(
+			    DimMedewerkers[MedewerkerKey],
+			    FeitFactuurregels[MedewerkerKey],
+			    None
+			  )
+			)
+			
+			```
+		lineageTag: a5df4ea2-d8cb-4bac-85f5-fe0132dea403
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Facturabel' = [Facturatie] / [OmzetPotentie]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d7530083-97f4-4b09-9c4f-988a916c2d93
+
+	measure 'Cumulatieve Factuuromzet' =
+			
+			TOTALYTD(
+			  [Factuuromzet],
+			  DimDatum[Datum]
+			)
+		lineageTag: 19f4fdc5-93da-4659-ae43-62770e2defeb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cumulatief Budget' =
+			
+			TOTALYTD(
+			  SUM(FeitBudgetten[FTE_x_MonthGoal]),
+			  DimDatum[Datum]
+			)
+		lineageTag: cf671f69-917f-4599-9f5d-c411ed45258e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure FixedFee = SUM(FixedFee[Krow__Amount__c])
+		lineageTag: 60462130-c729-4786-aa92-81243e54db6d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column
+		formatString: 0
+		lineageTag: da2bfe90-c1ef-4ce2-a634-1efa6de6e22f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '1. Meetwaarden' = calculated
+		mode: import
+		source = ```
+				ROW("Column", BLANK())
+				
+				```
+
+	annotation PBI_Id = 81f5c495ebad49dd99e298ef519701a9
+

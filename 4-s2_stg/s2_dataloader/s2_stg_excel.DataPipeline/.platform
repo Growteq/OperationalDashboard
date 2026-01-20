@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "s2_stg_excel"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "453761e5-2d67-a448-4425-ce9eac541686"
+  }
+}

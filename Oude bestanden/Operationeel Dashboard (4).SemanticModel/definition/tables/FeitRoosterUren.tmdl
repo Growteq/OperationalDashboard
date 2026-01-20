@@ -1,0 +1,117 @@
+table FeitRoosterUren
+	lineageTag: 0dc6a16a-35a9-4731-b987-9ada442dc872
+
+	column MedewerkerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 245f4035-918e-43bc-a376-bd7f8c47cf98
+		summarizeBy: none
+		sourceColumn: MedewerkerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Begindatum_rooster
+		dataType: string
+		lineageTag: c853521c-a332-49a9-8ccb-a3bf65a4484c
+		summarizeBy: none
+		sourceColumn: Begindatum_rooster
+
+		annotation SummarizationSetBy = Automatic
+
+	column Einddatum_rooster
+		dataType: string
+		lineageTag: 3d794091-c73b-4711-a02a-b2aaa72f6bf9
+		summarizeBy: none
+		sourceColumn: Einddatum_rooster
+
+		annotation SummarizationSetBy = Automatic
+
+	column FTE
+		dataType: double
+		lineageTag: 9246c9f3-7601-4a21-ab42-d21395534d6c
+		summarizeBy: sum
+		sourceColumn: FTE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FeitRoosterKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 61a5469f-967f-429c-88f8-8f09f0d8c113
+		summarizeBy: count
+		sourceColumn: FeitRoosterKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Datum
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 291ed84d-6906-4225-b482-d9eee8146c72
+		summarizeBy: none
+		sourceColumn: Datum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column WeekDagNaam
+		dataType: string
+		lineageTag: 5b280f40-9a79-4aa5-bb61-f203705ce553
+		summarizeBy: none
+		sourceColumn: WeekDagNaam
+
+		annotation SummarizationSetBy = Automatic
+
+	column Medewerker
+		dataType: string
+		lineageTag: 34d49efe-da95-43ab-8e6a-d0dd4c90b4aa
+		summarizeBy: none
+		sourceColumn: Medewerker
+
+		annotation SummarizationSetBy = Automatic
+
+	column Naam
+		dataType: string
+		lineageTag: 2e61f292-47ce-4b31-9bfc-86ab4af8f33a
+		summarizeBy: none
+		sourceColumn: Naam
+
+		annotation SummarizationSetBy = Automatic
+
+	column UrenPerWeek
+		dataType: double
+		lineageTag: 4610975f-9717-4c64-93f9-392727817fad
+		summarizeBy: sum
+		sourceColumn: UrenPerWeek
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UrenPerDag
+		dataType: double
+		lineageTag: 5f64c899-fb99-4e61-82f5-6acfebda9d86
+		summarizeBy: sum
+		sourceColumn: UrenPerDag
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FeitRoosterUren = m
+		mode: import
+		queryGroup: Feit
+		source =
+				let
+				    Source = Sql.Database("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com", "Operationeel Dashboard"),
+				    s3_ods_RoosterUren = Source{[Schema="s3_ods",Item="FeitRoosterUren"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(s3_ods_RoosterUren,{{"UrenPerDag", type number}, {"UrenPerWeek", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

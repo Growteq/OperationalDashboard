@@ -1,0 +1,109 @@
+table DimProjecten
+	lineageTag: fac9a081-bae9-4bd0-b1ce-53904072aef0
+
+	column Project
+		dataType: string
+		lineageTag: 2f9d8fed-da1c-4de8-8d92-fb3a930da060
+		summarizeBy: none
+		sourceColumn: Project
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimProjecten = m
+		mode: import
+		source = ```
+				let
+				    // Stap 0: Haal alle beschikbare boards op (max 100)
+				    BoardsResponse = Json.Document(
+				        Web.Contents(
+				            "https://growteq.atlassian.net",
+				            [
+				                RelativePath = "rest/agile/1.0/board",
+				                Query = [maxResults = "100"]
+				            ]
+				        )
+				    ),
+				    BoardsTable = Table.FromRecords(BoardsResponse[values]),
+				
+				    // Stap 1: Per board de actieve sprints ophalen
+				    SprintsPerBoard = Table.AddColumn(BoardsTable, "Sprints", each 
+				        let 
+				            boardId = [id],
+				            RelativePath = "rest/agile/1.0/board/" & Text.From(boardId) & "/sprint",
+				            QueryOptions = [state = "active"],
+				            result = try Json.Document(
+				                Web.Contents(
+				                    "https://growteq.atlassian.net",
+				                    [
+				                        RelativePath = RelativePath,
+				                        Query = QueryOptions
+				                    ]
+				                )
+				            ) otherwise [values = {}]
+				        in
+				            result[values]
+				    ),
+				    ExpandedSprints = Table.ExpandListColumn(SprintsPerBoard, "Sprints"),
+				    SprintsWithId = Table.ExpandRecordColumn(ExpandedSprints, "Sprints", {"id"}, {"sprint.id"}),
+				
+				    // Stap 2: Per sprint alle issues ophalen, met paginering
+				    ProjectenPerSprint = Table.AddColumn(SprintsWithId, "ProjectNamen", each
+				        let
+				            sprintId = [sprint.id],
+				            MaxPerPage = 50,
+				
+				            // Functie om één pagina op te halen (ook veilig)
+				            GetPage = (StartAt as number) =>
+				                let
+				                    RelativePath = "rest/agile/1.0/sprint/" & Text.From(sprintId) & "/issue",
+				                    QueryOptions = [
+				                        startAt = Text.From(StartAt),
+				                        maxResults = Text.From(MaxPerPage)
+				                    ],
+				                    response = try Json.Document(
+				                        Web.Contents(
+				                            "https://growteq.atlassian.net",
+				                            [
+				                                RelativePath = RelativePath,
+				                                Query = QueryOptions
+				                            ]
+				                        )
+				                    ) otherwise [issues = {}, total = 0],
+				                    issues = try response[issues] otherwise {},
+				                    total = try response[total] otherwise 0
+				                in
+				                    [Issues = issues, Total = total],
+				
+				            FirstPage = GetPage(0),
+				            TotalItems = FirstPage[Total],
+				            PageCount = Number.RoundUp(TotalItems / MaxPerPage),
+				            PageStarts = List.Transform({0..PageCount - 1}, each _ * MaxPerPage),
+				            AllPages = List.Transform(PageStarts, each GetPage(_)[Issues]),
+				            AllIssues = List.Combine(AllPages),
+				
+				            projectNamen = List.Transform(AllIssues, each try _[fields][project][name] otherwise null)
+				        in
+				            projectNamen
+				    ),
+				
+				    // Stap 3: Zet projectnamen in losse rijen
+				    ProjectenUitgepakt = Table.ExpandListColumn(ProjectenPerSprint, "ProjectNamen"),
+				
+				    // Stap 4: Verwijder null-waarden
+				    GeldigeProjecten = Table.SelectRows(ProjectenUitgepakt, each [ProjectNamen] <> null),
+				
+				    // Stap 5: Unieke projectnamen
+				    UniekeProjecten = Table.Distinct(Table.SelectColumns(GeldigeProjecten, {"ProjectNamen"})),
+				
+				    // Stap 6: Hernoem kolom
+				    Resultaat = Table.RenameColumns(UniekeProjecten, {{"ProjectNamen", "Project"}})
+				in
+				    Resultaat
+				```
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

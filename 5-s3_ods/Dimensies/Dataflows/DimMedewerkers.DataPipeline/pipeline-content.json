@@ -1,0 +1,79 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy data DimMedewerkers",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DataWarehouseSource",
+            "sqlReaderQuery": "-- Step 1: Process Medewerkergegevens to determine Dienstverband periods\nWITH OrderedDienstverband AS (\n    SELECT *,\n        ROW_NUMBER() OVER (PARTITION BY Naam ORDER BY Datum_in_dienst) AS rn\n    FROM s2_stg_afas.Medewerkergegevens\n),\nWithPreviousDates AS (\n    SELECT \n        curr.*,\n        LAG(Datum_uit_dienst) OVER (PARTITION BY Naam ORDER BY Datum_in_dienst) AS Prev_UitDienst\n    FROM OrderedDienstverband curr\n),\nGroupedDienstverband AS (\n    SELECT *,\n        CASE \n            WHEN Prev_UitDienst IS NULL THEN 1\n            WHEN DATEDIFF(DAY, Prev_UitDienst, Datum_in_dienst) > 1 THEN 1\n            ELSE 0\n        END AS NewGroupFlag\n    FROM WithPreviousDates\n),\nFinalGroups AS (\n    SELECT *,\n        SUM(NewGroupFlag) OVER (PARTITION BY Naam ORDER BY Datum_in_dienst ROWS UNBOUNDED PRECEDING) AS GroupId\n    FROM GroupedDienstverband\n),\n SamengevoegdeDienstverbanden AS (\n    SELECT \n        Naam,\n         MIN(Datum_in_dienst) AS DatumInDienst,\n        -- CASE\n        --     WHEN DATEDIFF(DAY, Prev_UitDienst, Datum_in_dienst) > 1 THEN MAX(Datum_in_dienst)\n        --     ELSE MIN(Datum_in_dienst)\n        -- END AS DatumInDienst,\n        CASE \n            WHEN COUNT(*) = 1 THEN MAX(Datum_uit_dienst)\n            WHEN MAX(Datum_uit_dienst) IS NULL OR MAX(Datum_uit_dienst) < MAX(Datum_in_dienst) THEN NULL\n            ELSE MAX(Datum_uit_dienst)\n        END AS DatumUitDienst\n    FROM FinalGroups\n    GROUP BY Naam, GroupId\n),\n-- process the exceptions where a employer has left and rejoined the company or DatumUitDienst is in the future\nLastCTE AS (\n    SELECT *,\n    ROW_NUMBER() OVER (PARTITION BY Naam ORDER BY DatumUitDienst, DatumInDienst) AS rn\n    FROM SamengevoegdeDienstverbanden\n    -- WHERE DatumUitDienst IS NULL\n    -- WHERE DatumUitDienst > GETDATE()\n),\n\n\n\n--Step 2: Use that in your original MedewerkerData CTE\nMedewerkerData AS (\n    SELECT\n        ROW_NUMBER() OVER (\n            PARTITION BY pr.Id\n            ORDER BY\n                CASE\n                    WHEN m.[Medewerker] = '0572' THEN CAST(pr.[Krow__Start_Date__c] AS DATE )\n                END DESC,\n                pr.[Name]\n        ) AS RowNum,\n\n        ROW_NUMBER() OVER (ORDER BY pr.[Name]) AS MedewerkerKey,\n        pr.[Id] AS MedewerkerIdSF,\n        m.[Medewerker] AS MedewerkerId,\n        pr.[Name] AS MedewerkerCode,\n        pr.[Name] AS Medewerker,\n        CASE \n                WHEN pr.[Krow__External_Resource__c] = 'false' then  CAST(dv.DatumInDienst AS DATE) \n                ElSE CAST(pr.[Krow__Start_Date__c] AS DATE)\n        END AS DatumInDienst,\n        CASE \n            WHEN pr.[Krow__External_Resource__c] = 'false' then CAST(dv.DatumUitDienst AS DATE)\n            ELSE CAST(pr.[Krow__End_Date__c] AS DATE)\n        END AS DatumUitDienst,\n        CASE\n            WHEN pr.[Krow__External_Resource__c] = 'true' THEN 1\n            WHEN pr.[Krow__External_Resource__c] = 'false' THEN 0\n            ELSE NULL\n        END AS IsExterneMedewerker,\n        pr.Krow__Bill_Rate__c AS Uurtarief,\n        pr.Krow__Cost_Rate__c AS KostenPerUur,\n        v.[Name] AS Leverancier,\n        t.[Team],\n        t.TeamKey,\n        p.PracticeNaam AS Practice\n    FROM [s2_stg_salesforce].[ProjectResources] pr\n    LEFT JOIN [s2_stg_afas].[Medewerkergegevens] m\n        ON LEFT(\n            REPLACE(REPLACE(REPLACE(REPLACE(pr.[Name] COLLATE Latin1_General_BIN, 'è', 'e'), 'é', 'e'), 'ë', 'e'), 'ê', 'e'),\n            CHARINDEX('-', REPLACE(REPLACE(REPLACE(REPLACE(pr.[Name] COLLATE Latin1_General_BIN, 'è', 'e'), 'é', 'e'), 'ë', 'e'), 'ê', 'e') + '-') - 1\n        ) = LEFT(\n            REPLACE(REPLACE(REPLACE(REPLACE(m.[Naam] COLLATE Latin1_General_BIN, 'è', 'e'), 'é', 'e'), 'ë', 'e'), 'ê', 'e'),\n            CHARINDEX('-', REPLACE(REPLACE(REPLACE(REPLACE(m.[Naam] COLLATE Latin1_General_BIN, 'è', 'e'), 'é', 'e'), 'ë', 'e'), 'ê', 'e') + '-') - 1\n        )\n    LEFT JOIN LastCTE dv\n        ON dv.Naam = m.Naam\n        AND rn = 1\n    LEFT JOIN [s3_ods].[DimTeam] t\n        ON pr.[Krow__Team__c] = t.[Id]\n    LEFT JOIN [s3_ods].[DimPractice] p\n            ON pr.[Krow__Practice__c] = p.[PracticeID]\n    LEFT JOIN [s2_stg_salesforce].[Vendor] v\n        ON pr.[Krow__Vendor__c] = v.[Id]\n)\n\n\n\n-- Step 3: Final selection\nSELECT DISTINCT\n    MedewerkerKey,\n    MedewerkerIdSF,\n    MedewerkerId,\n    MedewerkerCode,\n    Medewerker,\n    DatumInDienst,\n    DatumUitDienst,\n    IsExterneMedewerker,\n    Uurtarief,\n    KostenPerUur,\n    Leverancier,\n    Team,\n    TeamKey,\n    Practice\nFROM MedewerkerData\nWHERE\n    (\n        (RowNum = 1 AND (MedewerkerId IS NULL OR MedewerkerId <> '0572') --AND DatumInDienst IS NOT NULL \n        )\n        OR\n        (\n            MedewerkerId = '0572'\n            AND DatumInDienst = (\n                SELECT MAX(CAST(pr.[Krow__Start_Date__c] AS DATE))\n                FROM [s2_stg_salesforce].[ProjectResources] pr\n                WHERE pr.[Id] = '0572'\n            )\n        ) \n    );\n",
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {}
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "s3_ods",
+                "table": "DimMedewerkers"
+              }
+            }
+          },
+          "enableStaging": true,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      }
+    ]
+  }
+}

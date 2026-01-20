@@ -1,0 +1,384 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "DataWarehouseSource",
+            "sqlReaderQuery": "SELECT *\r\n                  FROM [Operationeel Dashboard].[s5_mtd].[TableControl]\r\n                  where ProjectName = 'excel_staging'\r\n--and TargetTableName = 'TimesheetSplit'",
+            "partitionOption": "None",
+            "queryTimeout": "02:00:00"
+          },
+          "datasetSettings": {
+            "type": "DataWarehouseTable",
+            "schema": [],
+            "linkedService": {
+              "name": "Operationeel Dashboard",
+              "properties": {
+                "type": "DataWarehouse",
+                "typeProperties": {
+                  "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                  "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                  "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                },
+                "annotations": []
+              }
+            },
+            "annotations": []
+          },
+          "firstRowOnly": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Lookup1",
+        "dependsOn": []
+      },
+      {
+        "type": "ForEach",
+        "typeProperties": {
+          "isSequential": true,
+          "items": {
+            "value": "@activity('Lookup1').output.value",
+            "type": "Expression"
+          },
+          "activities": [
+            {
+              "type": "Copy",
+              "typeProperties": {
+                "source": {
+                  "type": "ExcelSource",
+                  "additionalColumns": [
+                    {
+                      "name": "Jaar",
+                      "value": {
+                        "value": "@item().AdditionalInfo",
+                        "type": "Expression"
+                      }
+                    }
+                  ],
+                  "storeSettings": {
+                    "type": "LakehouseReadSettings",
+                    "recursive": true,
+                    "enablePartitionDiscovery": false
+                  },
+                  "datasetSettings": {
+                    "type": "Excel",
+                    "typeProperties": {
+                      "location": {
+                        "type": "LakehouseLocation",
+                        "folderPath": "Growteq Operationeel dashboard",
+                        "fileName": {
+                          "value": "@item().SourceTableName",
+                          "type": "Expression"
+                        }
+                      },
+                      "sheetName": {
+                        "value": "@item().AdditionalInfo",
+                        "type": "Expression"
+                      },
+                      "firstRowAsHeader": true
+                    },
+                    "schema": [],
+                    "connectionSettings": {
+                      "name": "LakehouseOperationeelDashboard",
+                      "properties": {
+                        "type": "Lakehouse",
+                        "typeProperties": {
+                          "artifactId": "1e916ace-8e9b-ad27-4469-dfed249a2c00",
+                          "workspaceId": "00000000-0000-0000-0000-000000000000",
+                          "rootFolder": "Files"
+                        },
+                        "externalReferences": {
+                          "connection": "b75fc7e4-e3a4-4fed-b7a5-74c161f7a848"
+                        },
+                        "annotations": []
+                      }
+                    },
+                    "annotations": []
+                  }
+                },
+                "sink": {
+                  "type": "DataWarehouseSink",
+                  "tableOption": "autoCreate",
+                  "allowCopyCommand": true,
+                  "copyCommandSettings": {},
+                  "datasetSettings": {
+                    "type": "DataWarehouseTable",
+                    "typeProperties": {
+                      "schema": "s2_stg_excel",
+                      "table": {
+                        "value": "@item().TargetTableName",
+                        "type": "Expression"
+                      }
+                    },
+                    "schema": [],
+                    "linkedService": {
+                      "name": "Operationeel Dashboard",
+                      "properties": {
+                        "type": "DataWarehouse",
+                        "typeProperties": {
+                          "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                          "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                          "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                        },
+                        "annotations": []
+                      }
+                    },
+                    "annotations": []
+                  }
+                },
+                "translator": {
+                  "type": "TabularTranslator",
+                  "typeConversion": true,
+                  "typeConversionSettings": {
+                    "allowDataTruncation": true,
+                    "treatBooleanAsNumber": false
+                  }
+                },
+                "enableStaging": true
+              },
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureInput": false,
+                "secureOutput": false
+              },
+              "name": "Copy data1",
+              "dependsOn": [
+                {
+                  "activity": "UPDATE TableControl Start",
+                  "dependencyConditions": [
+                    "Succeeded"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "SetVariable",
+              "typeProperties": {
+                "variableName": "StartRunDateTime",
+                "value": {
+                  "value": "@formatDateTime(convertFromUtc(utcnow(),'W. Europe Standard Time'),'yyyy-MM-dd HH:mm:ss.ss')",
+                  "type": "Expression"
+                }
+              },
+              "policy": {
+                "secureInput": false,
+                "secureOutput": false
+              },
+              "name": "Set StartRunDateTime",
+              "dependsOn": []
+            },
+            {
+              "type": "Script",
+              "typeProperties": {
+                "scripts": [
+                  {
+                    "text": {
+                      "value": "UPDATE [s5_mtd].[TableControl]\nSET Status = 'Running',\n\tLastRunStartDateTime = '@{variables('StartRunDateTime')}',\n\tLastRunEndDateTime = NULL\nWHERE TableControlKey = '@{item().TableControlKey}'",
+                      "type": "Expression"
+                    },
+                    "type": "Query"
+                  }
+                ],
+                "scriptBlockExecutionTimeout": "02:00:00"
+              },
+              "linkedService": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  },
+                  "annotations": []
+                }
+              },
+              "policy": {
+                "timeout": "7.00:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureInput": false,
+                "secureOutput": false
+              },
+              "name": "UPDATE TableControl Start",
+              "dependsOn": [
+                {
+                  "activity": "Set StartRunDateTime",
+                  "dependencyConditions": [
+                    "Succeeded"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Script",
+              "typeProperties": {
+                "scripts": [
+                  {
+                    "text": {
+                      "value": "UPDATE s5_mtd.TableControl\nSET Status = 'Success',\n    LastRunEndDateTime = CONVERT(datetimeoffset, GETDATE()) AT TIME ZONE 'W. Europe Standard Time',\n    LastSuccessDateTime = CONVERT(datetimeoffset, GETDATE()) AT TIME ZONE 'W. Europe Standard Time'\nWHERE TableControlKey = '@{item().TableControlKey}'",
+                      "type": "Expression"
+                    },
+                    "type": "Query"
+                  }
+                ],
+                "scriptBlockExecutionTimeout": "02:00:00"
+              },
+              "linkedService": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  },
+                  "annotations": []
+                }
+              },
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureInput": false,
+                "secureOutput": false
+              },
+              "name": "ScriptTableControlSuccess",
+              "dependsOn": [
+                {
+                  "activity": "Copy data1",
+                  "dependencyConditions": [
+                    "Succeeded"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Script",
+              "typeProperties": {
+                "scripts": [
+                  {
+                    "text": {
+                      "value": "UPDATE [s5_mtd].[TableControl]\r\nSET \r\n    Status = 'Failed',\r\n    LastRunEndDateTime = CONVERT(datetimeoffset, GETDATE()) AT TIME ZONE 'W. Europe Standard Time',\r\n    LastSuccessDateTime = CONVERT(datetimeoffset, GETDATE()) AT TIME ZONE 'W. Europe Standard Time'\r\nWHERE TableControlKey = '@{item().TableControlKey}';",
+                      "type": "Expression"
+                    },
+                    "type": "NonQuery"
+                  }
+                ],
+                "scriptBlockExecutionTimeout": "02:00:00"
+              },
+              "linkedService": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  },
+                  "annotations": []
+                }
+              },
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureInput": false,
+                "secureOutput": false
+              },
+              "name": "ScriptTableControlFailed",
+              "dependsOn": [
+                {
+                  "activity": "Copy data1",
+                  "dependencyConditions": [
+                    "Failed"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "name": "ForEach1",
+        "dependsOn": [
+          {
+            "activity": "TruncateAllExcelTables",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "ForEach",
+        "typeProperties": {
+          "isSequential": false,
+          "items": {
+            "value": "@activity('Lookup1').output.value",
+            "type": "Expression"
+          },
+          "activities": [
+            {
+              "type": "Script",
+              "typeProperties": {
+                "scripts": [
+                  {
+                    "text": {
+                      "value": "IF OBJECT_ID('@{item().TargetSchemaName}.@{item().TargetTableName}', N'U') IS NOT NULL TRUNCATE TABLE [@{item().TargetSchemaName}].[@{item().TargetTableName}]",
+                      "type": "Expression"
+                    },
+                    "type": "Query"
+                  }
+                ],
+                "scriptBlockExecutionTimeout": "02:00:00"
+              },
+              "linkedService": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  },
+                  "annotations": []
+                }
+              },
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureInput": false,
+                "secureOutput": false
+              },
+              "name": "TruncateTable",
+              "dependsOn": []
+            }
+          ]
+        },
+        "name": "TruncateAllExcelTables",
+        "dependsOn": [
+          {
+            "activity": "Lookup1",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ],
+    "variables": {
+      "StartRunDateTime": {
+        "type": "String"
+      }
+    }
+  }
+}

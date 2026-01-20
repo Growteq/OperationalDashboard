@@ -1,0 +1,714 @@
+{
+  "config": "{\"version\":\"5.65\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":\"5.64\",\"type\":2},\"customTheme\":{\"name\":\"AccessibleDefault\",\"version\":\"5.64\",\"type\":2}},\"activeSectionIndex\":4,\"bookmarks\":[{\"displayName\":\"reset drill through\",\"name\":\"90b7da07807b700ef07e\",\"explorationState\":{\"version\":\"1.3\",\"activeSection\":\"ab6950d6216f986f5f94\",\"sections\":{\"ab6950d6216f986f5f94\":{\"filters\":{\"byExpr\":[{\"name\":\"5ff70e325227c2fd0773\",\"type\":\"Categorical\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"KlantDim\"}},\"Property\":\"Contact Name\"}},\"howCreated\":5}]},\"visualContainers\":{\"a85bd1e3096479d87284\":{\"singleVisual\":{\"visualType\":\"shape\",\"objects\":{}}},\"4bd18225ca1982c08ecc\":{\"singleVisual\":{\"visualType\":\"shape\",\"objects\":{}}},\"a311a86d39b15125f869\":{\"singleVisual\":{\"visualType\":\"shape\",\"objects\":{}}},\"3cea7ac504706d0c0910\":{\"filters\":{\"byExpr\":[{\"name\":\"d6e54001f2df2818b40b\",\"type\":\"Advanced\",\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Bram_view\"}},\"Property\":\"azure kosten\"}},\"Function\":0}},\"howCreated\":1},{\"type\":\"Advanced\",\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"niet_factureerbare_uren\"}},\"Property\":\"Sum of Cost Amount\"}},\"Function\":0}},\"howCreated\":0},{\"type\":\"Advanced\",\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"azure_kosten_exported\"}},\"Property\":\"azure kosten\"}},\"Function\":0}},\"howCreated\":0}]},\"singleVisual\":{\"visualType\":\"pieChart\",\"objects\":{},\"orderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"niet_factureerbare_uren\"}},\"Property\":\"Sum of Cost Amount\"}},\"Function\":0}}}]}},\"9c2398597dcd8fb2561a\":{\"filters\":{\"byExpr\":[{\"type\":\"Advanced\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"KlantDim\"}},\"Property\":\"Winst per debiteurnummer\"}},\"howCreated\":0}]},\"singleVisual\":{\"visualType\":\"card\",\"objects\":{},\"orderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"KlantDim\"}},\"Property\":\"Winst per debiteurnummer\"}}}]}},\"6d851ca1089f5a16cf7f\":{\"filters\":{\"byExpr\":[{\"type\":\"Advanced\",\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"contract_opbrengsten\"}},\"Property\":\"Total Price\"}},\"Function\":0}},\"howCreated\":0}]},\"singleVisual\":{\"visualType\":\"card\",\"objects\":{},\"orderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"contract_opbrengsten\"}},\"Property\":\"Total Price\"}},\"Function\":0}}}]}},\"d20fe8c749247774cd9b\":{\"filters\":{\"byExpr\":[{\"type\":\"Advanced\",\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"azure_kosten_exported\"}},\"Property\":\"azure kosten\"}},\"Function\":0}},\"howCreated\":0}]},\"singleVisual\":{\"visualType\":\"card\",\"objects\":{},\"orderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"azure_kosten_exported\"}},\"Property\":\"azure kosten\"}},\"Function\":0}}}]}},\"1d760ba2c80d92fcc7a8\":{\"singleVisual\":{\"visualType\":\"shape\",\"objects\":{}}},\"6cf88a8f76ddfdfa3571\":{\"singleVisual\":{\"visualType\":\"actionButton\",\"objects\":{}}},\"7980638b9ea0f5efc049\":{\"filters\":{\"byExpr\":[{\"name\":\"9c2d44d20968fb2b9a55\",\"type\":\"Categorical\",\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_datum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Termijn Maand Formatted\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Jan 25'\"}}],[{\"Literal\":{\"Value\":\"'Feb 25'\"}}],[{\"Literal\":{\"Value\":\"'Mar 25'\"}}],[{\"Literal\":{\"Value\":\"'Apr 25'\"}}],[{\"Literal\":{\"Value\":\"'May 25'\"}}],[{\"Literal\":{\"Value\":\"'Jun 25'\"}}],[{\"Literal\":{\"Value\":\"'Jul 25'\"}}],[{\"Literal\":{\"Value\":\"'Aug 25'\"}}],[{\"Literal\":{\"Value\":\"'Sep 25'\"}}],[{\"Literal\":{\"Value\":\"'Oct 25'\"}}],[{\"Literal\":{\"Value\":\"'Nov 25'\"}}],[{\"Literal\":{\"Value\":\"'Dec 25'\"}}]]}}}]},\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"dim_datum\"}},\"Property\":\"Termijn Maand Formatted\"}},\"howCreated\":0}]},\"singleVisual\":{\"visualType\":\"slicer\",\"objects\":{\"merge\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}]}},\"activeProjections\":{\"Values\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"dim_datum\"}},\"Property\":\"Termijn Maand Formatted\"}}]}}}}}},\"objects\":{\"merge\":{\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}},\"options\":{\"targetVisualNames\":[]}},{\"displayName\":\"reset drill azure\",\"name\":\"834f06dcc18297ca69a6\",\"explorationState\":{\"version\":\"1.3\",\"activeSection\":\"e8d41a35e399c6000c65\",\"sections\":{\"e8d41a35e399c6000c65\":{\"visualContainers\":{\"d64933000b209d883466\":{\"singleVisual\":{\"visualType\":\"actionButton\",\"objects\":{}}},\"0029b9a7401009b7b3da\":{\"filters\":{\"byExpr\":[{\"type\":\"Categorical\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"azure_kosten_exported\"}},\"Property\":\"resourceGroupName\"}},\"howCreated\":0}]},\"singleVisual\":{\"visualType\":\"tableEx\",\"objects\":{},\"orderBy\":[{\"Direction\":2,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"azure_kosten_exported\"}},\"Property\":\"resourceGroupName\"}}}]}},\"a441bc0e8d86379db93d\":{\"singleVisual\":{\"visualType\":\"textbox\",\"objects\":{}}},\"4e82d059057975e1826c\":{\"filters\":{\"byExpr\":[{\"type\":\"Advanced\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"KlantDim\"}},\"Property\":\"Titel Klant\"}},\"howCreated\":0}]},\"singleVisual\":{\"visualType\":\"card\",\"objects\":{}}},\"a8f76e7d308899401d30\":{\"filters\":{\"byExpr\":[{\"type\":\"Advanced\",\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"azure_kosten_exported\"}},\"Property\":\"azure kosten\"}},\"Function\":0}},\"howCreated\":0},{\"type\":\"Categorical\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"dim_datum\"}},\"Property\":\"Termijn Maand Formatted\"}},\"howCreated\":0}]},\"singleVisual\":{\"visualType\":\"columnChart\",\"objects\":{},\"activeProjections\":{\"Category\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"dim_datum\"}},\"Property\":\"Termijn Maand Formatted\"}}]}}},\"33561ea4a0c1c3d05351\":{\"singleVisual\":{\"visualType\":\"shape\",\"objects\":{}}},\"bf9bfddfdddb06b72207\":{\"singleVisual\":{\"visualType\":\"shape\",\"objects\":{}}},\"f5bb46f96005eb9d5876\":{\"filters\":{\"byExpr\":[{\"type\":\"Advanced\",\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"azure_kosten_exported\"}},\"Property\":\"resourceGroupName\"}},\"Function\":2}},\"howCreated\":0}]},\"singleVisual\":{\"visualType\":\"card\",\"objects\":{},\"orderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"azure_kosten_exported\"}},\"Property\":\"resourceGroupName\"}},\"Function\":2}}}]}},\"65e7c90e60b970032886\":{\"filters\":{\"byExpr\":[{\"type\":\"Advanced\",\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"azure_kosten_exported\"}},\"Property\":\"azure kosten\"}},\"Function\":0}},\"howCreated\":0},{\"type\":\"Categorical\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"azure_kosten_exported\"}},\"Property\":\"resourceGroupName\"}},\"howCreated\":0}]},\"singleVisual\":{\"visualType\":\"columnChart\",\"objects\":{},\"orderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"azure_kosten_exported\"}},\"Property\":\"azure kosten\"}},\"Function\":0}}}],\"activeProjections\":{\"Category\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"azure_kosten_exported\"}},\"Property\":\"resourceGroupName\"}}]}}},\"fc06aed6470ee0d31904\":{\"singleVisual\":{\"visualType\":\"shape\",\"objects\":{}}},\"292a7fbe4e712e02bd09\":{\"filters\":{\"byExpr\":[{\"type\":\"Advanced\",\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"azure_kosten_exported\"}},\"Property\":\"azure kosten\"}},\"Function\":0}},\"howCreated\":0}]},\"singleVisual\":{\"visualType\":\"card\",\"objects\":{},\"orderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"azure_kosten_exported\"}},\"Property\":\"azure kosten\"}},\"Function\":0}}}]}},\"357e3cac6d060ccac265\":{\"singleVisual\":{\"visualType\":\"shape\",\"objects\":{}}},\"3d506d12974de7260815\":{\"singleVisual\":{\"visualType\":\"actionButton\",\"objects\":{}}}}}},\"objects\":{\"merge\":{\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}},\"options\":{\"targetVisualNames\":[]}}],\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true,\"filterPaneHiddenInEditMode\":false},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}",
+  "layoutOptimization": 1,
+  "pods": [
+    {
+      "boundSection": "4efd7e1603ad28ea257a",
+      "config": "{}",
+      "name": "5350c995306991d9a643"
+    },
+    {
+      "boundSection": "ab6950d6216f986f5f94",
+      "config": "{}",
+      "name": "789ce0ea44c1fda33670",
+      "parameters": "[{\"name\":\"5a051fcbabe04c11cbda\",\"boundFilter\":\"5ff70e325227c2fd0773\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"KlantDim\"}},\"Property\":\"Contact Name\"}}}]",
+      "type": 1
+    },
+    {
+      "boundSection": "e8d41a35e399c6000c65",
+      "config": "{}",
+      "name": "bea1e0caa370d1607710",
+      "parameters": "[{\"name\":\"959b51a7539b087d36a0\",\"boundFilter\":\"53d2633052887a75b208\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"KlantDim\"}},\"Property\":\"Contact Name\"}}}]",
+      "type": 1
+    }
+  ],
+  "publicCustomVisuals": [
+    "SmartFilterBySQLBI1458262140625"
+  ],
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "AccessibleDefault",
+            "path": "BuiltInThemes/AccessibleDefault.json",
+            "type": 201
+          },
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{\"objects\":{\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"401L\"}}}}}],\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.2}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}",
+      "displayName": "overzicht uren",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "361b99771985d05c23d5",
+      "ordinal": 4,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"05e40e6db91099ca8715\",\"layouts\":[{\"id\":0,\"position\":{\"x\":279.73509933774835,\"y\":149.75717439293598,\"z\":8000,\"width\":267.0198675496689,\"height\":178.01324503311258,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(s4_inf billable_uren.Billable Hours)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"s4_inf billable_uren\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Billable Hours\"}},\"Function\":0},\"Name\":\"Sum(s4_inf billable_uren.Billable Hours)\",\"NativeReferenceName\":\"totaal aantal factureerbare uren\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Billable Hours\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(s4_inf billable_uren.Billable Hours)\":{\"displayName\":\"totaal aantal factureerbare uren\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"35D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 178.01,
+          "width": 267.02,
+          "x": 279.74,
+          "y": 149.76,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"12d9147fa0809eeb355d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":63.79421221864951,\"y\":405.4019292604501,\"z\":4000,\"width\":393.0546623794212,\"height\":240.7717041800643,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(niet_factureerbare_uren.Sum of Cost Amount)\"}],\"Category\":[{\"queryRef\":\"KlantDim.Contact Name\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"n\",\"Entity\":\"niet_factureerbare_uren\",\"Type\":0},{\"Name\":\"k\",\"Entity\":\"KlantDim\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"n\"}},\"Property\":\"Sum of Cost Amount\"}},\"Function\":0},\"Name\":\"Sum(niet_factureerbare_uren.Sum of Cost Amount)\",\"NativeReferenceName\":\"Sum of Sum of Cost Amount\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Contact Name\"},\"Name\":\"KlantDim.Contact Name\",\"NativeReferenceName\":\"Contact Name\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"n\"}},\"Property\":\"Sum of Cost Amount\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 240.77,
+          "width": 393.05,
+          "x": 63.79,
+          "y": 405.40,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"2e55b631e4b898654486\",\"layouts\":[{\"id\":0,\"position\":{\"x\":21.192052980132452,\"y\":18.36644591611479,\"z\":5000,\"width\":555.2317880794702,\"height\":111.61147902869757,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Overzicht winstgevendheid uren\",\"textStyle\":{\"fontSize\":\"28pt\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 111.61,
+          "width": 555.23,
+          "x": 21.19,
+          "y": 18.37,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"580213a5091607b9b005\",\"layouts\":[{\"id\":0,\"position\":{\"x\":601.1822660098522,\"y\":18.620689655172413,\"z\":1000,\"width\":352.01970443349757,\"height\":332.51231527093597,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangleRounded'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 332.51,
+          "width": 352.02,
+          "x": 601.18,
+          "y": 18.62,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"5d4d58643da42775e5d0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1017.0443349753695,\"y\":35.467980295566505,\"z\":9000,\"width\":156.94581280788177,\"height\":284.6305418719212,\"tabOrder\":9000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_datum.Termijn Maand Formatted\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_datum\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Termijn Maand Formatted\"},\"Name\":\"dim_datum.Termijn Maand Formatted\",\"NativeReferenceName\":\"maand\"}]},\"columnProperties\":{\"dim_datum.Termijn Maand Formatted\":{\"displayName\":\"maand\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"values\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"13D\"}}}}}]}}}",
+          "filters": "[{\"name\":\"705925a655711060907c\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"dim_datum\"}},\"Property\":\"Termijn Maand Formatted\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_datum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Termijn Maand Formatted\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Jan 25'\"}}],[{\"Literal\":{\"Value\":\"'Feb 25'\"}}],[{\"Literal\":{\"Value\":\"'Mar 25'\"}}],[{\"Literal\":{\"Value\":\"'Apr 25'\"}}],[{\"Literal\":{\"Value\":\"'May 25'\"}}],[{\"Literal\":{\"Value\":\"'Jun 25'\"}}],[{\"Literal\":{\"Value\":\"'Jul 25'\"}}],[{\"Literal\":{\"Value\":\"'Aug 25'\"}}],[{\"Literal\":{\"Value\":\"'Sep 25'\"}}],[{\"Literal\":{\"Value\":\"'Oct 25'\"}}],[{\"Literal\":{\"Value\":\"'Nov 25'\"}}],[{\"Literal\":{\"Value\":\"'Dec 25'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{},\"isHiddenInViewMode\":false}]",
+          "height": 284.63,
+          "width": 156.95,
+          "x": 1017.04,
+          "y": 35.47,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"6a5298c7bca06361486e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":633.9901477832512,\"y\":166.69950738916256,\"z\":3000,\"width\":301.4778325123153,\"height\":145.41871921182266,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"niet_factureerbare_uren.Marge % Uren Incl NietFact\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"n\",\"Entity\":\"niet_factureerbare_uren\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"n\"}},\"Property\":\"Marge % Uren Incl NietFact\"},\"Name\":\"niet_factureerbare_uren.Marge % Uren Incl NietFact\",\"NativeReferenceName\":\"Marge % Uren Incl niet factureerbare uren\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"n\"}},\"Property\":\"Marge % Uren Incl NietFact\"}}}]},\"columnProperties\":{\"niet_factureerbare_uren.Marge % Uren Incl NietFact\":{\"displayName\":\"Marge % Uren Incl niet factureerbare uren\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 145.42,
+          "width": 301.48,
+          "x": 633.99,
+          "y": 166.70,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"bbe33e760056c9650b98\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":377.62057877813504,\"z\":0,\"width\":1221.3504823151125,\"height\":309.71061093247584,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangleRounded'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 309.71,
+          "width": 1221.35,
+          "x": 0.00,
+          "y": 377.62,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"c3cf2cfd89b64e719129\",\"layouts\":[{\"id\":0,\"position\":{\"x\":559.7427652733119,\"y\":405.4019292604501,\"z\":6000,\"width\":623.5369774919614,\"height\":240.7717041800643,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Y\":[{\"queryRef\":\"niet_factureerbare_uren.Marge % Uren Incl NietFact\"}],\"Category\":[{\"queryRef\":\"dim_datum.Termijn Maand Formatted\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_datum\",\"Type\":0},{\"Name\":\"n\",\"Entity\":\"niet_factureerbare_uren\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Termijn Maand Formatted\"},\"Name\":\"dim_datum.Termijn Maand Formatted\",\"NativeReferenceName\":\"Termijn Maand Formatted\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"n\"}},\"Property\":\"Marge % Uren Incl NietFact\"},\"Name\":\"niet_factureerbare_uren.Marge % Uren Incl NietFact\",\"NativeReferenceName\":\"Marge % Uren Incl NietFact\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 240.77,
+          "width": 623.54,
+          "x": 559.74,
+          "y": 405.40,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"d383a247e50b176666eb\",\"layouts\":[{\"id\":0,\"position\":{\"x\":635.7635467980296,\"y\":23.054187192118228,\"z\":2000,\"width\":297.9310344827586,\"height\":143.64532019704433,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"uren measures.Marge Factureerbare Uren %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"u\",\"Entity\":\"uren measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"u\"}},\"Property\":\"Marge Factureerbare Uren %\"},\"Name\":\"uren measures.Marge Factureerbare Uren %\",\"NativeReferenceName\":\"Marge Factureerbare Uren %\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"u\"}},\"Property\":\"Marge Factureerbare Uren %\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 143.65,
+          "width": 297.93,
+          "x": 635.76,
+          "y": 23.05,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"d80b013518de02d86d49\",\"layouts\":[{\"id\":0,\"position\":{\"x\":21.192052980132452,\"y\":149.75717439293598,\"z\":7000,\"width\":238.7637969094923,\"height\":178.01324503311258,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(niet_factureerbare_uren.Total Hours)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"n\",\"Entity\":\"niet_factureerbare_uren\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"n\"}},\"Property\":\"Total Hours\"}},\"Function\":0},\"Name\":\"Sum(niet_factureerbare_uren.Total Hours)\",\"NativeReferenceName\":\"totaal aantal niet factureerbare uren\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"n\"}},\"Property\":\"Total Hours\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(niet_factureerbare_uren.Total Hours)\":{\"displayName\":\"totaal aantal niet factureerbare uren\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"35D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 178.01,
+          "width": 238.76,
+          "x": 21.19,
+          "y": 149.76,
+          "z": 7000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"objects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.2}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}],\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"200L\"}}}}}]}}",
+      "displayName": "service contracten",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "4efd7e1603ad28ea257a",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"04dc2fd3e378863b4eb4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":308.57142857142856,\"y\":203.9408866995074,\"z\":8000,\"width\":172.01970443349754,\"height\":104.63054187192118,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(s4_inf billable_uren.Opbrengsten)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"s4_inf billable_uren\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Opbrengsten\"}},\"Function\":0},\"Name\":\"Sum(s4_inf billable_uren.Opbrengsten)\",\"NativeReferenceName\":\"factureerbare uren\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Opbrengsten\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(s4_inf billable_uren.Opbrengsten)\":{\"displayName\":\"factureerbare uren\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"17D\"}}}}}],\"categoryLabels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":8,\"Percent\":0.6}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"70D\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"21D\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 104.63,
+          "width": 172.02,
+          "x": 308.57,
+          "y": 203.94,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"05e7dbc4303a49f998be\",\"layouts\":[{\"id\":0,\"position\":{\"x\":59.40886699507389,\"y\":373.30049261083747,\"z\":10000,\"width\":295.27093596059115,\"height\":290.8374384236453,\"tabOrder\":9000}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"KlantDim.Contact Name\",\"active\":true}],\"Y\":[{\"queryRef\":\"kosten/opbrengsten.winst\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"kosten/opbrengsten\",\"Type\":0},{\"Name\":\"k1\",\"Entity\":\"KlantDim\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k1\"}},\"Property\":\"Contact Name\"},\"Name\":\"KlantDim.Contact Name\",\"NativeReferenceName\":\"Contact Name\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"winst\"},\"Name\":\"kosten/opbrengsten.winst\",\"NativeReferenceName\":\"winst\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"winst\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"valueAxis\":[{\"properties\":{\"start\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"end\":{\"expr\":{\"Literal\":{\"Value\":\"400000D\"}}}}}],\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":8,\"Percent\":0.4}}}}},\"fillTransparency\":{\"expr\":{\"Literal\":{\"Value\":\"35D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Winst per contract'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 290.84,
+          "width": 295.27,
+          "x": 59.41,
+          "y": 373.30,
+          "z": 10000.00
+        },
+        {
+          "config": "{\"name\":\"066db95807d637967c02\",\"layouts\":[{\"id\":0,\"position\":{\"x\":35.467980295566505,\"y\":351.13300492610836,\"z\":1000,\"width\":445.1231527093596,\"height\":352.01970443349757,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}},\"roundEdge\":{\"expr\":{\"Literal\":{\"Value\":\"21L\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}},{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"14D\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 352.02,
+          "width": 445.12,
+          "x": 35.47,
+          "y": 351.13,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"17f583e98e9b5ae25996\",\"layouts\":[{\"id\":0,\"position\":{\"x\":49.64586846543002,\"y\":17.2681281618887,\"z\":12000,\"width\":550.4215851602024,\"height\":105.7672849915683,\"tabOrder\":11000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Growteq service contracten\",\"textStyle\":{\"fontSize\":\"32pt\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 105.77,
+          "width": 550.42,
+          "x": 49.65,
+          "y": 17.27,
+          "z": 12000.00
+        },
+        {
+          "config": "{\"name\":\"1ae6a5becb5c91aa3258\",\"layouts\":[{\"id\":0,\"position\":{\"x\":925.7142857142857,\"y\":172.9064039408867,\"z\":17000,\"width\":116.1576354679803,\"height\":42.5615763546798,\"tabOrder\":17000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Kosten\",\"textStyle\":{\"fontSize\":\"18pt\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 42.56,
+          "width": 116.16,
+          "x": 925.71,
+          "y": 172.91,
+          "z": 17000.00
+        },
+        {
+          "config": "{\"name\":\"348f3a9aa0884a502465\",\"layouts\":[{\"id\":0,\"position\":{\"x\":772.3152709359606,\"y\":34.58128078817734,\"z\":7000,\"width\":212.807881773399,\"height\":98.42364532019704,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(contract line items.omzet)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"contract_opbrengsten\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Total Price\"}},\"Function\":0},\"Name\":\"Sum(contract line items.omzet)\",\"NativeReferenceName\":\"totale waarde contracten\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Total Price\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(contract line items.omzet)\":{\"displayName\":\"totale waarde contracten\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"30D\"}}}}}],\"categoryLabels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 98.42,
+          "width": 212.81,
+          "x": 772.32,
+          "y": 34.58,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"3e78f60d31d4e84f4cf4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":445.1231527093596,\"y\":351.13300492610836,\"z\":2000,\"width\":822.8571428571429,\"height\":352.01970443349757,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}},\"roundEdge\":{\"expr\":{\"Literal\":{\"Value\":\"21L\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}},{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"14D\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 352.02,
+          "width": 822.86,
+          "x": 445.12,
+          "y": 351.13,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"450c16cf84c22b831059\",\"layouts\":[{\"id\":0,\"position\":{\"x\":700.4926108374384,\"y\":205.71428571428572,\"z\":14000,\"width\":178.22660098522167,\"height\":102.85714285714286,\"tabOrder\":13000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"uren measures.kosten factureerbare uren\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"u\",\"Entity\":\"uren measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"u\"}},\"Property\":\"kosten factureerbare uren\"},\"Name\":\"uren measures.kosten factureerbare uren\",\"NativeReferenceName\":\"kosten factureerbare uren\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"u\"}},\"Property\":\"kosten factureerbare uren\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"9D\"}}}}}],\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"17D\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#F38989'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"18D\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 102.86,
+          "width": 178.23,
+          "x": 700.49,
+          "y": 205.71,
+          "z": 14000.00
+        },
+        {
+          "config": "{\"name\":\"4882c2b3adce02eba103\",\"layouts\":[{\"id\":0,\"position\":{\"x\":206.8078431372549,\"y\":161.6313725490196,\"z\":16000,\"width\":211.82745098039214,\"height\":42.16470588235294,\"tabOrder\":16000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Opbrengsten\",\"textStyle\":{\"fontSize\":\"18pt\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 42.16,
+          "width": 211.83,
+          "x": 206.81,
+          "y": 161.63,
+          "z": 16000.00
+        },
+        {
+          "config": "{\"name\":\"4bc49d216482d8d1ca43\",\"layouts\":[{\"id\":0,\"position\":{\"x\":898.2266009852217,\"y\":217.24137931034483,\"z\":9000,\"width\":158.7192118226601,\"height\":91.33004926108374,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"bram_view_exported.azure kosten\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"bram_view_exported\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"azure kosten\"},\"Name\":\"bram_view_exported.azure kosten\",\"NativeReferenceName\":\"azure kosten\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"azure kosten\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"9D\"}}}}}],\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"17D\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#F38989'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"18D\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 91.33,
+          "width": 158.72,
+          "x": 898.23,
+          "y": 217.24,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"600bc0e98344ce21742b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"width\":100,\"height\":40,\"z\":4000,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'back'\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Back'\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 40.00,
+          "width": 100.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"7cc281c77494217b0fe0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":35.467980295566505,\"y\":162.26600985221674,\"z\":5000,\"width\":1232.512315270936,\"height\":166.69950738916256,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangleRounded'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 166.70,
+          "width": 1232.51,
+          "x": 35.47,
+          "y": 162.27,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"7ec2c9c18abbea0c9fd4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":861.871921182266,\"y\":373.30049261083747,\"z\":3000,\"width\":338.7192118226601,\"height\":290.8374384236453,\"tabOrder\":1000}},{\"id\":1,\"position\":{\"x\":120,\"y\":175,\"z\":1,\"width\":108,\"height\":120}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Y\":[{\"queryRef\":\"kosten/opbrengsten.marge over totaal\"}],\"Category\":[{\"queryRef\":\"KlantDim.Contact Name\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"k1\",\"Entity\":\"kosten/opbrengsten\",\"Type\":0},{\"Name\":\"k\",\"Entity\":\"KlantDim\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k1\"}},\"Property\":\"marge over totaal\"},\"Name\":\"kosten/opbrengsten.marge over totaal\",\"NativeReferenceName\":\"flop contracten\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Contact Name\"},\"Name\":\"KlantDim.Contact Name\",\"NativeReferenceName\":\"Contact Name\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k1\"}},\"Property\":\"marge over totaal\"}}}]},\"columnProperties\":{\"kosten/opbrengsten.marge over totaal\":{\"displayName\":\"flop contracten\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"labelPosition\":{\"expr\":{\"Literal\":{\"Value\":\"'Auto'\"}}},\"labelOverflow\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"optimizeLabelDisplay\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"enableValueDataLabel\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"dataPoint\":[{\"properties\":{},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}]}},{\"properties\":{\"fillTransparency\":{\"expr\":{\"Literal\":{\"Value\":\"26D\"}}},\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#D93B18'\"}}}}}}}],\"legend\":[{\"properties\":{\"showGradientLegend\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"valueAxis\":[{\"properties\":{\"end\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"start\":{\"expr\":{\"Literal\":{\"Value\":\"-0.1D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'flop contracten '\"}}}}}],\"subTitle\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Gesorteerd op marge in %'\"}}}}}],\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#F38989'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"99D\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"KlantDim\"}},\"Property\":\"Contact Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"subquery\",\"Expression\":{\"Subquery\":{\"Query\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"KlantDim\",\"Type\":0},{\"Name\":\"k1\",\"Entity\":\"kosten/opbrengsten\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Contact Name\"},\"Name\":\"field\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k1\"}},\"Property\":\"marge over totaal\"}}}],\"Top\":8}}},\"Type\":2},{\"Name\":\"k\",\"Entity\":\"KlantDim\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Contact Name\"}}],\"Table\":{\"SourceRef\":{\"Source\":\"subquery\"}}}}}]},\"type\":\"TopN\",\"howCreated\":0,\"isHiddenInViewMode\":false},{\"name\":\"d9e8db67b9014284f77b\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"dim_datum\"}},\"Property\":\"Termijn Maand Formatted\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"kosten/opbrengsten\"}},\"Property\":\"marge over totaal\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"k1\",\"Entity\":\"kosten/opbrengsten\",\"Type\":0}],\"Where\":[{\"Condition\":{\"And\":{\"Left\":{\"Comparison\":{\"ComparisonKind\":1,\"Left\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k1\"}},\"Property\":\"marge over totaal\"}},\"Right\":{\"Literal\":{\"Value\":\"-0.5D\"}}}},\"Right\":{\"Not\":{\"Expression\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k1\"}},\"Property\":\"marge over totaal\"}},\"Right\":{\"Literal\":{\"Value\":\"null\"}}}}}}}}}]},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false}]",
+          "height": 290.84,
+          "width": 338.72,
+          "x": 861.87,
+          "y": 373.30,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"876d97fb7d37cb7e2784\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1080.8866995073893,\"y\":205.71428571428572,\"z\":20000,\"width\":177.3399014778325,\"height\":102.85714285714286,\"tabOrder\":20000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"uren measures.kosten niet factureerbaar\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"u\",\"Entity\":\"uren measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"u\"}},\"Property\":\"kosten niet factureerbaar\"},\"Name\":\"uren measures.kosten niet factureerbaar\",\"NativeReferenceName\":\"kosten niet factureerbaar\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"u\"}},\"Property\":\"kosten niet factureerbaar\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"9D\"}}}}}],\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"17D\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#F38989'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"18D\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 102.86,
+          "width": 177.34,
+          "x": 1080.89,
+          "y": 205.71,
+          "z": 20000.00
+        },
+        {
+          "config": "{\"name\":\"9a98877d761fc7ebfe79\",\"layouts\":[{\"id\":0,\"position\":{\"x\":508.9655172413793,\"y\":194.1871921182266,\"z\":13000,\"width\":162.26600985221674,\"height\":114.38423645320196,\"tabOrder\":12000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"kosten/opbrengsten.marge\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"kosten/opbrengsten\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"marge over totaal\"},\"Name\":\"kosten/opbrengsten.marge\",\"NativeReferenceName\":\"gemiddelde marge\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"marge over totaal\"}}}]},\"columnProperties\":{\"kosten/opbrengsten.marge\":{\"displayName\":\"gemiddelde marge\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"25D\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 114.38,
+          "width": 162.27,
+          "x": 508.97,
+          "y": 194.19,
+          "z": 13000.00
+        },
+        {
+          "config": "{\"name\":\"af50c08a9308d0d29dbb\",\"layouts\":[{\"id\":0,\"position\":{\"x\":470.8374384236453,\"y\":373.30049261083747,\"z\":11000,\"width\":338.7192118226601,\"height\":290.8374384236453,\"tabOrder\":10000}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"KlantDim.Contact Name\",\"active\":true}],\"Y\":[{\"queryRef\":\"kosten/opbrengsten.marge over totaal\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"KlantDim\",\"Type\":0},{\"Name\":\"k1\",\"Entity\":\"kosten/opbrengsten\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Contact Name\"},\"Name\":\"KlantDim.Contact Name\",\"NativeReferenceName\":\"Contact Name\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k1\"}},\"Property\":\"marge over totaal\"},\"Name\":\"kosten/opbrengsten.marge over totaal\",\"NativeReferenceName\":\"marge over totaal\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k1\"}},\"Property\":\"marge over totaal\"}}}]},\"columnProperties\":{\"KlantDim.Marge % per debiteurnummer\":{\"displayName\":\"top contracten (marge)\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"dataPoint\":[{\"properties\":{},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}]}},{\"properties\":{\"fillTransparency\":{\"expr\":{\"Literal\":{\"Value\":\"35D\"}}},\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":8,\"Percent\":0.4}}}}}}}],\"legend\":[{\"properties\":{\"showGradientLegend\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'top contracten'\"}}}}}],\"subTitle\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Gesorteerd op marge in %'\"}}}}}],\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":8,\"Percent\":0.4}}}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"KlantDim\"}},\"Property\":\"Contact Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"subquery\",\"Expression\":{\"Subquery\":{\"Query\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"KlantDim\",\"Type\":0},{\"Name\":\"k1\",\"Entity\":\"kosten/opbrengsten\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Contact Name\"},\"Name\":\"field\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k1\"}},\"Property\":\"marge over totaal\"}}}],\"Top\":8}}},\"Type\":2},{\"Name\":\"k\",\"Entity\":\"KlantDim\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Contact Name\"}}],\"Table\":{\"SourceRef\":{\"Source\":\"subquery\"}}}}}]},\"type\":\"TopN\",\"howCreated\":0,\"isHiddenInViewMode\":false},{\"name\":\"d9e8db67b9014284f77b\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"dim_datum\"}},\"Property\":\"Termijn Maand Formatted\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"kosten/opbrengsten\"}},\"Property\":\"marge over totaal\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"k1\",\"Entity\":\"kosten/opbrengsten\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":3,\"Left\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k1\"}},\"Property\":\"marge over totaal\"}},\"Right\":{\"Literal\":{\"Value\":\"99L\"}}}}}]},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false}]",
+          "height": 290.84,
+          "width": 338.72,
+          "x": 470.84,
+          "y": 373.30,
+          "z": 11000.00
+        },
+        {
+          "config": "{\"name\":\"baf656c0350e06098c13\",\"layouts\":[{\"id\":0,\"position\":{\"x\":735.960591133005,\"y\":25.714285714285715,\"z\":0,\"width\":496.55172413793105,\"height\":117.04433497536947,\"tabOrder\":15000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangleRounded'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 117.04,
+          "width": 496.55,
+          "x": 735.96,
+          "y": 25.71,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"f233e68bc49803254045\",\"layouts\":[{\"id\":0,\"position\":{\"x\":87.78325123152709,\"y\":203.9408866995074,\"z\":15000,\"width\":178.22660098522167,\"height\":104.63054187192118,\"tabOrder\":14000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"contract_opbrengsten.TotaalGefactureerdTotNu\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"contract_opbrengsten\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"ContractTotNu\"},\"Name\":\"contract_opbrengsten.TotaalGefactureerdTotNu\",\"NativeReferenceName\":\"gefactureerd op contract\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"ContractTotNu\"}}}]},\"columnProperties\":{\"contract_opbrengsten.TotaalGefactureerdTotNu\":{\"displayName\":\"gefactureerd op contract\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"17D\"}}}}}],\"categoryLabels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":8,\"Percent\":0.6}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"68D\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"21D\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 104.63,
+          "width": 178.23,
+          "x": 87.78,
+          "y": 203.94,
+          "z": 15000.00
+        },
+        {
+          "config": "{\"name\":\"f3f96ee9ebf1cf77d688\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1017.0443349753695,\"y\":34.58128078817734,\"z\":6000,\"width\":183.54679802955664,\"height\":98.42364532019704,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Min(contract line items.Contact Name)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"contract_opbrengsten\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Contact Name\"}},\"Function\":2},\"Name\":\"Min(contract line items.Contact Name)\",\"NativeReferenceName\":\"aantal contracten\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Contact Name\"}},\"Function\":2}}}]},\"columnProperties\":{\"Min(contract line items.Contact Name)\":{\"displayName\":\"aantal contracten\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"30D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 98.42,
+          "width": 183.55,
+          "x": 1017.04,
+          "y": 34.58,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"f6f04c7b85c33b100142\",\"layouts\":[{\"id\":0,\"position\":{\"x\":354.679802955665,\"y\":373.30049261083747,\"z\":21000,\"width\":140.98522167487684,\"height\":290.8374384236453,\"tabOrder\":21000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}},\"angle\":{\"expr\":{\"Literal\":{\"Value\":\"90D\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}},{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 290.84,
+          "width": 140.99,
+          "x": 354.68,
+          "y": 373.30,
+          "z": 21000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"objects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.2}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"55D\"}}}}}],\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"180L\"}}}}}]}}",
+      "displayName": "contract details",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"5ff70e325227c2fd0773\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"KlantDim\"}},\"Property\":\"Contact Name\"}},\"type\":\"Categorical\",\"howCreated\":5,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "ab6950d6216f986f5f94",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"0666801f2b00bfde398d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":543.6363636363636,\"y\":487.27272727272725,\"z\":12000,\"width\":327.27272727272725,\"height\":195.45454545454544,\"tabOrder\":12000}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_datum.Termijn Maand Formatted\",\"active\":true}],\"Y\":[{\"queryRef\":\"kosten/opbrengsten.TotaleOpbrengst\"},{\"queryRef\":\"kosten/opbrengsten.TotaleKosten\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_datum\",\"Type\":0},{\"Name\":\"k\",\"Entity\":\"kosten/opbrengsten\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Termijn Maand Formatted\"},\"Name\":\"dim_datum.Termijn Maand Formatted\",\"NativeReferenceName\":\"Termijn Maand Formatted\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"TotaleOpbrengst\"},\"Name\":\"kosten/opbrengsten.TotaleOpbrengst\",\"NativeReferenceName\":\"TotaleOpbrengst\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"TotaleKosten\"},\"Name\":\"kosten/opbrengsten.TotaleKosten\",\"NativeReferenceName\":\"TotaleKosten\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"valueAxis\":[{\"properties\":{\"logAxisScale\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"invertAxis\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"labelPrecision\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}},\"switchAxisPosition\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'kosten en opbrengsten per maand'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 195.45,
+          "width": 327.27,
+          "x": 543.64,
+          "y": 487.27,
+          "z": 12000.00
+        },
+        {
+          "config": "{\"name\":\"19157655658381ca8c96\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1075.2827140549273,\"y\":28.949919224555735,\"z\":11000,\"width\":100.2907915993538,\"height\":40.323101777059776,\"tabOrder\":11000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'reset'\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Bookmark'\"}}},\"bookmark\":{\"expr\":{\"Literal\":{\"Value\":\"'90b7da07807b700ef07e'\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 40.32,
+          "width": 100.29,
+          "x": 1075.28,
+          "y": 28.95,
+          "z": 11000.00
+        },
+        {
+          "config": "{\"name\":\"1d760ba2c80d92fcc7a8\",\"layouts\":[{\"id\":0,\"position\":{\"x\":503.52180936995154,\"y\":480.7754442649435,\"z\":0,\"width\":408.4006462035541,\"height\":214.0226171243942,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}},\"roundEdge\":{\"expr\":{\"Literal\":{\"Value\":\"18L\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 214.02,
+          "width": 408.40,
+          "x": 503.52,
+          "y": 480.78,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"3cea7ac504706d0c0910\",\"layouts\":[{\"id\":0,\"position\":{\"x\":30.665483584738244,\"y\":492.91925465838506,\"z\":5000,\"width\":445.2173913043478,\"height\":190.80745341614906,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"pieChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(niet_factureerbare_uren.Sum of Cost Amount)\"},{\"queryRef\":\"measure.AzureKosten\"},{\"queryRef\":\"uren measures.kosten factureerbare uren\"}],\"Tooltips\":[{\"queryRef\":\"Sum(s4_inf billable_uren.Opbrengsten)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"n\",\"Entity\":\"niet_factureerbare_uren\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"measure\",\"Type\":0},{\"Name\":\"s\",\"Entity\":\"s4_inf billable_uren\",\"Type\":0},{\"Name\":\"u\",\"Entity\":\"uren measures\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"n\"}},\"Property\":\"Sum of Cost Amount\"}},\"Function\":0},\"Name\":\"Sum(niet_factureerbare_uren.Sum of Cost Amount)\",\"NativeReferenceName\":\"niet factureerbare kosten\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"AzureKosten\"},\"Name\":\"measure.AzureKosten\",\"NativeReferenceName\":\"AzureKosten\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Opbrengsten\"}},\"Function\":0},\"Name\":\"Sum(s4_inf billable_uren.Opbrengsten)\",\"NativeReferenceName\":\"Opbrengsten factureerbare uren\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"u\"}},\"Property\":\"kosten factureerbare uren\"},\"Name\":\"uren measures.kosten factureerbare uren\",\"NativeReferenceName\":\"kosten factureerbare uren\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"n\"}},\"Property\":\"Sum of Cost Amount\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(niet_factureerbare_uren.Sum of Cost Amount)\":{\"displayName\":\"niet factureerbare kosten\"},\"Sum(s4_inf billable_uren.Opbrengsten)\":{\"displayName\":\"Opbrengsten factureerbare uren\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"dataPoint\":[{\"properties\":{\"fillTransparency\":{\"expr\":{\"Literal\":{\"Value\":\"13D\"}}}}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":0.2}}}}}},\"selector\":{\"metadata\":\"Sum(niet_factureerbare_uren.Sum of Cost Amount)\"}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":0.6}}}}}},\"selector\":{\"metadata\":\"uren measures.kosten factureerbare uren\"}}],\"labels\":[{\"properties\":{\"labelStyle\":{\"expr\":{\"Literal\":{\"Value\":\"'Both'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}},\"position\":{\"expr\":{\"Literal\":{\"Value\":\"'preferOutside'\"}}},\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"labelPrecision\":{\"expr\":{\"Literal\":{\"Value\":\"1L\"}}},\"overflow\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"legend\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'kosten uitgesplitst'\"}}}}}]}}}",
+          "filters": "[{\"name\":\"d6e54001f2df2818b40b\",\"expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Bram_view\"}},\"Property\":\"azure kosten\"}},\"Function\":0}},\"type\":\"Advanced\",\"howCreated\":1,\"isHiddenInViewMode\":false,\"displayName\":\"azure kosten\"}]",
+          "height": 190.81,
+          "width": 445.22,
+          "x": 30.67,
+          "y": 492.92,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"4bd18225ca1982c08ecc\",\"layouts\":[{\"id\":0,\"position\":{\"x\":18,\"y\":133,\"z\":3000,\"width\":762,\"height\":298,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}},\"roundEdge\":{\"expr\":{\"Literal\":{\"Value\":\"10L\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 298.00,
+          "width": 762.00,
+          "x": 18.00,
+          "y": 133.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"6780280ae8359a60ded0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":860.0879507475813,\"y\":144.0985048372911,\"z\":13000,\"width\":315.21547933157433,\"height\":128.3377308707124,\"tabOrder\":13000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"kosten/opbrengsten.marge over totaal\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"kosten/opbrengsten\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"marge over totaal\"},\"Name\":\"kosten/opbrengsten.marge over totaal\",\"NativeReferenceName\":\"Marge\"}]},\"columnProperties\":{\"kosten/opbrengsten.marge over totaal\":{\"displayName\":\"Marge\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 128.34,
+          "width": 315.22,
+          "x": 860.09,
+          "y": 144.10,
+          "z": 13000.00
+        },
+        {
+          "config": "{\"name\":\"6cf88a8f76ddfdfa3571\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"width\":100,\"height\":40,\"z\":9000,\"tabOrder\":10000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'back'\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Back'\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 40.00,
+          "width": 100.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"6d851ca1089f5a16cf7f\",\"layouts\":[{\"id\":0,\"position\":{\"x\":49.53386103781882,\"y\":189.1292875989446,\"z\":7000,\"width\":276.93931398416885,\"height\":185.75197889182058,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"kosten/opbrengsten.TotaleOpbrengst\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"kosten/opbrengsten\",\"Type\":0},{\"Name\":\"c\",\"Entity\":\"contract_opbrengsten\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"TotaleOpbrengst\"},\"Name\":\"kosten/opbrengsten.TotaleOpbrengst\",\"NativeReferenceName\":\"Opbrengst\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Total Price\"}},\"Function\":0}}}]},\"columnProperties\":{\"kosten/opbrengsten.TotaleOpbrengst\":{\"displayName\":\"Opbrengst\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"wordWrap\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":8,\"Percent\":0}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"75D\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"''\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 185.75,
+          "width": 276.94,
+          "x": 49.53,
+          "y": 189.13,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"6fa130a525a2c4134b02\",\"layouts\":[{\"id\":0,\"position\":{\"x\":313.5268249780123,\"y\":3.3773087071240107,\"z\":14000,\"width\":652.9463500439754,\"height\":132.84080914687775,\"tabOrder\":14000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"KlantDim.Titel Klant\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"KlantDim\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Titel Klant\"},\"Name\":\"KlantDim.Titel Klant\",\"NativeReferenceName\":\"Titel Klant\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"25D\"}}}}}],\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 132.84,
+          "width": 652.95,
+          "x": 313.53,
+          "y": 3.38,
+          "z": 14000.00
+        },
+        {
+          "config": "{\"name\":\"7980638b9ea0f5efc049\",\"layouts\":[{\"id\":0,\"position\":{\"x\":941.8181818181818,\"y\":480.9090909090909,\"z\":10000,\"width\":303.6363636363636,\"height\":214.54545454545453,\"tabOrder\":9000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_datum.Termijn Maand Formatted\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_datum\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Termijn Maand Formatted\"},\"Name\":\"dim_datum.Termijn Maand Formatted\",\"NativeReferenceName\":\"Maand\"}]},\"columnProperties\":{\"dim_datum.Termijn Maand Formatted\":{\"displayName\":\"Maand\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"100D\"}}}}}]}}}",
+          "filters": "[{\"name\":\"9c2d44d20968fb2b9a55\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"dim_datum\"}},\"Property\":\"Termijn Maand Formatted\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_datum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Termijn Maand Formatted\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Jan 25'\"}}],[{\"Literal\":{\"Value\":\"'Feb 25'\"}}],[{\"Literal\":{\"Value\":\"'Mar 25'\"}}],[{\"Literal\":{\"Value\":\"'Apr 25'\"}}],[{\"Literal\":{\"Value\":\"'May 25'\"}}],[{\"Literal\":{\"Value\":\"'Jun 25'\"}}],[{\"Literal\":{\"Value\":\"'Jul 25'\"}}],[{\"Literal\":{\"Value\":\"'Aug 25'\"}}],[{\"Literal\":{\"Value\":\"'Sep 25'\"}}],[{\"Literal\":{\"Value\":\"'Oct 25'\"}}],[{\"Literal\":{\"Value\":\"'Nov 25'\"}}],[{\"Literal\":{\"Value\":\"'Dec 25'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{},\"isHiddenInViewMode\":false}]",
+          "height": 214.55,
+          "width": 303.64,
+          "x": 941.82,
+          "y": 480.91,
+          "z": 10000.00
+        },
+        {
+          "config": "{\"name\":\"9c2398597dcd8fb2561a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":909.6218117854002,\"y\":282.5681618293755,\"z\":6000,\"width\":216.14775725593668,\"height\":138.46965699208442,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"kosten/opbrengsten.winst\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"kosten/opbrengsten\",\"Type\":0},{\"Name\":\"k1\",\"Entity\":\"KlantDim\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"winst\"},\"Name\":\"kosten/opbrengsten.winst\",\"NativeReferenceName\":\"Winst\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k1\"}},\"Property\":\"Winst per debiteurnummer\"}}}]},\"columnProperties\":{\"kosten/opbrengsten.winst\":{\"displayName\":\"Winst\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Marge'\"}}},\"heading\":{\"expr\":{\"Literal\":{\"Value\":\"'Heading2'\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 138.47,
+          "width": 216.15,
+          "x": 909.62,
+          "y": 282.57,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"a311a86d39b15125f869\",\"layouts\":[{\"id\":0,\"position\":{\"x\":18.012313104661388,\"y\":480.7036059806508,\"z\":4000,\"width\":469.44591029023746,\"height\":213.896218117854,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}},\"roundEdge\":{\"expr\":{\"Literal\":{\"Value\":\"10L\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 213.90,
+          "width": 469.45,
+          "x": 18.01,
+          "y": 480.70,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"a85bd1e3096479d87284\",\"layouts\":[{\"id\":0,\"position\":{\"x\":802.6737027264732,\"y\":132.84080914687775,\"z\":2000,\"width\":431.169744942832,\"height\":298.32893579595424,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}},\"roundEdge\":{\"expr\":{\"Literal\":{\"Value\":\"10L\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 298.33,
+          "width": 431.17,
+          "x": 802.67,
+          "y": 132.84,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"d20fe8c749247774cd9b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":432.29551451187336,\"y\":189.1292875989446,\"z\":8000,\"width\":262.30430958663146,\"height\":185.75197889182058,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"kosten/opbrengsten.TotaleKosten\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"kosten/opbrengsten\",\"Type\":0},{\"Name\":\"b\",\"Entity\":\"azure_kosten_exported\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"TotaleKosten\"},\"Name\":\"kosten/opbrengsten.TotaleKosten\",\"NativeReferenceName\":\"Kosten\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"azure kosten\"}},\"Function\":0}}}]},\"columnProperties\":{\"kosten/opbrengsten.TotaleKosten\":{\"displayName\":\"Kosten\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FF0F0F'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"75D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 185.75,
+          "width": 262.30,
+          "x": 432.30,
+          "y": 189.13,
+          "z": 8000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"objects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.2}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"40D\"}}}}}],\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"180L\"}}}}}]}}",
+      "displayName": "azure kosten",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "b83de639251bae0687b4",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"1590dc7cc75669c81491\",\"layouts\":[{\"id\":0,\"position\":{\"x\":40.90909090909091,\"y\":90.9090909090909,\"z\":2000,\"width\":1185.4545454545453,\"height\":199.09090909090907,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangleRounded'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#ffffff'\"}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 199.09,
+          "width": 1185.45,
+          "x": 40.91,
+          "y": 90.91,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"3a2bda45283086546788\",\"layouts\":[{\"id\":0,\"position\":{\"x\":95.76642335766424,\"y\":366.7153284671533,\"z\":6000,\"width\":467.15328467153284,\"height\":209.05109489051097,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"measure.AzureKosten\"}],\"Category\":[{\"queryRef\":\"bram_view_exported.subscriptionName\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"measure\",\"Type\":0},{\"Name\":\"b\",\"Entity\":\"bram_view_exported\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"AzureKosten\"},\"Name\":\"measure.AzureKosten\",\"NativeReferenceName\":\"AzureKosten\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"subscriptionName\"},\"Name\":\"bram_view_exported.subscriptionName\",\"NativeReferenceName\":\"subscriptionName\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"AzureKosten\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'azure kosten per subscription'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 209.05,
+          "width": 467.15,
+          "x": 95.77,
+          "y": 366.72,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"48a51d7aa690d7466040\",\"layouts\":[{\"id\":0,\"position\":{\"x\":40.90909090909091,\"y\":337.27272727272725,\"z\":1000,\"width\":577.2727272727273,\"height\":269.09090909090907,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangleRounded'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 269.09,
+          "width": 577.27,
+          "x": 40.91,
+          "y": 337.27,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"622379caea0080240d05\",\"layouts\":[{\"id\":0,\"position\":{\"x\":713.5766423357665,\"y\":379.56204379562047,\"z\":7000,\"width\":468.32116788321173,\"height\":195.03649635036498,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"bram_view_exported.azure kosten\"}],\"Category\":[{\"queryRef\":\"bram_view_exported.BusinessUnitGestandaardiseerd\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"bram_view_exported\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"azure kosten\"},\"Name\":\"bram_view_exported.azure kosten\",\"NativeReferenceName\":\"azure kosten\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"BusinessUnitGestandaardiseerd\"},\"Name\":\"bram_view_exported.BusinessUnitGestandaardiseerd\",\"NativeReferenceName\":\"BusinessUnitGestandaardiseerd\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"azure kosten\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[{\"name\":\"937c39aee37707b5029b\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"bram_view_exported\"}},\"Property\":\"BusinessUnitGestandaardiseerd\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"bram_view_exported\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Not\":{\"Expression\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"BusinessUnitGestandaardiseerd\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"null\"}}]]}}}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"isHiddenInViewMode\":false}]",
+          "height": 195.04,
+          "width": 468.32,
+          "x": 713.58,
+          "y": 379.56,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"97700825b3ad6db83c7c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":474.5454545454545,\"y\":119.09090909090908,\"z\":4000,\"width\":287.27272727272725,\"height\":142.72727272727272,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"azure measures.GemiddeldeAzureKostenPerDag\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"azure measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"GemiddeldeAzureKostenPerDag\"},\"Name\":\"azure measures.GemiddeldeAzureKostenPerDag\",\"NativeReferenceName\":\"Gemiddelde azure kosten per dag\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"GemiddeldeAzureKostenPerDag\"}}}]},\"columnProperties\":{\"azure measures.GemiddeldeAzureKostenPerDag\":{\"displayName\":\"Gemiddelde azure kosten per dag\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0.2}}}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'azure kosten t.o.v vorige week'\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 142.73,
+          "width": 287.27,
+          "x": 474.55,
+          "y": 119.09,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"a15dcb90ea5036092a85\",\"layouts\":[{\"id\":0,\"position\":{\"x\":23.333333333333332,\"y\":15.555555555555555,\"z\":5000,\"width\":344.44444444444446,\"height\":75.55555555555556,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Azure-kostenoverzicht\",\"textStyle\":{\"fontSize\":\"24pt\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 75.56,
+          "width": 344.44,
+          "x": 23.33,
+          "y": 15.56,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"a3ac520ee42101d28822\",\"layouts\":[{\"id\":0,\"position\":{\"x\":80.9090909090909,\"y\":119.09090909090908,\"z\":3000,\"width\":287.27272727272725,\"height\":142.72727272727272,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Min(bram_view_exported.subscriptionName)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"bram_view_exported\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"subscriptionName\"}},\"Function\":2},\"Name\":\"Min(bram_view_exported.subscriptionName)\",\"NativeReferenceName\":\"Count of subscriptionName\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"subscriptionName\"}},\"Function\":2}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0.2}}}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'azure kosten t.o.v vorige week'\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 142.73,
+          "width": 287.27,
+          "x": 80.91,
+          "y": 119.09,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"c921d5fb402c45900e31\",\"layouts\":[{\"id\":0,\"position\":{\"x\":659.8540145985402,\"y\":337.5182481751825,\"z\":0,\"width\":576.9343065693431,\"height\":268.6131386861314,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangleRounded'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 268.61,
+          "width": 576.93,
+          "x": 659.85,
+          "y": 337.52,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"cdd93690206b5e686699\",\"layouts\":[{\"id\":0,\"position\":{\"x\":807.0072992700731,\"y\":105.1094890510949,\"z\":8000,\"width\":363.21167883211683,\"height\":170.5109489051095,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"gauge\",\"projections\":{\"MaxValue\":[{\"queryRef\":\"azure measures.AzureKostenVorigeWeek_RG\"}],\"Y\":[{\"queryRef\":\"azure measures.AzureKostenDezeWeek_RG\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"azure measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"AzureKostenVorigeWeek_RG\"},\"Name\":\"azure measures.AzureKostenVorigeWeek_RG\",\"NativeReferenceName\":\"AzureKostenVorigeWeek_RG\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"AzureKostenDezeWeek_RG\"},\"Name\":\"azure measures.AzureKostenDezeWeek_RG\",\"NativeReferenceName\":\"AzureKostenDezeWeek_RG\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"AzureKostenDezeWeek_RG\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'azure kosten t.o.v vorige week'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 170.51,
+          "width": 363.21,
+          "x": 807.01,
+          "y": 105.11,
+          "z": 8000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"objects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.2}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"241L\"}}}}}]},\"filterSortOrder\":3}",
+      "displayName": "contract azure kosten",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"2a6e9aa021942b4e487d\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"contract_opbrengsten\"}},\"Property\":\"Contact Name\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":0},{\"name\":\"53d2633052887a75b208\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"KlantDim\"}},\"Property\":\"Contact Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"KlantDim\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Contact Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Eteck Energie Techniek B.V. - Application & Data Services'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":5,\"ordinal\":1}]",
+      "height": 720.00,
+      "name": "e8d41a35e399c6000c65",
+      "ordinal": 3,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"0029b9a7401009b7b3da\",\"layouts\":[{\"id\":0,\"position\":{\"x\":291.9499105545617,\"y\":164.86583184257603,\"z\":4000,\"width\":234.70483005366728,\"height\":191.1985688729875,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"bram_view_exported.resourceGroupName\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"bram_view_exported\",\"Type\":0},{\"Name\":\"a\",\"Entity\":\"azure_kosten_exported\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"resourceGroupName\"},\"Name\":\"bram_view_exported.resourceGroupName\",\"NativeReferenceName\":\"resourceGroupName\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"resourceGroupName\"}}}]},\"drillFilterOtherVisuals\":true,\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 191.20,
+          "width": 234.70,
+          "x": 291.95,
+          "y": 164.87,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"292a7fbe4e712e02bd09\",\"layouts\":[{\"id\":0,\"position\":{\"x\":70.9090909090909,\"y\":264.5454545454545,\"z\":11000,\"width\":186.36363636363635,\"height\":96.36363636363636,\"tabOrder\":9000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"bram_view_exported.azure kosten\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"bram_view_exported\",\"Type\":0},{\"Name\":\"a\",\"Entity\":\"azure_kosten_exported\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"azure kosten\"},\"Name\":\"bram_view_exported.azure kosten\",\"NativeReferenceName\":\"azure kosten\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"azure kosten\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}],\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"23D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 96.36,
+          "width": 186.36,
+          "x": 70.91,
+          "y": 264.55,
+          "z": 11000.00
+        },
+        {
+          "config": "{\"name\":\"33561ea4a0c1c3d05351\",\"layouts\":[{\"id\":0,\"position\":{\"x\":23.636363636363633,\"y\":417.27272727272725,\"z\":7000,\"width\":437.27272727272725,\"height\":270,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangleRounded'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 270.00,
+          "width": 437.27,
+          "x": 23.64,
+          "y": 417.27,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"357e3cac6d060ccac265\",\"layouts\":[{\"id\":0,\"position\":{\"x\":771.7041800643086,\"y\":136.84887459807072,\"z\":0,\"width\":473.3118971061093,\"height\":254.14790996784564,\"tabOrder\":10000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangleRounded'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 254.15,
+          "width": 473.31,
+          "x": 771.70,
+          "y": 136.85,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"3d506d12974de7260815\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1060.9090909090908,\"y\":20.909090909090907,\"z\":12000,\"width\":126.36363636363636,\"height\":61.81818181818181,\"tabOrder\":12000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'reset'\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Bookmark'\"}}},\"bookmark\":{\"expr\":{\"Literal\":{\"Value\":\"'834f06dcc18297ca69a6'\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 61.82,
+          "width": 126.36,
+          "x": 1060.91,
+          "y": 20.91,
+          "z": 12000.00
+        },
+        {
+          "config": "{\"name\":\"4e82d059057975e1826c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":15.031616982836495,\"y\":83.2520325203252,\"z\":6000,\"width\":570.0451671183379,\"height\":50.87624209575429,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"KlantDim.Titel Klant\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"KlantDim\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Titel Klant\"},\"Name\":\"KlantDim.Titel Klant\",\"NativeReferenceName\":\"Titel Klant\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"16D\"}}}}}],\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 50.88,
+          "width": 570.05,
+          "x": 15.03,
+          "y": 83.25,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"65e7c90e60b970032886\",\"layouts\":[{\"id\":0,\"position\":{\"x\":510.9090909090909,\"y\":450.9090909090909,\"z\":10000,\"width\":335.45454545454544,\"height\":202.72727272727272,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"bram_view_exported.resourceGroupName\",\"active\":true}],\"Y\":[{\"queryRef\":\"bram_view_exported.azure kosten\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"bram_view_exported\",\"Type\":0},{\"Name\":\"a\",\"Entity\":\"azure_kosten_exported\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"resourceGroupName\"},\"Name\":\"bram_view_exported.resourceGroupName\",\"NativeReferenceName\":\"resourceGroupName\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"azure kosten\"},\"Name\":\"bram_view_exported.azure kosten\",\"NativeReferenceName\":\"azure kosten\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"azure kosten\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"filterSortOrder\":3,\"hasDefaultSort\":true,\"objects\":{\"valueAxis\":[{\"properties\":{\"start\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}},\"end\":{\"expr\":{\"Literal\":{\"Value\":\"750D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'azure kosten per resourcegroep'\"}}}}}]}}}",
+          "filters": "[{\"name\":\"43731fc252dd934547ca\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"measure\"}},\"Property\":\"AzureKosten\"}},\"type\":\"Advanced\",\"howCreated\":1,\"isHiddenInViewMode\":false,\"ordinal\":0},{\"name\":\"262929185dc0307a52bb\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"azure_kosten_exported\"}},\"Property\":\"resourceGroupName\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"isHiddenInViewMode\":false,\"ordinal\":1}]",
+          "height": 202.73,
+          "width": 335.45,
+          "x": 510.91,
+          "y": 450.91,
+          "z": 10000.00
+        },
+        {
+          "config": "{\"name\":\"a441bc0e8d86379db93d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":49.99999999999999,\"y\":20,\"z\":5000,\"width\":537.2727272727273,\"height\":62.72727272727272,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"azure kosten per contract\",\"textStyle\":{\"fontFamily\":\"Arial\",\"fontSize\":\"32pt\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 62.73,
+          "width": 537.27,
+          "x": 50.00,
+          "y": 20.00,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"a8f76e7d308899401d30\",\"layouts\":[{\"id\":0,\"position\":{\"x\":58.18181818181818,\"y\":447.27272727272725,\"z\":8000,\"width\":368.18181818181813,\"height\":210.90909090909088,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_datum.Termijn Maand Formatted\",\"active\":true}],\"Y\":[{\"queryRef\":\"bram_view_exported.azure kosten\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_datum\",\"Type\":0},{\"Name\":\"b\",\"Entity\":\"bram_view_exported\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Termijn Maand Formatted\"},\"Name\":\"dim_datum.Termijn Maand Formatted\",\"NativeReferenceName\":\"Termijn Maand Formatted\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"azure kosten\"},\"Name\":\"bram_view_exported.azure kosten\",\"NativeReferenceName\":\"azure kosten\"}]},\"drillFilterOtherVisuals\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'kosten per maand'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 210.91,
+          "width": 368.18,
+          "x": 58.18,
+          "y": 447.27,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"ab0232091e37e9a98000\",\"layouts\":[{\"id\":0,\"position\":{\"x\":806.3903541823663,\"y\":177.48304446119067,\"z\":13000,\"width\":402.2305953278071,\"height\":165.90806330067824,\"tabOrder\":13000}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"bram_view_exported.azure kosten\"}],\"Category\":[{\"queryRef\":\"bram_view_exported.date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"bram_view_exported\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"azure kosten\"},\"Name\":\"bram_view_exported.azure kosten\",\"NativeReferenceName\":\"azure kosten\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"date\"},\"Name\":\"bram_view_exported.date\",\"NativeReferenceName\":\"date\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 165.91,
+          "width": 402.23,
+          "x": 806.39,
+          "y": 177.48,
+          "z": 13000.00
+        },
+        {
+          "config": "{\"name\":\"bf9bfddfdddb06b72207\",\"layouts\":[{\"id\":0,\"position\":{\"x\":14.545454545454545,\"y\":133.63636363636363,\"z\":2000,\"width\":738.1818181818181,\"height\":253.63636363636363,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangleRounded'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 253.64,
+          "width": 738.18,
+          "x": 14.55,
+          "y": 133.64,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"d64933000b209d883466\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"width\":100,\"height\":40,\"z\":3000,\"tabOrder\":11000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'back'\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Back'\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 40.00,
+          "width": 100.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"f5bb46f96005eb9d5876\",\"layouts\":[{\"id\":0,\"position\":{\"x\":58.18181818181818,\"y\":157.27272727272725,\"z\":9000,\"width\":212.72727272727272,\"height\":119.09090909090908,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Min(bram_view_exported.resourceGroupName)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"b\",\"Entity\":\"bram_view_exported\",\"Type\":0},{\"Name\":\"a\",\"Entity\":\"azure_kosten_exported\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"b\"}},\"Property\":\"resourceGroupName\"}},\"Function\":2},\"Name\":\"Min(bram_view_exported.resourceGroupName)\",\"NativeReferenceName\":\"Count of resourceGroupName\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"resourceGroupName\"}},\"Function\":2}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"31D\"}}}}}],\"categoryLabels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"12D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 119.09,
+          "width": 212.73,
+          "x": 58.18,
+          "y": 157.27,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"fc06aed6470ee0d31904\",\"layouts\":[{\"id\":0,\"position\":{\"x\":478.18181818181813,\"y\":417.27272727272725,\"z\":1000,\"width\":407.27272727272725,\"height\":270,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"shape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangleRounded'\"}}}}}],\"rotation\":[{\"properties\":{\"shapeAngle\":{\"expr\":{\"Literal\":{\"Value\":\"0L\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 270.00,
+          "width": 407.27,
+          "x": 478.18,
+          "y": 417.27,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ],
+  "theme": "AccessibleDefault"
+}

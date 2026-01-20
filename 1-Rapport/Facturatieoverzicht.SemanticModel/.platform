@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Facturatieoverzicht"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "62b1a1b3-168f-b80a-4b6a-25eddc1a16d0"
+  }
+}

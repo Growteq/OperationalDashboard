@@ -1,0 +1,253 @@
+table FeitFactuurregels
+	lineageTag: ed536a8a-4ed9-4838-9d11-fd7db781b80c
+
+	column FactuurRegelKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 40aaee3c-fbff-4641-b93d-1c095ff7d4dd
+		summarizeBy: count
+		sourceColumn: FactuurRegelKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column FactuurDatum
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 074060d8-480c-4958-b3b6-7167b2d29470
+		summarizeBy: none
+		sourceColumn: FactuurDatum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Taak
+		dataType: string
+		lineageTag: f7889ee3-556b-44d5-ad18-46d24e5749fa
+		summarizeBy: none
+		sourceColumn: Taak
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectResource
+		dataType: string
+		lineageTag: e79c3aee-278b-433a-82e9-485888bd18c6
+		summarizeBy: none
+		sourceColumn: ProjectResource
+
+		annotation SummarizationSetBy = Automatic
+
+	column FactuurId
+		dataType: string
+		lineageTag: f9c98246-a27e-4e3d-8fe4-814c1b588c46
+		summarizeBy: none
+		sourceColumn: FactuurId
+
+		annotation SummarizationSetBy = Automatic
+
+	column FactuurRegelId
+		dataType: string
+		lineageTag: 01a59b5d-b31e-4cb0-8336-3b6947689f04
+		summarizeBy: none
+		sourceColumn: FactuurRegelId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Factuur
+		dataType: string
+		lineageTag: f49ca658-c009-4e81-8a1b-fdf66cb2304d
+		summarizeBy: none
+		sourceColumn: Factuur
+
+		annotation SummarizationSetBy = Automatic
+
+	column FactuurRegel
+		dataType: string
+		lineageTag: b82b2275-0447-4f2e-96ce-061e3d88e3c4
+		summarizeBy: none
+		sourceColumn: FactuurRegel
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: faced575-8e84-4e33-a5b0-41d27d9bf4a9
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column BedragExclBTW
+		dataType: double
+		lineageTag: 96c0beb7-aba7-4388-9fe6-7cd00bb8df9c
+		summarizeBy: sum
+		sourceColumn: BedragExclBTW
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UurTarief
+		dataType: double
+		lineageTag: 2bdc3f0d-4a31-45b7-90ce-0576fd9093de
+		summarizeBy: sum
+		sourceColumn: UurTarief
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column KostenBedrag
+		dataType: double
+		lineageTag: 472791a4-c6e1-44ee-8c71-af2ad3c612ba
+		summarizeBy: sum
+		sourceColumn: KostenBedrag
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UrenGefactureerd
+		dataType: double
+		lineageTag: 577d8b2c-2826-4e7c-aa13-0907c1f1b582
+		summarizeBy: sum
+		sourceColumn: UrenGefactureerd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UrenTimeSheet
+		dataType: double
+		lineageTag: d871f270-7621-43f0-8823-6f4f781d8670
+		summarizeBy: sum
+		sourceColumn: UrenTimeSheet
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column OmzetCategorie
+		dataType: string
+		lineageTag: a3926df2-b58a-4348-94be-c8ce50f14f70
+		summarizeBy: none
+		sourceColumn: OmzetCategorie
+
+		annotation SummarizationSetBy = Automatic
+
+	column Include
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f58e8192-9920-4464-bb9f-7cd68f59ba4e
+		summarizeBy: none
+		sourceColumn: Include
+
+		annotation SummarizationSetBy = Automatic
+
+	column BedragBTW
+		dataType: double
+		lineageTag: b4e5c44e-2e2f-4874-8bf9-b019bd810377
+		summarizeBy: sum
+		sourceColumn: BedragBTW
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Opmerkingen
+		dataType: string
+		lineageTag: ac5fdfb9-630b-43cf-a75e-1a057a8508f1
+		summarizeBy: none
+		sourceColumn: Opmerkingen
+
+		annotation SummarizationSetBy = Automatic
+
+	column BedragInclBTW
+		dataType: double
+		lineageTag: b72c449c-0c34-424b-9392-e2bbecc57693
+		summarizeBy: sum
+		sourceColumn: BedragInclBTW
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TaakregelKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 98a26716-dc9e-4c08-8cbb-ec22575e3a4b
+		summarizeBy: count
+		sourceColumn: TaakregelKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column MedewerkerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 6daed0b0-0701-4207-aefa-8502c19ab23a
+		summarizeBy: none
+		sourceColumn: MedewerkerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PracticeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 476f5aaf-d22b-42a8-bf9a-57fc11348456
+		summarizeBy: count
+		sourceColumn: PracticeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectKey
+		dataType: int64
+		formatString: 0
+		lineageTag: e6ffbae1-ba21-4c67-b6d5-e3cea6f804f1
+		summarizeBy: none
+		sourceColumn: ProjectKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Datum
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9e9463b0-7eca-4474-b801-ab6fcda3f6ad
+		summarizeBy: none
+		sourceColumn: Datum
+
+		variation Variation
+			isDefault
+			relationship: 3c527619-f3ff-4176-be7d-6a55fd653e76
+			defaultHierarchy: LocalDateTable_b14e0cfd-af4a-4f40-94df-38a4c847c223.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column FactuurNummer
+		dataType: string
+		lineageTag: 7c5f7c75-39c4-4fb8-af58-0ce35aca4b72
+		summarizeBy: none
+		sourceColumn: FactuurNummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column KlantKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a9f56caf-00b3-4949-9b5e-39fb337c7a30
+		summarizeBy: count
+		sourceColumn: KlantKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FeitFactuurregels = m
+		mode: import
+		queryGroup: Feit
+		source =
+				let
+				    Source = Sql.Database("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com", "Operationeel Dashboard"),
+				    s3_ods_FeitFactuurregels = Source{[Schema="s3_ods",Item="FeitFactuurregels"]}[Data]
+				in
+				    s3_ods_FeitFactuurregels
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

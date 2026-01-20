@@ -1,0 +1,42 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["contract_opbrengsten","dim_datum","niet_factureerbare_uren","measure","s4_inf billable_uren","s4_inf gefactureerde_uren","bram_view_exported"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.144.1378.0 (25.06)+cba1e61f16ea36d44901f06fa446299040122394
+
+ref table DateTableTemplate_236a7c8b-46f6-454c-a858-50a8761cffc2
+ref table contract_opbrengsten
+ref table LocalDateTable_e089db14-49de-4711-9cf8-f05fdef72f39
+ref table dim_datum
+ref table LocalDateTable_45e2859d-7ff7-4bea-a845-bc68641bf5ed
+ref table LocalDateTable_2861b595-6ce7-488f-8385-edafa70c2eca
+ref table LocalDateTable_a5c620c0-bf60-44ff-b386-0880b50c6c4c
+ref table LocalDateTable_cdaabbfb-1b7b-4ba3-8ddf-def6a86b1acc
+ref table LocalDateTable_5f03afaf-c3b8-412f-b7c8-45eec424c0d0
+ref table LocalDateTable_488c616b-bef2-4197-8cff-5bd8c53e7189
+ref table LocalDateTable_791bf807-12be-4c5f-afca-cdea0e2c306a
+ref table LocalDateTable_dac68946-c1cf-4e9b-8e34-a784d13acdf5
+ref table LocalDateTable_e0381878-d5ed-44a0-bd32-82584127cdcc
+ref table LocalDateTable_cb4d5913-cf64-442a-aa8f-363d15d633c4
+ref table KlantDim
+ref table niet_factureerbare_uren
+ref table measure
+ref table kosten/opbrengsten
+ref table 'azure measures'
+ref table 's4_inf billable_uren'
+ref table 'uren measures'
+ref table 's4_inf gefactureerde_uren'
+ref table bram_view_exported
+ref table LocalDateTable_bc580136-0472-4f0f-96ec-e18f54e30a83
+ref table LocalDateTable_da76d93a-c7d3-4626-99b8-09b2647a6752
+
+ref cultureInfo en-US
+

@@ -1,0 +1,41 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-NL
+	dataAccessOptions
+		fastCombine
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["DimSprint","Meetwaarden","DimMedewerkers","FeitSprintCapaciteit","DimDatum","FeitSprintDetails","DimProjecten","DimStatus"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.143.878.0 (25.05)+b20aa3b866ec1b70879135a4e60e4b1301c75b21
+
+ref table DateTableTemplate_82e7929a-e75e-454a-9c5f-87d9e2730b2f
+ref table DimSprint
+ref table LocalDateTable_7ee8cde3-d318-4535-8166-babe19b98199
+ref table LocalDateTable_f4e8cac1-2f09-4018-891f-d26a9495da80
+ref table LocalDateTable_402fc4c1-3ad1-4e94-aaca-a3150accb369
+ref table Meetwaarden
+ref table DimMedewerkers
+ref table LocalDateTable_2ab9a47c-f4e2-4d26-b9f6-b286f96715c2
+ref table LocalDateTable_c6536288-781a-4fe6-9419-e73e0addad0c
+ref table FeitSprintCapaciteit
+ref table DimDatum
+ref table LocalDateTable_46a287d1-9cd1-4894-a1ec-b4b078b317f3
+ref table LocalDateTable_4faf7823-ec7b-4bf9-a19a-53401e74c6ca
+ref table LocalDateTable_6251e597-9e51-4210-a468-df32b91eba90
+ref table LocalDateTable_a11def73-505b-4fbb-97da-90a5a7417637
+ref table LocalDateTable_721c164b-0d17-4c3c-8a10-7feb2260f111
+ref table LocalDateTable_48189914-e804-4da6-b13f-187a24a1ad41
+ref table LocalDateTable_2995e91b-6407-47ab-857f-fbd108f44bfb
+ref table LocalDateTable_d97256e4-3f26-4231-b371-fe1265532eb7
+ref table LocalDateTable_e6f9ae47-2afd-47ea-a328-7ca6686bd4d6
+ref table FeitSprintDetails
+ref table DimProjecten
+ref table DimStatus
+
+ref cultureInfo en-US
+

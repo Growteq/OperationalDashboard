@@ -1,0 +1,173 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "LakehouseTableSource",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "table": "bram_view_exported"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "Azure_kosten_Lakehouse",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "1f8bfd78-8eeb-856b-4f80-e390333440f7",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "tableOption": "autoCreate",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "datasetSettings": {
+              "type": "DataWarehouseTable",
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "Test1906"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "azure kosten warehouse",
+                "properties": {
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "artifactId": "b8e225cd-b2c9-4ded-839b-676261a108db",
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "servicePeriodStartDate",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "servicePeriodStartDate",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                }
+              },
+              {
+                "source": {
+                  "name": "date",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "date",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                }
+              },
+              {
+                "source": {
+                  "name": "subscriptionName",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "subscriptionName",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                }
+              },
+              {
+                "source": {
+                  "name": "SubscriptionId",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "SubscriptionId",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                }
+              },
+              {
+                "source": {
+                  "name": "costInBillingCurrency",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "costInBillingCurrency",
+                  "physicalType": "decimal",
+                  "scale": 18,
+                  "precision": 38
+                }
+              },
+              {
+                "source": {
+                  "name": "Debiteurnummer",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "Debiteurnummer",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                }
+              },
+              {
+                "source": {
+                  "name": "BusinessUnit",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "BusinessUnit",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                }
+              },
+              {
+                "source": {
+                  "name": "resourceGroupName",
+                  "type": "String",
+                  "physicalType": "string"
+                },
+                "sink": {
+                  "name": "resourceGroupName",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                }
+              }
+            ]
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Copy_i7d",
+        "dependsOn": []
+      }
+    ]
+  }
+}

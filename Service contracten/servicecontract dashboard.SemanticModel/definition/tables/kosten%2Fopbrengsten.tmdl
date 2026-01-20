@@ -1,0 +1,179 @@
+table kosten/opbrengsten
+	lineageTag: 51f9fc89-4940-4b4a-9874-2e4318bbf84d
+
+	measure TotaleKosten = ```
+			
+			CALCULATE(
+			    [azure kosten],
+			    TREATAS(VALUES(dim_datum[Datum]), bram_view_exported[date])  -- <== als datumrelatie er niet is
+			) +
+			CALCULATE(
+			    SUM(niet_factureerbare_uren[Sum of Cost Amount]),
+			    TREATAS(VALUES(dim_datum[Datum]), niet_factureerbare_uren[Krow__Date__c])
+			) +
+			CALCULATE(
+			    SUM('s4_inf billable_uren'[Kosten]),
+			    TREATAS(VALUES(dim_datum[Datum]), 's4_inf billable_uren'[Datum])
+			)
+			
+			```
+		lineageTag: 588f6a1f-8d70-4f8c-8e3f-708a6b2996f4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure TotaleOpbrengst = ```
+			
+			CALCULATE(
+			    SUM('contract_opbrengsten'[Total Price]),
+			    TREATAS(VALUES(dim_datum[Datum]), 'contract_opbrengsten'[Termijn Maand Datum])
+			) +
+			CALCULATE(
+			    SUM('s4_inf billable_uren'[Opbrengsten]),
+			    TREATAS(VALUES(dim_datum[Datum]), 's4_inf billable_uren'[Datum])
+			)
+			
+			```
+		lineageTag: 6e6c84f8-e355-4b6b-b3e8-6c2fe1fcd11d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'marge over totaal' = ```
+			
+			VAR Opbrengst = [TotaleOpbrengst]
+			VAR Kosten = [TotaleKosten]
+			
+			RETURN
+			IF(
+			    NOT ISBLANK(Opbrengst) && NOT ISBLANK(Kosten),
+			    DIVIDE(Opbrengst - Kosten, Opbrengst, 0),
+			    BLANK()
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 42444c14-e3f9-4da7-9b7f-708be2cfdfbf
+
+	measure 'Titel geselecteerd contract' = ```
+			
+			"Contract voor: " & SELECTEDVALUE('KlantDim'[Contact Name], "Geen selectie")
+			
+			```
+		lineageTag: 744284d4-9ddd-426e-b6bf-4599e1331349
+
+	measure winst = [TotaleOpbrengst]-[TotaleKosten]
+		lineageTag: 292852f6-ed4b-43e4-957f-41e7fc5e4dfd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Tooltip Opbrengst Alleen Factureerbaar' = ```
+			
+			IF(
+			    FORMAT(SELECTEDVALUE(factureerbare_uren[Opbrengsten]), "") = "Factureerbare uren",
+			    SUM('factureerbare_uren'[Opbrengsten])
+			)
+			
+			```
+		lineageTag: 757341ef-fcc9-48e4-aa60-7d826f2f0355
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'TotaleKosten t/m vandaag' = ```
+			
+			CALCULATE(
+			    [TotaleKosten],
+			    FILTER(
+			        ALL('dim_datum'),
+			        'dim_datum'[Datum] <= TODAY()
+			    )
+			)
+			
+			```
+		lineageTag: b30b170c-c2f7-43cd-a134-396d4854a43a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'TotaleOpbrengst t/m vandaag' = ```
+			
+			CALCULATE(
+			    [TotaleOpbrengst],
+			    FILTER(
+			        ALL('dim_datum'),
+			        'dim_datum'[Datum] <= TODAY()
+			    )
+			)
+			
+			```
+		lineageTag: d407342b-b631-4122-8863-4658100e04b0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure AzureKostenPerDebiteurnummer = ```
+			
+			CALCULATE(
+			    [azure kosten],
+			    ALLEXCEPT('KlantDim', 'KlantDim'[Debiteurnummer])
+			)
+			
+			```
+		lineageTag: 59bdd4b5-2536-44ee-b4a8-25bd3867de36
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure WinstPerContract = ```
+			
+			VAR SelectedContract = SELECTEDVALUE('contract_opbrengsten'[Contact Name])
+			
+			VAR Opbrengst = 
+			CALCULATE(
+			    SUM('contract_opbrengsten'[Total Price]),
+			    'contract_opbrengsten'[Contact Name] = SelectedContract
+			)
+			
+			VAR AzureKosten =
+			CALCULATE(
+			    [azure kosten],
+			    TREATAS(VALUES(dim_datum[Datum]), bram_view_exported[date]),
+			    'contract_opbrengsten'[Contact Name] = SelectedContract
+			)
+			
+			VAR UrenKostenNietFactureerbaar =
+			CALCULATE(
+			    SUM(niet_factureerbare_uren[Sum of Cost Amount]),
+			    TREATAS(VALUES(dim_datum[Datum]), niet_factureerbare_uren[Krow__Date__c]),
+			    'contract_opbrengsten'[Contact Name] = SelectedContract
+			)
+			
+			VAR UrenKostenFactureerbaar =
+			CALCULATE(
+			    SUM('s4_inf billable_uren'[Kosten]),
+			    TREATAS(VALUES(dim_datum[Datum]), 's4_inf billable_uren'[Datum]),
+			    'contract_opbrengsten'[Contact Name] = SelectedContract
+			)
+			
+			VAR TotaleKosten = AzureKosten + UrenKostenNietFactureerbaar + UrenKostenFactureerbaar
+			
+			RETURN
+			Opbrengst - TotaleKosten
+			
+			```
+		lineageTag: af009061-0423-46a6-ad4d-d2b4637ee268
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column
+		formatString: 0
+		lineageTag: 35544124-5d63-4a2b-9363-471921c51703
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition kosten/opbrengsten = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 1a64c1821ece4d94b0474dff3ee5893c
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

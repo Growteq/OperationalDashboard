@@ -1,0 +1,75 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "d1688a67a721650bf0ae",
+  "position": {
+    "x": 33.75,
+    "y": 398.75,
+    "z": 2000,
+    "height": 262.5,
+    "width": 572.5,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimMedewerkers"
+                    }
+                  },
+                  "Property": "Medewerker"
+                }
+              },
+              "queryRef": "DimMedewerkers.Medewerker",
+              "nativeQueryRef": "Medewerker",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "1. Meetwaarden"
+                    }
+                  },
+                  "Property": "Aantal geschreven Uren"
+                }
+              },
+              "queryRef": "1. Meetwaarden.Aantal geschreven Uren",
+              "nativeQueryRef": "Aantal geschreven Uren"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "1. Meetwaarden"
+                  }
+                },
+                "Property": "Aantal geschreven Uren"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

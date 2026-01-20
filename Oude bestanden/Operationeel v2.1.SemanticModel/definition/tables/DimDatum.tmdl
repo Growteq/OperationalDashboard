@@ -1,0 +1,567 @@
+table DimDatum
+	lineageTag: 53538c4c-acf5-4b9e-af0c-9066dd0f8641
+
+	column Date
+		formatString: General Date
+		lineageTag: 7139fc07-6d92-401f-b8ba-7a2b7794d278
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="DateTimeGeneralPattern"><DateTimes><DateTime LCID="1043" Group="GeneralDateTimeLong" FormatString="G" /></DateTimes></Format>
+
+	column Datum
+		dataType: dateTime
+		formatString: d-m-yyyy
+		lineageTag: 00a0ab59-849c-4820-a29b-d2a2a68a7908
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Datum]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="DateTimeCustom"><DateTimes><DateTime LCID="1043" Group="ShortDate" FormatString="d-M-yyyy" /></DateTimes></Format>
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_ChangedProperties = ["DataType"]
+
+	column DatumGetal
+		lineageTag: 461dec7a-4fe2-4f9e-bc91-51cde816db31
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DatumGetal]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Jaar
+		formatString: 0
+		lineageTag: 1f900857-1204-44fb-994e-48df3af94fd4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Jaar]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column MaandNr
+		formatString: 0
+		lineageTag: e29b24c6-dc31-43c1-ba1c-12efcfd3557c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MaandNr]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column MaandNaamKort
+		lineageTag: 56f91839-82d2-41d5-ba0e-30b909bd4bfc
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MaandNaamKort]
+		sortByColumn: MaandNr
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column MaandNaamLang
+		isHidden
+		lineageTag: 68bccc1a-294d-482a-b121-1ed5ab145287
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MaandNaamLang]
+		sortByColumn: MaandNr
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column WeekNr
+		formatString: 0
+		lineageTag: 583a01bf-5f18-4ccb-b029-6645cd2f0d1e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [WeekNr]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column RelatiefWeekNr
+		formatString: 0
+		lineageTag: 87dff641-029f-45a5-9b85-ea8cb5112a64
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [RelatiefWeekNr]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column RelatiefDagNr
+		formatString: 0
+		lineageTag: 5b79f6c5-5143-417a-99b7-fb4750dd9763
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [RelatiefDagNr]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column JaarWeekNr
+		formatString: 0
+		lineageTag: 5d0757b3-de4a-47be-b9f8-fd553ec0e75c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [JaarWeekNr]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column JaarWeekNaamKort
+		lineageTag: 084461f3-a575-4e78-a22a-5fe4c38e791a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [JaarWeekNaamKort]
+		sortByColumn: JaarWeekNr
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column JaarWeekNaam
+		lineageTag: f07f55e3-046e-4502-a0bf-7b0267adeefe
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [JaarWeekNaam]
+		sortByColumn: JaarWeekNr
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column WeekNaamKort
+		lineageTag: 6297a5b3-4acf-48dc-8d5e-4ce98b49bd7c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [WeekNaamKort]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column WeekNaamLang
+		lineageTag: f38ee5e3-0f09-4edf-9518-0fb7ebb153fd
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [WeekNaamLang]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column WeekdagNr
+		formatString: 0
+		lineageTag: 12164a8c-34a2-4055-bcb2-603c63f5775c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [WeekdagNr]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column WeekdagNrRelatief
+		formatString: 0
+		lineageTag: 9631581c-e0ea-49a5-ac13-68d714f5927c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [WeekdagNrRelatief]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column WeekdagNaamKortRelatief
+		lineageTag: 64959074-32a6-41ab-a7d3-abb15b25e182
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [WeekdagNaamKortRelatief]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column WeekdagNaamKort
+		lineageTag: 62783a54-aca9-4a9b-ba6c-a919813472b7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [WeekdagNaamKort]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column WeekdagNaamLang
+		lineageTag: b67f14fd-0bb7-4a73-82c1-4d3549112d96
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [WeekdagNaamLang]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column IsYTDweek
+		formatString: 0
+		lineageTag: bae467b8-b189-4b43-9397-20d61bbcd06e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsYTDweek]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column IsYTD
+		formatString: 0
+		lineageTag: 31dd45a6-9128-4677-a775-7f892acc04d8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsYTD]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column IsFYTD
+		formatString: 0
+		lineageTag: 30cf91de-d83b-43e1-b008-0731f2450946
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsFYTD]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column IsToekomst
+		formatString: 0
+		lineageTag: b333ebc8-7399-4384-bff4-cb62b985cbf8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsToekomst]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column BoekjaarNr
+		formatString: 0
+		lineageTag: 738abea0-6a53-4eb3-8066-169062231b02
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [BoekjaarNr]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column BoekjaarNaam
+		lineageTag: 882b44a6-fe16-4f86-b27b-796838c6539b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [BoekjaarNaam]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column BoekmaandNr
+		formatString: 0
+		lineageTag: 2e868e7a-6f0c-41ff-93d4-274c4e770e64
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [BoekmaandNr]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column BoekmaandNaamKort
+		lineageTag: cdea148e-73b4-4401-857d-027cb426d811
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [BoekmaandNaamKort]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column BoekmaandNaamLang
+		lineageTag: 3827bb1a-af44-45b4-be47-403b17d9af4d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [BoekmaandNaamLang]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column IsVandaag
+		formatString: 0
+		lineageTag: 27cfda1b-f436-4cf5-a7e3-72839b24e59f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsVandaag]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column Iteratie
+		lineageTag: 3ca6acd6-7369-4f2f-a5ee-cfff905a2832
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Iteratie]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column 'Jaar Iteratie'
+		lineageTag: 49859906-14b0-4978-9473-0a41500b6101
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Jaar Iteratie]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column IteratieStartWeek
+		formatString: 0
+		lineageTag: ea61e914-f1bc-48d6-95e2-d1703b954feb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IteratieStartWeek]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column IteratieEindWeek
+		formatString: 0
+		lineageTag: b16ec255-f774-46ff-b91c-0be7776e97c9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IteratieEindWeek]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column IsHuidigeIteratie
+		formatString: 0
+		lineageTag: af036c72-2e9b-4e6e-ab8b-515d2129d3a7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsHuidigeIteratie]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column VolgendeIteratie
+		lineageTag: 317b5d7b-6b4a-465a-952d-b05585542ab9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [VolgendeIteratie]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column VorigeIteratie
+		lineageTag: a5a5ca51-327d-4424-b5ee-03ee6de02e57
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [VorigeIteratie]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column IsHuidigeMaand
+		formatString: 0
+		lineageTag: 023e10d3-c7c6-422f-a18b-de6746022f22
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsHuidigeMaand]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column HuidigWeekNr
+		formatString: 0
+		lineageTag: aa630daa-038f-4d96-8880-1076cf1c6730
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [HuidigWeekNr]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column VorigeWeekLang
+		lineageTag: 58106f9c-540d-4692-aed4-3db4797ae1f2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [VorigeWeekLang]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column IsVorigeWeek
+		formatString: 0
+		lineageTag: 22bc35e8-8e73-47c6-a4c0-5ab530ef87ef
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsVorigeWeek]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column IsHuidigeWeek
+		formatString: 0
+		lineageTag: e9748967-41ad-49b4-b8c8-b3020bcb1d1b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsHuidigeWeek]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column IsHuidigJaar
+		formatString: 0
+		lineageTag: f8a843b2-971b-498f-9ed7-c98b505673af
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsHuidigJaar]
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	hierarchy 'MaandNaamKort Hiërarchie'
+		lineageTag: 8392ab50-5098-4bcd-a067-3f9d90e66469
+
+		level MaandNaamKort
+			lineageTag: 91918dc6-6433-4d65-9fc8-8276afb03c79
+			column: MaandNaamKort
+
+		level MaandNaamLang
+			lineageTag: 818ab349-4ed0-43ee-85c2-c53b7c03e014
+			column: MaandNaamLang
+
+	partition DimDatum-bc886d68-194f-448b-83f2-a4557625f9a8 = calculated
+		mode: import
+		source = ```
+				
+				VAR DateTable =
+				    ADDCOLUMNS(
+				        CALENDAR(
+				                DATE( 2019 ,  1 ,  1 )
+				            , DATE( 2025 , 4 , 30 )
+				        )
+				
+				    , "Datum"           , FORMAT( [Date] ,  "DD MMM YYYY" )
+				    , "DatumGetal"      , FORMAT ( [Date],  "YYYYMMDD" )
+				    , "Jaar"            , YEAR  ( [Date] )
+				    , "MaandNr"         , MONTH ( [Date] )
+				    , "MaandNaamKort"   , FORMAT ( [Date], "mmm" )
+				    , "MaandNaamLang"   , FORMAT ( [Date], "mmmm" )
+				    , "WeekNr"          , WEEKNUM ( [Date],21 )
+				    , "RelatiefWeekNr"  , DATEDIFF( ( [Date] ) , TODAY() , WEEK)
+				    , "RelatiefDagNr"   , DATEDIFF( ( [Date] ) , TODAY() , DAY)
+				    , "JaarWeekNr"      , YEAR  ( [Date] ) *100 + WEEKNUM ( [Date] ,21)
+				    , "JaarWeekNaamKort", "w" & WEEKNUM ( [Date],21 ) &"-"& FORMAT( [Date] ,  "YY" )
+				    , "JaarWeekNaam"    , YEAR  ( [Date] ) & "-w" &WEEKNUM ( [Date],21 )            
+				    , "WeekNaamKort"    , "w" & WEEKNUM( [Date],21 )
+				    , "WeekNaamLang"    , "week " & WEEKNUM( [Date],21 ) 
+				    , "WeekdagNr"       , WEEKDAY ( [Date] )
+				    , "WeekdagNrRelatief"    , IF(WEEKDAY ( [Date] ) <= WEEKDAY(TODAY()) 
+				                                , WEEKDAY([Date]) + WEEKDAY(TODAY())+1
+				                                , WEEKDAY([Date]) - WEEKDAY(TODAY()) )
+				    , "WeekdagNaamKortRelatief" , FORMAT ( [Date] ,  "ddd" )
+				    , "WeekdagNaamKort" , FORMAT ( [Date] ,  "ddd" )
+				    , "HuidigWeekNr"    , WEEKNUM(TODAY(),21)
+				    , "VorigeWeekLang"      , YEAR  ( Today()-7 ) & "-w" &WEEKNUM ( Today()-7,21 ) 
+				    , "WeekdagNaamLang" , FORMAT ( [Date] ,  "dddd" )
+				    , "IsYTDweek"       , IF( WEEKNUM ( [Date],21 ) < WEEKNUM ( TODAY(),21) , 1 , 0)
+				    , "IsYTD"           , IF(OR(MONTH( [Date]) < Month(TODAY()), AND(MONTH([Date])=MONTH(TODAY()) , DAY([Date]) < DAY(TODAY()))), 1 , 0)
+				    , "IsFYTD"          , IF(
+				                            OR(
+				                                if(month([Date]) >= 5 , MONTH([Date]) -4 , MONTH([Date])+ 8) 
+				                                < 
+				                                if(month(TODAY()) >= 5 , MONTH(TODAY()) -4 , MONTH(TODAY())+ 8)
+				                                
+				                            , AND(MONTH([Date])=MONTH(TODAY()) , DAY([Date]) < DAY(TODAY()))), 1 , 0)
+				    , "IsToekomst"      , If([Date] > TODAY() , 1 , 0)
+				    , "IsHuidigJaar"    ,  IF(YEAR([Date])=Year(TODAY()),1,0)
+				    , "IsHuidigeWeek"   , IF(Weeknum([date],21)=WEEKNUM(Today(),21),1,0)
+				    , "IsVorigeWeek"    , IF(Weeknum([date],21)=WEEKNUM(Today(),21)-1,1,0)
+				    , "BoekjaarNr"      , if(month([Date]) >= 5 , YEAR([Date]) + 1 , YEAR([Date]))
+				    , "BoekjaarNaam"    , if(month([Date]) >= 5 , YEAR([Date]) & "-"& (YEAR([Date]) + 1) , (YEAR([Date]) -1 & "-"&YEAR([Date])))
+				    , "BoekmaandNr"     , if(month([Date]) >= 5 , MONTH([Date]) -4 , MONTH([Date])+ 8)
+				    , "BoekmaandNaamKort"   , FORMAT ( [Date], "mmm" )
+				    , "BoekmaandNaamLang"   , FORMAT ( [Date], "mmmm" )
+				    , "IsVandaag"        , if([Date] = TODAY() , 1 , 0)
+				    ,  "Iteratie", IF(
+				            ISEVEN( WEEKNUM([Date],21))
+				            , WEEKNUM([Date],21)-1 & "-" & WEEKNUM([Date],21)
+				            ,WEEKNUM([Date],21) & "-"  & WEEKNUM([Date],21)+1 
+				            )
+				    , "Jaar Iteratie", IF(
+				            ISEVEN( WEEKNUM([Date],21))
+				            ,YEAR  ( [Date] ) & "/" & WEEKNUM([Date],21)-1 & "-" & WEEKNUM([Date],21)
+				            ,YEAR  ( [Date] ) & "/" & WEEKNUM([Date],21) & "-"  & WEEKNUM([Date],21)+1 
+				            ) 
+				    , "IteratieStartWeek"   , IF(
+				            ISEVEN( WEEKNUM([Date],21))
+				            , WEEKNUM([Date],21)-1 
+				            ,WEEKNUM([Date],21) 
+				            )
+				    ,"IteratieEindWeek"   , IF(
+				            ISEVEN( WEEKNUM([Date],21))
+				            , WEEKNUM([Date],21)
+				            ,WEEKNUM([Date],21)+1 
+				            )
+				    )
+				
+				VAR DateTable2 = ADDCOLUMNS(
+				    DateTable
+				    ,    "IsHuidigeIteratie", IF(Weeknum(Today(),21) in {[IteratieStartWeek],[IteratieEindWeek]},1,0)
+				    ,   "VolgendeIteratie", [IteratieStartWeek]+2 & "-" & [IteratieEindWeek] + 2
+				    ,   "VorigeIteratie", [IteratieStartWeek]-2 & "-" & [IteratieEindWeek] - 2
+				    ,   "IsHuidigeMaand" , if(MONTH(today()) = [MaandNr],1,0)
+				)
+				
+				RETURN DateTable2
+				```
+
+	annotation PBI_Id = 4cf684c997ad413a84e5486237ab155b
+

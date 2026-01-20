@@ -1,0 +1,1299 @@
+{
+  "config": "{\"version\":\"5.25\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY20SU09\",\"version\":\"5.16\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"filterSortOrder\":3,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"exportDataMode\":1,\"filterPaneHiddenInEditMode\":false},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}",
+  "filters": "[]",
+  "layoutOptimization": 1,
+  "pods": [
+    {
+      "boundSection": "ReportSectionef6f7d555322c06ffba7",
+      "config": "{}",
+      "name": "Pod",
+      "parameters": "[{\"name\":\"Param_Filter7ee4755c35c44c9b029f\",\"boundFilter\":\"Filter7ee4755c35c44c9b029f\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Project\"}},\"Property\":\"Projectnaam\"}}},{\"name\":\"Param_Filter6c2a1fb3172a0e83e2a7\",\"boundFilter\":\"Filter6c2a1fb3172a0e83e2a7\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Medewerkers\"}},\"Property\":\"Name\"}}},{\"name\":\"Param_Filter088e886f1f0f99840c78\",\"boundFilter\":\"Filter088e886f1f0f99840c78\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"JaarWeekNaamKort\"}}},{\"name\":\"Param_Filtera26b4153f1b79b8a77d0\",\"boundFilter\":\"Filtera26b4153f1b79b8a77d0\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Task\"}},\"Property\":\"Taaknaam\"}}}]",
+      "type": 1
+    },
+    {
+      "boundSection": "ReportSection665efeb37d59e08b5523",
+      "config": "{}",
+      "name": "Pod1",
+      "parameters": "[{\"name\":\"Param_Filterb602714b49204029f25c\",\"boundFilter\":\"Filterb602714b49204029f25c\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Invoice\"}},\"Property\":\"Factuurnummer\"}}}]",
+      "type": 1
+    },
+    {
+      "boundSection": "ReportSection2e8325738462dc845869",
+      "config": "{}",
+      "name": "Pod10",
+      "parameters": "[{\"name\":\"Param_Filter47cc6fb6baacec48b1ea\",\"boundFilter\":\"Filter47cc6fb6baacec48b1ea\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"MaandNaamLang\"}},\"isLegacySingleSelection\":true}]",
+      "type": 1
+    },
+    {
+      "boundSection": "ReportSection0cefe17e8f52229289a0",
+      "config": "{}",
+      "name": "Pod2",
+      "parameters": "[{\"name\":\"Param_Filter306719b2113e5222cb99\",\"boundFilter\":\"Filter306719b2113e5222cb99\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Project\"}},\"Property\":\"Projectnaam\"}},\"isLegacySingleSelection\":true}]",
+      "type": 1
+    },
+    {
+      "boundSection": "ReportSectionbb48525126d566739558",
+      "config": "{}",
+      "name": "Pod3",
+      "parameters": "[{\"name\":\"Param_Filter7ee4755c35c44c9b029f\",\"boundFilter\":\"Filter7ee4755c35c44c9b029f\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Project\"}},\"Property\":\"Projectnaam\"}}},{\"name\":\"Param_Filter6c2a1fb3172a0e83e2a7\",\"boundFilter\":\"Filter6c2a1fb3172a0e83e2a7\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Medewerkers\"}},\"Property\":\"Name\"}}},{\"name\":\"Param_Filter088e886f1f0f99840c78\",\"boundFilter\":\"Filter088e886f1f0f99840c78\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"JaarWeekNaamKort\"}}},{\"name\":\"Param_Filtera26b4153f1b79b8a77d0\",\"boundFilter\":\"Filtera26b4153f1b79b8a77d0\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Task\"}},\"Property\":\"Taaknaam\"}}},{\"name\":\"Param_Filter5a5b8b09a0cbe9740b77\",\"boundFilter\":\"Filter5a5b8b09a0cbe9740b77\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"JaarWeekNaam\"}},\"isLegacySingleSelection\":true},{\"name\":\"Param_Filter1d936a0ec5355bbf9515\",\"boundFilter\":\"Filter1d936a0ec5355bbf9515\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"JaarWeekNaam\"}},\"isLegacySingleSelection\":true}]",
+      "type": 1
+    },
+    {
+      "boundSection": "ReportSection9b80b53da80ace641110",
+      "config": "{}",
+      "name": "Pod4",
+      "parameters": "[{\"name\":\"Param_Filterffa433868513408c6b6b\",\"boundFilter\":\"Filterffa433868513408c6b6b\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Team\"}},\"Property\":\"Teamnaam\"}},\"isLegacySingleSelection\":true}]",
+      "type": 1
+    },
+    {
+      "boundSection": "ReportSection939ecf28cb463763d986",
+      "config": "{}",
+      "name": "Pod5",
+      "parameters": "[{\"name\":\"Param_Filter113f63d7b7c3bef3084b\",\"boundFilter\":\"Filter113f63d7b7c3bef3084b\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Medewerkers\"}},\"Property\":\"Name\"}}},{\"name\":\"Param_Filter4b16be86504aa6f28278\",\"boundFilter\":\"Filter4b16be86504aa6f28278\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"JaarWeekNaam\"}}},{\"name\":\"Param_Filtere1388a319cd7ae0beb54\",\"boundFilter\":\"Filtere1388a319cd7ae0beb54\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Project\"}},\"Property\":\"Projectnaam\"}}}]",
+      "type": 1
+    },
+    {
+      "boundSection": "ReportSection7f3533bb529b3e98c2a0",
+      "config": "{}",
+      "name": "Pod6",
+      "parameters": "[{\"name\":\"Param_Filter113f63d7b7c3bef3084b\",\"boundFilter\":\"Filter113f63d7b7c3bef3084b\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Medewerkers\"}},\"Property\":\"Name\"}}},{\"name\":\"Param_Filter4b16be86504aa6f28278\",\"boundFilter\":\"Filter4b16be86504aa6f28278\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"JaarWeekNaam\"}}},{\"name\":\"Param_Filtere1388a319cd7ae0beb54\",\"boundFilter\":\"Filtere1388a319cd7ae0beb54\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Project\"}},\"Property\":\"Projectnaam\"}}},{\"name\":\"Param_Filterffa433868513408c6b6b\",\"boundFilter\":\"Filterffa433868513408c6b6b\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Team\"}},\"Property\":\"Teamnaam\"}},\"isLegacySingleSelection\":true}]",
+      "type": 1
+    },
+    {
+      "boundSection": "ReportSection1c1337611fd7c3bc858b",
+      "config": "{}",
+      "name": "Pod8",
+      "parameters": "[{\"name\":\"Param_Filter0a8d92ee28bf9f0db567\",\"boundFilter\":\"Filter0a8d92ee28bf9f0db567\",\"fieldExpr\":{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Hierarchy\":\"MaandNaamKort Hiërarchie\"}},\"Level\":\"MaandNaamLang\"}},\"isLegacySingleSelection\":true},{\"name\":\"Param_Filtercb56d0d35fcbc994a28b\",\"boundFilter\":\"Filtercb56d0d35fcbc994a28b\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Team\"}},\"Property\":\"Teamnaam\"}},\"isLegacySingleSelection\":true}]",
+      "type": 1
+    }
+  ],
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY20SU09",
+            "path": "BaseThemes/CY20SU09.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    },
+    {
+      "resourcePackage": {
+        "items": [
+          {
+            "name": "dg5AAA90EFEFE747CB9357C4FC19B85A58.pbiviz.json",
+            "path": "dg5AAA90EFEFE747CB9357C4FC19B85A58.pbiviz.json",
+            "type": 5
+          }
+        ],
+        "name": "dg5AAA90EFEFE747CB9357C4FC19B85A58",
+        "type": 0
+      }
+    },
+    {
+      "resourcePackage": {
+        "items": [
+          {
+            "name": "Growteq_logo028109709143694817.png",
+            "path": "Growteq_logo028109709143694817.png",
+            "type": 100
+          },
+          {
+            "name": "Handtekening7076482040766283.png",
+            "path": "Handtekening7076482040766283.png",
+            "type": 100
+          },
+          {
+            "name": "Huis08082008464771318.png",
+            "path": "Huis08082008464771318.png",
+            "type": 100
+          }
+        ],
+        "name": "RegisteredResources",
+        "type": 1
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{\"objects\":{\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"364L\"}}}}}]},\"filterSortOrder\":3}",
+      "displayName": "Projecten",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter13535216ca8b44bdc7d4\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"Jaar\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":0},{\"name\":\"Filter350c3bb667b4dc78f8c5\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"MaandNaamLang\"}},\"type\":\"Categorical\",\"howCreated\":1,\"ordinal\":1},{\"name\":\"Filter306719b2113e5222cb99\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Project\"}},\"Property\":\"Projectnaam\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"Klient Project\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Projectnaam\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Wittebrug - Support'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"requireSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"ordinal\":2},{\"name\":\"Filterbaac35e54a6cf83f0601\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Task\"}},\"Property\":\"Taaknaam\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"ordinal\":3},{\"name\":\"Filter80161f5ea9e02dc430e1\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Team\"}},\"Property\":\"Teamnaam\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":4}]",
+      "height": 720.00,
+      "name": "ReportSection0cefe17e8f52229289a0",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"0271a6f70b191c29956e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1024,\"y\":80,\"z\":10000,\"width\":240,\"height\":112,\"tabOrder\":12000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Meetwaarden Projecten.Nog te factureren\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m1\",\"Entity\":\"Meetwaarden Projecten\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Nog te factureren\"},\"Name\":\"Meetwaarden Projecten.Nog te factureren\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Nog te factureren\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Te factureren'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 112.00,
+          "width": 240.00,
+          "x": 1024.00,
+          "y": 80.00,
+          "z": 10000.00
+        },
+        {
+          "config": "{\"name\":\"10d45bfd267d79f6b576\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10,\"y\":223.33333333333331,\"z\":11000,\"width\":480,\"height\":208.88888888888889,\"tabOrder\":13000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Klient Task.Taaknaam\"},{\"queryRef\":\"Meetwaarden Taken.Geschatte uren\"},{\"queryRef\":\"Meetwaarden Taken.Geboekte uren per taak\"},{\"queryRef\":\"Meetwaarden Taken.Urenschatting vs realisatie\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"Klient Task\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"Meetwaarden Taken\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Taaknaam\"},\"Name\":\"Klient Task.Taaknaam\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Geschatte uren\"},\"Name\":\"Meetwaarden Taken.Geschatte uren\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Urenschatting vs realisatie\"},\"Name\":\"Meetwaarden Taken.Urenschatting vs realisatie\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Geboekte uren per taak\"},\"Name\":\"Meetwaarden Taken.Geboekte uren per taak\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Taaknaam\"}}}]},\"columnProperties\":{\"Meetwaarden Taken.Geschatte uren\":{\"displayName\":\"Urenschatting\"},\"Meetwaarden Taken.Geboekte uren per taak\":{\"displayName\":\"Geboekte uren\"},\"Meetwaarden Taken.Urenschatting vs realisatie\":{\"displayName\":\"Ruimte\"}},\"drillFilterOtherVisuals\":true,\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Per taak'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 208.88,
+          "width": 480.00,
+          "x": 10.00,
+          "y": 223.33,
+          "z": 11000.00
+        },
+        {
+          "config": "{\"name\":\"19e2308256f4a0881ebf\",\"layouts\":[{\"id\":0,\"position\":{\"x\":496,\"y\":464,\"z\":15000,\"width\":767.9999999999999,\"height\":208,\"tabOrder\":17000}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Medewerkers.Name\",\"active\":true}],\"Y\":[{\"queryRef\":\"Meetwaarden Timesheets.Geboekte uren\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Medewerkers\",\"Type\":0},{\"Name\":\"m1\",\"Entity\":\"Meetwaarden Timesheets\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Name\"},\"Name\":\"Medewerkers.Name\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Geboekte uren\"},\"Name\":\"Meetwaarden Timesheets.Geboekte uren\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Geboekte uren\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelPrecision\":{\"expr\":{\"Literal\":{\"Value\":\"1L\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Geboekte uren per medewerker'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 208.00,
+          "width": 767.99,
+          "x": 496.00,
+          "y": 464.00,
+          "z": 15000.00
+        },
+        {
+          "config": "{\"name\":\"1d20853e2d3a401610e7\",\"layouts\":[{\"id\":0,\"position\":{\"x\":35.66169154228856,\"y\":0,\"z\":2000,\"width\":208.87562189054725,\"height\":59.86069651741293,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Projecten\",\"textStyle\":{\"fontSize\":\"28pt\",\"color\":\"#2d3e4f\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 59.86,
+          "width": 208.87,
+          "x": 35.66,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"32f153a07284aa1e41a6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":230.5,\"y\":80,\"z\":8000,\"width\":250,\"height\":112,\"tabOrder\":10000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Meetwaarden Taken.Geboekte uren declarabel\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Meetwaarden Taken\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Geboekte uren declarabel\"},\"Name\":\"Meetwaarden Taken.Geboekte uren declarabel\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Geboekte uren declarabel\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Geboekt (decl)'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 112.00,
+          "width": 250.00,
+          "x": 230.50,
+          "y": 80.00,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"3fd7ec9c5749e2e60c28\",\"layouts\":[{\"id\":0,\"position\":{\"x\":495,\"y\":80,\"z\":9000,\"width\":250,\"height\":112,\"tabOrder\":11000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Meetwaarden Taken.Urenschatting vs realisatie\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Meetwaarden Taken\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Urenschatting vs realisatie\"},\"Name\":\"Meetwaarden Taken.Urenschatting vs realisatie\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Urenschatting vs realisatie\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Ruimte'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 112.00,
+          "width": 250.00,
+          "x": 495.00,
+          "y": 80.00,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"82934608fd4c3ad03cf9\",\"layouts\":[{\"id\":0,\"position\":{\"x\":208,\"y\":0,\"z\":6000,\"width\":824,\"height\":56,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Min(Klient Project.Name)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"Klient Project\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Projectnaam\"}},\"Function\":3},\"Name\":\"Min(Klient Project.Name)\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"30D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 56.00,
+          "width": 824.00,
+          "x": 208.00,
+          "y": 0.00,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"a01c75c23fd92ee992a6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":688,\"z\":5000,\"width\":1280,\"height\":32,\"tabOrder\":7000}}],\"singleVisualGroup\":{\"displayName\":\"Groep 1\",\"groupMode\":0,\"objects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "height": 32.00,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 688.00,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"a0b6184a61aca38e5a23\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1029.0350338045482,\"y\":0,\"z\":1000,\"width\":245.45789797172714,\"height\":59.79102642901045,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Growteq_logo028109709143694817.png\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 59.79,
+          "width": 245.45,
+          "x": 1029.03,
+          "y": 0.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"a73b637e54e27b4aaff0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":48.14159292035398,\"z\":0,\"width\":1280,\"height\":24.07079646017699,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"rotation\":[{\"properties\":{\"angle\":{\"expr\":{\"Literal\":{\"Value\":\"90D\"}}}}}],\"line\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 24.07,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 48.14,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"ad8c91cd8e4a4b271a8c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":5.507068223724647,\"y\":2.7219109004510686,\"z\":2000,\"width\":239.95082974800246,\"height\":29.108789182544562,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"GROWTEQ 2021 - All rights reserved\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontFamily\":\"Segoe UI Light\",\"color\":\"#ffffff\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"parentGroupName\":\"a01c75c23fd92ee992a6\"}",
+          "filters": "[]",
+          "height": 29.10,
+          "width": 239.95,
+          "x": 5.50,
+          "y": 2.72,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"b91e216f48c4c7ec49e8\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":3000,\"width\":37,\"height\":36.861051115910726,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Huis08082008464771318.png\"}}}}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'PageNavigation'\"}}},\"navigationSection\":{\"expr\":{\"Literal\":{\"Value\":\"'ReportSection'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 36.86,
+          "width": 37.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"cc563093dd2e009dc00e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":1280,\"height\":32,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}],\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2F394F'\"}}}}}}}],\"line\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}}}}]}},\"parentGroupName\":\"a01c75c23fd92ee992a6\"}",
+          "filters": "[]",
+          "height": 32.00,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"d0768ec8508c66bcf0a1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":3.8208955223880596,\"y\":30.567164179104477,\"z\":4000,\"width\":30.567164179104477,\"height\":30.567164179104477,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'back'\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}},\"lineWeight\":{\"expr\":{\"Literal\":{\"Value\":\"2L\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Back'\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 30.56,
+          "width": 30.56,
+          "x": 3.82,
+          "y": 30.56,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"dcf01446de67af325e87\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1015.6607252612171,\"y\":2.1044867854947986,\"z\":1000,\"width\":128.2360172095882,\"height\":29.895513214505225,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"\"}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"parentGroupName\":\"a01c75c23fd92ee992a6\"}",
+          "filters": "[]",
+          "height": 29.89,
+          "width": 128.23,
+          "x": 1015.66,
+          "y": 2.10,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"ec653b367147424cf0e3\",\"layouts\":[{\"id\":0,\"position\":{\"x\":496,\"y\":224,\"z\":13000,\"width\":767.9999999999999,\"height\":208,\"tabOrder\":15000}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Meetwaarden Timesheets.Geboekte uren\"}],\"Category\":[{\"queryRef\":\"DimDatum.JaarWeekNaamKort\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Meetwaarden Timesheets\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Geboekte uren\"},\"Name\":\"Meetwaarden Timesheets.Geboekte uren\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"JaarWeekNaamKort\"},\"Name\":\"DimDatum.JaarWeekNaamKort\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"categoryAxis\":[{\"properties\":{\"concatenateLabels\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Geboekte uren per week'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 208.00,
+          "width": 767.99,
+          "x": 496.00,
+          "y": 224.00,
+          "z": 13000.00
+        },
+        {
+          "config": "{\"name\":\"fa4c4e53d49a36a34156\",\"layouts\":[{\"id\":0,\"position\":{\"x\":18.88888888888889,\"y\":464.44444444444446,\"z\":14000,\"width\":461.1111111111111,\"height\":207.77777777777777,\"tabOrder\":16000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"DimDatum.Datum\"},{\"queryRef\":\"Invoice.Factuurnummer\"},{\"queryRef\":\"Meetwaarden Projecten.Factuurbedrag Invoices\"},{\"queryRef\":\"Klient Project.Projectnaam\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"i\",\"Entity\":\"Invoice\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"Meetwaarden Projecten\",\"Type\":0},{\"Name\":\"k\",\"Entity\":\"Klient Project\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"Factuurnummer\"},\"Name\":\"Invoice.Factuurnummer\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Datum\"},\"Name\":\"DimDatum.Datum\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Factuurbedrag Invoices\"},\"Name\":\"Meetwaarden Projecten.Factuurbedrag Invoices\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Projectnaam\"},\"Name\":\"Klient Project.Projectnaam\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"Factuurnummer\"}}}]},\"columnProperties\":{\"Meetwaarden Projecten.Factuurbedrag Invoices\":{\"displayName\":\"Factuurbedrag\"}},\"drillFilterOtherVisuals\":true,\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Facturatie'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 207.77,
+          "width": 461.11,
+          "x": 18.88,
+          "y": 464.44,
+          "z": 14000.00
+        },
+        {
+          "config": "{\"name\":\"ff10723dd2d17a062f29\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":80,\"z\":7000,\"width\":200,\"height\":112,\"tabOrder\":9000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Meetwaarden Taken.Geschatte uren\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Meetwaarden Taken\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Geschatte uren\"},\"Name\":\"Meetwaarden Taken.Geschatte uren\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Geschatte uren\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Geschatte uren'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 112.00,
+          "width": 200.00,
+          "x": 16.00,
+          "y": 80.00,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"ff5151409933f50eea48\",\"layouts\":[{\"id\":0,\"position\":{\"x\":759.5,\"y\":80,\"z\":12000,\"width\":250,\"height\":112,\"tabOrder\":14000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Meetwaarden Taken.Geboekte uren per taak\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Meetwaarden Taken\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Geboekte uren per taak\"},\"Name\":\"Meetwaarden Taken.Geboekte uren per taak\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Geboekte uren per taak\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Totaal geboekt'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 112.00,
+          "width": 250.00,
+          "x": 759.50,
+          "y": 80.00,
+          "z": 12000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"visibility\":0}",
+      "displayName": "Uren per project per maand",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter32fa98630d552ee5fb83\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"Jaar\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Jaar\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"2022L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"name\":\"Filter0a8d92ee28bf9f0db567\",\"expression\":{\"HierarchyLevel\":{\"Expression\":{\"Hierarchy\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Hierarchy\":\"MaandNaamKort Hiërarchie\"}},\"Level\":\"MaandNaamLang\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"MaandNaamLang\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'januari'\"}}]]}}}]},\"type\":\"Categorical\",\"cachedDisplayNames\":[{\"id\":{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"MaandNaamLang\"}},\"Right\":{\"Literal\":{\"Value\":\"'januari'\"}}}}},\"displayName\":\"januari\"}],\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"requireSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}},{\"name\":\"Filtercb56d0d35fcbc994a28b\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Team\"}},\"Property\":\"Teamnaam\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Team\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Teamnaam\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'BI'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"requireSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}},{\"name\":\"Filter6a30a611bb9350e36218\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Medewerkers\"}},\"Property\":\"Name\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"name\":\"Filter10c5187a6562721a9047\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Project\"}},\"Property\":\"Projectnaam\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "ReportSection1c1337611fd7c3bc858b",
+      "ordinal": 7,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"807463551be5c30c1300\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":30.15197568389058,\"z\":0,\"width\":1280,\"height\":689.6048632218846}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Klient Project.Projectnaam\"},{\"queryRef\":\"Meetwaarden Timesheets.Geboekte uren\"},{\"queryRef\":\"Meetwaarden facturatie.Factuurwaarde uren\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"Klient Project\",\"Type\":0},{\"Name\":\"m1\",\"Entity\":\"Meetwaarden Timesheets\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"Meetwaarden facturatie\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Projectnaam\"},\"Name\":\"Klient Project.Projectnaam\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Geboekte uren\"},\"Name\":\"Meetwaarden Timesheets.Geboekte uren\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Factuurwaarde uren\"},\"Name\":\"Meetwaarden facturatie.Factuurwaarde uren\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Factuurwaarde uren\"}}}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 689.60,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 30.15,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"visibility\":1}",
+      "displayName": "Verlof",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter98ee94768040b6737010\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Team\"}},\"Property\":\"Teamnaam\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Team\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Teamnaam\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'BI'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"name\":\"Filterdc11e6a0c0aeaa6e3a50\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Medewerkers\"}},\"Property\":\"Krow__Active__c\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Medewerkers\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Krow__Active__c\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"true\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"name\":\"Filterc86a8f801432c778827b\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Project\"}},\"Property\":\"Projectnaam\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"Klient Project\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Projectnaam\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Growteq'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"name\":\"Filter70e374ec0d6034ab6005\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Task\"}},\"Property\":\"Taaknaam\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"Klient Task\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Taaknaam\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Verlof (regulier)'\"}}],[{\"Literal\":{\"Value\":\"'Ziekte / Kort Verzuim'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"name\":\"Filter244e6e3d4937be6c84ee\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"Jaar\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Jaar\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"2022L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"name\":\"Filter47cc6fb6baacec48b1ea\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"MaandNaamLang\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"MaandNaamLang\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'februari'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"requireSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}]",
+      "height": 720.00,
+      "name": "ReportSection2e8325738462dc845869",
+      "ordinal": 8,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"7560e6ad983cbd694a95\",\"layouts\":[{\"id\":0,\"position\":{\"x\":35.61290322580645,\"y\":153.29032258064515,\"z\":0,\"width\":483.09677419354836,\"height\":371.6129032258064}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Medewerkers.Name\"},{\"queryRef\":\"Klient Project.Projectnaam\"},{\"queryRef\":\"Klient Task.Taaknaam\"},{\"queryRef\":\"Meetwaarden Timesheets.Aantal dagen\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Medewerkers\",\"Type\":0},{\"Name\":\"k\",\"Entity\":\"Klient Project\",\"Type\":0},{\"Name\":\"m1\",\"Entity\":\"Meetwaarden Timesheets\",\"Type\":0},{\"Name\":\"k1\",\"Entity\":\"Klient Task\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Name\"},\"Name\":\"Medewerkers.Name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Projectnaam\"},\"Name\":\"Klient Project.Projectnaam\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Aantal dagen\"},\"Name\":\"Meetwaarden Timesheets.Aantal dagen\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k1\"}},\"Property\":\"Taaknaam\"},\"Name\":\"Klient Task.Taaknaam\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k1\"}},\"Property\":\"Taaknaam\"}}}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 371.61,
+          "width": 483.09,
+          "x": 35.61,
+          "y": 153.29,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"f2a4541b0a40666a70a4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":546.5806451612902,\"y\":153.29032258064515,\"z\":1000,\"width\":241.54838709677418,\"height\":159.48387096774192}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Klient Task.Taaknaam\"},{\"queryRef\":\"Meetwaarden Timesheets.Aantal dagen\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"Klient Task\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"Meetwaarden Timesheets\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Taaknaam\"},\"Name\":\"Klient Task.Taaknaam\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Aantal dagen\"},\"Name\":\"Meetwaarden Timesheets.Aantal dagen\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 159.48,
+          "width": 241.54,
+          "x": 546.58,
+          "y": 153.29,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"visibility\":1}",
+      "displayName": "Medewerkeroverzicht",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filterc4627aa89d64288b58e1\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Team\"}},\"Property\":\"Teamnaam\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Team\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Teamnaam\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'BI'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"name\":\"Filter1c777f7ebcfcda77dfbd\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"Jaar\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Jaar\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"2021L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"name\":\"Filterae836349631e99db4c5c\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Medewerkers\"}},\"Property\":\"Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Medewerkers\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Arianne Wolting'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"name\":\"Filter089493221e5287c01d78\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"MaandNaamKort\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"MaandNaamKort\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'jan'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "ReportSection48a9f01e8b0712133fcb",
+      "ordinal": 10,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"f702c86f0f51eaa7bbba\",\"layouts\":[{\"id\":0,\"position\":{\"x\":91.42857142857143,\"y\":198.419452887538,\"z\":0,\"width\":1188.5714285714287,\"height\":426.0182370820669}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"DimDatum.MaandNaamKort\"},{\"queryRef\":\"Medewerkers.Name\"},{\"queryRef\":\"Klient Project.Projectnaam\"},{\"queryRef\":\"Meetwaarden Timesheets.Geboekte uren (facturabel)\"},{\"queryRef\":\"Meetwaarden Timesheets.Aantal dagen declarabel\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Medewerkers\",\"Type\":0},{\"Name\":\"k\",\"Entity\":\"Klient Project\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0},{\"Name\":\"m1\",\"Entity\":\"Meetwaarden Timesheets\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Name\"},\"Name\":\"Medewerkers.Name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Projectnaam\"},\"Name\":\"Klient Project.Projectnaam\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"MaandNaamKort\"},\"Name\":\"DimDatum.MaandNaamKort\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Geboekte uren (facturabel)\"},\"Name\":\"Meetwaarden Timesheets.Geboekte uren (facturabel)\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Aantal dagen declarabel\"},\"Name\":\"Meetwaarden Timesheets.Aantal dagen declarabel\"}]},\"columnProperties\":{\"DimDatum.MaandNaamKort\":{\"displayName\":\"Maand\"}},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 426.01,
+          "width": 1188.57,
+          "x": 91.42,
+          "y": 198.41,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"objects\":{\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"297L\"}}}}}]},\"filterSortOrder\":3}",
+      "displayName": "Factuur details",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter5d2213a9b04597e452f2\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"Jaar\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":0},{\"name\":\"Filter5fd7a6e070c16ca33972\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"MaandNaamLang\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":1},{\"name\":\"Filterfbddd45c443ce5d543f8\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Invoice\"}},\"Property\":\"Factuurnummer\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":2},{\"name\":\"Filtereee751e521119b85c5e5\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Project\"}},\"Property\":\"Projectnaam\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":3},{\"name\":\"Filterb602714b49204029f25c\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Invoice\"}},\"Property\":\"Factuurnummer\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"i\",\"Entity\":\"Invoice\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"Factuurnummer\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'G-14444'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":5,\"objects\":{},\"ordinal\":4}]",
+      "height": 720.00,
+      "name": "ReportSection665efeb37d59e08b5523",
+      "ordinal": 3,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"0b1bd965f43eb5f4523e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":208,\"z\":9000,\"width\":1264,\"height\":464,\"tabOrder\":11000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Invoice.Factuurnummer\"},{\"queryRef\":\"Invoice Line Item.Krow__Date__c\"},{\"queryRef\":\"Medewerkers.Name\"},{\"queryRef\":\"Invoice Line Item.Krow__Include__c\"},{\"queryRef\":\"Sum(Invoice Line Item.Krow__Hours__c)\"},{\"queryRef\":\"Sum(Invoice Line Item.Krow__Amount_Total__c)\"},{\"queryRef\":\"Invoice Line Item.Krow__Timesheet_Notes__c\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"i\",\"Entity\":\"Invoice\",\"Type\":0},{\"Name\":\"i1\",\"Entity\":\"Invoice Line Item\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"Medewerkers\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"Factuurnummer\"},\"Name\":\"Invoice.Factuurnummer\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i1\"}},\"Property\":\"Krow__Timesheet_Notes__c\"},\"Name\":\"Invoice Line Item.Krow__Timesheet_Notes__c\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i1\"}},\"Property\":\"Krow__Include__c\"},\"Name\":\"Invoice Line Item.Krow__Include__c\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i1\"}},\"Property\":\"Factuurbedrag (regel)\"}},\"Function\":0},\"Name\":\"Sum(Invoice Line Item.Krow__Amount_Total__c)\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i1\"}},\"Property\":\"Krow__Hours__c\"}},\"Function\":0},\"Name\":\"Sum(Invoice Line Item.Krow__Hours__c)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Name\"},\"Name\":\"Medewerkers.Name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i1\"}},\"Property\":\"Krow__Date__c\"},\"Name\":\"Invoice Line Item.Krow__Date__c\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Name\"}}}]},\"columnProperties\":{\"Sum(Invoice Line Item.Krow__Hours__c)\":{\"displayName\":\"Aantal uur\"}},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[{\"name\":\"Filter8a4148346bcbb4dc79b8\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Invoice Line Item\"}},\"Property\":\"Krow__Include__c\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"i\",\"Entity\":\"Invoice Line Item\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"Krow__Include__c\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"true\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{},\"isHiddenInViewMode\":false}]",
+          "height": 464.00,
+          "width": 1264.00,
+          "x": 16.00,
+          "y": 208.00,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"260280b0b8228dffa579\",\"layouts\":[{\"id\":0,\"position\":{\"x\":64,\"y\":0,\"z\":8000,\"width\":400,\"height\":64,\"tabOrder\":10000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Urenverantwoording\",\"textStyle\":{\"fontSize\":\"28pt\",\"color\":\"#2d3e4f\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 64.00,
+          "width": 400.00,
+          "x": 64.00,
+          "y": 0.00,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"32f153a07284aa1e41a6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":80,\"z\":6000,\"width\":336,\"height\":112,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Meetwaarden Projecten.Factuurbedrag Invoices\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Meetwaarden Projecten\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Factuurbedrag Invoices\"},\"Name\":\"Meetwaarden Projecten.Factuurbedrag Invoices\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Factuurbedrag Invoices\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Factuurbedrag'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 112.00,
+          "width": 336.00,
+          "x": 16.00,
+          "y": 80.00,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"3fd7ec9c5749e2e60c28\",\"layouts\":[{\"id\":0,\"position\":{\"x\":368,\"y\":80,\"z\":7000,\"width\":320,\"height\":112,\"tabOrder\":9000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Meetwaarden Taken.Urenschatting vs realisatie\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Meetwaarden Taken\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Urenschatting vs realisatie\"},\"Name\":\"Meetwaarden Taken.Urenschatting vs realisatie\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Urenschatting vs realisatie\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Aantal uren'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 112.00,
+          "width": 320.00,
+          "x": 368.00,
+          "y": 80.00,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"6933bc1306e0ec722836\",\"layouts\":[{\"id\":0,\"position\":{\"x\":704,\"y\":80,\"z\":10000,\"width\":560,\"height\":112,\"tabOrder\":12000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Min(Klient Project.Projectnaam)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Meetwaarden Taken\",\"Type\":0},{\"Name\":\"k\",\"Entity\":\"Klient Project\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Projectnaam\"}},\"Function\":3},\"Name\":\"Min(Klient Project.Projectnaam)\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Urenschatting vs realisatie\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"24D\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Project'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 112.00,
+          "width": 560.00,
+          "x": 704.00,
+          "y": 80.00,
+          "z": 10000.00
+        },
+        {
+          "config": "{\"name\":\"82934608fd4c3ad03cf9\",\"layouts\":[{\"id\":0,\"position\":{\"x\":456,\"y\":0,\"z\":5000,\"width\":472,\"height\":56,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Min(Invoice.Factuurnummer)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"i\",\"Entity\":\"Invoice\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"i\"}},\"Property\":\"Factuurnummer\"}},\"Function\":3},\"Name\":\"Min(Invoice.Factuurnummer)\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"30D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 56.00,
+          "width": 472.00,
+          "x": 456.00,
+          "y": 0.00,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"a01c75c23fd92ee992a6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":688,\"z\":4000,\"width\":1280,\"height\":32,\"tabOrder\":6000}}],\"singleVisualGroup\":{\"displayName\":\"Groep 1\",\"groupMode\":0,\"objects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "height": 32.00,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 688.00,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"a0b6184a61aca38e5a23\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1029.0350338045482,\"y\":0,\"z\":1000,\"width\":245.45789797172714,\"height\":59.79102642901045,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Growteq_logo028109709143694817.png\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 59.79,
+          "width": 245.45,
+          "x": 1029.03,
+          "y": 0.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"a73b637e54e27b4aaff0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":48.14159292035398,\"z\":0,\"width\":1280,\"height\":24.07079646017699,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"rotation\":[{\"properties\":{\"angle\":{\"expr\":{\"Literal\":{\"Value\":\"90D\"}}}}}],\"line\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 24.07,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 48.14,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"ad8c91cd8e4a4b271a8c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":5.507068223724647,\"y\":2.7219109004510686,\"z\":2000,\"width\":239.95082974800246,\"height\":29.108789182544562,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"GROWTEQ 2021 - All rights reserved\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontFamily\":\"Segoe UI Light\",\"color\":\"#ffffff\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"parentGroupName\":\"a01c75c23fd92ee992a6\"}",
+          "filters": "[]",
+          "height": 29.10,
+          "width": 239.95,
+          "x": 5.50,
+          "y": 2.72,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"b91e216f48c4c7ec49e8\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":2000,\"width\":37,\"height\":36.861051115910726,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Huis08082008464771318.png\"}}}}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'PageNavigation'\"}}},\"navigationSection\":{\"expr\":{\"Literal\":{\"Value\":\"'ReportSection'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 36.86,
+          "width": 37.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"cc563093dd2e009dc00e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":1280,\"height\":32,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}],\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2F394F'\"}}}}}}}],\"line\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}}}}]}},\"parentGroupName\":\"a01c75c23fd92ee992a6\"}",
+          "filters": "[]",
+          "height": 32.00,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"d0768ec8508c66bcf0a1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":3.8208955223880596,\"y\":30.567164179104477,\"z\":3000,\"width\":30.567164179104477,\"height\":30.567164179104477,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'back'\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}},\"lineWeight\":{\"expr\":{\"Literal\":{\"Value\":\"2L\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Back'\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 30.56,
+          "width": 30.56,
+          "x": 3.82,
+          "y": 30.56,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"dcf01446de67af325e87\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1015.6607252612171,\"y\":2.1044867854947986,\"z\":1000,\"width\":128.2360172095882,\"height\":29.895513214505225,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"\"}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"parentGroupName\":\"a01c75c23fd92ee992a6\"}",
+          "filters": "[]",
+          "height": 29.89,
+          "width": 128.23,
+          "x": 1015.66,
+          "y": 2.10,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"relationships\":[{\"source\":\"a9aadfb6c66aabcdb665\",\"target\":\"f81b6299e80c091bfa21\",\"type\":1}],\"objects\":{\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"201L\"}}}}}]}}",
+      "displayName": "Cockpit",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filterf757c64f6610884b6430\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"Datum\"}},\"type\":\"Advanced\",\"howCreated\":1},{\"name\":\"Filterffa433868513408c6b6b\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Team\"}},\"Property\":\"Teamnaam\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Team\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Teamnaam\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'BI'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"requireSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}},{\"name\":\"Filter113f63d7b7c3bef3084b\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Medewerkers\"}},\"Property\":\"Name\"}},\"type\":\"Categorical\",\"howCreated\":5},{\"name\":\"Filter4b16be86504aa6f28278\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"JaarWeekNaam\"}},\"type\":\"Categorical\",\"howCreated\":5,\"objects\":{}},{\"name\":\"Filtere1388a319cd7ae0beb54\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Project\"}},\"Property\":\"Projectnaam\"}},\"type\":\"Categorical\",\"howCreated\":5},{\"name\":\"Filter7fc6405b6a5e982007c1\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Medewerkers\"}},\"Property\":\"Name\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{}}]}}]",
+      "height": 720.00,
+      "name": "ReportSection7f3533bb529b3e98c2a0",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"18b8c3a482aa589a00bc\",\"layouts\":[{\"id\":0,\"position\":{\"x\":21.427312775330396,\"y\":311.2599118942731,\"z\":12000,\"width\":259.3832599118943,\"height\":120.66960352422907,\"tabOrder\":17000}}],\"singleVisualGroup\":{\"displayName\":\"Groep 2\",\"groupMode\":0}}",
+          "height": 120.66,
+          "width": 259.38,
+          "x": 21.42,
+          "y": 311.25,
+          "z": 12000.00
+        },
+        {
+          "config": "{\"name\":\"1b3e8b59f16624a66f26\",\"layouts\":[{\"id\":0,\"position\":{\"x\":392.45814977973566,\"y\":7.894273127753304,\"z\":9000,\"width\":425.16299559471366,\"height\":47.36563876651982,\"tabOrder\":23000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Min(DimDatum.JaarWeekNaam)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"JaarWeekNaam\"}},\"Function\":3},\"Name\":\"Min(DimDatum.JaarWeekNaam)\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"32D\"}}}}}]}}}",
+          "filters": "[{\"name\":\"Filtercfdab49d785b7c1326b5\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"IsHuidigeWeek\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"IsHuidigeWeek\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"1L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"name\":\"Filter66f2c177f7effe10be5c\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"IsHuidigJaar\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"IsHuidigJaar\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"1L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+          "height": 47.36,
+          "width": 425.16,
+          "x": 392.45,
+          "y": 7.89,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"260280b0b8228dffa579\",\"layouts\":[{\"id\":0,\"position\":{\"x\":64.24334600760456,\"y\":0,\"z\":3000,\"width\":222.90494296577947,\"height\":64.24334600760456,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Overview\",\"textStyle\":{\"fontSize\":\"28pt\",\"color\":\"#2d3e4f\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 64.24,
+          "width": 222.90,
+          "x": 64.24,
+          "y": 0.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"336b60b22cb9dc0a5da7\",\"layouts\":[{\"id\":0,\"position\":{\"x\":26.208026208026208,\"y\":111.12203112203113,\"z\":5000,\"width\":252.64537264537265,\"height\":48.222768222768224,\"tabOrder\":7000}},{\"id\":1,\"position\":{\"x\":49,\"y\":45,\"z\":8,\"width\":225,\"height\":52}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Vorige week\",\"textStyle\":{\"fontSize\":\"18pt\"}}],\"horizontalTextAlignment\":\"center\"}]}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0.4}}}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'wf_standard-font, helvetica, arial, sans-serif'\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 48.22,
+          "width": 252.64,
+          "x": 26.20,
+          "y": 111.12,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"3c56b5917a92e193bc63\",\"layouts\":[{\"id\":0,\"position\":{\"height\":84.20921694812768,\"width\":240.16967476252958,\"x\":8.568823087651536,\"y\":8.019925423631204,\"z\":2000,\"tabOrder\":15000}},{\"id\":1,\"position\":{\"x\":12,\"y\":260,\"z\":11,\"width\":305,\"height\":90}}],\"singleVisual\":{\"visualType\":\"kpi\",\"projections\":{\"Goal\":[{\"queryRef\":\"Meetwaarden begroting.Begroting YTD\"}],\"TrendLine\":[{\"queryRef\":\"DimDatum.WeekNr\"}],\"Indicator\":[{\"queryRef\":\"Meetwaarden begroting.Actual YTD\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Meetwaarden begroting\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"WeekNr\"},\"Name\":\"DimDatum.WeekNr\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Actual YTD\"},\"Name\":\"Meetwaarden begroting.Actual YTD\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Begroting YTD\"},\"Name\":\"Meetwaarden begroting.Begroting YTD\"}]},\"drillFilterOtherVisuals\":true,\"filterSortOrder\":3,\"objects\":{\"trendline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"goals\":[{\"properties\":{\"goalText\":{\"expr\":{\"Literal\":{\"Value\":\"'Doelstelling'\"}}}}}],\"indicator\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"33D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'# dagen YTD'\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}]}},\"parentGroupName\":\"18b8c3a482aa589a00bc\"}",
+          "filters": "[{\"name\":\"Filter428a306825a0c0e0e6f6\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"IsHuidigJaar\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"IsHuidigJaar\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"1L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":0},{\"name\":\"Filter847874e3b63cee6c7665\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"IsVorigeWeek\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"IsVorigeWeek\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"1L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":1},{\"name\":\"Filter3d7ff48742dbcf8e8c39\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Meetwaarden begroting\"}},\"Property\":\"Actual YTD\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":2},{\"name\":\"Filterbca780ba06711bc0026e\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Meetwaarden begroting\"}},\"Property\":\"Begroting YTD\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":3},{\"name\":\"Filter2f4263789a7f9044aa55\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"WeekNr\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":4}]",
+          "height": 84.20,
+          "width": 240.16,
+          "x": 8.56,
+          "y": 8.01,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"45a9690d9f4f5ec7f70a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":22.555066079295155,\"y\":565.0044052863436,\"z\":17000,\"width\":260.511013215859,\"height\":46.23788546255506,\"tabOrder\":22000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'information'\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFF'\"}}}}},\"lineWeight\":{\"expr\":{\"Literal\":{\"Value\":\"3L\"}}},\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'top'\"}}}},\"selector\":{\"id\":\"default\"}},{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"text\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Projecten'\"}}},\"horizontalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"19D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#1DAD7C'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}},\"selector\":{\"id\":\"default\"}},{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0.4}}}}}},\"selector\":{\"id\":\"hover\"}},{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}},\"selector\":{\"id\":\"selected\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"shape\":[{\"properties\":{\"roundEdge\":{\"expr\":{\"Literal\":{\"Value\":\"20L\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"15D\"}}}}}],\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'PageNavigation'\"}}},\"drillthroughSection\":{\"expr\":{\"Literal\":{\"Value\":\"'ReportSectionbed0ce0346672e23ee14'\"}}},\"navigationSection\":{\"expr\":{\"Literal\":{\"Value\":\"'ReportSection0cefe17e8f52229289a0'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 46.23,
+          "width": 260.51,
+          "x": 22.55,
+          "y": 565.00,
+          "z": 17000.00
+        },
+        {
+          "config": "{\"name\":\"59cf17e21ba9b0b8be0d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":22.38783269961977,\"y\":173.26235741444867,\"z\":6000,\"width\":260,\"height\":118.41921133330455,\"tabOrder\":10000}}],\"singleVisualGroup\":{\"displayName\":\"Groep 2\",\"groupMode\":0}}",
+          "height": 118.41,
+          "width": 260.00,
+          "x": 22.38,
+          "y": 173.26,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"5fb012cc22d2a6ccc490\",\"layouts\":[{\"id\":0,\"position\":{\"height\":82.89344793331318,\"width\":240.16967476252958,\"x\":8.568823087651536,\"y\":7.894614088886965,\"z\":2000,\"tabOrder\":8000}},{\"id\":1,\"position\":{\"x\":18,\"y\":120,\"z\":7,\"width\":288,\"height\":80}}],\"singleVisual\":{\"visualType\":\"kpi\",\"projections\":{\"Indicator\":[{\"queryRef\":\"Meetwaarden begroting.Actual\"}],\"Goal\":[{\"queryRef\":\"Meetwaarden begroting.Begroting\"}],\"TrendLine\":[{\"queryRef\":\"DimDatum.WeekNr\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Meetwaarden begroting\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Actual\"},\"Name\":\"Meetwaarden begroting.Actual\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"WeekNr\"},\"Name\":\"DimDatum.WeekNr\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Begroting\"},\"Name\":\"Meetwaarden begroting.Begroting\"}]},\"drillFilterOtherVisuals\":true,\"filterSortOrder\":3,\"objects\":{\"trendline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"goals\":[{\"properties\":{\"goalText\":{\"expr\":{\"Literal\":{\"Value\":\"'Doelstelling'\"}}}}}],\"indicator\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"33D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'# dagen declarabel'\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}]}},\"parentGroupName\":\"59cf17e21ba9b0b8be0d\"}",
+          "filters": "[{\"name\":\"Filterc7969733eb3f79d4f9d7\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Meetwaarden begroting\"}},\"Property\":\"Actual\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":0},{\"name\":\"Filter995d2f40e916b3ff2f8a\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Meetwaarden begroting\"}},\"Property\":\"Begroting\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":1},{\"name\":\"Filterb38c3ca1671ad63bc165\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"IsVorigeWeek\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"IsVorigeWeek\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"1L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":2},{\"name\":\"Filter9554bc2719d4343d30ba\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"IsHuidigJaar\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"IsHuidigJaar\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"1L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":3},{\"name\":\"Filtereb41034a427d2a874364\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"WeekNr\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":4}]",
+          "height": 82.89,
+          "width": 240.16,
+          "x": 8.56,
+          "y": 7.89,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"61f8bc86d8a7d9ba147c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":22.555066079295155,\"y\":455.61233480176213,\"z\":15000,\"width\":260.511013215859,\"height\":46.23788546255506,\"tabOrder\":20000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'information'\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFF'\"}}}}},\"lineWeight\":{\"expr\":{\"Literal\":{\"Value\":\"3L\"}}},\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'top'\"}}}},\"selector\":{\"id\":\"default\"}},{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"text\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Begroting'\"}}},\"horizontalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"19D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#1DAD7C'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}},\"selector\":{\"id\":\"default\"}},{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0.4}}}}}},\"selector\":{\"id\":\"hover\"}},{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}},\"selector\":{\"id\":\"selected\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"shape\":[{\"properties\":{\"roundEdge\":{\"expr\":{\"Literal\":{\"Value\":\"20L\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"15D\"}}}}}],\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'PageNavigation'\"}}},\"drillthroughSection\":{\"expr\":{\"Literal\":{\"Value\":\"'ReportSectionbed0ce0346672e23ee14'\"}}},\"navigationSection\":{\"expr\":{\"Literal\":{\"Value\":\"'ReportSection9b80b53da80ace641110'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 46.23,
+          "width": 260.51,
+          "x": 22.55,
+          "y": 455.61,
+          "z": 15000.00
+        },
+        {
+          "config": "{\"name\":\"72c4826e54b95283259e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":33.83259911894273,\"y\":319.1541850220264,\"z\":13000,\"width\":50.74889867841409,\"height\":49.62114537444934,\"tabOrder\":18000}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Handtekening7076482040766283.png\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 49.62,
+          "width": 50.74,
+          "x": 33.83,
+          "y": 319.15,
+          "z": 13000.00
+        },
+        {
+          "config": "{\"name\":\"8f5275065dbf429ea604\",\"layouts\":[{\"id\":0,\"position\":{\"x\":30.449339207048457,\"y\":172.54625550660793,\"z\":7000,\"width\":50.74889867841409,\"height\":49.62114537444934,\"tabOrder\":11000}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Handtekening7076482040766283.png\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 49.62,
+          "width": 50.74,
+          "x": 30.44,
+          "y": 172.54,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"94f9c7fcb643f4400fa2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":21.427312775330396,\"y\":508.6167400881057,\"z\":16000,\"width\":260.511013215859,\"height\":46.23788546255506,\"tabOrder\":21000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'information'\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFF'\"}}}}},\"lineWeight\":{\"expr\":{\"Literal\":{\"Value\":\"3L\"}}},\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'top'\"}}}},\"selector\":{\"id\":\"default\"}},{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"text\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Planning'\"}}},\"horizontalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"19D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#1DAD7C'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}},\"selector\":{\"id\":\"default\"}},{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0.4}}}}}},\"selector\":{\"id\":\"hover\"}},{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}},\"selector\":{\"id\":\"selected\"}}],\"outline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"shape\":[{\"properties\":{\"roundEdge\":{\"expr\":{\"Literal\":{\"Value\":\"20L\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"15D\"}}}}}],\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'PageNavigation'\"}}},\"drillthroughSection\":{\"expr\":{\"Literal\":{\"Value\":\"'ReportSectionbed0ce0346672e23ee14'\"}}},\"navigationSection\":{\"expr\":{\"Literal\":{\"Value\":\"'ReportSection939ecf28cb463763d986'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 46.23,
+          "width": 260.51,
+          "x": 21.42,
+          "y": 508.61,
+          "z": 16000.00
+        },
+        {
+          "config": "{\"name\":\"9a70aaad4ee5790471e0\",\"layouts\":[{\"id\":0,\"position\":{\"height\":120.29888135446811,\"width\":260,\"x\":0,\"y\":0,\"z\":0,\"tabOrder\":17000}},{\"id\":1,\"position\":{\"x\":0,\"y\":247,\"z\":9,\"width\":322,\"height\":137}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}],\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"line\":[{\"properties\":{\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"roundEdge\":{\"expr\":{\"Literal\":{\"Value\":\"8L\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]}},\"parentGroupName\":\"18b8c3a482aa589a00bc\"}",
+          "filters": "[]",
+          "height": 120.29,
+          "width": 260.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"9b3c734c62ba26f2b4c4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":8.59221705863024,\"y\":67.42873237169815,\"z\":1000,\"width\":234.7795414462081,\"height\":38.37742504409171,\"tabOrder\":9000}},{\"id\":1,\"position\":{\"x\":18,\"y\":167,\"z\":6,\"width\":288,\"height\":60}}],\"singleVisual\":{\"visualType\":\"kpi\",\"projections\":{\"Indicator\":[{\"queryRef\":\"Meetwaarden begroting.Actual\"}],\"Goal\":[{\"queryRef\":\"Meetwaarden begroting.Forecast\"}],\"TrendLine\":[{\"queryRef\":\"DimDatum.WeekNr\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Meetwaarden begroting\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Actual\"},\"Name\":\"Meetwaarden begroting.Actual\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"WeekNr\"},\"Name\":\"DimDatum.WeekNr\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Forecast\"},\"Name\":\"Meetwaarden begroting.Forecast\"}]},\"drillFilterOtherVisuals\":true,\"filterSortOrder\":3,\"objects\":{\"trendline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"goals\":[{\"properties\":{\"goalText\":{\"expr\":{\"Literal\":{\"Value\":\"'Forecast'\"}}}}}],\"indicator\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"33D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}]}},\"parentGroupName\":\"59cf17e21ba9b0b8be0d\"}",
+          "filters": "[{\"name\":\"Filter65992e2d1c6bca4c8aab\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Meetwaarden begroting\"}},\"Property\":\"Actual\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":0},{\"name\":\"Filter4e037076161fa49051d8\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Meetwaarden begroting\"}},\"Property\":\"Forecast\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":1},{\"name\":\"Filter84df792c022349a33557\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"IsHuidigJaar\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"IsHuidigJaar\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"1L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":2},{\"name\":\"Filter337c2ee1dfeb188c14c3\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"IsVorigeWeek\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"IsVorigeWeek\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"1L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":3},{\"name\":\"Filter10bf65d33ef4bac2fd0f\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"WeekNr\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":4}]",
+          "height": 38.37,
+          "width": 234.77,
+          "x": 8.59,
+          "y": 67.42,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"a01c75c23fd92ee992a6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":688,\"z\":2000,\"width\":1280,\"height\":32,\"tabOrder\":4000}}],\"singleVisualGroup\":{\"displayName\":\"Groep 1\",\"groupMode\":0,\"objects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "height": 32.00,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 688.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"a0b6184a61aca38e5a23\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1029.0350338045482,\"y\":0,\"z\":1000,\"width\":245.45789797172714,\"height\":59.79102642901045,\"tabOrder\":1000}},{\"id\":1,\"position\":{\"x\":216,\"y\":0,\"z\":2,\"width\":108,\"height\":40}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Growteq_logo028109709143694817.png\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 59.79,
+          "width": 245.45,
+          "x": 1029.03,
+          "y": 0.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"a73b637e54e27b4aaff0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":48.14159292035398,\"z\":0,\"width\":1280,\"height\":24.07079646017699,\"tabOrder\":0}},{\"id\":1,\"position\":{\"x\":0,\"y\":20,\"z\":1,\"width\":324,\"height\":40}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"rotation\":[{\"properties\":{\"angle\":{\"expr\":{\"Literal\":{\"Value\":\"90D\"}}}}}],\"line\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 24.07,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 48.14,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"a9aadfb6c66aabcdb665\",\"layouts\":[{\"id\":0,\"position\":{\"x\":309.5361216730038,\"y\":318.2965779467681,\"z\":11000,\"width\":404.9277566539924,\"height\":305.6425855513308,\"tabOrder\":14000}},{\"id\":1,\"position\":{\"x\":0,\"y\":400,\"z\":15,\"width\":324,\"height\":260}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Timesheet Split.Krow__Approval_Status__c\"},{\"queryRef\":\"Medewerkers.Medewerkernaam\"},{\"queryRef\":\"Meetwaarden Timesheets.Geboekte uren\"},{\"queryRef\":\"Meetwaarden Timesheets.Geboekte uren (facturabel)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Timesheet Split\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"Meetwaarden Timesheets\",\"Type\":0},{\"Name\":\"m1\",\"Entity\":\"Medewerkers\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Krow__Approval_Status__c\"},\"Name\":\"Timesheet Split.Krow__Approval_Status__c\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Geboekte uren\"},\"Name\":\"Meetwaarden Timesheets.Geboekte uren\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Name\"},\"Name\":\"Medewerkers.Medewerkernaam\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Geboekte uren (facturabel)\"},\"Name\":\"Meetwaarden Timesheets.Geboekte uren (facturabel)\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Name\"}}}]},\"columnProperties\":{\"Medewerkers.Medewerkernaam\":{\"displayName\":\"Medewerker\"},\"Timesheet Split.Krow__Approval_Status__c\":{\"displayName\":\"Status\"},\"Meetwaarden Timesheets.Geboekte uren (facturabel)\":{\"displayName\":\"facturabel\"}},\"drillFilterOtherVisuals\":true,\"filterSortOrder\":3,\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'# uur per status'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}]}}}",
+          "filters": "[{\"name\":\"Filtere3c994e5203472db18b6\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"IsHuidigJaar\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"IsHuidigJaar\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"1L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":0},{\"name\":\"Filter14582de46a05f66552b8\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"IsVorigeWeek\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"IsVorigeWeek\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"1L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":1},{\"name\":\"Filterf0bd0d92f2a0c51c5027\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Meetwaarden Timesheets\"}},\"Property\":\"Geboekte uren\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":2},{\"name\":\"Filtera03e6551c4ac6f43d79c\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Medewerkers\"}},\"Property\":\"Name\"}},\"type\":\"Categorical\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":3},{\"name\":\"Filter6cee6a993f218261e9d3\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Timesheet Split\"}},\"Property\":\"Krow__Approval_Status__c\"}},\"type\":\"Categorical\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":4}]",
+          "height": 305.64,
+          "width": 404.92,
+          "x": 309.53,
+          "y": 318.29,
+          "z": 11000.00
+        },
+        {
+          "config": "{\"name\":\"ac818ff36b319c7a17df\",\"layouts\":[{\"id\":0,\"position\":{\"height\":42.10460847406384,\"width\":240.16967476252958,\"x\":6.424450991557523,\"y\":66.16438474495746,\"z\":1000,\"tabOrder\":16000}},{\"id\":1,\"position\":{\"x\":27,\"y\":315,\"z\":10,\"width\":272,\"height\":64}}],\"singleVisual\":{\"visualType\":\"kpi\",\"projections\":{\"Goal\":[{\"queryRef\":\"Meetwaarden begroting.Forecast YTD\"}],\"TrendLine\":[{\"queryRef\":\"DimDatum.WeekNr\"}],\"Indicator\":[{\"queryRef\":\"Meetwaarden begroting.Actual YTD\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Meetwaarden begroting\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"WeekNr\"},\"Name\":\"DimDatum.WeekNr\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Actual YTD\"},\"Name\":\"Meetwaarden begroting.Actual YTD\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Forecast YTD\"},\"Name\":\"Meetwaarden begroting.Forecast YTD\"}]},\"drillFilterOtherVisuals\":true,\"filterSortOrder\":3,\"objects\":{\"trendline\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"goals\":[{\"properties\":{\"goalText\":{\"expr\":{\"Literal\":{\"Value\":\"'Forecast'\"}}}}}],\"indicator\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"33D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}]}},\"parentGroupName\":\"18b8c3a482aa589a00bc\"}",
+          "filters": "[{\"name\":\"Filter0d49e50cb7b713659bdc\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"IsHuidigJaar\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"IsHuidigJaar\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"1L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":0},{\"name\":\"Filter241b6063d2f73c53da0e\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"IsVorigeWeek\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"IsVorigeWeek\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"1L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":1},{\"name\":\"Filterd0651f16b874bf128a98\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Meetwaarden begroting\"}},\"Property\":\"Actual YTD\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":2},{\"name\":\"Filter2623a20a88ea9afae53a\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Meetwaarden begroting\"}},\"Property\":\"Forecast YTD\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":3},{\"name\":\"Filteracc3dda463603a7b8ee5\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"WeekNr\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":4}]",
+          "height": 42.10,
+          "width": 240.16,
+          "x": 6.42,
+          "y": 66.16,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"ad8c91cd8e4a4b271a8c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":5.507068223724647,\"y\":2.7219109004510686,\"z\":2000,\"width\":239.95082974800246,\"height\":29.108789182544562,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"GROWTEQ 2021 - All rights reserved\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontFamily\":\"Segoe UI Light\",\"color\":\"#ffffff\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"parentGroupName\":\"a01c75c23fd92ee992a6\"}",
+          "filters": "[]",
+          "height": 29.10,
+          "width": 239.95,
+          "x": 5.50,
+          "y": 2.72,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"cc563093dd2e009dc00e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":1280,\"height\":32,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}],\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2F394F'\"}}}}}}}],\"line\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}}}}]}},\"parentGroupName\":\"a01c75c23fd92ee992a6\"}",
+          "filters": "[]",
+          "height": 32.00,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"cde1815f4112c0828a3d\",\"layouts\":[{\"id\":0,\"position\":{\"height\":118.41921133330455,\"width\":260,\"x\":0,\"y\":0,\"z\":0,\"tabOrder\":10000}},{\"id\":1,\"position\":{\"x\":0,\"y\":100,\"z\":3,\"width\":324,\"height\":138}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}],\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"line\":[{\"properties\":{\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"roundEdge\":{\"expr\":{\"Literal\":{\"Value\":\"8L\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]}},\"parentGroupName\":\"59cf17e21ba9b0b8be0d\"}",
+          "filters": "[]",
+          "height": 118.41,
+          "width": 260.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"d0631c72a958fe482d8c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":309.6422487223169,\"y\":99.21635434412265,\"z\":8000,\"width\":404.4974446337308,\"height\":204.97444633730834,\"tabOrder\":12000}},{\"id\":1,\"position\":{\"x\":0,\"y\":680,\"z\":14,\"width\":324,\"height\":220}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Medewerkers.Medewerkernaam\"},{\"queryRef\":\"Meetwaarden planning.Geplande dagen per week\"},{\"queryRef\":\"Meetwaarden planning.Geplande dagen per week (decl)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Medewerkers\",\"Type\":0},{\"Name\":\"m1\",\"Entity\":\"Meetwaarden planning\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Name\"},\"Name\":\"Medewerkers.Medewerkernaam\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Geplande dagen per week\"},\"Name\":\"Meetwaarden planning.Geplande dagen per week\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Geplande dagen per week (decl)\"},\"Name\":\"Meetwaarden planning.Geplande dagen per week (decl)\"}]},\"columnProperties\":{\"Medewerkers.Medewerkernaam\":{\"displayName\":\"Medewerker\"},\"Meetwaarden planning.Geplande dagen per week\":{\"displayName\":\"# dagen\"},\"Meetwaarden planning.Geplande dagen per week (decl)\":{\"displayName\":\"# dagen fact.\"}},\"drillFilterOtherVisuals\":true,\"filterSortOrder\":3,\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Planning huidige week'\"}}}}}]}}}",
+          "filters": "[{\"name\":\"Filtere9c9cb1992c56a780486\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Meetwaarden planning\"}},\"Property\":\"Geplande dagen per week\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":0},{\"name\":\"Filter2de1cf3e1ba516825d54\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Meetwaarden planning\"}},\"Property\":\"Geplande dagen per week (decl)\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":1},{\"name\":\"Filtere8e98d6ce8e20cfef947\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"IsHuidigJaar\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"IsHuidigJaar\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"1L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":2},{\"name\":\"Filterc6b907b039e351fc6b18\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"IsHuidigeWeek\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"IsHuidigeWeek\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"1L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":3},{\"name\":\"Filter47d16dd9629b56654434\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Medewerkers\"}},\"Property\":\"Name\"}},\"type\":\"Categorical\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":4}]",
+          "height": 204.97,
+          "width": 404.49,
+          "x": 309.64,
+          "y": 99.21,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"dcf01446de67af325e87\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1015.6607252612171,\"y\":2.1044867854947986,\"z\":1000,\"width\":128.2360172095882,\"height\":29.895513214505225,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"\"}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"parentGroupName\":\"a01c75c23fd92ee992a6\"}",
+          "filters": "[]",
+          "height": 29.89,
+          "width": 128.23,
+          "x": 1015.66,
+          "y": 2.10,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"df6f628e9a76a2b50d6a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":13.628173628173629,\"y\":98.54217854217855,\"z\":4000,\"width\":280.95004095004094,\"height\":568.1900081900083,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}],\"line\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#EDF0F6'\"}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}],\"fill\":[{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":0.6}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"56D\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":0.6}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#818B95'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 568.19,
+          "width": 280.95,
+          "x": 13.62,
+          "y": 98.54,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"f81b6299e80c091bfa21\",\"layouts\":[{\"id\":0,\"position\":{\"x\":728.0912547528517,\"y\":319.2699619771863,\"z\":14000,\"width\":534.3878326996198,\"height\":304.66920152091257,\"tabOrder\":19000}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Klient Project.Projectnaam\",\"active\":true}],\"Y\":[{\"queryRef\":\"Meetwaarden Timesheets.Geboekte uren\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"Klient Project\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"Meetwaarden Timesheets\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Projectnaam\"},\"Name\":\"Klient Project.Projectnaam\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Geboekte uren\"},\"Name\":\"Meetwaarden Timesheets.Geboekte uren\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Geboekte uren\"}}}]},\"drillFilterOtherVisuals\":true,\"filterSortOrder\":3,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelPrecision\":{\"expr\":{\"Literal\":{\"Value\":\"1L\"}}}}}],\"categoryAxis\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"valueAxis\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Uren per project vorige week'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}]}}}",
+          "filters": "[{\"name\":\"Filter9fffd14a7a10123d5b97\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"IsHuidigJaar\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"IsHuidigJaar\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"1L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":0},{\"name\":\"Filter845cf10c680cc4061e25\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"IsVorigeWeek\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"IsVorigeWeek\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"1L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":1},{\"name\":\"Filter55b63f09146c1631cd25\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Meetwaarden Timesheets\"}},\"Property\":\"Geboekte uren\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":2},{\"name\":\"Filtere6d6a738f1a607abfc25\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Project\"}},\"Property\":\"Projectnaam\"}},\"type\":\"Categorical\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":3}]",
+          "height": 304.66,
+          "width": 534.38,
+          "x": 728.09,
+          "y": 319.26,
+          "z": 14000.00
+        },
+        {
+          "config": "{\"name\":\"f9f603099732dd8b8312\",\"layouts\":[{\"id\":0,\"position\":{\"x\":728.3134582623509,\"y\":98.12606473594548,\"z\":10000,\"width\":535.3321976149914,\"height\":204.97444633730834,\"tabOrder\":13000}},{\"id\":1,\"position\":{\"x\":0,\"y\":920,\"z\":16,\"width\":324,\"height\":260}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"DimDatum.JaarWeekNaam\"},{\"queryRef\":\"Medewerkers.Medewerkernaam\"},{\"queryRef\":\"Meetwaarden Timesheets.Aantal dagen\"},{\"queryRef\":\"Meetwaarden Timesheets.Aantal dagen declarabel\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"Medewerkers\",\"Type\":0},{\"Name\":\"m1\",\"Entity\":\"Meetwaarden Timesheets\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"JaarWeekNaam\"},\"Name\":\"DimDatum.JaarWeekNaam\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Name\"},\"Name\":\"Medewerkers.Medewerkernaam\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Aantal dagen\"},\"Name\":\"Meetwaarden Timesheets.Aantal dagen\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Aantal dagen declarabel\"},\"Name\":\"Meetwaarden Timesheets.Aantal dagen declarabel\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"JaarWeekNaam\"}}}]},\"columnProperties\":{\"Meetwaarden Timesheets.Aantal dagen\":{\"displayName\":\"# dagen\"},\"Meetwaarden Timesheets.Aantal dagen declarabel\":{\"displayName\":\"# dagen fact.\"},\"DimDatum.JaarWeekNaam\":{\"displayName\":\"Week\"},\"Medewerkers.Medewerkernaam\":{\"displayName\":\"Medewerker\"}},\"drillFilterOtherVisuals\":true,\"filterSortOrder\":3,\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Geboekt per medewerker'\"}}}}}]}}}",
+          "filters": "[{\"name\":\"Filterabe976ec4a780c399a3b\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"IsHuidigJaar\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"IsHuidigJaar\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"1L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":0},{\"name\":\"Filtera71f8065e575e294180c\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"IsHuidigeWeek\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"IsHuidigeWeek\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"1L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":1},{\"name\":\"Filter1b1ca8b294187d72a835\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Meetwaarden Timesheets\"}},\"Property\":\"Aantal dagen\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":2},{\"name\":\"Filterc2563d5957094eb879ea\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Meetwaarden Timesheets\"}},\"Property\":\"Aantal dagen declarabel\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":3},{\"name\":\"Filter029bfa011fdeae1be9b8\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Medewerkers\"}},\"Property\":\"Name\"}},\"type\":\"Categorical\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":4},{\"name\":\"Filterb3e961a2f83b2bad229b\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"JaarWeekNaam\"}},\"type\":\"Categorical\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":5}]",
+          "height": 204.97,
+          "width": 535.33,
+          "x": 728.31,
+          "y": 98.12,
+          "z": 10000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"objects\":{\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"201L\"}}}}}]}}",
+      "displayName": "Planning",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filterf757c64f6610884b6430\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"Datum\"}},\"type\":\"Advanced\",\"howCreated\":1},{\"name\":\"Filterc0b40a52f832a72060b0\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"Jaar\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"name\":\"Filterffa433868513408c6b6b\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Team\"}},\"Property\":\"Teamnaam\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Team\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Teamnaam\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'BI'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"name\":\"Filter113f63d7b7c3bef3084b\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Medewerkers\"}},\"Property\":\"Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Medewerkers\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Robert Jan Quist'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":5},{\"name\":\"Filter4b16be86504aa6f28278\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"JaarWeekNaam\"}},\"type\":\"Categorical\",\"howCreated\":5},{\"name\":\"Filtere1388a319cd7ae0beb54\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Project\"}},\"Property\":\"Projectnaam\"}},\"type\":\"Categorical\",\"howCreated\":5}]",
+      "height": 720.00,
+      "name": "ReportSection939ecf28cb463763d986",
+      "ordinal": 6,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"260280b0b8228dffa579\",\"layouts\":[{\"id\":0,\"position\":{\"x\":63.79421221864951,\"y\":0,\"z\":5000,\"width\":672.9260450160772,\"height\":63.79421221864951,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Planning\",\"textStyle\":{\"fontSize\":\"28pt\",\"color\":\"#2d3e4f\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 63.79,
+          "width": 672.92,
+          "x": 63.79,
+          "y": 0.00,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"a01c75c23fd92ee992a6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":688,\"z\":4000,\"width\":1280,\"height\":32,\"tabOrder\":6000}}],\"singleVisualGroup\":{\"displayName\":\"Groep 1\",\"groupMode\":0,\"objects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "height": 32.00,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 688.00,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"a0b6184a61aca38e5a23\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1029.0350338045482,\"y\":0,\"z\":1000,\"width\":245.45789797172714,\"height\":59.79102642901045,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Growteq_logo028109709143694817.png\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 59.79,
+          "width": 245.45,
+          "x": 1029.03,
+          "y": 0.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"a73b637e54e27b4aaff0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":48.14159292035398,\"z\":0,\"width\":1280,\"height\":24.07079646017699,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"rotation\":[{\"properties\":{\"angle\":{\"expr\":{\"Literal\":{\"Value\":\"90D\"}}}}}],\"line\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 24.07,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 48.14,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"ad8c91cd8e4a4b271a8c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":5.507068223724647,\"y\":2.7219109004510686,\"z\":2000,\"width\":239.95082974800246,\"height\":29.108789182544562,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"GROWTEQ 2021 - All rights reserved\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontFamily\":\"Segoe UI Light\",\"color\":\"#ffffff\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"parentGroupName\":\"a01c75c23fd92ee992a6\"}",
+          "filters": "[]",
+          "height": 29.10,
+          "width": 239.95,
+          "x": 5.50,
+          "y": 2.72,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"b91e216f48c4c7ec49e8\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":2000,\"width\":37,\"height\":36.861051115910726,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Huis08082008464771318.png\"}}}}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'PageNavigation'\"}}},\"navigationSection\":{\"expr\":{\"Literal\":{\"Value\":\"'ReportSection'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 36.86,
+          "width": 37.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"cc563093dd2e009dc00e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":1280,\"height\":32,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}],\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2F394F'\"}}}}}}}],\"line\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}}}}]}},\"parentGroupName\":\"a01c75c23fd92ee992a6\"}",
+          "filters": "[]",
+          "height": 32.00,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"d0768ec8508c66bcf0a1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":3.8208955223880596,\"y\":30.567164179104477,\"z\":3000,\"width\":30.567164179104477,\"height\":30.567164179104477,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'back'\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}},\"lineWeight\":{\"expr\":{\"Literal\":{\"Value\":\"2L\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Back'\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 30.56,
+          "width": 30.56,
+          "x": 3.82,
+          "y": 30.56,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"d25e2bfdde9d997ecc59\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.73384030418251,\"y\":99.2851711026616,\"z\":6000,\"width\":1270.2661596958176,\"height\":569.4296577946768,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Rows\":[{\"queryRef\":\"Medewerkers.Name\",\"active\":true},{\"queryRef\":\"Klient Project.Projectnaam\",\"active\":true}],\"Values\":[{\"queryRef\":\"Meetwaarden planning.Geplande dagen per week\"},{\"queryRef\":\"Meetwaarden planning.Geplande dagen per week (decl)\"}],\"Columns\":[{\"queryRef\":\"DimDatum.JaarWeekNaam\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Medewerkers\",\"Type\":0},{\"Name\":\"k\",\"Entity\":\"Klient Project\",\"Type\":0},{\"Name\":\"m1\",\"Entity\":\"Meetwaarden planning\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Name\"},\"Name\":\"Medewerkers.Name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Projectnaam\"},\"Name\":\"Klient Project.Projectnaam\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Geplande dagen per week\"},\"Name\":\"Meetwaarden planning.Geplande dagen per week\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Geplande dagen per week (decl)\"},\"Name\":\"Meetwaarden planning.Geplande dagen per week (decl)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"JaarWeekNaam\"},\"Name\":\"DimDatum.JaarWeekNaam\"}]},\"expansionStates\":[{\"roles\":[\"Rows\"],\"levels\":[{\"queryRefs\":[\"Medewerkers.Name\"],\"isCollapsed\":true,\"identityKeys\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Medewerkers\"}},\"Property\":\"Name\"}}],\"isPinned\":true},{\"queryRefs\":[\"Klient Project.Projectnaam\"],\"isCollapsed\":true,\"isPinned\":true}],\"root\":{\"identityValues\":null,\"children\":[{\"identityValues\":[{\"Literal\":{\"Value\":\"'Robert Jan Quist'\"}}],\"isToggled\":true}]}}],\"columnProperties\":{\"Meetwaarden planning.Geplande dagen per week\":{\"displayName\":\"Gepland\"},\"Meetwaarden planning.Geplande dagen per week (decl)\":{\"displayName\":\"Fact.\"}},\"drillFilterOtherVisuals\":true,\"filterSortOrder\":3}}",
+          "filters": "[{\"name\":\"Filter65ab4e57e85d9f51368f\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Medewerkers\"}},\"Property\":\"Krow__Active__c\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Medewerkers\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Krow__Active__c\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"true\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":0},{\"name\":\"Filter9069ff45ba1e47eb22a3\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Meetwaarden planning\"}},\"Property\":\"Geplande dagen per week (decl)\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":1},{\"name\":\"Filter5955391e0905c087662a\",\"expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Meetwaarden planning\"}},\"Property\":\"Geplande dagen per week\"}},\"type\":\"Advanced\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":2},{\"name\":\"Filterd671d91bca1420056d91\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"JaarWeekNaam\"}},\"type\":\"Categorical\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":3},{\"name\":\"Filter4ee59e301e7a08ac55ba\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Medewerkers\"}},\"Property\":\"Name\"}},\"type\":\"Categorical\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":4},{\"name\":\"Filter131b9d9b3761803386d3\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Project\"}},\"Property\":\"Projectnaam\"}},\"type\":\"Categorical\",\"howCreated\":0,\"isHiddenInViewMode\":false,\"ordinal\":5},{\"name\":\"Filter9b319c51351a1138e96f\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"Jaar\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":2,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Jaar\"}},\"Right\":{\"Literal\":{\"Value\":\"2021L\"}}}}}]},\"type\":\"Advanced\",\"howCreated\":1,\"ordinal\":6}]",
+          "height": 569.42,
+          "width": 1270.26,
+          "x": 9.73,
+          "y": 99.28,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"dcf01446de67af325e87\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1015.6607252612171,\"y\":2.1044867854947986,\"z\":1000,\"width\":128.2360172095882,\"height\":29.895513214505225,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"\"}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"parentGroupName\":\"a01c75c23fd92ee992a6\"}",
+          "filters": "[]",
+          "height": 29.89,
+          "width": 128.23,
+          "x": 1015.66,
+          "y": 2.10,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"objects\":{\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"201L\"}}}}}]}}",
+      "displayName": "Overzicht begroting",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filterf757c64f6610884b6430\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"Datum\"}},\"type\":\"Advanced\",\"howCreated\":1},{\"name\":\"Filterc0b40a52f832a72060b0\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"Jaar\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Jaar\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"2022L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"name\":\"Filterffa433868513408c6b6b\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Team\"}},\"Property\":\"Teamnaam\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Team\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Teamnaam\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'BI'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"requireSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}]",
+      "height": 720.00,
+      "name": "ReportSection9b80b53da80ace641110",
+      "ordinal": 5,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"1806d8bf06e74081441e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":31.897106109324756,\"y\":63.79421221864951,\"z\":6000,\"width\":1034.0836012861737,\"height\":331.3183279742765,\"tabOrder\":8000}},{\"id\":1,\"position\":{\"x\":1,\"y\":678,\"z\":1,\"width\":323,\"height\":429}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Team.Teamnaam\"},{\"queryRef\":\"DimDatum.JaarWeekNaamKort\"},{\"queryRef\":\"Meetwaarden begroting.Actual YTD\"},{\"queryRef\":\"Meetwaarden begroting.Begroting YTD\"},{\"queryRef\":\"Meetwaarden begroting.Forecast YTD\"},{\"queryRef\":\"Meetwaarden begroting.Actual\"},{\"queryRef\":\"Meetwaarden begroting.Begroting\"},{\"queryRef\":\"Meetwaarden begroting.Forecast\"},{\"queryRef\":\"Meetwaarden begroting.Actual - Begroting (YTD)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d1\",\"Entity\":\"DimDatum\",\"Type\":0},{\"Name\":\"m1\",\"Entity\":\"Meetwaarden begroting\",\"Type\":0},{\"Name\":\"t\",\"Entity\":\"Team\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"JaarWeekNaamKort\"},\"Name\":\"DimDatum.JaarWeekNaamKort\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Actual\"},\"Name\":\"Meetwaarden begroting.Actual\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Begroting\"},\"Name\":\"Meetwaarden begroting.Begroting\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Forecast\"},\"Name\":\"Meetwaarden begroting.Forecast\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Teamnaam\"},\"Name\":\"Team.Teamnaam\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Begroting YTD\"},\"Name\":\"Meetwaarden begroting.Begroting YTD\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Actual YTD\"},\"Name\":\"Meetwaarden begroting.Actual YTD\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Forecast YTD\"},\"Name\":\"Meetwaarden begroting.Forecast YTD\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Actual - Begroting (YTD)\"},\"Name\":\"Meetwaarden begroting.Actual - Begroting (YTD)\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[{\"name\":\"Filter70c09cde8ee61cbefacb\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"JaarWeekNaam\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+          "height": 331.31,
+          "width": 1034.08,
+          "x": 31.89,
+          "y": 63.79,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"260280b0b8228dffa579\",\"layouts\":[{\"id\":0,\"position\":{\"x\":63.79421221864951,\"y\":0,\"z\":5000,\"width\":672.9260450160772,\"height\":63.79421221864951,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Overzicht Actual, Budget en Forecast\",\"textStyle\":{\"fontSize\":\"28pt\",\"color\":\"#2d3e4f\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 63.79,
+          "width": 672.92,
+          "x": 63.79,
+          "y": 0.00,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"3b683b3c3fa6dfd1f6b3\",\"layouts\":[{\"id\":0,\"position\":{\"x\":34.63917525773196,\"y\":394.8865979381443,\"z\":7000,\"width\":1034.2268041237112,\"height\":286.02061855670104,\"tabOrder\":9000}},{\"id\":1,\"position\":{\"x\":3,\"y\":1114,\"z\":2,\"width\":320,\"height\":652}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Meetwaarden begroting.Actual YTD\"},{\"queryRef\":\"Meetwaarden begroting.Begroting YTD\"},{\"queryRef\":\"Meetwaarden begroting.Forecast YTD\"}],\"Category\":[{\"queryRef\":\"DimDatum.JaarWeekNaamKort\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Meetwaarden begroting\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Begroting YTD\"},\"Name\":\"Meetwaarden begroting.Begroting YTD\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Forecast YTD\"},\"Name\":\"Meetwaarden begroting.Forecast YTD\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"JaarWeekNaamKort\"},\"Name\":\"DimDatum.JaarWeekNaamKort\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Actual YTD\"},\"Name\":\"Meetwaarden begroting.Actual YTD\"}]},\"drillFilterOtherVisuals\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Actual, Begroting, Forecast (YTD)'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 286.02,
+          "width": 1034.22,
+          "x": 34.63,
+          "y": 394.88,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"a01c75c23fd92ee992a6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":688,\"z\":4000,\"width\":1280,\"height\":32,\"tabOrder\":6000}}],\"singleVisualGroup\":{\"displayName\":\"Groep 1\",\"groupMode\":0,\"objects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "height": 32.00,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 688.00,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"a0b6184a61aca38e5a23\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1029.0350338045482,\"y\":0,\"z\":1000,\"width\":245.45789797172714,\"height\":59.79102642901045,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Growteq_logo028109709143694817.png\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 59.79,
+          "width": 245.45,
+          "x": 1029.03,
+          "y": 0.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"a73b637e54e27b4aaff0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":48.14159292035398,\"z\":0,\"width\":1280,\"height\":24.07079646017699,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"rotation\":[{\"properties\":{\"angle\":{\"expr\":{\"Literal\":{\"Value\":\"90D\"}}}}}],\"line\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 24.07,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 48.14,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"ad8c91cd8e4a4b271a8c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":5.507068223724647,\"y\":2.7219109004510686,\"z\":2000,\"width\":239.95082974800246,\"height\":29.108789182544562,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"GROWTEQ 2021 - All rights reserved\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontFamily\":\"Segoe UI Light\",\"color\":\"#ffffff\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"parentGroupName\":\"a01c75c23fd92ee992a6\"}",
+          "filters": "[]",
+          "height": 29.10,
+          "width": 239.95,
+          "x": 5.50,
+          "y": 2.72,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"b91e216f48c4c7ec49e8\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":2000,\"width\":37,\"height\":36.861051115910726,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Huis08082008464771318.png\"}}}}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'PageNavigation'\"}}},\"navigationSection\":{\"expr\":{\"Literal\":{\"Value\":\"'ReportSection'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 36.86,
+          "width": 37.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"cc563093dd2e009dc00e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":1280,\"height\":32,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}],\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2F394F'\"}}}}}}}],\"line\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}}}}]}},\"parentGroupName\":\"a01c75c23fd92ee992a6\"}",
+          "filters": "[]",
+          "height": 32.00,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"d0768ec8508c66bcf0a1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":3.8208955223880596,\"y\":30.567164179104477,\"z\":3000,\"width\":30.567164179104477,\"height\":30.567164179104477,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'back'\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}},\"lineWeight\":{\"expr\":{\"Literal\":{\"Value\":\"2L\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Back'\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 30.56,
+          "width": 30.56,
+          "x": 3.82,
+          "y": 30.56,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"dcf01446de67af325e87\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1015.6607252612171,\"y\":2.1044867854947986,\"z\":1000,\"width\":128.2360172095882,\"height\":29.895513214505225,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"\"}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"parentGroupName\":\"a01c75c23fd92ee992a6\"}",
+          "filters": "[]",
+          "height": 29.89,
+          "width": 128.23,
+          "x": 1015.66,
+          "y": 2.10,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"objects\":{\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"201L\"}}}}}]},\"filterSortOrder\":3}",
+      "displayName": "Urendetails - Timesheet",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter5a5b8b09a0cbe9740b77\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"JaarWeekNaam\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"requireSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"ordinal\":0},{\"name\":\"Filter26abf294399f991f82dd\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Medewerkers\"}},\"Property\":\"Name\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":1},{\"name\":\"Filteradc22a2da4b60f9ff25c\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Team\"}},\"Property\":\"Teamnaam\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":2},{\"name\":\"Filter563e700102c5e4e06b47\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Timesheet Split\"}},\"Property\":\"Krow__Approval_Status__c\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":3},{\"name\":\"Filteree418e970a97e7ece305\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Project\"}},\"Property\":\"Projectnaam\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{},\"ordinal\":4},{\"name\":\"Filter57ab274b8bc485b116db\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"Date\"}},\"type\":\"Advanced\",\"howCreated\":1,\"ordinal\":5},{\"name\":\"Filter1d936a0ec5355bbf9515\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"JaarWeekNaam\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"requireSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"ordinal\":6},{\"name\":\"Filter7ee4755c35c44c9b029f\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Project\"}},\"Property\":\"Projectnaam\"}},\"type\":\"Categorical\",\"howCreated\":5,\"ordinal\":7},{\"name\":\"Filter6c2a1fb3172a0e83e2a7\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Medewerkers\"}},\"Property\":\"Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Medewerkers\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Peter de Leeuw'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":5,\"objects\":{},\"ordinal\":8},{\"name\":\"Filter088e886f1f0f99840c78\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"JaarWeekNaamKort\"}},\"type\":\"Categorical\",\"howCreated\":5,\"ordinal\":9},{\"name\":\"Filtera26b4153f1b79b8a77d0\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Task\"}},\"Property\":\"Taaknaam\"}},\"type\":\"Categorical\",\"howCreated\":5,\"ordinal\":10}]",
+      "height": 720.00,
+      "name": "ReportSectionbb48525126d566739558",
+      "ordinal": 4,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"0b1bd965f43eb5f4523e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":209.27756653992395,\"z\":9000,\"width\":1264.425855513308,\"height\":464.3041825095057,\"tabOrder\":11000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"DimDatum.Datum\"},{\"queryRef\":\"Medewerkers.Name\"},{\"queryRef\":\"Klient Project.Projectnaam\"},{\"queryRef\":\"Klient Task.Taaknaam\"},{\"queryRef\":\"Meetwaarden Timesheets.Geboekte uren\"},{\"queryRef\":\"Meetwaarden Timesheets.Geboekte uren (facturabel)\"},{\"queryRef\":\"Timesheet Split.Krow__Time_Comments__c\"},{\"queryRef\":\"Timesheet Split.Krow__Approval_Status__c\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0},{\"Name\":\"k\",\"Entity\":\"Klient Task\",\"Type\":0},{\"Name\":\"m1\",\"Entity\":\"Meetwaarden Timesheets\",\"Type\":0},{\"Name\":\"t\",\"Entity\":\"Timesheet Split\",\"Type\":0},{\"Name\":\"k1\",\"Entity\":\"Klient Project\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"Medewerkers\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Datum\"},\"Name\":\"DimDatum.Datum\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Taaknaam\"},\"Name\":\"Klient Task.Taaknaam\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Geboekte uren\"},\"Name\":\"Meetwaarden Timesheets.Geboekte uren\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Timesheet - notitie\"},\"Name\":\"Timesheet Split.Krow__Time_Comments__c\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k1\"}},\"Property\":\"Projectnaam\"},\"Name\":\"Klient Project.Projectnaam\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Geboekte uren (facturabel)\"},\"Name\":\"Meetwaarden Timesheets.Geboekte uren (facturabel)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Name\"},\"Name\":\"Medewerkers.Name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Krow__Approval_Status__c\"},\"Name\":\"Timesheet Split.Krow__Approval_Status__c\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Name\"}}}]},\"columnProperties\":{\"Meetwaarden Timesheets.Geboekte uren\":{\"displayName\":\"# Uren\"},\"Meetwaarden Timesheets.Geboekte uren (facturabel)\":{\"displayName\":\"# Uren fact.\"}},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 464.30,
+          "width": 1264.42,
+          "x": 0.00,
+          "y": 209.27,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"260280b0b8228dffa579\",\"layouts\":[{\"id\":0,\"position\":{\"x\":64,\"y\":0,\"z\":8000,\"width\":400,\"height\":64,\"tabOrder\":10000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Urenverantwoording\",\"textStyle\":{\"fontSize\":\"28pt\",\"color\":\"#2d3e4f\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 64.00,
+          "width": 400.00,
+          "x": 64.00,
+          "y": 0.00,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"32f153a07284aa1e41a6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":230.5,\"y\":80,\"z\":6000,\"width\":250,\"height\":112,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Meetwaarden Timesheets.Geboekte uren\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m1\",\"Entity\":\"Meetwaarden Timesheets\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Geboekte uren\"},\"Name\":\"Meetwaarden Timesheets.Geboekte uren\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Geboekte uren\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Geboekte uren'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 112.00,
+          "width": 250.00,
+          "x": 230.50,
+          "y": 80.00,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"3fd7ec9c5749e2e60c28\",\"layouts\":[{\"id\":0,\"position\":{\"x\":495,\"y\":80,\"z\":7000,\"width\":250,\"height\":112,\"tabOrder\":9000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Meetwaarden Timesheets.Indirect\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m1\",\"Entity\":\"Meetwaarden Timesheets\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Indirect\"},\"Name\":\"Meetwaarden Timesheets.Indirect\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Indirect\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Indirect'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 112.00,
+          "width": 250.00,
+          "x": 495.00,
+          "y": 80.00,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"a01c75c23fd92ee992a6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":688,\"z\":4000,\"width\":1280,\"height\":32,\"tabOrder\":6000}}],\"singleVisualGroup\":{\"displayName\":\"Groep 1\",\"groupMode\":0,\"objects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "height": 32.00,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 688.00,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"a0b6184a61aca38e5a23\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1029.0350338045482,\"y\":0,\"z\":1000,\"width\":245.45789797172714,\"height\":59.79102642901045,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Growteq_logo028109709143694817.png\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 59.79,
+          "width": 245.45,
+          "x": 1029.03,
+          "y": 0.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"a73b637e54e27b4aaff0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":48.14159292035398,\"z\":0,\"width\":1280,\"height\":24.07079646017699,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"rotation\":[{\"properties\":{\"angle\":{\"expr\":{\"Literal\":{\"Value\":\"90D\"}}}}}],\"line\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 24.07,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 48.14,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"ad8c91cd8e4a4b271a8c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":5.507068223724647,\"y\":2.7219109004510686,\"z\":2000,\"width\":239.95082974800246,\"height\":29.108789182544562,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"GROWTEQ 2021 - All rights reserved\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontFamily\":\"Segoe UI Light\",\"color\":\"#ffffff\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"parentGroupName\":\"a01c75c23fd92ee992a6\"}",
+          "filters": "[]",
+          "height": 29.10,
+          "width": 239.95,
+          "x": 5.50,
+          "y": 2.72,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"b91e216f48c4c7ec49e8\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":2000,\"width\":37,\"height\":36.861051115910726,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Huis08082008464771318.png\"}}}}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'PageNavigation'\"}}},\"navigationSection\":{\"expr\":{\"Literal\":{\"Value\":\"'ReportSection'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 36.86,
+          "width": 37.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"cc563093dd2e009dc00e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":1280,\"height\":32,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}],\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2F394F'\"}}}}}}}],\"line\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}}}}]}},\"parentGroupName\":\"a01c75c23fd92ee992a6\"}",
+          "filters": "[]",
+          "height": 32.00,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"d0768ec8508c66bcf0a1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":3.8208955223880596,\"y\":30.567164179104477,\"z\":3000,\"width\":30.567164179104477,\"height\":30.567164179104477,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'back'\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}},\"lineWeight\":{\"expr\":{\"Literal\":{\"Value\":\"2L\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Back'\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 30.56,
+          "width": 30.56,
+          "x": 3.82,
+          "y": 30.56,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"d82025f04f049bc9fcd6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":920.2366863905324,\"y\":127.49506903353057,\"z\":11000,\"width\":316.8441814595661,\"height\":64.37869822485207,\"tabOrder\":13000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Min(DimDatum.JaarWeekNaam)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"JaarWeekNaam\"}},\"Function\":3},\"Name\":\"Min(DimDatum.JaarWeekNaam)\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"24D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 64.37,
+          "width": 316.84,
+          "x": 920.23,
+          "y": 127.49,
+          "z": 11000.00
+        },
+        {
+          "config": "{\"name\":\"dcf01446de67af325e87\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1015.6607252612171,\"y\":2.1044867854947986,\"z\":1000,\"width\":128.2360172095882,\"height\":29.895513214505225,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"\"}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"parentGroupName\":\"a01c75c23fd92ee992a6\"}",
+          "filters": "[]",
+          "height": 29.89,
+          "width": 128.23,
+          "x": 1015.66,
+          "y": 2.10,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"ff10723dd2d17a062f29\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":80,\"z\":5000,\"width\":200,\"height\":112,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Meetwaarden Timesheets.Geboekte uren (facturabel)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m1\",\"Entity\":\"Meetwaarden Timesheets\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Geboekte uren (facturabel)\"},\"Name\":\"Meetwaarden Timesheets.Geboekte uren (facturabel)\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Geboekte uren (facturabel)\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Facturabele uren'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 112.00,
+          "width": 200.00,
+          "x": 16.00,
+          "y": 80.00,
+          "z": 5000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"visibility\":1}",
+      "displayName": "Geboekte uren per medewerker",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filterdca6597dbc2fc84a2d5f\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"Jaar\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Jaar\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"2022L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"name\":\"Filter54e0ab081a611644e495\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Team\"}},\"Property\":\"Teamnaam\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Team\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Teamnaam\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'BI'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "ReportSectionbf78991c3f8d3e64391a",
+      "ordinal": 9,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"451281a5538842177b8e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":961,\"y\":0,\"width\":319,\"height\":677,\"z\":2000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"DimDatum.MaandNaamKort\"},{\"queryRef\":\"Meetwaarden Timesheets.Geboekte uren\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"Meetwaarden Timesheets\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"MaandNaamKort\"},\"Name\":\"DimDatum.MaandNaamKort\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Geboekte uren\"},\"Name\":\"Meetwaarden Timesheets.Geboekte uren\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 677.00,
+          "width": 319.00,
+          "x": 961.00,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"9602acb271f4c8a2fd0e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":8.88888888888889,\"y\":0,\"z\":0,\"width\":465.77777777777777,\"height\":677.3333333333334}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"DimDatum.Jaar\"},{\"queryRef\":\"Medewerkers.Name\"},{\"queryRef\":\"DimDatum.MaandNaamKort\"},{\"queryRef\":\"Meetwaarden Timesheets.Geboekte uren\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"Medewerkers\",\"Type\":0},{\"Name\":\"m1\",\"Entity\":\"Meetwaarden Timesheets\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Jaar\"},\"Name\":\"DimDatum.Jaar\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"MaandNaamKort\"},\"Name\":\"DimDatum.MaandNaamKort\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Name\"},\"Name\":\"Medewerkers.Name\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Geboekte uren\"},\"Name\":\"Meetwaarden Timesheets.Geboekte uren\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Name\"}}}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 677.33,
+          "width": 465.77,
+          "x": 8.88,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"fb7d1ab782ffa08efef8\",\"layouts\":[{\"id\":0,\"position\":{\"x\":485,\"y\":0,\"width\":466,\"height\":677,\"z\":1000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Medewerkers.Name\"},{\"queryRef\":\"DimDatum.JaarWeekNaam\"},{\"queryRef\":\"Meetwaarden Timesheets.Geboekte uren\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"Medewerkers\",\"Type\":0},{\"Name\":\"m1\",\"Entity\":\"Meetwaarden Timesheets\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"JaarWeekNaam\"},\"Name\":\"DimDatum.JaarWeekNaam\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Name\"},\"Name\":\"Medewerkers.Name\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Geboekte uren\"},\"Name\":\"Meetwaarden Timesheets.Geboekte uren\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Name\"}}}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 677.00,
+          "width": 466.00,
+          "x": 485.00,
+          "y": 0.00,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"objects\":{\"outspacePane\":[{\"properties\":{\"width\":{\"expr\":{\"Literal\":{\"Value\":\"201L\"}}}}}]}}",
+      "displayName": "Urendetails - Project",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter7ee4755c35c44c9b029f\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Project\"}},\"Property\":\"Projectnaam\"}},\"type\":\"Categorical\",\"howCreated\":5},{\"name\":\"Filter6c2a1fb3172a0e83e2a7\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Medewerkers\"}},\"Property\":\"Name\"}},\"type\":\"Categorical\",\"howCreated\":5},{\"name\":\"Filter088e886f1f0f99840c78\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"DimDatum\"}},\"Property\":\"JaarWeekNaamKort\"}},\"type\":\"Categorical\",\"howCreated\":5},{\"name\":\"Filtera26b4153f1b79b8a77d0\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Klient Task\"}},\"Property\":\"Taaknaam\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"Klient Task\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Taaknaam\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'DWH - staging'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":5}]",
+      "height": 720.00,
+      "name": "ReportSectionef6f7d555322c06ffba7",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"0b1bd965f43eb5f4523e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":208,\"z\":12000,\"width\":1264,\"height\":464,\"tabOrder\":14000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"DimDatum.Datum\"},{\"queryRef\":\"Medewerkers.Medewerkernaam\"},{\"queryRef\":\"Klient Task.Taaknaam\"},{\"queryRef\":\"Meetwaarden Timesheets.Geboekte uren\"},{\"queryRef\":\"Meetwaarden Timesheets.Geboekte uren (facturabel)\"},{\"queryRef\":\"Timesheet Split.Krow__Time_Comments__c\"},{\"queryRef\":\"Timesheet Split.Krow__Invoiced__c\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DimDatum\",\"Type\":0},{\"Name\":\"k\",\"Entity\":\"Klient Task\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"Medewerkers\",\"Type\":0},{\"Name\":\"m1\",\"Entity\":\"Meetwaarden Timesheets\",\"Type\":0},{\"Name\":\"t\",\"Entity\":\"Timesheet Split\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Datum\"},\"Name\":\"DimDatum.Datum\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Taaknaam\"},\"Name\":\"Klient Task.Taaknaam\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Name\"},\"Name\":\"Medewerkers.Medewerkernaam\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Geboekte uren\"},\"Name\":\"Meetwaarden Timesheets.Geboekte uren\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Timesheet - notitie\"},\"Name\":\"Timesheet Split.Krow__Time_Comments__c\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m1\"}},\"Property\":\"Geboekte uren (facturabel)\"},\"Name\":\"Meetwaarden Timesheets.Geboekte uren (facturabel)\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Krow__Invoiced__c\"},\"Name\":\"Timesheet Split.Krow__Invoiced__c\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Datum\"}}}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 464.00,
+          "width": 1264.00,
+          "x": 16.00,
+          "y": 208.00,
+          "z": 12000.00
+        },
+        {
+          "config": "{\"name\":\"260280b0b8228dffa579\",\"layouts\":[{\"id\":0,\"position\":{\"x\":64,\"y\":0,\"z\":11000,\"width\":400,\"height\":64,\"tabOrder\":13000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Urenverantwoording\",\"textStyle\":{\"fontSize\":\"28pt\",\"color\":\"#2d3e4f\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 64.00,
+          "width": 400.00,
+          "x": 64.00,
+          "y": 0.00,
+          "z": 11000.00
+        },
+        {
+          "config": "{\"name\":\"32f153a07284aa1e41a6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":230.5,\"y\":80,\"z\":7000,\"width\":250,\"height\":112,\"tabOrder\":9000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Meetwaarden Taken.Geboekte uren declarabel\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Meetwaarden Taken\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Geboekte uren declarabel\"},\"Name\":\"Meetwaarden Taken.Geboekte uren declarabel\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Geboekte uren declarabel\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Geboekt (decl)'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 112.00,
+          "width": 250.00,
+          "x": 230.50,
+          "y": 80.00,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"3fd7ec9c5749e2e60c28\",\"layouts\":[{\"id\":0,\"position\":{\"x\":495,\"y\":80,\"z\":8000,\"width\":250,\"height\":112,\"tabOrder\":10000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Meetwaarden Taken.Urenschatting vs realisatie\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Meetwaarden Taken\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Urenschatting vs realisatie\"},\"Name\":\"Meetwaarden Taken.Urenschatting vs realisatie\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Urenschatting vs realisatie\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Ruimte'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 112.00,
+          "width": 250.00,
+          "x": 495.00,
+          "y": 80.00,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"82934608fd4c3ad03cf9\",\"layouts\":[{\"id\":0,\"position\":{\"x\":456,\"y\":0,\"z\":5000,\"width\":472,\"height\":56,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Min(Klient Project.Name)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"Klient Project\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Projectnaam\"}},\"Function\":3},\"Name\":\"Min(Klient Project.Name)\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"30D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 56.00,
+          "width": 472.00,
+          "x": 456.00,
+          "y": 0.00,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"a01c75c23fd92ee992a6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":688,\"z\":4000,\"width\":1280,\"height\":32,\"tabOrder\":6000}}],\"singleVisualGroup\":{\"displayName\":\"Groep 1\",\"groupMode\":0,\"objects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "height": 32.00,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 688.00,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"a0b6184a61aca38e5a23\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1029.0350338045482,\"y\":0,\"z\":1000,\"width\":245.45789797172714,\"height\":59.79102642901045,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Growteq_logo028109709143694817.png\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 59.79,
+          "width": 245.45,
+          "x": 1029.03,
+          "y": 0.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"a73b637e54e27b4aaff0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":48.14159292035398,\"z\":0,\"width\":1280,\"height\":24.07079646017699,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'line'\"}}}}}],\"rotation\":[{\"properties\":{\"angle\":{\"expr\":{\"Literal\":{\"Value\":\"90D\"}}}}}],\"line\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 24.07,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 48.14,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"ad8c91cd8e4a4b271a8c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":5.507068223724647,\"y\":2.7219109004510686,\"z\":2000,\"width\":239.95082974800246,\"height\":29.108789182544562,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"GROWTEQ 2021 - All rights reserved\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontFamily\":\"Segoe UI Light\",\"color\":\"#ffffff\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"parentGroupName\":\"a01c75c23fd92ee992a6\"}",
+          "filters": "[]",
+          "height": 29.10,
+          "width": 239.95,
+          "x": 5.50,
+          "y": 2.72,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"b91e216f48c4c7ec49e8\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":2000,\"width\":37,\"height\":36.861051115910726,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"image\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"imageUrl\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Huis08082008464771318.png\"}}}}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'PageNavigation'\"}}},\"navigationSection\":{\"expr\":{\"Literal\":{\"Value\":\"'ReportSection'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 36.86,
+          "width": 37.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"cc563093dd2e009dc00e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":1280,\"height\":32,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"basicShape\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}}}],\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2F394F'\"}}}}}}}],\"line\":[{\"properties\":{\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}},\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}}}}]}},\"parentGroupName\":\"a01c75c23fd92ee992a6\"}",
+          "filters": "[]",
+          "height": 32.00,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"d0768ec8508c66bcf0a1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":3.8208955223880596,\"y\":30.567164179104477,\"z\":3000,\"width\":30.567164179104477,\"height\":30.567164179104477,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'back'\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2D3E4F'\"}}}}},\"lineWeight\":{\"expr\":{\"Literal\":{\"Value\":\"2L\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Back'\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 30.56,
+          "width": 30.56,
+          "x": 3.82,
+          "y": 30.56,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"dcf01446de67af325e87\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1015.6607252612171,\"y\":2.1044867854947986,\"z\":1000,\"width\":128.2360172095882,\"height\":29.895513214505225,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"\"}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"parentGroupName\":\"a01c75c23fd92ee992a6\"}",
+          "filters": "[]",
+          "height": 29.89,
+          "width": 128.23,
+          "x": 1015.66,
+          "y": 2.10,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"ff10723dd2d17a062f29\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":80,\"z\":6000,\"width\":200,\"height\":112,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Meetwaarden Taken.Geschatte uren\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Meetwaarden Taken\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Geschatte uren\"},\"Name\":\"Meetwaarden Taken.Geschatte uren\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Geschatte uren\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Geschatte uren'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 112.00,
+          "width": 200.00,
+          "x": 16.00,
+          "y": 80.00,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"ff5151409933f50eea48\",\"layouts\":[{\"id\":0,\"position\":{\"x\":759.5,\"y\":80,\"z\":10000,\"width\":250,\"height\":112,\"tabOrder\":12000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Meetwaarden Taken.Geboekte uren per taak\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Meetwaarden Taken\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Geboekte uren per taak\"},\"Name\":\"Meetwaarden Taken.Geboekte uren per taak\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Geboekte uren per taak\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"8D\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Totaal geboekt'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 112.00,
+          "width": 250.00,
+          "x": 759.50,
+          "y": 80.00,
+          "z": 10000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

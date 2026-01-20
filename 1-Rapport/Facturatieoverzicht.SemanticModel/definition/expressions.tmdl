@@ -1,0 +1,13 @@
+expression DimTeam =
+		let
+		    Source = Sql.Database("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com", "Operationeel Dashboard"),
+		    s3_ods_Team = Source{[Schema="s3_ods",Item="DimTeam"]}[Data]
+		in
+		    s3_ods_Team
+	lineageTag: 8d892ace-7e61-4518-9fbf-20795d288b84
+	queryGroup: Dim
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

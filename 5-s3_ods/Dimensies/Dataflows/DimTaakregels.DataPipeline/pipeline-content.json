@@ -1,0 +1,82 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy data DimTaakregels",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DataWarehouseSource",
+            "sqlReaderQuery": "WITH TaskData AS (\n    SELECT \n        ROW_NUMBER() OVER (ORDER BY T.[Name]) AS TaakregelKey, -- Unieke primaire sleutel\n        T.[Krow__Account__c],\n        T.[Krow__Status__c] AS TaakStatus,\n        T.[Krow__Task_Type__c] AS TaakType,\n        T.[Name] AS TaakNaam,\n        T.[Krow__Project_Task_Order__c] AS Taakregel,\n        T.Id as TaakregelId,\n        T.[Krow__Billable__c] AS IsFacturabel,\n        NULL AS DirectIndirect,\n        NULL AS Uurtype,\n        T.[Krow__Task_Start_Date__c] AS Begindatum,\n        T.[Krow__Task_Due_Date__c] AS Einddatum,\n        T.[Krow__Completion_Date__c] AS DatumAfgerond,\n        NULL AS IsVooruitbetaald,\n        T.[Krow__Total_Hours_Logged__c] AS TotaalGeschrevenUren,\n        T.[Krow__Estimated_Hours__c] AS TotaalGeschatteUren,\n        T.[Krow__Project_Task_Order__c] AS Taakvolgorde,\n        P.[ProjectKey] AS ProjectKey,\n        K.[KlantKey]\n    FROM [s2_stg_salesforce].[Task] T\n    LEFT JOIN [s3_ods].[DimProjecten] P\n        ON T.[Krow__Project__c] = P.[ProjectId]\n    LEFT JOIN [s3_ods].[DimKlanten] K\n        ON T.[Krow__Account__c] = K.[KlantID]\n)\nSELECT \n    TaakregelKey,\n    TaakregelId,\n    TaakStatus,\n    TaakType,\n    TaakNaam,\n    Taakregel,\n    IsFacturabel,\n    DirectIndirect,\n    Uurtype,\n    Begindatum,\n    Einddatum,\n    DatumAfgerond,\n    IsVooruitbetaald,\n    TotaalGeschrevenUren,\n    TotaalGeschatteUren,\n    Taakvolgorde,\n    ProjectKey,\n    KlantKey\nFROM TaskData;\n",
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "connectionSettings": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  },
+                  "externalReferences": {
+                    "connection": "91f2d362-0f5b-4b3f-aaac-2f31b217f3cb"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {}
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "s3_ods",
+                "table": "DimTaakregels"
+              }
+            }
+          },
+          "enableStaging": true,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      }
+    ]
+  }
+}

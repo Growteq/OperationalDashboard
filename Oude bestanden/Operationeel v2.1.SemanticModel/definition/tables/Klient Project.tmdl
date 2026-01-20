@@ -1,0 +1,270 @@
+table 'Klient Project'
+	lineageTag: 3cf43d4d-d188-4b07-86b6-8884aef5eeab
+
+	column Id
+		dataType: string
+		lineageTag: 6ee3a746-886d-44a1-8f50-9afe9601b82c
+		summarizeBy: none
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Projectnaam
+		dataType: string
+		lineageTag: 65b9262e-0894-40f7-92ce-d31650e1e77f
+		summarizeBy: none
+		sourceColumn: Projectnaam
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Account__c
+		dataType: string
+		lineageTag: 7b991e37-e05d-43ac-95dd-9f37aa7da000
+		summarizeBy: none
+		sourceColumn: Krow__Account__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Actual_Hours__c
+		dataType: double
+		lineageTag: 51c0f89e-f79e-4eff-944d-45d44ddca970
+		summarizeBy: sum
+		sourceColumn: Krow__Actual_Hours__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Archived__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e3e7a1bf-db3a-4604-9b73-d3cccfaca3bd
+		summarizeBy: none
+		sourceColumn: Krow__Archived__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Boolean" />
+
+	column Krow__Billable_Amount_Logged__c
+		dataType: double
+		lineageTag: e68f497f-ef46-4272-a53b-2adcd4d00764
+		summarizeBy: sum
+		sourceColumn: Krow__Billable_Amount_Logged__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Billable_Cost_Amount_Logged__c
+		dataType: double
+		lineageTag: 0ea3b105-d7be-4b38-812e-779b884f59f1
+		summarizeBy: sum
+		sourceColumn: Krow__Billable_Cost_Amount_Logged__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Billable_Hour_Logged__c
+		dataType: double
+		lineageTag: f2a4c309-9e4e-4382-aed6-a6c77434ab2b
+		summarizeBy: sum
+		sourceColumn: Krow__Billable_Hour_Logged__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Billable_Hours__c
+		dataType: double
+		lineageTag: 2947bfa5-b956-4231-a6af-3a040a2d07e5
+		summarizeBy: sum
+		sourceColumn: Krow__Billable_Hours__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Billable__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d5d85a4c-aa38-4e4f-a390-c63d5b84c998
+		summarizeBy: none
+		sourceColumn: Krow__Billable__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Boolean" />
+
+	column Krow__Description__c
+		dataType: string
+		lineageTag: 4d2a19ee-7e8f-41e9-85da-be7191b6ba2c
+		summarizeBy: none
+		sourceColumn: Krow__Description__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Invoiced_Amount__c
+		dataType: double
+		lineageTag: be884ec8-b957-4966-8fe5-3c648dff3061
+		summarizeBy: sum
+		sourceColumn: Krow__Invoiced_Amount__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Invoiced__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 76238704-1b45-423f-9353-f8926e82eb34
+		summarizeBy: none
+		sourceColumn: Krow__Invoiced__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Boolean" />
+
+	column Krow__Non_Billable_Hours__c
+		dataType: double
+		lineageTag: 7da55f7b-b4c8-4ac1-b054-0fde8cc24b3c
+		summarizeBy: sum
+		sourceColumn: Krow__Non_Billable_Hours__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__PO_Number__c
+		dataType: string
+		lineageTag: a2389545-d408-47cd-9be1-44865eb16cc9
+		summarizeBy: none
+		sourceColumn: Krow__PO_Number__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Planned_Hours__c
+		dataType: double
+		lineageTag: f53df729-544b-4422-8efc-fbf46079adc3
+		summarizeBy: sum
+		sourceColumn: Krow__Planned_Hours__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Project_Complete__c
+		dataType: double
+		lineageTag: 52498189-a932-437c-9a50-2077e9b93649
+		summarizeBy: sum
+		sourceColumn: Krow__Project_Complete__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Project_Status__c
+		dataType: string
+		lineageTag: 919ba786-c578-4860-89f7-8ea75147330c
+		summarizeBy: none
+		sourceColumn: Krow__Project_Status__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Task_Scheduled_Hours__c
+		dataType: double
+		lineageTag: 67c21ab0-6926-44b7-9faf-9efaa93dbe71
+		summarizeBy: sum
+		sourceColumn: Krow__Task_Scheduled_Hours__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Total_Billable_Amount__c
+		dataType: double
+		lineageTag: cc988142-8c06-445f-8e09-d44dab45fef5
+		summarizeBy: sum
+		sourceColumn: Krow__Total_Billable_Amount__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Total_Hours_Logged__c
+		dataType: double
+		lineageTag: bbd20dd9-7bfa-4902-a99f-723797222798
+		summarizeBy: sum
+		sourceColumn: Krow__Total_Hours_Logged__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Total_Hours__c
+		dataType: double
+		lineageTag: 01ad023c-da29-4570-a6fc-fe95a358db58
+		summarizeBy: sum
+		sourceColumn: Krow__Total_Hours__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Scheduled_Hours__c
+		dataType: double
+		lineageTag: d16ec508-8ca1-4e3e-8932-d65efc901b86
+		summarizeBy: sum
+		sourceColumn: Krow__Scheduled_Hours__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Estimated_Hours__c
+		dataType: double
+		lineageTag: 8c3cb3c5-330a-4004-879b-10dff84e94df
+		summarizeBy: sum
+		sourceColumn: Krow__Estimated_Hours__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Hours_Remaining_Logged__c
+		dataType: double
+		lineageTag: 81612a3e-46fe-49b0-8eaa-b57277524606
+		summarizeBy: sum
+		sourceColumn: Krow__Hours_Remaining_Logged__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	partition 'Klient Project-5a4fa33b-4844-4616-9e85-8612b6ae07da' = m
+		mode: import
+		source =
+				let
+				    Bron = Salesforce.Data("https://growteq.my.salesforce.com", [ApiVersion=48]),
+				    Krow__Project__c = Bron{[Name="Krow__Project__c"]}[Data],
+				    #"Andere kolommen verwijderd" = Table.SelectColumns(Krow__Project__c,{"Id", "Name", "Krow__Account__c", "Krow__Actual_Billed__c", "Krow__Actual_Cost__c", "Krow__Actual_Hours__c", "Krow__Archived__c", "Krow__Billable_Amount_Logged__c", "Krow__Billable_Cost_Amount_Logged__c", "Krow__Billable_Hour_Logged__c", "Krow__Billable_Hours__c", "Krow__Billable__c", "Krow__Billing_Type__c", "Krow__Bottom_Up_Planning__c", "Krow__Color__c", "Krow__Completion_Date__c", "Krow__Completion_Method__c", "Krow__Contact__c", "Krow__Create_Contract__c", "Krow__Create_Project_in_JIRA__c", "Krow__Currency__c", "Krow__Default_Duration_Scale__c", "Krow__Default_Scheduling_Mode__c", "Krow__Deferred_Revenue__c", "Krow__Description__c", "Krow__Est_vs_Sch_Hours__c", "Krow__Estimated_Cost_at_Completion__c", "Krow__Estimated_Hours_To_Complete__c", "Krow__Estimated_Hours__c", "Krow__Estimated_Hours_at_Completion__c", "Krow__Estimated_Project_Hours__c", "Krow__Estimated_Revenue_At_Completion__c", "Krow__Expected_Revenue__c", "Krow__Expense_Budget__c", "Krow__Expense_Cost__c", "Krow__External_Project_ID__c", "Krow__Global_Project__c", "Krow__Hours_Completion_Percent__c", "Krow__Hours_Remaining_Estimated__c", "Krow__Hours_Remaining_Logged__c", "Krow__HubSpotDealId__c", "Krow__Include_Weekend__c", "Krow__Include_in_Rev_Rec__c", "Krow__Include_in_Utilization__c", "Krow__Intacct_Parent_Project_Id__c", "Krow__Intacct_Project_Id__c", "Krow__Intacct_Record_Number__c", "Krow__Invoice_Language__c", "Krow__Invoiced_Amount__c", "Krow__Invoiced__c", "Krow__JIRA_Project_Id__c", "Krow__Load_in_gantt__c", "Krow__Margin_Logged__c", "Krow__Margin_Percent_Logged__c", "Krow__Margin_Percent__c", "Krow__Margin__c", "Krow__Milestone_Amounts__c", "Krow__Milestone_Cost_Amount__c", "Krow__Non_Billable_Hours__c", "Krow__Note__c", "Krow__Organization__c", "Krow__PO_Number__c", "Krow__Parent_Project__c", "Krow__PipeDriveDealId__c", "Krow__Planned_Hours__c", "Krow__Practice__c", "Krow__Primary_Contact__c", "Krow__Project_Budget__c", "Krow__Project_Complete__c", "Krow__Project_End_Date__c", "Krow__Project_Health__c", "Krow__Project_Number__c", "Krow__Project_Start_Date__c", "Krow__Project_Status_Report__c", "Krow__Project_Status__c", "Krow__Project_Template__c", "Krow__Project_Type__c", "Krow__Public_Project_Template__c", "Krow__Rate_Card__c", "Krow__Recognized_To_Date__c", "Krow__Resource_Manager__c", "Krow__Resource_Owner__c", "Krow__Revenue_Backlog__c", "Krow__Rollup_Task_Budgets__c", "Krow__Sage_Message__c", "Krow__Sage_Project_Tag_Id__c", "Krow__Send_to_Intacct__c", "Krow__Send_to_Sage_Live__c", "Krow__Shipping_Contact__c", "Krow__Slack_Channel_Id__c", "Krow__Sub_Status__c", "Krow__Sync_Dates__c", "Krow__Sync_Project_Task_Schedules__c", "Krow__Sync_Result__c", "Krow__Task_Scheduled_Hours__c", "Krow__Task_Template__c", "Krow__Total_Billable_Amount__c", "Krow__Total_Cost_Amount__c", "Krow__Total_Hours_Logged__c", "Krow__Total_Hours__c", "Krow__Total_Non_Billable_Amount__c", "Krow__Zendesksell_Deal_Id__c", "Krow__Baseline_Cost__c", "Krow__Baseline_Revenue__c", "Krow__Scheduled_Hours__c", "Krow__Total_Planned_Hours__c", "Krow__Template_Project__c", "Krow__Accounting_seed_Id__c", "Krow__Close_Time_Entry__c", "Krow__External_Site__c", "Krow__Schedule_Resource__c", "Krow__Send_to_AccountingSeed__c", "Krow__Sync_Message__c", "Krow__Exclude_from_Planner__c"}),
+				    #"Andere kolommen verwijderd1" = Table.SelectColumns(#"Andere kolommen verwijderd",{"Id", "Name", "Krow__Account__c", "Krow__Actual_Hours__c", "Krow__Archived__c", "Krow__Billable_Amount_Logged__c", "Krow__Billable_Cost_Amount_Logged__c", "Krow__Billable_Hour_Logged__c", "Krow__Billable_Hours__c", "Krow__Billable__c", "Krow__Description__c", "Krow__Estimated_Hours__c", "Krow__Hours_Remaining_Logged__c", "Krow__Invoiced_Amount__c", "Krow__Invoiced__c", "Krow__Non_Billable_Hours__c", "Krow__PO_Number__c", "Krow__Planned_Hours__c", "Krow__Project_Complete__c", "Krow__Project_Status__c", "Krow__Task_Scheduled_Hours__c", "Krow__Total_Billable_Amount__c", "Krow__Total_Hours_Logged__c", "Krow__Total_Hours__c", "Krow__Scheduled_Hours__c"}),
+				    #"Namen van kolommen gewijzigd" = Table.RenameColumns(#"Andere kolommen verwijderd1",{{"Name", "Projectnaam"}})
+				in
+				    #"Namen van kolommen gewijzigd"
+
+	annotation PBI_ResultType = Table
+

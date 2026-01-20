@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "DimTaakregels"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "62e7461f-2b85-b75e-415d-39832f0fea26"
+  }
+}

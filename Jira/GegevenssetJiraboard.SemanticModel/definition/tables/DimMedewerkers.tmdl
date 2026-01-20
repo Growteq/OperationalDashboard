@@ -1,0 +1,163 @@
+table DimMedewerkers
+	lineageTag: 3c07fb02-c9eb-494f-a151-c2fa71704b7b
+
+	column MedewerkerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: eb4d5904-df06-42ce-9c61-5f73ea564fe5
+		summarizeBy: none
+		sourceColumn: MedewerkerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TeamKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 79e6cbb0-08c1-4011-a400-e646836c75a4
+		summarizeBy: count
+		sourceColumn: TeamKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column MedewerkerId
+		dataType: string
+		lineageTag: 63e9dcb0-a941-4986-ad7b-b808f3442557
+		summarizeBy: none
+		sourceColumn: MedewerkerId
+
+		annotation SummarizationSetBy = Automatic
+
+	column MedewerkerIdSF
+		dataType: string
+		lineageTag: c1ee3a22-1362-4fed-817b-8200a1c5212f
+		summarizeBy: none
+		sourceColumn: MedewerkerIdSF
+
+		annotation SummarizationSetBy = Automatic
+
+	column MedewerkerCode
+		dataType: string
+		lineageTag: 593e8c05-dd22-4e49-9c0b-fbb02a241987
+		summarizeBy: none
+		sourceColumn: MedewerkerCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Medewerker
+		dataType: string
+		lineageTag: 8244b3c7-a071-466c-b626-0fa9b4d2990e
+		summarizeBy: none
+		sourceColumn: Medewerker
+
+		annotation SummarizationSetBy = Automatic
+
+	column DatumInDienst
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2175f9bc-4dd2-4020-86ee-31c7f7f203c2
+		summarizeBy: none
+		sourceColumn: DatumInDienst
+
+		variation Variation
+			isDefault
+			relationship: 3b657d49-38f2-4d16-99a4-829a6f461462
+			defaultHierarchy: LocalDateTable_2ab9a47c-f4e2-4d26-b9f6-b286f96715c2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DatumUitDienst
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: fae97664-8880-4fc1-9a80-7d82d9681094
+		summarizeBy: none
+		sourceColumn: DatumUitDienst
+
+		variation Variation
+			isDefault
+			relationship: 86ba205c-fb17-4546-834c-7cea4cdbf3ab
+			defaultHierarchy: LocalDateTable_c6536288-781a-4fe6-9419-e73e0addad0c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column IsExterneMedewerker
+		dataType: int64
+		formatString: 0
+		lineageTag: 4542e770-a83e-4c27-9d0e-47ffda03f070
+		summarizeBy: sum
+		sourceColumn: IsExterneMedewerker
+
+		annotation SummarizationSetBy = Automatic
+
+	column Leverancier
+		dataType: string
+		lineageTag: 92f372d2-bd41-442c-8650-06d1d8c9a405
+		summarizeBy: none
+		sourceColumn: Leverancier
+
+		annotation SummarizationSetBy = Automatic
+
+	column Uurtarief
+		dataType: double
+		lineageTag: 2f7d18c9-c688-460f-b538-9c333d56b2e3
+		summarizeBy: sum
+		sourceColumn: Uurtarief
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column KostenPerUur
+		dataType: double
+		lineageTag: 27546b95-cba4-4862-ae8f-6c328cf9e2c0
+		summarizeBy: sum
+		sourceColumn: KostenPerUur
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MedewerkerTevredenheid
+		dataType: double
+		lineageTag: 30152890-6cb7-4b00-b95e-57e5a02be360
+		summarizeBy: sum
+		sourceColumn: MedewerkerTevredenheid
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Team
+		dataType: string
+		lineageTag: 70950a3c-57fb-44d2-8354-ccba91590c51
+		summarizeBy: none
+		sourceColumn: Team
+
+		annotation SummarizationSetBy = Automatic
+
+	column Practice
+		dataType: string
+		lineageTag: 402054c1-f172-495a-9298-07162d8a6d3a
+		summarizeBy: none
+		sourceColumn: Practice
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimMedewerkers = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com"),
+				    #"Operationeel Dashboard" = Source{[Name="Operationeel Dashboard"]}[Data],
+				    s4_inf_DimMedewerkers = #"Operationeel Dashboard"{[Schema="s4_inf",Item="DimMedewerkers"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(s4_inf_DimMedewerkers, each ([Medewerker] <> "(P) Salesforce Consultant" and [Medewerker] <> "(P) Salesforce Developer"))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

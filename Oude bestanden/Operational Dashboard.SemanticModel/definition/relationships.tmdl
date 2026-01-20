@@ -1,0 +1,215 @@
+relationship 408d5a05-d5c2-48a3-92fc-6ab53bd75e3f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FeitFormatieBezetting.Begindatum_rooster
+	toColumn: LocalDateTable_547b1bd8-7c3f-45a0-9184-0751886cf833.Date
+
+relationship ac4dd547-20c9-425b-9a6d-8ea6da617703
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FeitFormatieBezetting.Einddatum_rooster
+	toColumn: LocalDateTable_77a4d8a0-2b4f-45f6-bea0-88876968b503.Date
+
+relationship 31c00652-e4df-4687-aec3-30577cb822ca
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FeitMedewerkerSkills.CreatedDate
+	toColumn: LocalDateTable_de6d3b3f-068f-4551-89e6-39d004dd627d.Date
+
+relationship 9909f235-ebd1-46b4-bee4-9d1062849c1a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimProjecten.Einddatum
+	toColumn: LocalDateTable_e0e09a36-b2e1-4471-81d9-5eaa40825dcd.Date
+
+relationship 8594dba7-f540-4f6c-aa3c-378800e2c236
+	joinOnDateBehavior: datePartOnly
+	fromColumn: FeitRoosterUren.Begindatum_rooster
+	toColumn: LocalDateTable_eeff1009-26d1-47ab-be74-8e1ceb8ceefa.Date
+
+relationship 41a28d79-792a-4b1f-9efb-04872413d33a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimTaakregels.DatumAfgerond
+	toColumn: LocalDateTable_40e283a3-b7e7-4ae0-83da-debead9d2cda.Date
+
+relationship 19d3cce6-3ab5-6a8f-4cf3-f475992560b8
+	fromColumn: FeitFactuurregels.MedewerkerKey
+	toColumn: DimMedewerkers.MedewerkerKey
+
+relationship a0175413-4691-4c68-7c8b-2bcbcf5441bd
+	fromColumn: FeitFactuurregels.Projectkey
+	toColumn: DimProjecten.ProjectKey
+
+relationship 176b4da4-714d-eef2-b8f7-302c1fc3e379
+	isActive: false
+	fromColumn: FeitFormatieBezetting.Datum_in_dienst
+	toColumn: DimDatum.Datum
+
+relationship c853a8f8-f954-eeab-6713-8518eb226305
+	isActive: false
+	fromColumn: FeitFormatieBezetting.Datum_uit_dienst
+	toColumn: DimDatum.Datum
+
+relationship 6e1e8443-0195-f949-ac82-57c861c7d56b
+	isActive: false
+	fromColumn: FeitFormatieBezetting.PracticeKey
+	toColumn: DimPractice.PracticeKey
+
+relationship a23e4451-d45c-e756-3464-396907e946d4
+	fromColumn: FeitFormatieBezetting.TeamKey
+	toColumn: DimTeam.TeamKey
+
+relationship 380dca9b-5f85-8761-564f-aa2ad500132a
+	fromColumn: FeitGeplandeUren.MedewerkerKey
+	toColumn: DimMedewerkers.MedewerkerKey
+
+relationship f0344650-906e-7900-8d84-90c100318950
+	fromColumn: FeitGeplandeUren.ProjectKey
+	toColumn: DimProjecten.ProjectKey
+
+relationship 519f0455-f967-0072-2aa3-a5f695d7c889
+	fromColumn: FeitGeplandeUren.StartDatum
+	toColumn: DimDatum.Datum
+
+relationship 5e2bd948-fad1-ab2f-03f9-5c761f6662a6
+	fromColumn: FeitGeschrevenUren.Datum
+	toColumn: DimDatum.Datum
+
+relationship 0353f596-9abf-f6e0-88fe-4df5836055a1
+	fromColumn: FeitGeschrevenUren.MedewerkerKey
+	toColumn: DimMedewerkers.MedewerkerKey
+
+relationship 9b6a49a8-2033-dca5-74bf-8c64dedffba9
+	fromColumn: FeitGeschrevenUren.ProjectKey
+	toColumn: DimProjecten.ProjectKey
+
+relationship 8f39b712-8211-c699-91df-4cbc63a8cbe6
+	fromColumn: FeitGeschrevenUren.TaakregelKey
+	toColumn: DimTaakregels.TaakregelKey
+
+relationship c22b1dcb-b567-4b72-57af-e881228b22b4
+	isActive: false
+	fromColumn: FeitInUitStroom.DatumInstroom
+	toColumn: DimDatum.Datum
+
+relationship 7186542a-e664-4260-d528-22867aae0bbd
+	isActive: false
+	fromColumn: FeitInUitStroom.DatumUitstroom
+	toColumn: DimDatum.Datum
+
+relationship 853885cc-43f2-c2ee-fc4b-7e257cd8c302
+	fromColumn: FeitInUitStroom.MedewerkerKey
+	toColumn: DimMedewerkers.MedewerkerKey
+
+relationship 3b355d6d-681a-82d9-fa42-b7587db48de0
+	isActive: false
+	fromColumn: DimMedewerkers.DatumIndienst
+	toColumn: DimDatum.Datum
+
+relationship 88ec4822-21e2-ccdd-f089-dc66edc07761
+	isActive: false
+	fromColumn: DimMedewerkers.DatumUitdienst
+	toColumn: DimDatum.Datum
+
+relationship 5e4590bf-6483-f5f4-8521-da5b04a2621a
+	fromColumn: DimMedewerkers.TeamKey
+	toColumn: DimTeam.TeamKey
+
+relationship 9e3437ee-c608-1781-d6a8-151d568af7c9
+	fromColumn: FeitMedewerkerSkills.CertificationDate
+	toColumn: DimDatum.Datum
+
+relationship 1e8644c4-95b0-a79a-833c-4a43d38532c3
+	fromColumn: FeitMedewerkerSkills.MedewerkerKey
+	toColumn: DimMedewerkers.MedewerkerKey
+
+relationship e271836e-3f9d-020a-9061-6c11639b850d
+	fromColumn: FeitMedewerkerSkills.SkillKey
+	toColumn: DimSkills.SkillKey
+
+relationship aa306541-fd36-af2f-5296-6fb7a114d6b8
+	isActive: false
+	fromColumn: DimProjecten.DatumAfgerond
+	toColumn: DimDatum.Datum
+
+relationship ebffa34f-abdc-0a90-9260-988245c2e0c3
+	fromColumn: DimProjecten.KlantKey
+	toColumn: DimKlanten.KlantKey
+
+relationship 28614352-7cb7-db08-41a5-f682eb346d31
+	isActive: false
+	fromColumn: DimProjecten.PracticeKey
+	toColumn: DimPractice.PracticeKey
+
+relationship dd03422b-fb20-a6ab-be81-1aef56f07171
+	isActive: false
+	fromColumn: DimProjecten.Startdatum
+	toColumn: DimDatum.Datum
+
+relationship 66ce9397-eea7-2c06-10e4-202a3ef077d4
+	fromColumn: FeitRoosterUren.MedewerkerKey
+	toColumn: DimMedewerkers.MedewerkerKey
+
+relationship 4726819b-3a5f-df60-8ebb-4e88925420f5
+	isActive: false
+	fromColumn: DimTaakregels.ProjectKey
+	toColumn: DimProjecten.ProjectKey
+
+relationship 2166851e-0605-fd2e-290e-22ba62b68053
+	fromColumn: DimTeam.PracticeKey
+	toColumn: DimPractice.PracticeKey
+
+relationship 5d897618-215d-ea6f-172a-82141cc2f0d9
+	isActive: false
+	fromColumn: FeitVerlofAanvragen.DatumAangevraagd
+	toColumn: DimDatum.Datum
+
+relationship 667ef17a-1d27-f8d0-583b-3695232037f5
+	fromColumn: FeitVerlofAanvragen.DatumVerlof
+	toColumn: DimDatum.Datum
+
+relationship 38a1a35f-8cf2-41e3-5c1b-887fcb318658
+	fromColumn: FeitVerlofAanvragen.MedewerkerKey
+	toColumn: DimMedewerkers.MedewerkerKey
+
+relationship f8245b92-1267-7add-cc54-b31c007adfee
+	fromColumn: FeitVerlofSaldo.Boekjaar
+	toColumn: DimDatum.Datum
+
+relationship 0664b36b-a3b8-cbd6-b4d7-ab77417da800
+	fromColumn: FeitVerlofSaldo.MedewerkerKey
+	toColumn: DimMedewerkers.MedewerkerKey
+
+relationship 832d8505-3612-7c32-9cfc-522e1e48c53a
+	fromColumn: FeitVerlofSaldo.VerlofTypeKey
+	toColumn: DimVerloftype.VerloftypeKey
+
+relationship af5b791d-acff-d650-9893-bc6f734bef10
+	fromColumn: FeitFactuurregels.FactuurDatum
+	toColumn: DimDatum.Datum
+
+relationship c0218b0c-e2bd-e2ad-1916-2820590116e8
+	fromColumn: FeitBudgetten.Jaar
+	toColumn: DimDatum.Datum
+
+relationship AutoDetected_f80ff354-16cd-498e-a80d-2047cbb09c8f
+	crossFilteringBehavior: bothDirections
+	fromColumn: FeitBudgetten.PracticeKey
+	toColumn: DimPractice.PracticeKey
+
+relationship 888dff99-1b70-49ee-b66c-4e88a5fd9bc3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimTaakregels.Begindatum
+	toColumn: LocalDateTable_a388890b-482a-4ded-90f2-025c285b4c3f.Date
+
+relationship b1dacd89-c096-4585-bec8-b1544d08524c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimTaakregels.Einddatum
+	toColumn: LocalDateTable_661afc1d-841b-416f-84e2-51e9260928cb.Date
+
+relationship AutoDetected_25cac38b-fd46-4ac2-ba52-ed91a6cf501c
+	isActive: false
+	fromColumn: FeitVerlofSaldo.PracticeKey
+	toColumn: DimPractice.PracticeKey
+
+relationship AutoDetected_47a1d817-eff0-4737-8e31-0069fc201c38
+	isActive: false
+	fromColumn: FeitVerlofSaldo.TeamKey
+	toColumn: DimTeam.TeamKey
+

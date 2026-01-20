@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "servicecontract dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6811a637-c5a0-ae13-4a42-d0a32b4ea0cf"
+  }
+}

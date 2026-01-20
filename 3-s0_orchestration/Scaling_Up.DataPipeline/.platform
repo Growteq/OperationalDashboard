@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Scaling_Up"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "5227017c-0173-9d4c-4e45-60c127b743f2"
+  }
+}

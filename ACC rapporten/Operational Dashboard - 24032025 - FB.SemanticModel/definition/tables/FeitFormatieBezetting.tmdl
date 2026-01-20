@@ -1,0 +1,148 @@
+table FeitFormatieBezetting
+	lineageTag: 0eeb7e76-ce9f-4f7b-bc80-303de02771d0
+
+	column FormatieBezettingsKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 2735c2fb-c5f0-4e74-8ba7-c439a5b3c4b0
+		summarizeBy: count
+		sourceColumn: FormatieBezettingsKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Medewerker
+		dataType: string
+		lineageTag: 46ad50ef-b079-4d9e-a01a-b3a8e6ae74d9
+		summarizeBy: none
+		sourceColumn: Medewerker
+
+		annotation SummarizationSetBy = Automatic
+
+	column Naam
+		dataType: string
+		lineageTag: b3249810-f74e-4a59-a535-a4822cea2cee
+		summarizeBy: none
+		sourceColumn: Naam
+
+		annotation SummarizationSetBy = Automatic
+
+	column Begindatum_rooster
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2ae77fd4-a4b8-4d6b-99c7-94635ed413d9
+		summarizeBy: none
+		sourceColumn: Begindatum_rooster
+
+		variation Variation
+			isDefault
+			relationship: 408d5a05-d5c2-48a3-92fc-6ab53bd75e3f
+			defaultHierarchy: LocalDateTable_547b1bd8-7c3f-45a0-9184-0751886cf833.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Einddatum_rooster
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5732769a-511f-4b74-adc7-9ca3cc31f362
+		summarizeBy: none
+		sourceColumn: Einddatum_rooster
+
+		variation Variation
+			isDefault
+			relationship: ac4dd547-20c9-425b-9a6d-8ea6da617703
+			defaultHierarchy: LocalDateTable_77a4d8a0-2b4f-45f6-bea0-88876968b503.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Aantal_uren_per_week
+		dataType: double
+		lineageTag: 3a1d40c2-2334-43e4-a924-f69f22db00e5
+		summarizeBy: sum
+		sourceColumn: Aantal_uren_per_week
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FTE
+		dataType: double
+		lineageTag: a244412e-da0e-413f-8fd4-f3664373abf4
+		summarizeBy: sum
+		sourceColumn: FTE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Datum_in_dienst
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a9836fd4-3df9-4861-b795-6b198ba89fc8
+		summarizeBy: none
+		sourceColumn: Datum_in_dienst
+
+		annotation SummarizationSetBy = Automatic
+
+	column Datum_uit_dienst
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 473478c0-89a1-41de-a794-c0a4aaa223d0
+		summarizeBy: none
+		sourceColumn: Datum_uit_dienst
+
+		annotation SummarizationSetBy = Automatic
+
+	column MedewerkerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e3fb082-ced0-4ecf-b614-86d41fc77f97
+		summarizeBy: count
+		sourceColumn: MedewerkerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TeamKey
+		dataType: int64
+		formatString: 0
+		lineageTag: e6d5ac66-37b4-4880-bcc0-e2d2a61126c3
+		summarizeBy: none
+		sourceColumn: TeamKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PracticeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 2e761f3f-6fd0-47d6-b309-3aa3eb46106c
+		summarizeBy: count
+		sourceColumn: PracticeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DatumKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 12c33e19-4593-4133-a46f-64a8eb76098a
+		summarizeBy: count
+		sourceColumn: DatumKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FeitFormatieBezetting = m
+		mode: import
+		queryGroup: Feit
+		source =
+				let
+				    Source = Sql.Database("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com", "Operationeel Dashboard"),
+				    s3_ods_FormatieBezetting = Source{[Schema="s3_ods",Item="FeitFormatieBezetting"]}[Data]
+				in
+				    s3_ods_FormatieBezetting
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

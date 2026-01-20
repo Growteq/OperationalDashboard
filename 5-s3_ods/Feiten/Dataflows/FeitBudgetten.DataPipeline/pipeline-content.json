@@ -1,0 +1,82 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy data FeitBudgetten",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DataWarehouseSource",
+            "sqlReaderQuery": "WITH MonthlySums AS (\n  SELECT\n    CAST(f.Jaar AS INT) AS Jaar,\n    t.TeamKey,\n    f.Team,\n    p.PracticeKey,\n    f.Practice               AS PracticeName,\n    SUM(TRY_CAST([1]  AS DECIMAL(18,4))) AS [1],\n    SUM(TRY_CAST([2]  AS DECIMAL(18,4))) AS [2],\n    SUM(TRY_CAST([3]  AS DECIMAL(18,4))) AS [3],\n    SUM(TRY_CAST([4]  AS DECIMAL(18,4))) AS [4],\n    SUM(TRY_CAST([5]  AS DECIMAL(18,4))) AS [5],\n    SUM(TRY_CAST([6]  AS DECIMAL(18,4))) AS [6],\n    SUM(TRY_CAST([7]  AS DECIMAL(18,4))) AS [7],\n    SUM(TRY_CAST([8]  AS DECIMAL(18,4))) AS [8],\n    SUM(TRY_CAST([9]  AS DECIMAL(18,4))) AS [9],\n    SUM(TRY_CAST([10] AS DECIMAL(18,4))) AS [10],\n    SUM(TRY_CAST([11] AS DECIMAL(18,4))) AS [11],\n    SUM(TRY_CAST([12] AS DECIMAL(18,4))) AS [12]\n  FROM [s2_stg_excel].[FTE] f\n  LEFT JOIN s3_ods.[DimTeam]     t ON f.Team     = t.Team\n  LEFT JOIN s3_ods.[DimPractice] p ON f.Practice = p.PracticeNaam\n  WHERE t.Team IS NOT NULL\n  GROUP BY\n    f.Jaar,\n    t.TeamKey,\n    f.Team,\n    p.PracticeKey,\n    f.Practice\n),\nUnpivoted AS (\n  SELECT\n    Jaar,\n    TeamKey,\n    Team,\n    PracticeKey,\n    PracticeName,\n    TRY_CAST([Month] AS INT) AS MonthNumber,\n    Value AS FTE\n  FROM MonthlySums\n  UNPIVOT (\n    Value FOR [Month] IN (\n      [1],[2],[3],[4],[5],[6],[7],[8],[9],[10],[11],[12]\n    )\n  ) AS up\n),\nWithBudget AS (\n  SELECT\n    u.*,\n    COALESCE(TRY_CAST(b.[Jaardoel/FTE] AS DECIMAL(18,4)), 191000) / 12.0 AS MonthGoal\n  FROM Unpivoted u\n  LEFT JOIN s2_stg_excel.Budgetten b\n    ON u.PracticeName = b.Practice\n),\nFinalWithDate AS (\n  SELECT\n    wb.*,\n    wb.FTE * wb.MonthGoal       AS FTE_x_MonthGoal,\n    dd.DatumKey                 AS MonthDateKey,\n    dd.MaandNummer              AS MonthStartDate\n  FROM WithBudget wb\n  LEFT JOIN s3_ods.DimDatum dd\n    ON dd.Datum = DATEFROMPARTS(wb.Jaar, wb.MonthNumber, 1)\n),\nNumbered AS (\n  SELECT\n    ROW_NUMBER() OVER (\n      ORDER BY Jaar, TeamKey, PracticeKey, MonthNumber\n    ) AS BudgettenKey,\n    fw.*\n  FROM FinalWithDate fw\n)\nSELECT\n  BudgettenKey,\n  Jaar,\n  TeamKey,\n  Team,\n  PracticeKey,\n  MonthNumber,\n  FTE,\n  MonthGoal,\n  FTE_x_MonthGoal,\n  MonthDateKey,\n  MonthStartDate\nFROM Numbered\nORDER BY\n  Jaar, TeamKey, PracticeKey, MonthNumber\n",
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "connectionSettings": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  },
+                  "externalReferences": {
+                    "connection": "91f2d362-0f5b-4b3f-aaac-2f31b217f3cb"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {}
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "s3_ods",
+                "table": "FeitBudgetten"
+              }
+            }
+          },
+          "enableStaging": true,
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      }
+    ]
+  }
+}

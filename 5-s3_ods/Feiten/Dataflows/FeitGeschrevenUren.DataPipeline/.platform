@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "FeitGeschrevenUren"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "022e45b0-3903-af07-4bd0-d598bf52ef84"
+  }
+}

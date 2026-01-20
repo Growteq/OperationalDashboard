@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Feiten"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6361bacd-1615-824c-4a35-2ab135eb4883"
+  }
+}

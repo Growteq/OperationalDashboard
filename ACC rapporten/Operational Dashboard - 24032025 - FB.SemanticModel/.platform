@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Operational Dashboard - 24032025 - FB"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "edf1428e-40b9-8c29-4cdb-3bd79c9cf618"
+  }
+}

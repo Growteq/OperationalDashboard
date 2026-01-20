@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "onnodig",
+    "description": "dit notebook geeft volledige export van alles wat er in de blob storage staat. deze hoef maar 1x te worden geladen. hierna zal versie 2 elke dag runnen"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "49c37dd8-7ecd-90fe-4363-62f9b5c22414"
+  }
+}

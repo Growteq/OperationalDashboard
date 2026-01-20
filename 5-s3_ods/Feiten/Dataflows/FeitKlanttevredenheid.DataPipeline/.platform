@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "FeitKlanttevredenheid"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "fea6e900-efa7-ab33-4631-ee7090320954"
+  }
+}

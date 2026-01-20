@@ -1,0 +1,49 @@
+table 'Meetwaarden planning'
+	lineageTag: cd71cc0d-0e7d-474b-af99-5f83267814c3
+
+	measure 'Geplande uren per week' = sum('Project Assignment Schedule'[Krow__Total_Week_Project_Schedule_Hours__c])
+		lineageTag: 73a7145e-d18c-46e9-b4d9-267376e006ff
+
+		annotation Format = <Format Format="General" />
+
+	measure 'Geplande dagen per week' = [Geplande uren per week] / 8
+		lineageTag: 79bcd51b-14d9-4612-b238-6fa90b912bc3
+
+		annotation Format = <Format Format="General" />
+
+	measure 'Geplande uren per week (decl)' =
+			CALCULATE( [Geplande uren per week]
+			                            , 'Klient Project'[Krow__Billable__c] = TRUE)
+		lineageTag: b7adf557-bc19-4d16-8e1b-6c645989bb3b
+
+		annotation Format = <Format Format="General" />
+
+	measure 'Geplande dagen per week (decl)' = [Geplande uren per week (decl)] / 8
+		lineageTag: cad918fa-f54a-4b74-8ea9-980a82bc783e
+
+		annotation Format = <Format Format="General" />
+
+	column 'Kolom 1'
+		dataType: string
+		isHidden
+		lineageTag: 610a4791-dd2d-47a2-995f-d91645e658c8
+		summarizeBy: none
+		sourceColumn: Kolom 1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	partition 'Meetwaarden planning-2a5e8492-d81e-4e25-9a5e-dbf4faee588d' = m
+		mode: import
+		source =
+				let
+				    Bron = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Kolom 1" = _t]),
+				    #"Type gewijzigd" = Table.TransformColumnTypes(Bron,{{"Kolom 1", type text}})
+				in
+				    #"Type gewijzigd"
+
+	annotation PBI_ResultType = Table
+

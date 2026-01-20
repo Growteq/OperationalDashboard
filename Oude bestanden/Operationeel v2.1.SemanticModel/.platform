@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Operationeel v2.1"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "ac793d0b-030c-a17f-4c13-989b5a0dcae6"
+  }
+}

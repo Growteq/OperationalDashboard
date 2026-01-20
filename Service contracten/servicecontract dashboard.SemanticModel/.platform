@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "servicecontract dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "84fe6ed2-011e-83a1-40e2-5292868060a5"
+  }
+}

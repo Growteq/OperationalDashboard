@@ -1,0 +1,186 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "550e1b84d49d90ee4d99",
+  "displayName": "GeschrevenUrenDetails",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "1da43eb1fbbb27ffab6a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "1. Meetwaarden"
+              }
+            },
+            "Property": "Aantal geschreven Uren"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "34fa017c3a7474db93c4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimKlanten"
+              }
+            },
+            "Property": "KlantNaam"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DimKlanten",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "KlantNaam"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Growteq B.V.'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "5fbefb4b6e5804282ad6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimProjecten"
+              }
+            },
+            "Property": "ProjectNaam"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DimProjecten",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "ProjectNaam"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Growteq'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "Drillthrough"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "7a7fb604de7f12f073fe",
+    "type": "Drillthrough",
+    "parameters": [
+      {
+        "name": "b8c773e248a5ebe3213b",
+        "boundFilter": "1da43eb1fbbb27ffab6a",
+        "fieldExpr": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "1. Meetwaarden"
+              }
+            },
+            "Property": "Aantal geschreven Uren"
+          }
+        }
+      },
+      {
+        "name": "815528f2a0896ff52a9a",
+        "boundFilter": "34fa017c3a7474db93c4",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimKlanten"
+              }
+            },
+            "Property": "KlantNaam"
+          }
+        }
+      },
+      {
+        "name": "a36f457b46f2cf16628d",
+        "boundFilter": "5fbefb4b6e5804282ad6",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimProjecten"
+              }
+            },
+            "Property": "ProjectNaam"
+          }
+        }
+      }
+    ],
+    "referenceScope": "CrossReport"
+  },
+  "visibility": "HiddenInViewMode",
+  "type": "Drillthrough"
+}

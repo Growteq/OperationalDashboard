@@ -1,0 +1,159 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "68b40b9e9d2c0ebae692",
+  "displayName": "Operationeel - Uren",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "df625907a033d105e2e2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimProjecten"
+              }
+            },
+            "Property": "InternExtern"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "e42ab49d398eeee062c8",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimProjecten"
+              }
+            },
+            "Property": "InternExtern"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DimProjecten",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "InternExtern"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "isHiddenInViewMode": true,
+        "isLockedInViewMode": true,
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "width": {
+            "expr": {
+              "Literal": {
+                "Value": "283L"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "a0443255396e25670944",
+      "target": "83fa246d20080da54706",
+      "type": "DataFilter"
+    },
+    {
+      "source": "a0443255396e25670944",
+      "target": "1daffa96b50d570b1329",
+      "type": "DataFilter"
+    },
+    {
+      "source": "83fa246d20080da54706",
+      "target": "a0443255396e25670944",
+      "type": "DataFilter"
+    },
+    {
+      "source": "83fa246d20080da54706",
+      "target": "1daffa96b50d570b1329",
+      "type": "DataFilter"
+    },
+    {
+      "source": "1daffa96b50d570b1329",
+      "target": "83fa246d20080da54706",
+      "type": "DataFilter"
+    },
+    {
+      "source": "1daffa96b50d570b1329",
+      "target": "a0443255396e25670944",
+      "type": "DataFilter"
+    },
+    {
+      "source": "c5339660b809c8afbfe9",
+      "target": "a0443255396e25670944",
+      "type": "DataFilter"
+    },
+    {
+      "source": "c5339660b809c8afbfe9",
+      "target": "83fa246d20080da54706",
+      "type": "DataFilter"
+    }
+  ]
+}

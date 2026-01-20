@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "DimProjecten"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9769dc96-8773-ab13-4330-335cadcaf78b"
+  }
+}

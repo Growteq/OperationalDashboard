@@ -1,0 +1,84 @@
+table 'Meetwaarden begroting'
+	lineageTag: 23c50de5-e353-4914-9985-b3f31143ed21
+
+	measure Begroting = sum(DoelstellingMedewerker[Begroting])
+		lineageTag: 7a1f4d1c-d0f3-44a0-801e-796f20a18b7a
+
+		annotation Format = <Format Format="General" />
+
+	measure Actual = [Aantal dagen declarabel]
+		lineageTag: f6d9e045-71a3-4af3-862b-13347450af90
+
+		annotation Format = <Format Format="General" />
+
+	measure Forecast = [Geplande dagen per week (decl)]
+		lineageTag: 24802f52-5682-4ff8-87de-6b9d662d73f5
+
+		annotation Format = <Format Format="General" />
+
+	measure 'Begroting YTD' = TOTALYTD('Meetwaarden begroting'[Begroting],DimDatum[Datum])
+		lineageTag: a2e484e3-f02d-4b40-8851-2971923cea81
+
+		annotation Format = <Format Format="General" />
+
+	measure 'Actual YTD' = TOTALYTD([Actual],DimDatum[Datum])
+		lineageTag: d827ee4e-af7d-4cc9-baa3-45e461ec6cf9
+
+		annotation Format = <Format Format="General" />
+
+	measure 'Forecast YTD' = TOTALYTD([New Forecast],DimDatum[Datum])
+		lineageTag: 10833d7b-f9c1-4f78-9d5c-1e3b232f738c
+
+		annotation Format = <Format Format="General" />
+
+	measure 'Actual - Begroting (YTD)' = [Actual YTD] - 'Meetwaarden begroting'[Begroting YTD]
+		lineageTag: 4ef915cb-2120-48c2-8f0c-73a90436febf
+
+		annotation Format = <Format Format="General" />
+
+	measure 'New Forecast' = ```
+			
+			    CALCULATE(
+			            var huidigeWeek = WEEKNUM(today(),21)
+			            var CalcActual = CALCULATE(
+			                            [Actual]
+			                            ,  DimDatum[WeekNr]< huidigeWeek)
+			            var CalcForecast = CALCULATE(
+			                                [Forecast]
+			                                , DimDatum[WeekNr] >= huidigeWeek)
+			            
+			Return
+			
+			            CalcActual+ CalcForecast
+			
+			
+			)
+			```
+		lineageTag: 1ebdde0a-5fc1-4101-af0d-bd0656f202d0
+
+		annotation Format = <Format Format="General" />
+
+	column 'Kolom 1'
+		dataType: string
+		isHidden
+		lineageTag: 50708705-d245-45ec-9c72-f5bd45f046de
+		summarizeBy: none
+		sourceColumn: Kolom 1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	partition 'Meetwaarden begroting-6c2e08be-2e9c-47b0-bdcd-f467b4b65896' = m
+		mode: import
+		source =
+				let
+				    Bron = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Kolom 1" = _t]),
+				    #"Type gewijzigd" = Table.TransformColumnTypes(Bron,{{"Kolom 1", type text}})
+				in
+				    #"Type gewijzigd"
+
+	annotation PBI_ResultType = Table
+

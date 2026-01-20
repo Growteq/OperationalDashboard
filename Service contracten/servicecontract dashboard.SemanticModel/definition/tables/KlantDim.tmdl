@@ -1,0 +1,72 @@
+table KlantDim
+	lineageTag: ec69ff27-e14a-4d77-bd04-4b324d1ec650
+
+	measure 'Marge % per debiteurnummer' = ```
+			
+			VAR Opbrengst = 
+			    CALCULATE([TotaleOpbrengst], ALLEXCEPT('KlantDim', 'KlantDim'[Debiteurnummer]))
+			
+			VAR UrenKosten = 
+			    CALCULATE([TotaleKosten], ALLEXCEPT('KlantDim', 'KlantDim'[Debiteurnummer]))
+			
+			VAR AzureKosten = 
+			    CALCULATE([AzureKosten], ALLEXCEPT('KlantDim', 'KlantDim'[Debiteurnummer]))
+			
+			VAR TotaleKosten = UrenKosten + AzureKosten
+			
+			RETURN
+			IF(
+			    Opbrengst <> 0,
+			    DIVIDE(Opbrengst - TotaleKosten, Opbrengst) * 100,
+			    BLANK()
+			)
+			
+			```
+		lineageTag: 50dcad1d-f3a0-4c66-aa38-bf7e7ea4e76c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Titel Klant' = ```
+			
+			IF(
+			    ISFILTERED('KlantDim'[Contact Name]),
+			    SELECTEDVALUE('KlantDim'[Contact Name]),
+			    "Selecteer een contract voor contract details"
+			)
+			
+			```
+		lineageTag: 51ed0c5a-0dc2-4e7a-919b-1c79f6f3f764
+
+	column Debiteurnummer
+		lineageTag: b00f4433-d51d-4bf2-841c-61a921152c51
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: contract_opbrengsten[Debiteurnummer]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Contact Name'
+		lineageTag: d900e69c-6e93-483a-ad22-10a138776283
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Contact Name]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KlantDim = calculated
+		mode: import
+		source = ```
+				
+				FILTER(
+				    SUMMARIZE(
+				        'contract_opbrengsten',
+				        'contract_opbrengsten'[Debiteurnummer],
+				        "Contact Name", MAX('contract_opbrengsten'[Contact Name])
+				    ),
+				    NOT(ISBLANK([Debiteurnummer]))
+				)
+				
+				```
+
+	annotation PBI_Id = 9788cfedbd014122bea14bf8972ac689
+

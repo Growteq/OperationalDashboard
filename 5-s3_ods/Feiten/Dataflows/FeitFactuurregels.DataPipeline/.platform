@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "FeitFactuurregels"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "19aab8a3-6dcf-99c9-4c49-6387e6d5e39d"
+  }
+}

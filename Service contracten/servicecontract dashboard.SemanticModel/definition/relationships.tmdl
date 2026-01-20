@@ -1,0 +1,106 @@
+relationship aacb273f-bc63-434d-bb42-44a330668c57
+	joinOnDateBehavior: datePartOnly
+	fromColumn: contract_opbrengsten.'End Date'
+	toColumn: LocalDateTable_e089db14-49de-4711-9cf8-f05fdef72f39.Date
+
+relationship e406024d-764e-49f3-8d45-9d4f8359bc3a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_datum.Datum
+	toColumn: LocalDateTable_45e2859d-7ff7-4bea-a845-bc68641bf5ed.Date
+
+relationship bff172a3-1be7-404d-a2b0-f332e137c304
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_datum.EersteDagVanMaand
+	toColumn: LocalDateTable_2861b595-6ce7-488f-8385-edafa70c2eca.Date
+
+relationship caa0aefc-3769-4bec-899e-79543ddbbc0d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_datum.LaatsteDagVanMaand
+	toColumn: LocalDateTable_a5c620c0-bf60-44ff-b386-0880b50c6c4c.Date
+
+relationship 45bdd5a8-e168-4b2e-9c71-52c00d3d1c78
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_datum.EersteDagVanKwartaal
+	toColumn: LocalDateTable_cdaabbfb-1b7b-4ba3-8ddf-def6a86b1acc.Date
+
+relationship 73dcddd2-6ca4-4994-bb4f-6efee13bc52d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_datum.LaatsteDagVanKwartaal
+	toColumn: LocalDateTable_5f03afaf-c3b8-412f-b7c8-45eec424c0d0.Date
+
+relationship 56a5fc0a-8c6c-41d3-be0c-501eb147fced
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_datum.EersteDagVanJaar
+	toColumn: LocalDateTable_488c616b-bef2-4197-8cff-5bd8c53e7189.Date
+
+relationship ae55c746-8182-44bc-a01d-f3c7b80bcfe0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_datum.LaatsteDagVanJaar
+	toColumn: LocalDateTable_791bf807-12be-4c5f-afca-cdea0e2c306a.Date
+
+relationship 3c75414c-0323-48a3-b500-59c37091c57b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_datum.EersteDagVanVolgendeMaand
+	toColumn: LocalDateTable_dac68946-c1cf-4e9b-8e34-a784d13acdf5.Date
+
+relationship ded74764-4829-40f3-8db0-b4f6b6900361
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_datum.EersteDagVanVolgendJaar
+	toColumn: LocalDateTable_e0381878-d5ed-44a0-bd32-82584127cdcc.Date
+
+relationship 8e7e4f16-9dd6-4fa6-8170-4469a9994346
+	joinOnDateBehavior: datePartOnly
+	fromColumn: contract_opbrengsten.'Start Date'
+	toColumn: LocalDateTable_cb4d5913-cf64-442a-aa8f-363d15d633c4.Date
+
+relationship 0fdbe24c-dbee-bf3d-79ba-bd899d2e4a66
+	fromColumn: niet_factureerbare_uren.Debiteurnummer
+	toColumn: KlantDim.Debiteurnummer
+
+relationship ded5be76-4188-339a-f27b-2d28ea667de0
+	fromColumn: contract_opbrengsten.'Termijn Maand Datum'
+	toColumn: dim_datum.Datum
+
+relationship 4bf606ed-5ff1-30a6-fd03-f7a319139fb7
+	fromColumn: 's4_inf billable_uren'.Datum
+	toColumn: dim_datum.Datum
+
+relationship 92b1f0ac-4a39-d8ff-8740-f4a6a2b3ca5a
+	crossFilteringBehavior: bothDirections
+	fromColumn: contract_opbrengsten.Debiteurnummer
+	toColumn: KlantDim.Debiteurnummer
+
+relationship 668bf1aa-8538-4362-a898-1f123f661900
+	fromColumn: 's4_inf gefactureerde_uren'.Datum
+	toColumn: dim_datum.Datum
+
+relationship 271bec62-cd1f-adee-cde3-a92f9ef44ec5
+	fromColumn: 's4_inf gefactureerde_uren'.Debiteurnummer
+	toColumn: KlantDim.Debiteurnummer
+
+relationship 7b06657f-362f-d1c6-98b8-f1853eab02d1
+	fromColumn: bram_view_exported.Debiteurnummer
+	toColumn: KlantDim.Debiteurnummer
+
+relationship 03042519-bc34-6c5f-badd-0ad842630b64
+	fromColumn: bram_view_exported.date
+	toColumn: dim_datum.Datum
+
+relationship 7d97d151-9fef-4bc3-a7c0-c19dff1e6270
+	joinOnDateBehavior: datePartOnly
+	fromColumn: niet_factureerbare_uren.'Krow Maand'
+	toColumn: LocalDateTable_bc580136-0472-4f0f-96ec-e18f54e30a83.Date
+
+relationship 07d3c95a-69a9-1dea-57c2-b39fd4c21490
+	fromColumn: niet_factureerbare_uren.Krow__Date__c
+	toColumn: dim_datum.Datum
+
+relationship 1d6db048-bdbc-4972-aa67-ceb92580c71d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: bram_view_exported.parsed_date
+	toColumn: LocalDateTable_da76d93a-c7d3-4626-99b8-09b2647a6752.Date
+
+relationship e222d11a-5d69-1561-096a-1dc0be2ae4d0
+	fromColumn: 's4_inf billable_uren'.Debiteurnummer
+	toColumn: KlantDim.Debiteurnummer
+

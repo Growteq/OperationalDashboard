@@ -1,0 +1,146 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy data DimTeam",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DataWarehouseSource",
+            "sqlReaderQuery": "WITH TeamData AS (\n    SELECT \n        ROW_NUMBER() OVER (ORDER BY t.[Id]) AS TeamKey, -- Unieke primary key\n        t.[Id] AS TeamId,\n        t.[Name] AS Team,\n        pr.[Name] AS Teamleider,\n        pr.Krow__Practice__c AS PracticeId,\n        p.PracticeKey\n    FROM \n        [s2_stg_salesforce].[Team] t\n    LEFT JOIN \n        [s2_stg_salesforce].[ProjectResources] pr\n    ON \n        t.[Krow__Team_Lead__c] = pr.[Id]\n    LEFT JOIN \n        s3_ods.DimPractice p\n    ON\n        pr.Krow__Practice__c = p.PracticeID\n\n)\nSELECT \n    TeamKey,\n    TeamId,\n    Team,\n    Teamleider,\n    PracticeKey\nFROM \n    TeamData;\n",
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "connectionSettings": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  },
+                  "externalReferences": {
+                    "connection": "91f2d362-0f5b-4b3f-aaac-2f31b217f3cb"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {}
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "disableMetricsCollection": false,
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "Operationeel Dashboard",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "d680e425-dee0-4a83-8b09-478330add632",
+                    "workspaceId": "d183c24c-5af7-4637-acfd-a273cbc9ba49"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "s3_ods",
+                "table": "DimTeam"
+              }
+            }
+          },
+          "enableStaging": true,
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "TeamKey",
+                  "type": "Int64",
+                  "physicalType": "bigint"
+                },
+                "sink": {
+                  "name": "TeamKey",
+                  "physicalType": "bigint"
+                }
+              },
+              {
+                "source": {
+                  "name": "TeamId",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "Id",
+                  "physicalType": "varchar",
+                  "length": "255"
+                }
+              },
+              {
+                "source": {
+                  "name": "Team",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "Team",
+                  "physicalType": "varchar",
+                  "length": "255"
+                }
+              },
+              {
+                "source": {
+                  "name": "Teamleider",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                },
+                "sink": {
+                  "name": "Teamleider",
+                  "physicalType": "varchar",
+                  "length": "255"
+                }
+              },
+              {
+                "source": {
+                  "name": "PracticeKey",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "PracticeKey",
+                  "physicalType": "bigint"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "DimMedewerkers"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "aaa24988-218d-ba21-49e4-8bd718b246bb"
+  }
+}

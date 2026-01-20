@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "FeitVerlofAanvragen"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "cdcba391-c2ef-b5ac-41c9-1e1b73b1980e"
+  }
+}

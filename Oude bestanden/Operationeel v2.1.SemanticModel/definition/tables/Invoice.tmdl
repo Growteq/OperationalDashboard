@@ -1,0 +1,848 @@
+table Invoice
+	lineageTag: c098e4cb-15fe-4265-b986-a68894a1f1c9
+
+	column Id
+		dataType: string
+		lineageTag: bc8f2055-4137-4969-a86e-dc80b1ea660f
+		summarizeBy: none
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column OwnerId
+		dataType: string
+		lineageTag: ab33b0c3-1540-49f0-af89-77ed724e6167
+		summarizeBy: none
+		sourceColumn: OwnerId
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column IsDeleted
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 74ccebb9-984f-4341-bc5a-f88cbbf192a6
+		summarizeBy: none
+		sourceColumn: IsDeleted
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Boolean" />
+
+	column Name
+		dataType: string
+		lineageTag: fc4efe20-7e54-44b2-8feb-fe2f4174dffb
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column CreatedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2fdf8057-ba0f-41f8-bfc2-505f06c669d4
+		summarizeBy: none
+		sourceColumn: CreatedDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="DateTimeGeneralPattern"><DateTimes><DateTime LCID="1043" Group="GeneralDateTimeLong" FormatString="G" /></DateTimes></Format>
+
+	column CreatedById
+		dataType: string
+		lineageTag: 8ae1392d-107c-442d-94e3-6d9168f92c36
+		summarizeBy: none
+		sourceColumn: CreatedById
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column LastModifiedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 34c50f35-3cca-49f7-841e-54c41ede946c
+		summarizeBy: none
+		sourceColumn: LastModifiedDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="DateTimeGeneralPattern"><DateTimes><DateTime LCID="1043" Group="GeneralDateTimeLong" FormatString="G" /></DateTimes></Format>
+
+	column LastModifiedById
+		dataType: string
+		lineageTag: e170ad4f-26f8-4b00-a70f-314fddf677ff
+		summarizeBy: none
+		sourceColumn: LastModifiedById
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column SystemModstamp
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 23f093fb-8cb4-4c7d-8086-5f759ca96250
+		summarizeBy: none
+		sourceColumn: SystemModstamp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="DateTimeGeneralPattern"><DateTimes><DateTime LCID="1043" Group="GeneralDateTimeLong" FormatString="G" /></DateTimes></Format>
+
+	column LastActivityDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b5f255d6-1628-4df9-a05b-0533211fc528
+		summarizeBy: none
+		sourceColumn: LastActivityDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation Format = <Format Format="DateTimeGeneralPattern"><DateTimes><DateTime LCID="1043" Group="LongDate" FormatString="dddd d MMMM yyyy" /></DateTimes></Format>
+
+	column LastViewedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 58bde141-5c3f-4c9b-91fd-cd61563e1c96
+		summarizeBy: none
+		sourceColumn: LastViewedDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="DateTimeGeneralPattern"><DateTimes><DateTime LCID="1043" Group="GeneralDateTimeLong" FormatString="G" /></DateTimes></Format>
+
+	column LastReferencedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 365c462a-115a-427f-8e16-5d8b90248805
+		summarizeBy: none
+		sourceColumn: LastReferencedDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="DateTimeGeneralPattern"><DateTimes><DateTime LCID="1043" Group="GeneralDateTimeLong" FormatString="G" /></DateTimes></Format>
+
+	column ConnectionReceivedId
+		dataType: string
+		lineageTag: 297d7a48-0507-4eb0-955b-4e8adb74a653
+		summarizeBy: none
+		sourceColumn: ConnectionReceivedId
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column ConnectionSentId
+		dataType: string
+		lineageTag: 63c0322e-b947-43b2-94cd-9b1c5718ffdc
+		summarizeBy: none
+		sourceColumn: ConnectionSentId
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Account_Number__c
+		dataType: string
+		lineageTag: 15f892e1-bfa8-4bdb-b992-aac611836804
+		summarizeBy: none
+		sourceColumn: Krow__Account_Number__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Account__c
+		dataType: string
+		lineageTag: bfe8209f-639b-4ab7-9d49-1aa840765835
+		summarizeBy: none
+		sourceColumn: Krow__Account__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__AcctSeed_Billing_Id__c
+		dataType: string
+		lineageTag: 520d12f3-ac8c-4a0c-9abc-db80cf6083fb
+		summarizeBy: none
+		sourceColumn: Krow__AcctSeed_Billing_Id__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__AcctSeed_Message__c
+		dataType: string
+		lineageTag: e561ea46-0c07-42fa-a384-8604e3ab78bc
+		summarizeBy: none
+		sourceColumn: Krow__AcctSeed_Message__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Address__c
+		dataType: string
+		lineageTag: eb2fb205-b53f-4da6-9849-57b0eb1d8c2b
+		summarizeBy: none
+		sourceColumn: Krow__Address__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Balance__c
+		dataType: double
+		lineageTag: ec869f67-6d3e-4078-a062-ed0c479f65d1
+		summarizeBy: sum
+		sourceColumn: Krow__Balance__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Currency__c
+		dataType: string
+		lineageTag: 357ed70f-22ba-4f4a-b007-2fc8e75c509a
+		summarizeBy: none
+		sourceColumn: Krow__Currency__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Date_Format__c
+		dataType: string
+		lineageTag: f5e066da-b855-4757-9ea2-051e3667d8c0
+		summarizeBy: none
+		sourceColumn: Krow__Date_Format__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Discount_Amount__c
+		dataType: double
+		lineageTag: 2f88fcb8-7e76-4aa1-8bf6-7328a11d34a2
+		summarizeBy: sum
+		sourceColumn: Krow__Discount_Amount__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Discount__c
+		dataType: double
+		lineageTag: c193a56e-5023-43da-8207-7a052b51c3fd
+		summarizeBy: sum
+		sourceColumn: Krow__Discount__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Display_Timesheet_Notes__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1bbdfe2b-58fc-409d-8d57-bd7a05a4611d
+		summarizeBy: none
+		sourceColumn: Krow__Display_Timesheet_Notes__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Boolean" />
+
+	column Krow__Due_Date__c
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 764c98a9-72f1-492f-aa09-30691524851a
+		summarizeBy: none
+		sourceColumn: Krow__Due_Date__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation Format = <Format Format="DateTimeGeneralPattern"><DateTimes><DateTime LCID="1043" Group="LongDate" FormatString="dddd d MMMM yyyy" /></DateTimes></Format>
+
+	column Krow__End_Date__c
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3e7ac661-a578-402a-9fff-0b06e230d089
+		summarizeBy: none
+		sourceColumn: Krow__End_Date__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation Format = <Format Format="DateTimeGeneralPattern"><DateTimes><DateTime LCID="1043" Group="LongDate" FormatString="dddd d MMMM yyyy" /></DateTimes></Format>
+
+	column Krow__Footer__c
+		dataType: string
+		lineageTag: b7423df0-5cc4-4bd9-9f8c-50e2db3d4f1e
+		summarizeBy: none
+		sourceColumn: Krow__Footer__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Formatting__c
+		dataType: string
+		lineageTag: 2c27844d-4965-4635-ba39-9c711a1750e0
+		summarizeBy: none
+		sourceColumn: Krow__Formatting__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Include_Notes__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: db3c480d-2986-49e0-bd9b-62e84d7fae85
+		summarizeBy: none
+		sourceColumn: Krow__Include_Notes__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Boolean" />
+
+	column Krow__Include_Rate__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: fc4446b9-b2fe-43ff-9d76-7d8943f44a09
+		summarizeBy: none
+		sourceColumn: Krow__Include_Rate__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Boolean" />
+
+	column Krow__Intacct_Invoice_Id__c
+		dataType: string
+		lineageTag: 6ef70981-b432-40b4-80ef-8c6588da9874
+		summarizeBy: none
+		sourceColumn: Krow__Intacct_Invoice_Id__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Invoice_Account__c
+		dataType: string
+		lineageTag: 3ed069ed-922c-4fce-9561-d5a4b56e9c07
+		summarizeBy: none
+		sourceColumn: Krow__Invoice_Account__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Invoice_Approved_Time_Only__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9fd7f747-b52e-4e9a-bcde-5d9717cd00e4
+		summarizeBy: none
+		sourceColumn: Krow__Invoice_Approved_Time_Only__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Boolean" />
+
+	column Krow__Invoice_Date__c
+		dataType: dateTime
+		formatString: d-m-yyyy
+		lineageTag: 64bb748c-d2b8-45cb-a5f4-88770c55f9c2
+		summarizeBy: none
+		sourceColumn: Krow__Invoice_Date__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation Format = <Format Format="DateTimeCustom"><DateTimes><DateTime LCID="1043" Group="ShortDate" FormatString="d-M-yyyy" /></DateTimes></Format>
+
+	column Krow__Invoice_Fixed_Item_Total_Amount__c
+		dataType: double
+		lineageTag: 681d2b90-968f-405b-a837-6d2d0c5bff0f
+		summarizeBy: sum
+		sourceColumn: Krow__Invoice_Fixed_Item_Total_Amount__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Invoice_Line_Item_Total_Amount__c
+		dataType: double
+		lineageTag: c3d7503a-879a-4ab0-8c12-cc53e24aab74
+		summarizeBy: sum
+		sourceColumn: Krow__Invoice_Line_Item_Total_Amount__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Invoice_Number__c
+		dataType: string
+		lineageTag: 447f0131-dd36-40d9-9ba1-1e32c1ee79d6
+		summarizeBy: none
+		sourceColumn: Krow__Invoice_Number__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Factuurnummer
+		dataType: string
+		lineageTag: feb5eb9b-d61f-4cd2-aa02-7a663676a41d
+		summarizeBy: none
+		sourceColumn: Factuurnummer
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Invoice_Subtotal__c
+		dataType: double
+		lineageTag: b9bd8d14-f9e2-4d0e-9f86-2069137b1aeb
+		summarizeBy: sum
+		sourceColumn: Krow__Invoice_Subtotal__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Invoice_Total__c
+		dataType: double
+		lineageTag: 37062305-1d76-46e1-8faf-5499734d3ba4
+		summarizeBy: sum
+		sourceColumn: Krow__Invoice_Total__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Journal_Type__c
+		dataType: string
+		lineageTag: a69b6d5d-a171-46b1-8f18-c60f0d6e7268
+		summarizeBy: none
+		sourceColumn: Krow__Journal_Type__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Notes__c
+		dataType: string
+		lineageTag: a9611b54-a572-4904-b924-ddb72082c3e9
+		summarizeBy: none
+		sourceColumn: Krow__Notes__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Organization__c
+		dataType: string
+		lineageTag: 80505ae6-581b-4b83-975e-e31ac98821ea
+		summarizeBy: none
+		sourceColumn: Krow__Organization__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__PO_Number__c
+		dataType: string
+		lineageTag: 4cecd8e9-1357-4056-a955-014565f5b4d4
+		summarizeBy: none
+		sourceColumn: Krow__PO_Number__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Paid__c
+		dataType: double
+		lineageTag: 996a4ef1-cc6d-4b7d-a4a3-fbfafb34ca7a
+		summarizeBy: sum
+		sourceColumn: Krow__Paid__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Payment_Schedule__c
+		dataType: string
+		lineageTag: 56c247ad-f6e4-4a11-8dd0-21b05d1e4742
+		summarizeBy: none
+		sourceColumn: Krow__Payment_Schedule__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Post_Invoice_In_Sage__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 782251ef-cfc9-45f7-b6e0-253f1e195e19
+		summarizeBy: none
+		sourceColumn: Krow__Post_Invoice_In_Sage__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Boolean" />
+
+	column Krow__Project_Owner__c
+		dataType: string
+		lineageTag: 8b1c6189-e21a-4834-93d1-3a08e05c374f
+		summarizeBy: none
+		sourceColumn: Krow__Project_Owner__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Project__c
+		dataType: string
+		lineageTag: 1fa61029-9de0-4205-aa89-a06e53671c72
+		summarizeBy: none
+		sourceColumn: Krow__Project__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__QB_Invoice_Id__c
+		dataType: string
+		lineageTag: 745862d8-9a9d-4bec-be21-e256a0af4d79
+		summarizeBy: none
+		sourceColumn: Krow__QB_Invoice_Id__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Sage_Message__c
+		dataType: string
+		lineageTag: f6dac089-ed60-4d9e-b55b-3548b5651d8a
+		summarizeBy: none
+		sourceColumn: Krow__Sage_Message__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Sage_Sales_Invoice_Id__c
+		dataType: string
+		lineageTag: 2bf8d1da-5b85-4a1b-913b-7ff5744a87af
+		summarizeBy: none
+		sourceColumn: Krow__Sage_Sales_Invoice_Id__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Service_Notes__c
+		dataType: string
+		lineageTag: 531e6cfe-cdb9-4abb-b93a-9745e3d1ed34
+		summarizeBy: none
+		sourceColumn: Krow__Service_Notes__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Show_All_Hours__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 43f92a05-c8f5-49b9-8c04-5174ab29f7c6
+		summarizeBy: none
+		sourceColumn: Krow__Show_All_Hours__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Boolean" />
+
+	column Krow__Start_Date__c
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1b4924eb-4d1a-4b24-8ee8-2fd13f55269f
+		summarizeBy: none
+		sourceColumn: Krow__Start_Date__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation Format = <Format Format="DateTimeGeneralPattern"><DateTimes><DateTime LCID="1043" Group="LongDate" FormatString="dddd d MMMM yyyy" /></DateTimes></Format>
+
+	column Krow__Status__c
+		dataType: string
+		lineageTag: 663a8acd-9c34-4cb5-859d-d159e51e4623
+		summarizeBy: none
+		sourceColumn: Krow__Status__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Summarize__c
+		dataType: string
+		lineageTag: 4653c07f-9b85-400f-92dd-a969318af58b
+		summarizeBy: none
+		sourceColumn: Krow__Summarize__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Sync_Result__c
+		dataType: string
+		lineageTag: f12288dd-4654-4786-ba33-0f01bc87047e
+		summarizeBy: none
+		sourceColumn: Krow__Sync_Result__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Tax_2__c
+		dataType: double
+		lineageTag: 62c02614-c637-4448-a198-34032d149c03
+		summarizeBy: sum
+		sourceColumn: Krow__Tax_2__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Tax_Type__c
+		dataType: string
+		lineageTag: 25c626b2-efcd-4328-8abe-c98f9c517aef
+		summarizeBy: none
+		sourceColumn: Krow__Tax_Type__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Tax__c
+		dataType: double
+		lineageTag: 68d84a7a-1d1e-4219-b60d-beda2deb6606
+		summarizeBy: sum
+		sourceColumn: Krow__Tax__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Total_Tax_2_Amount__c
+		dataType: double
+		lineageTag: 7a43552e-0b90-46af-9486-a00f1c6122f9
+		summarizeBy: sum
+		sourceColumn: Krow__Total_Tax_2_Amount__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Total_Tax_Amount__c
+		dataType: double
+		lineageTag: cb2dc970-fea4-4550-a664-3516b401df20
+		summarizeBy: sum
+		sourceColumn: Krow__Total_Tax_Amount__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Xero_Invoice_Id__c
+		dataType: string
+		lineageTag: f087715c-0da7-47fb-a125-dc45f5a32dd0
+		summarizeBy: none
+		sourceColumn: Krow__Xero_Invoice_Id__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Additional_Amount_Total__c
+		dataType: double
+		lineageTag: faa4107e-946b-44bf-98f8-b878187a0e6d
+		summarizeBy: sum
+		sourceColumn: Krow__Additional_Amount_Total__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Additional_Amount__c
+		dataType: double
+		lineageTag: dc60cbd7-b07b-45bf-a815-a62ae69ada15
+		summarizeBy: sum
+		sourceColumn: Krow__Additional_Amount__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Fixed_Fee_Amount__c
+		dataType: double
+		lineageTag: 75747a77-ca4f-470f-8435-821cba973cbd
+		summarizeBy: sum
+		sourceColumn: Krow__Fixed_Fee_Amount__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Factuurbedrag1
+		dataType: double
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 65e0e6d7-0baf-4608-bc52-3a895f4da697
+		summarizeBy: sum
+		sourceColumn: Factuurbedrag1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="CurrencyCustom" Accuracy="2" ThousandSeparator="True"><Currency LCID="1040" DisplayName="€ Euro (€ 123)" Symbol="€" PositivePattern="2" NegativePattern="9" /></Format>
+
+	column Krow__Labour_Hours__c
+		dataType: double
+		lineageTag: 561458fe-cb50-4597-95bb-2fba137773ac
+		summarizeBy: sum
+		sourceColumn: Krow__Labour_Hours__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Practice__c
+		dataType: string
+		lineageTag: 3362ec97-9941-4ede-a022-2f96470fc8ee
+		summarizeBy: none
+		sourceColumn: Practice__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Customer_ID__c
+		dataType: string
+		lineageTag: 0ed84bf3-feed-4e4a-9fca-708d7a695867
+		summarizeBy: none
+		sourceColumn: Customer_ID__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Update_Customer_Address__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 7bb68eb9-7b43-4996-9d86-10679f8489cd
+		summarizeBy: none
+		sourceColumn: Update_Customer_Address__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Boolean" />
+
+	column VAT_Code__c
+		dataType: string
+		lineageTag: d04a9c38-0ce8-4153-9ba5-81d909e0616a
+		summarizeBy: none
+		sourceColumn: VAT_Code__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Apply_Sales_tax_in_QB__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 46c88c8c-c60d-4de8-aa25-5b093a01554f
+		summarizeBy: none
+		sourceColumn: Krow__Apply_Sales_tax_in_QB__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Boolean" />
+
+	column Krow__Payment_Information__c
+		dataType: string
+		lineageTag: 4ede860a-d4d1-480a-83be-dfad48bc8b4a
+		summarizeBy: none
+		sourceColumn: Krow__Payment_Information__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Display_Amount__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 779530fd-b58f-4ae5-8c23-08d47d4af19d
+		summarizeBy: none
+		sourceColumn: Krow__Display_Amount__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Boolean" />
+
+	column Krow__Display_Tax__c
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 75edb8c9-669d-4da9-8734-71700021ca05
+		summarizeBy: none
+		sourceColumn: Krow__Display_Tax__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Boolean" />
+
+	column Revenue_Category_Deprecated__c
+		dataType: string
+		lineageTag: 58c794e0-00b8-4cb8-bb6f-91d132b4a514
+		summarizeBy: none
+		sourceColumn: Revenue_Category_Deprecated__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Revenue_Category__c
+		dataType: string
+		lineageTag: ce295658-c195-4236-b073-6a7c8526955e
+		summarizeBy: none
+		sourceColumn: Revenue_Category__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	partition Invoice-92ab2d4b-a6fc-4a88-a64a-9b1a680fae7f = m
+		mode: import
+		source =
+				let
+				    Bron = Salesforce.Data("https://growteq.my.salesforce.com", [ApiVersion=48]),
+				    Krow__Invoice__c = Bron{[Name="Krow__Invoice__c"]}[Data],
+				    #"Namen van kolommen gewijzigd" = Table.RenameColumns(Krow__Invoice__c,{{"Krow__Invoice_Serial_Number__c", "Factuurnummer"}, {"Krow__Invoice_Amount__c", "Factuurbedrag1"}}),
+				    #"Andere kolommen verwijderd" = Table.SelectColumns(#"Namen van kolommen gewijzigd",{"Id", "OwnerId", "IsDeleted", "Name", "CreatedDate", "CreatedById", "LastModifiedDate", "LastModifiedById", "SystemModstamp", "LastActivityDate", "LastViewedDate", "LastReferencedDate", "ConnectionReceivedId", "ConnectionSentId", "Krow__Account_Number__c", "Krow__Account__c", "Krow__AcctSeed_Billing_Id__c", "Krow__AcctSeed_Message__c", "Krow__Address__c", "Krow__Balance__c", "Krow__Currency__c", "Krow__Date_Format__c", "Krow__Discount_Amount__c", "Krow__Discount__c", "Krow__Display_Timesheet_Notes__c", "Krow__Due_Date__c", "Krow__End_Date__c", "Krow__Footer__c", "Krow__Formatting__c", "Krow__Include_Notes__c", "Krow__Include_Rate__c", "Krow__Intacct_Invoice_Id__c", "Krow__Invoice_Account__c", "Krow__Invoice_Approved_Time_Only__c", "Krow__Invoice_Date__c", "Krow__Invoice_Fixed_Item_Total_Amount__c", "Krow__Invoice_Line_Item_Total_Amount__c", "Krow__Invoice_Number__c", "Factuurnummer", "Krow__Invoice_Subtotal__c", "Krow__Invoice_Total__c", "Krow__Journal_Type__c", "Krow__Notes__c", "Krow__Organization__c", "Krow__PO_Number__c", "Krow__Paid__c", "Krow__Payment_Schedule__c", "Krow__Post_Invoice_In_Sage__c", "Krow__Project_Owner__c", "Krow__Project__c", "Krow__QB_Invoice_Id__c", "Krow__Sage_Message__c", "Krow__Sage_Sales_Invoice_Id__c", "Krow__Service_Notes__c", "Krow__Show_All_Hours__c", "Krow__Start_Date__c", "Krow__Status__c", "Krow__Summarize__c", "Krow__Sync_Result__c", "Krow__Tax_2__c", "Krow__Tax_Type__c", "Krow__Tax__c", "Krow__Total_Tax_2_Amount__c", "Krow__Total_Tax_Amount__c", "Krow__Xero_Invoice_Id__c", "Krow__Additional_Amount_Total__c", "Krow__Additional_Amount__c", "Krow__Fixed_Fee_Amount__c", "Factuurbedrag1", "Krow__Labour_Hours__c", "Practice__c", "Customer_ID__c", "Update_Customer_Address__c", "Krow__Display_Amount__c", "VAT_Code__c", "Krow__Display_Tax__c", "Revenue_Category_Deprecated__c", "Krow__Apply_Sales_tax_in_QB__c", "Krow__Payment_Information__c", "Revenue_Category__c"})
+				in
+				    #"Andere kolommen verwijderd"
+
+	annotation PBI_ResultType = Table
+

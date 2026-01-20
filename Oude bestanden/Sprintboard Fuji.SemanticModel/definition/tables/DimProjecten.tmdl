@@ -1,0 +1,120 @@
+table DimProjecten
+	lineageTag: fac9a081-bae9-4bd0-b1ce-53904072aef0
+
+	column 'Column1.expand'
+		dataType: string
+		lineageTag: f3d80b6c-6b91-4f1e-aac1-0ca79b252854
+		summarizeBy: none
+		sourceColumn: Column1.expand
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Column1.self'
+		dataType: string
+		lineageTag: 69c0cb09-59a4-4b6f-bead-166682566cbb
+		summarizeBy: none
+		sourceColumn: Column1.self
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Column1.id'
+		dataType: string
+		lineageTag: c5075418-407e-483e-9e99-e31b5f4b1cad
+		summarizeBy: none
+		sourceColumn: Column1.id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Column1.key'
+		dataType: string
+		lineageTag: 3802ad9b-cd62-4b9c-9e41-ac79fc632088
+		summarizeBy: none
+		sourceColumn: Column1.key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Column1.name'
+		dataType: string
+		lineageTag: dd38e95e-9b32-4cb6-9a4c-90ffb9a52f75
+		summarizeBy: none
+		sourceColumn: Column1.name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Column1.avatarUrls'
+		dataType: string
+		lineageTag: 8c15cdfa-07d9-4179-9594-69ece1f4b044
+		summarizeBy: none
+		sourceColumn: Column1.avatarUrls
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Column1.projectCategory'
+		dataType: string
+		lineageTag: 989224b4-68c6-45fc-82a6-19913447f43f
+		summarizeBy: none
+		sourceColumn: Column1.projectCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Column1.projectTypeKey'
+		dataType: string
+		lineageTag: bde3c7b8-5594-482a-85c6-3606d6d2198a
+		summarizeBy: none
+		sourceColumn: Column1.projectTypeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Column1.simplified'
+		dataType: string
+		lineageTag: ac88a13d-0cd4-46f6-ac0c-da03de08ace7
+		summarizeBy: none
+		sourceColumn: Column1.simplified
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Column1.style'
+		dataType: string
+		lineageTag: b571e0e1-1a90-4341-ac0d-b86037780867
+		summarizeBy: none
+		sourceColumn: Column1.style
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Column1.isPrivate'
+		dataType: string
+		lineageTag: 2468eddc-4104-443c-af99-8721972f0bd7
+		summarizeBy: none
+		sourceColumn: Column1.isPrivate
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Column1.properties'
+		dataType: string
+		lineageTag: 855febe4-4ffd-44e7-87e0-7c6317fa6498
+		summarizeBy: none
+		sourceColumn: Column1.properties
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimProjecten = m
+		mode: import
+		source =
+				let
+				    Bron = Json.Document(
+				        Web.Contents(
+				            "https://growteq.atlassian.net",
+				            [
+				                RelativePath = "rest/api/2/project"
+				            ]
+				        )
+				    ),
+				    #"Converted to Table" = Table.FromList(Bron, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"expand", "self", "id", "key", "name", "avatarUrls", "projectCategory", "projectTypeKey", "simplified", "style", "isPrivate", "properties"}, {"Column1.expand", "Column1.self", "Column1.id", "Column1.key", "Column1.name", "Column1.avatarUrls", "Column1.projectCategory", "Column1.projectTypeKey", "Column1.simplified", "Column1.style", "Column1.isPrivate", "Column1.properties"})
+				in
+				    #"Expanded Column1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

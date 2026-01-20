@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Azure_kosten_Lakehouse"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1dc4c2d0-9261-be74-4707-b76a013f506f"
+  }
+}

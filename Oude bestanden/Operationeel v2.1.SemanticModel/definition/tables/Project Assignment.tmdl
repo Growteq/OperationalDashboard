@@ -1,0 +1,151 @@
+table 'Project Assignment'
+	lineageTag: d7d6edcd-08cb-40be-a995-d9173f2a7d06
+
+	column Id
+		dataType: string
+		lineageTag: 2d09a811-e9bb-4791-bc98-d2cdd761675b
+		summarizeBy: none
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Name
+		dataType: string
+		lineageTag: c52325f9-fbc1-46eb-a4ce-38412c031e1d
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Krow_Project__c
+		dataType: string
+		lineageTag: 418b3de2-d022-44ee-ac0e-776b704ea4d8
+		summarizeBy: none
+		sourceColumn: Krow__Krow_Project__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Bill_Rate__c
+		dataType: double
+		lineageTag: f10f570c-5b1e-484a-b5e4-c5aa72f72293
+		summarizeBy: sum
+		sourceColumn: Krow__Bill_Rate__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Billable_Hour_Logged__c
+		dataType: double
+		lineageTag: a5c95769-0b16-4a14-87ae-e2a6e59bf41d
+		summarizeBy: sum
+		sourceColumn: Krow__Billable_Hour_Logged__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__End_Date__c
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b16dec40-9334-4ad8-b064-54a520bdaebc
+		summarizeBy: none
+		sourceColumn: Krow__End_Date__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation Format = <Format Format="DateTimeGeneralPattern"><DateTimes><DateTime LCID="1043" Group="LongDate" FormatString="dddd d MMMM yyyy" /></DateTimes></Format>
+
+	column Krow__Project_Hours__c
+		dataType: double
+		lineageTag: c44b7d2d-93fe-4d73-8632-046eca384630
+		summarizeBy: sum
+		sourceColumn: Krow__Project_Hours__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Project_Resource__c
+		dataType: string
+		lineageTag: 28ec6d60-caf5-4bf8-9c88-64026c0f9f0d
+		summarizeBy: none
+		sourceColumn: Krow__Project_Resource__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Role__c
+		dataType: string
+		lineageTag: 61f11012-c867-4c6d-baf5-ee3f4b65861f
+		summarizeBy: none
+		sourceColumn: Krow__Role__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column Krow__Start_Date__c
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 342f7f17-9485-4b8f-96d5-adc90ea42ffc
+		summarizeBy: none
+		sourceColumn: Krow__Start_Date__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation Format = <Format Format="DateTimeGeneralPattern"><DateTimes><DateTime LCID="1043" Group="LongDate" FormatString="dddd d MMMM yyyy" /></DateTimes></Format>
+
+	column Krow__Total_Hours_Logged__c
+		dataType: double
+		lineageTag: a9c794d4-eed4-4e9b-b008-b4cfa2b3018c
+		summarizeBy: sum
+		sourceColumn: Krow__Total_Hours_Logged__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Total_Schedule_Hours__c
+		dataType: double
+		lineageTag: 0b760ea4-bd61-42a9-976e-7e3d19fe84ec
+		summarizeBy: sum
+		sourceColumn: Krow__Total_Schedule_Hours__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	column Krow__Total_Task_Planned_Hours__c
+		dataType: double
+		lineageTag: 1e939bcb-e6ab-4d28-9a5b-995c7a1a8529
+		summarizeBy: sum
+		sourceColumn: Krow__Total_Task_Planned_Hours__c
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	partition 'Project Assignment-b3b82fd8-23a7-4b20-bef1-6ddf6dd89ff7' = m
+		mode: import
+		source =
+				let
+				    Bron = Salesforce.Data("https://growteq.my.salesforce.com", [ApiVersion=48]),
+				    Krow__Project_Assignment__c = Bron{[Name="Krow__Project_Assignment__c"]}[Data],
+				    #"Andere kolommen verwijderd" = Table.SelectColumns(Krow__Project_Assignment__c,{"Id", "Name", "Krow__Krow_Project__c", "Krow__Bill_Rate__c", "Krow__Billable_Hour_Logged__c", "Krow__End_Date__c", "Krow__Project_Hours__c", "Krow__Project_Resource__c", "Krow__Role__c", "Krow__Start_Date__c", "Krow__Total_Hours_Logged__c", "Krow__Total_Schedule_Hours__c", "Krow__Total_Task_Planned_Hours__c"})
+				in
+				    #"Andere kolommen verwijderd"
+
+	annotation PBI_ResultType = Table
+

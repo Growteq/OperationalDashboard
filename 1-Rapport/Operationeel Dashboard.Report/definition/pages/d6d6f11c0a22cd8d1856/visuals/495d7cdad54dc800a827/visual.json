@@ -1,0 +1,125 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "495d7cdad54dc800a827",
+  "position": {
+    "x": 90.310442144873008,
+    "y": 32.511759172154278,
+    "z": 0,
+    "height": 627.3565380997178,
+    "width": 1152.3612417685795
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "autoSelectVisualType": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FeitBudgetten"
+                    }
+                  },
+                  "Property": "FTE"
+                }
+              },
+              "queryRef": "FeitBudgetten.FTE",
+              "nativeQueryRef": "FTE"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FeitBudgetten"
+                    }
+                  },
+                  "Property": "FTE_x_MonthGoal"
+                }
+              },
+              "queryRef": "FeitBudgetten.FTE_x_MonthGoal",
+              "nativeQueryRef": "FTE_x_MonthGoal"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FeitBudgetten"
+                    }
+                  },
+                  "Property": "MonthDateKey"
+                }
+              },
+              "queryRef": "FeitBudgetten.MonthDateKey",
+              "nativeQueryRef": "MonthDateKey"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FeitBudgetten"
+                    }
+                  },
+                  "Property": "MonthGoal"
+                }
+              },
+              "queryRef": "FeitBudgetten.MonthGoal",
+              "nativeQueryRef": "MonthGoal"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FeitBudgetten"
+                    }
+                  },
+                  "Property": "MonthNumber"
+                }
+              },
+              "queryRef": "FeitBudgetten.MonthNumber",
+              "nativeQueryRef": "MonthNumber"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FeitBudgetten"
+                    }
+                  },
+                  "Property": "Team"
+                }
+              },
+              "queryRef": "FeitBudgetten.Team",
+              "nativeQueryRef": "Team"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "FeitBudgetten"
+                  }
+                },
+                "Property": "Team"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

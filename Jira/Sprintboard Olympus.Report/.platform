@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Sprintboard Olympus"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d91a2e70-5e3a-a2de-478b-af1a82553b3a"
+  }
+}

@@ -1,0 +1,47 @@
+table 'Doelstelling AO'
+	lineageTag: 7a1ffdca-1c09-4bea-b0fc-f12567232d5b
+
+	column medewerker
+		dataType: string
+		lineageTag: 48b26899-03ab-4f6e-b0cb-617d3a0b58d6
+		summarizeBy: none
+		sourceColumn: medewerker
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column datumweek
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f81238f2-9174-4709-bc56-0f5dadb1e7e1
+		summarizeBy: none
+		sourceColumn: datumweek
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation Format = <Format Format="DateTimeGeneralPattern"><DateTimes><DateTime LCID="1043" Group="LongDate" FormatString="dddd d MMMM yyyy" /></DateTimes></Format>
+
+	column Begroting
+		dataType: double
+		lineageTag: d46e03bb-16f6-4391-b467-21ecdee39894
+		summarizeBy: sum
+		sourceColumn: Begroting
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	partition 'Doelstelling AO-1dd1ea5e-5bf3-4d55-b7d5-bf4d948b476e' = m
+		mode: import
+		source =
+				let
+				    Bron = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("jdexbhsxDIDhVzE8+4CTdLbINUO7N2OQIQ2MNkVjA07eH710EmmT/rcMHyQCZ+hnnp62Dy+Xzz8vp83D+XjZ7rbLVKY617L+uZl30jfb590VKgUpIaru0VlTvY+EoLInqlZ01tTIVACtUwG1TkWUErWfFjBWRUqJqgei2rQHF85IdaLqQlQrRPXpAMZaiKoFKSFqP3X0qYlSotZPTdQk95ESVA5E1UZUm4k6TArGakTVGalO1Pp6z+z5JkwQ+3rAyWlTAe+8ILW+loStzyViithhKiQJDbH1oyPWb7Mfx/fX8+b75Xw8uWbX3WG+ZUyyQyQAmWCHJw35jIwAY2odTlTJSUMU44nuG1PqZCKAFKAx0+FIlSAFyDQ6QmOiw9tmgjpAps/hSAWgsc7hSAtAps0hEoDGMidfFyAFyGQ5REP+IqPAmCaHlzWATJEjNAY5HKkBZHIcog6QiXH2LgMlRNkSxw9huf9+C0E2w8lbSJQSZRqcfGagbIGTD31TPb69n9dKHz8+jn/fTr+uItxK5FyIEygQuiAnJ5pMxk6gc3FOJqz0RFPEbELmXKzTCSFUCG24kxErhQqhi3gMbciTm2cKO4Qu6smIBUIb92TEBUIX+QQKhDb26S8CQoXQhT+BprSxU+jcEpBc3CB0y0AM7UKQjNggdItBAjuEbkHImwGlUOmXhexRLqwvQqFfHNJ3mUql0i0R6U8DSr9MpD+Om/LrH//Nf/7hlomy6+2WMYtEiAQgs0CEJw0Jj4wAY5aGcKJKThpKHE9035glIZkIIAVoXAzCkSpBCpBZBiI0LgLhbTNBHSAT/3CkAtAY/XCkBSAT+xAJQGPkk68LkAJkwh6ioZiRUWBMzMPLGkAm4hEaAx6O1AAy4Q5RB8gEO3uXgRKibKTjh7Dcf7+FIBvm5C0kSokyMU4+M1A2wsmHvqm+HU+n8+bx+PNyfP39eR1hXSLnQpxAgdAFOTnRZDJ2Ap2LczJhpSeaImYTMudinU4IoUJow52MWClUCF3EY2hDntw8U9ghdFFPRiwQ2rgnIy4QusgnUCC0sU9/ERAqhC78CTSljZ1C55aA5OIGoVsGYmgXgmTEBqFbDBLYIXQLQt4MKIVKvyxkj3JhfREK/eKQvstUKpVuiUh/GlD6ZSL9cVzL538=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [medewerker = _t, datumweek = _t, Begroting = _t]),
+				    #"Type gewijzigd" = Table.TransformColumnTypes(Bron,{{"medewerker", type text}, {"datumweek", type date}, {"Begroting", type number}})
+				in
+				    #"Type gewijzigd"
+
+	annotation PBI_ResultType = Table
+

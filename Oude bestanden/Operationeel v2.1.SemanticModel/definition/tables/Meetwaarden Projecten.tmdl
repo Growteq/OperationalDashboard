@@ -1,0 +1,69 @@
+table 'Meetwaarden Projecten'
+	lineageTag: bdd5ea25-9226-4f0b-8d26-a14826a21bc7
+
+	measure 'Totaal geboekte uren declarabel' = sum('Klient Project'[Krow__Billable_Hour_Logged__c])
+		lineageTag: e1ba4f0c-fab9-4c88-97d1-dc3b55136c8e
+
+		annotation Format = <Format Format="General" />
+
+	measure 'Totaal geboekte uren' = sum('Klient Project'[Krow__Total_Hours_Logged__c])
+		lineageTag: 4df0bac7-3478-4a0b-9c4b-b0c0dd963bd6
+
+		annotation Format = <Format Format="General" />
+
+	measure 'Totaal gefactureerd bedrag' = sum('Klient Project'[Krow__Invoiced_Amount__c])
+		lineageTag: ea3d0bdb-c1f3-4d18-b536-62d7ccfa6701
+
+		annotation Format = <Format Format="General" />
+
+	measure 'Totaal geplande uren' = sum('Klient Project'[Krow__Scheduled_Hours__c])
+		lineageTag: 4a3dd52f-ad1b-4b27-9f4d-3e66ca1e3924
+
+		annotation Format = <Format Format="General" />
+
+	measure 'Projectruimte (uren)' = sum('Klient Project'[Krow__Hours_Remaining_Logged__c])
+		lineageTag: 25781e45-1b26-4ccf-9430-cf48cb8e9c6a
+
+		annotation Format = <Format Format="General" />
+
+	measure 'Totaal facturabel bedrag' = sum('Klient Project'[Krow__Billable_Amount_Logged__c])
+		lineageTag: 6707aa2a-aa8e-4e80-9b8c-0ccd90c7168a
+
+		annotation Format = <Format Format="General" />
+
+	measure 'Nog te factureren' = [Totaal facturabel bedrag] - [Totaal gefactureerd bedrag]
+		formatString: "€"\ #,0.00;-"€"\ #,0.00;"€"\ #,0.00
+		lineageTag: 5705175d-6942-4252-895b-92a876b80710
+
+		annotation Format = <Format Format="CurrencyCustom" Accuracy="2" ThousandSeparator="True"><Currency LCID="1040" DisplayName="€ Euro (€ 123)" Symbol="€" PositivePattern="2" NegativePattern="9" /></Format>
+
+	measure 'Factuurbedrag Invoices' = sum(Invoice[Krow__Invoice_Subtotal__c])
+		lineageTag: 3010e7b8-635f-420c-964f-3b3417898a66
+
+		annotation Format = <Format Format="General" />
+
+	column kolom1
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d1ff0694-9b48-4c9d-932d-834e2fd87149
+		summarizeBy: sum
+		sourceColumn: kolom1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	partition 'Meetwaarden Projecten-b919c260-b9b6-41de-bbd2-8e1f94d13826' = m
+		mode: import
+		source =
+				let
+				    Bron = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlSKjQUA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [kolom1 = _t]),
+				    #"Type gewijzigd" = Table.TransformColumnTypes(Bron,{{"kolom1", Int64.Type}})
+				in
+				    #"Type gewijzigd"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,37 @@
+model Model
+	culture: nl-NL
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: nl-NL
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Klient Project","Klient Task","Project Assignment","Meetwaarden Projecten","Meetwaarden Taken","Medewerkers","Timesheet Split","Meetwaarden Timesheets","Invoice","Invoice Line Item","Team","Project Assignment Schedule","Meetwaarden planning","Meetwaarden begroting","Meetwaarden datum","DoelstellingMedewerker","Meetwaarden facturatie","Doelstelling SF","Doelstelling AO"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.102.845.0 (22.02)
+
+ref table 'Klient Project'
+ref table 'Klient Task'
+ref table DimDatum
+ref table 'Meetwaarden Projecten'
+ref table 'Meetwaarden Taken'
+ref table Medewerkers
+ref table 'Timesheet Split'
+ref table 'Meetwaarden Timesheets'
+ref table Invoice
+ref table 'Invoice Line Item'
+ref table Team
+ref table 'Project Assignment Schedule'
+ref table 'Project Assignment'
+ref table 'Meetwaarden planning'
+ref table 'Meetwaarden begroting'
+ref table 'Meetwaarden datum'
+ref table DoelstellingMedewerker
+ref table 'Meetwaarden facturatie'
+ref table 'Doelstelling SF'
+ref table 'Doelstelling AO'
+
+ref cultureInfo nl-NL
+

@@ -1,0 +1,47 @@
+table 'Doelstelling SF'
+	lineageTag: 11d7c230-66b5-4d94-9fe5-718e942e4586
+
+	column medewerker
+		dataType: string
+		lineageTag: 67acd7df-c0fa-4bae-a070-bf158690f274
+		summarizeBy: none
+		sourceColumn: medewerker
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column datumweek
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8428a663-5861-4aa0-bd18-1941f4f9f616
+		summarizeBy: none
+		sourceColumn: datumweek
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation Format = <Format Format="DateTimeGeneralPattern"><DateTimes><DateTime LCID="1043" Group="LongDate" FormatString="dddd d MMMM yyyy" /></DateTimes></Format>
+
+	column Begroting
+		dataType: double
+		lineageTag: 1031aceb-b7b0-40f1-9be5-c7d37303318d
+		summarizeBy: sum
+		sourceColumn: Begroting
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="General" />
+
+	partition 'Doelstelling SF-d5364a7a-1326-4615-9f9f-21c04ed9beae' = m
+		mode: import
+		source =
+				let
+				    Bron = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("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", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [medewerker = _t, datumweek = _t, Begroting = _t]),
+				    #"Type gewijzigd" = Table.TransformColumnTypes(Bron,{{"medewerker", type text}, {"datumweek", type date}, {"Begroting", type number}})
+				in
+				    #"Type gewijzigd"
+
+	annotation PBI_ResultType = Table
+

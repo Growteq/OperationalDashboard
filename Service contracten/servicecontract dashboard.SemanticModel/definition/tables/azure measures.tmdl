@@ -1,0 +1,139 @@
+table 'azure measures'
+	lineageTag: de3ef266-6713-47a1-bff9-5016a2e7aa28
+
+	measure AzureKosten_Progressie = ```
+			
+			DIVIDE([AzureKostenDezeWeek_RG], [AzureKostenVorigeWeek_RG], 0)
+			
+			```
+		lineageTag: 124d045b-fb0c-431e-857d-0e3ef8616eb5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure AzureKostenDezeWeek_RG = ```
+			
+			VAR StartDatum = TODAY() - WEEKDAY(TODAY(), 2)
+			VAR EindDatum = TODAY()
+			RETURN
+			CALCULATE(
+			    [AzureKosten],
+			    FILTER(
+			        ALL(bram_view_exported),
+			        bram_view_exported[date] >= StartDatum &&
+			        bram_view_exported[date] <= EindDatum
+			    )
+			)
+			
+			
+			```
+		formatString: 0
+		lineageTag: af128117-4641-471b-8ccc-22089cf07741
+
+	measure GemiddeldeAzureKostenPerDag = ```
+			
+			DIVIDE(
+			    [AzureKosten],
+			    DISTINCTCOUNT(bram_view_exported[date]),
+			    0
+			)
+			
+			```
+		lineageTag: 1dcf3714-078a-488d-88c3-eaa588dcd24c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure AzureKostenVorigeWeek_RG = ```
+			
+			VAR StartDatum = TODAY() - WEEKDAY(TODAY(), 2) - 7
+			VAR EindDatum = StartDatum + 6
+			RETURN
+			CALCULATE(
+			    [AzureKosten],
+			    FILTER(
+			        ALL(bram_view_exported),
+			        bram_view_exported[date] >= StartDatum &&
+			        bram_view_exported[date] <= EindDatum
+			    )
+			)
+			
+			```
+		lineageTag: d8a59b90-d9fc-4721-9809-9679576a1659
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Kosten_DezeWeek_RG = ```
+			
+			VAR StartDatum = TODAY() - WEEKDAY(TODAY(), 2)  -- maandag
+			VAR EindDatum = TODAY()                         -- vandaag
+			
+			RETURN
+			CALCULATE(
+			    [AzureKosten],
+			    FILTER(
+			        ALL(bram_view_exported),
+			        bram_view_exported[date] >= StartDatum &&
+			        bram_view_exported[date] <= EindDatum
+			    )
+			)
+			
+			```
+		lineageTag: cc389ad6-67c8-4011-ac9c-6192bcca2254
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure AzureKostenVerschil_RG = ```
+			
+			[AzureKostenDezeWeek_RG] - [AzureKostenVorigeWeek_RG]
+			
+			```
+		lineageTag: b644eebf-4a00-486e-a112-99d4e06c648a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure AzureKostenVerschilProcent_RG = ```
+			
+			VAR VorigeWeek = [AzureKostenVorigeWeek_RG]
+			VAR DezeWeek = [AzureKostenDezeWeek_RG]
+			RETURN
+			IF(
+			    NOT ISBLANK(VorigeWeek) && VorigeWeek <> 0,
+			    DIVIDE(DezeWeek - VorigeWeek, VorigeWeek) * 100,
+			    BLANK()
+			)
+			
+			```
+		lineageTag: 6914bec0-7ee1-4bcc-aad9-103e3d1d6aff
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure AzureKostenRangRG = ```
+			
+			RANKX(
+			    ALL(bram_view_exported[resourceGroupName]),
+			    CALCULATE([azure kosten]),
+			    ,
+			    DESC,
+			    DENSE
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 46626ffb-7da9-4592-af21-81c9393ab818
+
+	column Column
+		formatString: 0
+		lineageTag: de7a452a-2e6d-443b-b5a0-f564e3c64a89
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'azure measures' = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = c64f623e6db54fc8b5bd5fe6f0952cdc
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

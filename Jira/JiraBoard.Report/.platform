@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "JiraBoard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "0466a667-796d-9bff-4fa4-94768953f5e8"
+  }
+}
