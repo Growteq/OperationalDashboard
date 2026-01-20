@@ -1,0 +1,207 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "b323cb07d37a4d3c89c4",
+  "displayName": "Operationeel - Productiviteit/bezetting",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0c5175a543db430559e6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimMedewerkers"
+              }
+            },
+            "Property": "Team"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "0000bc083112d49842c7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimProjecten"
+              }
+            },
+            "Property": "InternExtern"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "925b4e232715b3e06c70",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimMedewerkers"
+              }
+            },
+            "Property": "DatumUitDienst"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DimMedewerkers",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "DatumUitDienst"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "isHiddenInViewMode": true,
+        "isLockedInViewMode": true,
+        "objects": {
+          "general": [
+            {
+              "properties": {}
+            }
+          ]
+        }
+      },
+      {
+        "name": "993f295582637650083a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDatum"
+              }
+            },
+            "Property": "IsVerleden"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "013190d9f3288a9d2b61",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDatum"
+              }
+            },
+            "Property": "YearToDate"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "06303507120375cba512",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimDatum"
+              }
+            },
+            "Property": "IsVerleden"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      }
+    ]
+  },
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "width": {
+            "expr": {
+              "Literal": {
+                "Value": "204L"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "c4effaa07862424c088c",
+      "target": "423ca9f37308a08d0667",
+      "type": "DataFilter"
+    },
+    {
+      "source": "c4effaa07862424c088c",
+      "target": "4e6aec7d26c8bdd086ec",
+      "type": "NoFilter"
+    },
+    {
+      "source": "93718f01ca18e8fbf073",
+      "target": "b09e515ed8d811670978",
+      "type": "DataFilter"
+    },
+    {
+      "source": "93718f01ca18e8fbf073",
+      "target": "8271314b2817a7251035",
+      "type": "NoFilter"
+    },
+    {
+      "source": "93718f01ca18e8fbf073",
+      "target": "4e6aec7d26c8bdd086ec",
+      "type": "NoFilter"
+    },
+    {
+      "source": "423ca9f37308a08d0667",
+      "target": "4e6aec7d26c8bdd086ec",
+      "type": "NoFilter"
+    },
+    {
+      "source": "423ca9f37308a08d0667",
+      "target": "8271314b2817a7251035",
+      "type": "NoFilter"
+    },
+    {
+      "source": "4e6aec7d26c8bdd086ec",
+      "target": "b09e515ed8d811670978",
+      "type": "NoFilter"
+    }
+  ]
+}

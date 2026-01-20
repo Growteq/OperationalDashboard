@@ -1,0 +1,141 @@
+table FeitTevredenheid
+	lineageTag: 197a1927-ebdd-4875-b915-88bf23c633e7
+
+	column RowNum
+		dataType: int64
+		formatString: 0
+		lineageTag: 9834e50e-cc20-434c-bc85-7899c5f2b65c
+		summarizeBy: sum
+		sourceColumn: RowNum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Id
+		dataType: string
+		lineageTag: 076a8d0c-e463-49a1-9f8d-1f38e0b109a8
+		summarizeBy: none
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectNaam
+		dataType: string
+		lineageTag: b9befdc0-90e5-4589-a941-c0a19debac16
+		summarizeBy: none
+		sourceColumn: ProjectNaam
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectNummer
+		dataType: string
+		lineageTag: ea0eee37-ed68-4080-aea2-9ca855e21036
+		summarizeBy: none
+		sourceColumn: ProjectNummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column Score
+		dataType: double
+		lineageTag: f70259a2-63c5-4427-9043-7dff06ad7387
+		summarizeBy: sum
+		sourceColumn: Score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Scoredatum
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f519a913-ea44-4cf8-9cf5-97dc1e37acaf
+		summarizeBy: none
+		sourceColumn: Scoredatum
+
+		variation Variatie
+			isDefault
+			relationship: 8d9fd7f3-c70f-465b-93bb-3923d5b2d64a
+			defaultHierarchy: LocalDateTable_b05e3e02-9e96-4b6c-9ca7-7169e982b7c7.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectStatus
+		dataType: string
+		lineageTag: 0aa3c93c-1549-4b74-891c-4d45d8019b32
+		summarizeBy: none
+		sourceColumn: ProjectStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompletionDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0337d1c2-5789-4922-9696-c286412c469d
+		summarizeBy: none
+		sourceColumn: CompletionDate
+
+		variation Variatie
+			isDefault
+			relationship: 715dd6b7-33d2-47a1-becb-ffcc729b6141
+			defaultHierarchy: LocalDateTable_bf9f4a78-f982-4b32-a7a4-1876441a4e11.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProjectKey
+		dataType: int64
+		formatString: 0
+		lineageTag: a6229b24-0947-4d9a-a173-cb65bb893538
+		summarizeBy: none
+		sourceColumn: ProjectKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PracticeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: cd711097-e05a-44f0-82f9-ef45be3a9f9a
+		summarizeBy: none
+		sourceColumn: PracticeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column TeamKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 17a261cf-74b6-467a-8f6e-ac52ea1e838c
+		summarizeBy: none
+		sourceColumn: TeamKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column KlantKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 776eef3d-23e5-475b-8e59-44e249b1b091
+		summarizeBy: count
+		sourceColumn: KlantKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DatumKey
+		dataType: int64
+		formatString: 0
+		lineageTag: c84f1a94-60b7-4a9e-9078-836a72779d07
+		summarizeBy: none
+		sourceColumn: DatumKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FeitTevredenheid = m
+		mode: import
+		queryGroup: Feit
+		source =
+				let
+				    Source = Sql.Database("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com", "Operationeel Dashboard"),
+				    s3_ods_FeitFactuurregels = Source{[Schema="s3_ods",Item="FeitTevredenheid"]}[Data]
+				in
+				    s3_ods_FeitFactuurregels
+
+	annotation PBI_NavigationStepName = Navigatie
+
+	annotation PBI_ResultType = Table
+

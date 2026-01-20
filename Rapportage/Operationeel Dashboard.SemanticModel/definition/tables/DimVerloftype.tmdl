@@ -1,0 +1,43 @@
+table DimVerloftype
+	lineageTag: fe6f9168-c8a5-4f19-9d02-a77e8340e7e1
+
+	column VerloftypeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: f8e1184e-0ac0-4154-b411-88e17c6824e9
+		summarizeBy: none
+		sourceColumn: VerloftypeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column VerlofCode
+		dataType: string
+		lineageTag: f040e6a9-6cca-48e1-9f34-dbb973e92ef1
+		summarizeBy: none
+		sourceColumn: VerlofCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column VerlofType
+		dataType: string
+		lineageTag: 5610d5ca-94d2-4e4e-9afb-1ce58c553dd6
+		summarizeBy: none
+		sourceColumn: VerlofType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimVerloftype = m
+		mode: import
+		queryGroup: Dim
+		source =
+				let
+				    Source = Sql.Database("6axb2xb7kkaujnz5lqc35xokhe-jtbihupxli3unlh5ujz4xsn2je.datawarehouse.fabric.microsoft.com", "Operationeel Dashboard"),
+				    s3_ods_Verloftype = Source{[Schema="s3_ods",Item="DimVerloftype"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(s3_ods_Verloftype, each [VerloftypeKey] <> 15 and [VerloftypeKey] <> 16)
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
