@@ -234,7 +234,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Verloop '"
+                  "Value": "'Verloop CTAS rate'"
                 }
               }
             },

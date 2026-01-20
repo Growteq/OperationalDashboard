@@ -607,6 +607,48 @@
         },
         "type": "Advanced",
         "howCreated": "User"
+      },
+      {
+        "name": "219aa6aa47907aa84478",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "1. Meetwaarden"
+              }
+            },
+            "Property": "Facturabele Uren"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "93bf82225563a5982089",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "1. Meetwaarden"
+              }
+            },
+            "Property": "Geschreven uren (gecompenseerd)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e47cb82a8e18aba035dd",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "1. Meetwaarden"
+              }
+            },
+            "Property": "Productiviteitspercentage"
+          }
+        },
+        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

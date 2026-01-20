@@ -53,7 +53,49 @@
     "objects": {
       "general": [
         {
-          "properties": {}
+          "properties": {
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "o",
+                    "Entity": "OmzetOpties",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "o"
+                                }
+                              },
+                              "Property": "Kolom van berekeningsgroep"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'Cumulatief'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
         }
       ],
       "fillCustom": [
@@ -356,5 +398,23 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "03ba90561b286efb6fe3"
+  "parentGroupName": "03ba90561b286efb6fe3",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0dfb9812a52684c3b94b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "OmzetOpties"
+              }
+            },
+            "Property": "Kolom van berekeningsgroep"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
 }

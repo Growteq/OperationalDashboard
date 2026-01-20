@@ -2,12 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "96ec241fe31950a19a86",
   "position": {
-    "x": 8.6612975547885185,
-    "y": 241.25,
+    "x": 14.87284015066602,
+    "y": 314.86477484678926,
     "z": 5500,
-    "height": 138.75,
-    "width": 370,
-    "tabOrder": 16000
+    "height": 180.4090061284306,
+    "width": 369.778972520908
   },
   "visual": {
     "visualType": "gauge",
@@ -239,6 +238,13 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
                 }
               }
             }
