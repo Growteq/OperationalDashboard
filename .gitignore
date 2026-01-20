@@ -1,0 +1,6 @@
+# Ignore Rapportage folder (use 1-Rapport instead)
+/Rapportage/
+
+# Other ignores
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
