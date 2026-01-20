@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "c4effaa07862424c088c",
   "position": {
     "x": 264.5454545454545,
@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 224.54545454545453,
     "width": 999.090909090909,
-    "tabOrder": 1000
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "tableEx",
@@ -370,76 +370,6 @@
         "howCreated": "User",
         "isHiddenInViewMode": true,
         "isLockedInViewMode": true
-      },
-      {
-        "name": "a4e5622e5d22ed83badf",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimProjecten"
-              }
-            },
-            "Property": "ProjectNaam"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "617748b48ff99e8c83b6",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "GeplandeUren"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "9b92c6f8c7cec9ca0c68",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FeitGeplandeUren"
-              }
-            },
-            "Property": "Status"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "3fbfdaebe769ff08f773",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimMedewerkers"
-              }
-            },
-            "Property": "Medewerker"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "60e89b4b825d0b4ff792",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimProjecten"
-              }
-            },
-            "Property": "InternExtern"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }

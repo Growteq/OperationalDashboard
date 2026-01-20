@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "2c44853370cffe6c637a",
   "position": {
     "x": 7.6190476190476231,
@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 73.650793650793659,
     "width": 220.95238095238096,
-    "tabOrder": 6000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "card",
@@ -268,20 +268,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "74d5b182928d9226b553",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "% Facturabel"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

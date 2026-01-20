@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "793e3d5eeb811e8043f1",
   "position": {
     "x": 0.41923344947735597,
@@ -7,7 +7,7 @@
     "z": 8000,
     "height": 80,
     "width": 235,
-    "tabOrder": 7000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "card",
@@ -180,23 +180,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "3cfc2a354b603b139511",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "Factuurkosten"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

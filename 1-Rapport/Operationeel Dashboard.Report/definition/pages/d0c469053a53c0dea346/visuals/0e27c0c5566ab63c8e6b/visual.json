@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "0e27c0c5566ab63c8e6b",
   "position": {
     "x": 271.719298245614,
     "y": 111.15789473684211,
     "z": 0,
     "height": 568.140350877193,
-    "width": 972.35087719298247
+    "width": 972.35087719298247,
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -64,7 +65,8 @@
                 }
               },
               "index": 0,
-              "length": 1
+              "length": 1,
+              "sortDirection": "Ascending"
             }
           ]
         },
@@ -135,13 +137,13 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "1. Meetwaarden"
+                    "Entity": "DimProjecten"
                   }
                 },
-                "Property": "Verschil facturatie en uren"
+                "Property": "ProjectNaam"
               }
             },
             "direction": "Ascending"
@@ -886,76 +888,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "6fdd0e4c13df46b1a72f",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimDatum"
-              }
-            },
-            "Property": "MaandNaam"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "ce3f6537e1eb36af2d46",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "Facturatie"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "8c4d66e79e284dd56e62",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "OmzetPotentie"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "20e1eae2bee54dd9adb0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "Verschil facturatie en uren"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "1f1d673a7c77aef427eb",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "|"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

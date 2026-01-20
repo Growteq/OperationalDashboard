@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "4e6aec7d26c8bdd086ec",
   "position": {
     "x": 654.61538461538464,
@@ -7,7 +7,7 @@
     "z": 10000,
     "height": 200,
     "width": 608.46153846153845,
-    "tabOrder": 9000
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -607,48 +607,6 @@
         },
         "type": "Advanced",
         "howCreated": "User"
-      },
-      {
-        "name": "8378d460702afe226ffd",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "Facturabele Uren"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "4375ad3e3c60449a6167",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "Geschreven uren (gecompenseerd)"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "efa584f01ba238236fcf",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "Productiviteitspercentage"
-          }
-        },
-        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

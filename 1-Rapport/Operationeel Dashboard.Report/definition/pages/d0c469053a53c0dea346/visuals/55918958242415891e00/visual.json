@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "55918958242415891e00",
   "position": {
     "x": 880,
@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 56.666666666666671,
     "width": 365,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "advancedSlicerVisual",
@@ -425,23 +425,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "b2ce567d62712590feb7",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FacturatieKeuze"
-              }
-            },
-            "Property": "FacturatieKeuze"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

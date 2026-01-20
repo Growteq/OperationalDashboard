@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "004314ad9d9ed5ae32ad",
   "position": {
     "x": -4.4408920985006262E-16,
@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 76.611693613653941,
     "width": 240.14819344279985,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "card",
@@ -205,23 +205,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "b10bc625e750d5e23876",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "Aantal Opgenomen Verlofuren"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

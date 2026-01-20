@@ -52,45 +52,6 @@
           }
         },
         "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "DimDatum",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "d"
-                          }
-                        },
-                        "Property": "Jaar"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "2025L"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        },
         "howCreated": "User"
       },
       {
@@ -296,7 +257,6 @@
         "type": "Categorical",
         "howCreated": "User",
         "isHiddenInViewMode": true,
-        "isLockedInViewMode": true,
         "objects": {
           "general": [
             {
@@ -365,7 +325,9 @@
             }
           ]
         },
-        "howCreated": "User"
+        "howCreated": "User",
+        "isHiddenInViewMode": true,
+        "isLockedInViewMode": true
       },
       {
         "name": "21f2fb504537410d743d",
@@ -398,6 +360,185 @@
         },
         "type": "Categorical",
         "howCreated": "User"
+      },
+      {
+        "name": "7e6ae0f93e50ee3ab033",
+        "ordinal": 15,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimPractice"
+              }
+            },
+            "Property": "PracticeNaam"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DimPractice",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "PracticeNaam"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Applicatie-ontwikkeling'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'BI/Data'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Salesforce'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Business Consultancy'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "isHiddenInViewMode": true,
+        "isLockedInViewMode": true
+      },
+      {
+        "name": "612b37a77e6e80e6518b",
+        "ordinal": 16,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FeitFacturen"
+              }
+            },
+            "Property": "OmzetCategorie"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "79c39a4a6db56044e215",
+        "ordinal": 17,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimOmzetCategorie"
+              }
+            },
+            "Property": "OmzetCategorie"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DimOmzetCategorie",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "OmzetCategorie"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Detachering'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Project'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Support'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "isHiddenInViewMode": true,
+        "isLockedInViewMode": true,
+        "objects": {
+          "general": [
+            {
+              "properties": {}
+            }
+          ]
+        }
       }
     ],
     "filterSortOrder": "Custom"
@@ -457,6 +598,11 @@
         {
           "name": "Growteq_logo11316842525358117.png",
           "path": "Growteq_logo11316842525358117.png",
+          "type": "Image"
+        },
+        {
+          "name": "2.-GROWTEQ-EMBLEEM5890412166033708.png",
+          "path": "2.-GROWTEQ-EMBLEEM5890412166033708.png",
           "type": "Image"
         }
       ]

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "423ca9f37308a08d0667",
   "position": {
     "x": 0,
@@ -620,90 +620,6 @@
         },
         "type": "Advanced",
         "howCreated": "User"
-      },
-      {
-        "name": "c6a2dd7cee1d5a468f06",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "GeplandeUren"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "d7d88e0441e3d72f7e20",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "AantalBeschikbareUren"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "664af79e57be5c8ba1d9",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "Beschikbaarheid"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "8023a8675b383899d4ca",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FeitGeplandeUren"
-              }
-            },
-            "Property": "Status"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "5a7e0513b1aaaf5600b0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "VerwachteBezettingsgraadCorrect"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "5ee3ff95f6885cb54c6d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "VerwachteBezettingsgraadNieuw"
-          }
-        },
-        "type": "Advanced"
       }
     ],
     "filterSortOrder": "Custom"

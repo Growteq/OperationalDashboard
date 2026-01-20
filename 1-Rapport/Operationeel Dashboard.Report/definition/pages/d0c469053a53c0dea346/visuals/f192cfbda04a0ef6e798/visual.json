@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "f192cfbda04a0ef6e798",
   "position": {
     "x": 5.9514360940704538,
@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 74,
     "width": 222.07650273224044,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "card",
@@ -278,20 +278,6 @@
         "howCreated": "User",
         "isHiddenInViewMode": true,
         "isLockedInViewMode": true
-      },
-      {
-        "name": "300fc46d654111e9602c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "OmzetPotentie"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

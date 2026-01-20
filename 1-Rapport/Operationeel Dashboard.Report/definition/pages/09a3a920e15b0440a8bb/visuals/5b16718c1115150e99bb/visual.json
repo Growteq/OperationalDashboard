@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "5b16718c1115150e99bb",
   "position": {
     "x": 247.90122316035067,
@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 257.36310190692893,
     "width": 431.4616708439691,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "pieChart",

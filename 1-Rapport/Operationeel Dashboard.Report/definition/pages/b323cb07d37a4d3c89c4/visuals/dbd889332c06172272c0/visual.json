@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "dbd889332c06172272c0",
   "position": {
     "x": 8.0627033332065423,
@@ -7,7 +7,7 @@
     "z": 5000,
     "height": 74,
     "width": 222.93333333333334,
-    "tabOrder": 4000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "card",
@@ -257,20 +257,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "a10f2400a5ca8cd765f3",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "GeplandeUren"
-          }
-        },
-        "type": "Advanced"
       },
       {
         "name": "593b312b5a723a26e735",

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "e0a5b3253e2a1430ce4c",
   "position": {
     "x": 0,
@@ -7,7 +7,7 @@
     "z": 5000,
     "height": 75,
     "width": 240,
-    "tabOrder": 4000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "card",
@@ -205,23 +205,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "0b582fd1df716b3df93d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "Geschreven uren (gecompenseerd)"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

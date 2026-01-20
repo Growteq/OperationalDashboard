@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "9e7696b489505da302a7",
   "position": {
     "x": 0,
@@ -7,7 +7,7 @@
     "z": 0,
     "height": 720,
     "width": 234.28571428571431,
-    "tabOrder": 8000
+    "tabOrder": 7000
   },
   "visualGroup": {
     "displayName": "Thema",

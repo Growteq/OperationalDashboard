@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "6420e6ea932027e6dbe0",
   "position": {
     "x": 0,
     "y": 166.69767441860466,
     "z": 1000,
     "height": 70.251162790697677,
-    "width": 240.52093023255813
+    "width": 240.52093023255813,
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "card",
@@ -337,20 +338,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "ec1e94fb034ab59a646a",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "Aantal Geplande Verlofuren"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

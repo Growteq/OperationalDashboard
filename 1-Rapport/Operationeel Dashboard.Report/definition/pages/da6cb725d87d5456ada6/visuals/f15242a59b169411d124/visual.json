@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "f15242a59b169411d124",
   "position": {
     "x": 0,
@@ -7,7 +7,7 @@
     "z": 2000,
     "height": 69.060465116279076,
     "width": 240.52093023255813,
-    "tabOrder": 1000
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "card",
@@ -191,23 +191,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "6a32dfe672b06eece7ba",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "Ziekteverzuim"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

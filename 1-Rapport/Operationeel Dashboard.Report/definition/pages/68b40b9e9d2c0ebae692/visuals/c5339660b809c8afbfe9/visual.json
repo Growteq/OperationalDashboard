@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "c5339660b809c8afbfe9",
   "position": {
     "x": 637.86666666666667,
@@ -7,7 +7,7 @@
     "z": 8000,
     "height": 286.93333333333334,
     "width": 626.13333333333333,
-    "tabOrder": 7000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -573,76 +573,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "205127ed76e7b29793d6",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimDatum"
-              }
-            },
-            "Property": "MaandJaar"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a77019375b77c88db4f6",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimProjecten"
-              }
-            },
-            "Property": "ProjectNaam"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "0058784d294e964dcb38",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimTaakregels"
-              }
-            },
-            "Property": "TaakNaam"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "046e013835fbc5c39afc",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimMedewerkers"
-              }
-            },
-            "Property": "Medewerker"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "550f69f27d72e50355a3",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "Geschreven uren (gecompenseerd)"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

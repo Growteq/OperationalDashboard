@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "e879770e0a355b00c680",
   "position": {
     "x": 8.49111863375299,
@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 74,
     "width": 222.07650273224044,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "card",
@@ -215,20 +215,6 @@
         },
         "type": "RelativeDate",
         "howCreated": "User"
-      },
-      {
-        "name": "94b46bc646fa773a8926",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "AantalBeschikbareUren"
-          }
-        },
-        "type": "Advanced"
       },
       {
         "name": "e84becebdacb0b28d8d0",

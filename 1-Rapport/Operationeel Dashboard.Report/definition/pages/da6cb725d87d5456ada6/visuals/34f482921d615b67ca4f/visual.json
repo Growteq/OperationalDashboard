@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "34f482921d615b67ca4f",
   "position": {
     "x": 0,
@@ -7,7 +7,7 @@
     "z": 7000,
     "height": 56.25,
     "width": 240,
-    "tabOrder": 6000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "card",
@@ -128,23 +128,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "9d78ea849abbb65a8c8b",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "1. Meetwaarden"
-              }
-            },
-            "Property": "Geselecteerde Periode"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
